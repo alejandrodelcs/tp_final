@@ -1,0 +1,8 @@
+/.idea
+/.vscode
+/cmake-build-debug
+*.out
+salida
+*.txt
+*.rar
+*.zip
