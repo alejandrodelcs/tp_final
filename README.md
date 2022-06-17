@@ -79,6 +79,13 @@ Se deberá armar un grafo utilizando como peso los datos recién mencionados y a
 expansión mínima del mismo para que cuando Sid pida conocer en qué orden debería leer las
 lecturas para tardar lo menos posible le indique el orden y el tiempo total <sup>2</sup> que tardaría.
 
+<h4>Hashing </h4>
+Para la tabla de hashing deberán tener en cuenta:
+- A lo sumo habrá 20 escritores, por lo que se debe definir una tabla de tamaño adecuado según lo visto en clases. Este tamaño lo llamaremos n.
+- La función de hashing será h(k) = k % n, donde k es la clave del objeto a guardar.
+- La solución a las colisiones será con direccionamiento cerrado, es decir, en cada posición de la tabla habrá una lista de objetos.
+- En la documentación deben indicar, de forma teórica, cuál es el orden del alta, consulta y baja en la tabla, explicando el mejor caso, el peor caso y el caso promedio.
+
 <h4>Árbol de expansión mínima</h4>
 En este caso se tendrá un grafo no dirigido cuyos nodos serán las lecturas y sus aristas
 tendrán como valor el tiempo de siesta que requiere Sid. Pueden elegir entre implementar el
@@ -86,14 +93,48 @@ algoritmo de Kruskal o el de Prim.
 Se agregará en el menú una opción para poder solicitar el orden y tiempo mínimo que nos
 llevaría leer todas las lecturas.
 Si el libro ya fue leído no se puede volver a leer.
-
+<br>
 ![](https://github.com/alejandrodelcs/tp_final/blob/master/images/arbor_de_expansion_minima_ejemplo.jpg)
 
+Dando como resultado:
+- 21 minutos de siesta para leer todas las lecturas
 
-
-
-
-
---------------------------------------------------------------------
+-------------------------------------------------------------------
 <sup>2 </sup>   Tiempo de cada una de las lecturas más el tiempo total de siesta que requiere.
 
+
+<h3>Aclaraciones Importantes</h3>
+- Los vectores deben crearse utilizando memoria dinámica. La misma se debe liberar al final del programa.
+- El trabajo es de carácter grupal. Los mismos serán de 3 integrantes.
+- Se valorará, entre otras cosas, la eficiencia del algoritmo.
+- No se deben subir archivos de configuración de los IDEs (solo subir .cpp y .h).
+- El trabajo debe compilar con los flags -Wall -Werror -Wconversion.
+
+<h3>¿Qué se evaluara?</h3>
+- Compilación: sin warnings ni errores.
+- Funcionalidad.
+- Eficiencia espacial.
+- Eficiencia temporal.
+- Buenas prácticas de programación (nombres descriptivos, indentación, etc.).
+- Separación de operadores.
+- Modularización.
+- Participación y conocimiento de hash, árboles y grafos.
+- Precondiciones y postcondiciones.
+- POO
+- Memoria dinámica
+- Trabajo en equipo
+
+
+<h3>Normas de entrega</h3>
+Se deberá subir al campus un único archivo comprimido (.zip) en la sección TPs.
+Este archivo deberá tener un nombre formado de la siguiente manera:
+<center><b>Nombre_grupo_TP3</b></center>
+Por ejemplo:
+<center><b>grupo_TP3.zip</b></center>
+<br>
+El archivo deberá contener solo los archivos fuente. Es decir, solo .cpp y .h. <b>NO</b> subir los archivos de configuración de sus IDEs. (por ejemplo: CMakeList y cmake-build para Clion, .vscode para VisualStudioCode).
+<br>
+La fecha de  <b> entrega</b> vence el <b> viernes 1 de julio </b>a las 23.55hs.
+<br>
+
+<b>Puntaje: </b>70 Puntos.
