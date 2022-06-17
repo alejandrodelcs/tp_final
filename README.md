@@ -93,7 +93,7 @@ algoritmo de Kruskal o el de Prim.
 Se agregará en el menú una opción para poder solicitar el orden y tiempo mínimo que nos
 llevaría leer todas las lecturas.
 Si el libro ya fue leído no se puede volver a leer.
-<br>
+
 ![](https://github.com/alejandrodelcs/tp_final/blob/master/images/arbor_de_expansion_minima_ejemplo.jpg)
 
 Dando como resultado:
