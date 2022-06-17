@@ -29,33 +29,37 @@ Año de fallecimiento -> puede no aparecer
 
 <b>Ejemplo: </b>
 
-(1568)
-Julio Cortázar
-argentino
-1914
-1984
-
-(1544)
-Mary Shelley
-británica
--1
-1851
-
-(1757)
-Stephen Edwin King
-estadounidense
-1947
-
-(4567)
-Alfonsina Storni
-¿?
-1892
-1938
-
-(5474)
-Ken Follet
-gáles
-
+(1568)<br>
+Julio Cortázar<br>
+argentino<br>
+1914<br>
+1984<br>
+<br>
+<br>
+(1544)<br>
+Mary Shelley<br>
+británica<br>
+-1<br>
+1851<br>
+<br>
+<br>
+(1757)<br>
+Stephen Edwin King<br>
+estadounidense<br>
+1947<br>
+<br>
+<br>
+(4567)<br>
+Alfonsina Storni<br>
+¿?<br>
+1892<br>
+1938<br>
+<br>
+<br>
+(5474)<br>
+Ken Follet<br>
+gáles<br>
+<br>
 --------------------------------------------------------------------
 <sup>1</sup>  Si no aparece es porque tampoco se conoce el año de fallecimiento, si se conoce el año de fallecimiento se
 mostrará con un -1 para no confundir los datos.
