@@ -1,6 +1,6 @@
-﻿<b> <center><h1> La batalla contra el reloj </h1> </center></b>
- <center> <h3>Algoritmos y programación II - 1C2022 </h3></center>
-<center> <h4>Trabajo práctico Nº3 <br>grupal </h4></center>
+<center><h1> La batalla contra el reloj </h1> </center>
+<center><h3>Algoritmos y programación II - 1C2022 </h3></center>
+<center><h4>Trabajo práctico Nº3 <br>grupal </h4></center>
 
 <h2>Introducción </h2>
 Luego de unos meses de estar en el club de lectura Sid comenzó a aficionarse a llevar un
@@ -129,13 +129,21 @@ Dando como resultado:
 <h3>Normas de entrega</h3>
 Se deberá subir al campus un único archivo comprimido (.zip) en la sección TPs.
 Este archivo deberá tener un nombre formado de la siguiente manera:
+<br>
+<br>
 <center><b>Nombre_grupo_TP3</b></center>
+<br>
+<br>
 Por ejemplo:
+<br>
+<br>
 <center><b>grupo_TP3.zip</b></center>
+<br>
 <br>
 El archivo deberá contener solo los archivos fuente. Es decir, solo .cpp y .h. <b>NO</b> subir los archivos de configuración de sus IDEs. (por ejemplo: CMakeList y cmake-build para Clion, .vscode para VisualStudioCode).
 <br>
+<br>
 La fecha de  <b> entrega</b> vence el <b> viernes 1 de julio </b>a las 23.55hs.
 <br>
-
+<br>
 <b>Puntaje: </b>70 Puntos.
