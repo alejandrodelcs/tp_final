@@ -28,7 +28,7 @@ Año de fallecimiento -> puede no aparecer
 // línea en blanco
 
 <b>Ejemplo: </b>
-
+<p>
 (1568)<br>
 Julio Cortázar<br>
 argentino<br>
@@ -60,6 +60,7 @@ Alfonsina Storni<br>
 Ken Follet<br>
 gáles<br>
 <br>
+</p>
 --------------------------------------------------------------------
 <sup>1</sup>  Si no aparece es porque tampoco se conoce el año de fallecimiento, si se conoce el año de fallecimiento se
 mostrará con un -1 para no confundir los datos.
