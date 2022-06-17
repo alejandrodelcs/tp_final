@@ -1,6 +1,6 @@
-<center><h1> La batalla contra el reloj </h1> </center>
-<center><h3>Algoritmos y programación II - 1C2022 </h3></center>
-<center><h4>Trabajo práctico Nº3 <br>grupal </h4></center>
+<div style="text-align: center;"><h1> La batalla contra el reloj </h1> </div>
+<div style="text-align: center;"><h3>Algoritmos y programación II - 1C2022 </h3></div>
+<div style="text-align: center;"><h4>Trabajo práctico Nº3 <br>grupal </h4></div>
 
 <h2>Introducción </h2>
 Luego de unos meses de estar en el club de lectura Sid comenzó a aficionarse a llevar un
@@ -137,13 +137,13 @@ Se deberá subir al campus un único archivo comprimido (.zip) en la sección TP
 Este archivo deberá tener un nombre formado de la siguiente manera:
 <br>
 <br>
-<center><b>Nombre_grupo_TP3</b></center>
+<div style="text-align: center;"><b>Nombre_grupo_TP3</b></div>
 <br>
 <br>
 Por ejemplo:
 <br>
 <br>
-<center><b>grupo_TP3.zip</b></center>
+<div style="text-align: center;"><b>grupo_TP3.zip</b></div>
 <br>
 <br>
 El archivo deberá contener solo los archivos fuente. Es decir, solo .cpp y .h. <b>NO</b> subir los archivos de configuración de sus IDEs. (por ejemplo: CMakeList y cmake-build para Clion, .vscode para VisualStudioCode).
