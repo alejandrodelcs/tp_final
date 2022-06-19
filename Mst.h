@@ -1,8 +1,7 @@
 #ifndef TP_FINAL_MST_H
 #define TP_FINAL_MST_H
 #include <iostream>
-#include <vector>
-const int INFINITY =  99999999;;
+const int INFINITY =  99999999;
 
 class Mst {
 private:
