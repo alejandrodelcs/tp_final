@@ -11,6 +11,7 @@ Mst::Mst(int nodes,int **adjMatrix) {
 
 
 void Mst::calcMinDistance() {
+    std::cout<<"Prim's Minimum Spanning Tree "<<std::endl;
     for (int i = 1; i < nodes; i++) {
         if (parent[i] < i) {
             this->totalMinDistance += weight[i];
