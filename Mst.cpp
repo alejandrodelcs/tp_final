@@ -1,8 +1,10 @@
 #include "Mst.h"
 
-Mst::Mst(int nodes,int **adjMatrix) {
+#include <utility>
+
+Mst::Mst(int nodes,std::vector<std::vector<int>> adjMatrix) {
     this->nodes = nodes;
-    this->adjMatrix = adjMatrix;
+    this->adjMatrix = std::move(adjMatrix);
     this->parent = nullptr;
     this->visited = nullptr;
     this->weight = nullptr;
