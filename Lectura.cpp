@@ -35,3 +35,14 @@ unsigned int Lectura::getMinutes() const {
 int Lectura::getID() const {
     return id;
 }
+
+
+int Lectura::comparar(Lectura *l) const {
+    int value = 0;
+    if (this->yearPublication > l->getYearPublication() ) {
+        value = 1;
+    } else if (this->yearPublication < l->getYearPublication()) {
+        value = -1;
+    }
+    return value;
+}

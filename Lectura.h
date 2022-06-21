@@ -73,6 +73,14 @@ public:
     std::string getTitle();
 
     /*
+    * PRE: Recibe una lectura
+    * POST: Si la lectura es menor a la que se pasa por parametro ---> -1
+    *       Si la lectura es mayor a la que se pasa por parametro --->  1
+    *      Si la lectura es igual a la que se pasa por parametro --->   0
+    */
+    int comparar(Lectura *l) const;
+
+    /*
      *
      * Destructor virtural
      */
