@@ -9,7 +9,7 @@ class Node {
 /*ATRIBUTOS*/
 private:
     Type* element;
-    Node<Type>* _next;
+    Node<Type>* next;
 
 /*MÉTODOS*/
 public:
@@ -22,23 +22,25 @@ public:
     int getName();
 
     //post: le asigna como siguiente el nodo recibido
-    void assignNext(Node<Type>* next);
+    void assignNext(Node<Type>* ps);
 
     //PRE: -
     //POS: devuelve el dato que esta en el nodo
     Type getElement();
+
+    ~Node();
 
 };
 
 template<typename Type>
 Node<Type>::Node(Type name) {
     element = new Type(name);
-    _next = nullptr;
+    next = nullptr;
 }
 
 template<typename Type>
 Node<Type> *Node<Type>::getNext() {
-    return _next;
+    return next;
 }
 
 template<typename Type> //EL VALOR DE RETORNO VA A DEPENDER DEL TIPO DE NODO
@@ -47,14 +49,19 @@ int Node<Type>::getName() {
 }
 
 template<typename Type>
-void Node<Type>::assignNext(Node<Type> *next) {
-    this -> _next = next;
+void Node<Type>::assignNext(Node<Type> *ps) {
+    this -> next = ps;
 }
 
 
 template<typename Type>
 Type Node<Type>::getElement() {
     return *element;
+}
+
+template<typename Type>
+Node<Type>::~Node() {
+    delete element;
 }
 
 

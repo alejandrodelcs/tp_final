@@ -50,7 +50,7 @@
 
 int main() {
 
-    /*
+
     Graph<int> graph;
 
     graph.addVertex(0);
@@ -81,7 +81,7 @@ int main() {
     mst.primAlgorithm();
     mst.calcMinDistance();
 
-    */
+    /*
 
     ParserReader p;
     List<Escritor*> *l = new List<Escritor*>;
@@ -91,5 +91,7 @@ int main() {
         l->getCursor()->display();
     }
     return 0;
+
+     */
 
 }
