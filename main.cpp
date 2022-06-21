@@ -1,5 +1,8 @@
+#include "list.h"
 #include "Mst.h"
 #include "Graph.h"
+#include "lectura.h"
+#include "ParserReader.h"
 //Prims is applied to find MST to a graph with property of graph as follows:-
 //1) Undirected
 //2) Connected
@@ -46,6 +49,8 @@
 
 
 int main() {
+
+    /*
     Graph<int> graph;
 
     graph.addVertex(0);
@@ -53,17 +58,18 @@ int main() {
     graph.addVertex(2);
     graph.addVertex(3);
     graph.addVertex(4);
-    graph.addVertex(5);
 
-    graph.addEdge(0,1,4);
-    graph.addEdge(0,2,8);
-    graph.addEdge(1,3,6);
-    graph.addEdge(1,2,2);
-    graph.addEdge(2,3,3);
-    graph.addEdge(2,4,9);
-    graph.addEdge(3,4,5);
-    graph.addEdge(3,5,1);
-    graph.addEdge(4,5,3);
+
+    graph.addEdge(0,1,0);
+    graph.addEdge(0,2,1);
+    graph.addEdge(0,3,20);
+    graph.addEdge(0,4,5);
+    graph.addEdge(1,2,0);
+    graph.addEdge(1,3,15);
+    graph.addEdge(1,4,10);
+    graph.addEdge(2,3,20);
+    graph.addEdge(2,4,5);
+    graph.addEdge(3,4,60);
 
 
     graph.displayGraph();
@@ -75,5 +81,15 @@ int main() {
     mst.primAlgorithm();
     mst.calcMinDistance();
 
+    */
+
+    ParserReader p;
+    List<Escritor*> *l = new List<Escritor*>;
+    p.getReader(l);
+
+    while(l->moveCursor()){
+        l->getCursor()->display();
+    }
+    return 0;
 
 }

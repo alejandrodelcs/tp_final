@@ -24,7 +24,10 @@ public:
     //post: le asigna como siguiente el nodo recibido
     void assignNext(Node<Type>* next);
 
-    ~Node();
+    //PRE: -
+    //POS: devuelve el dato que esta en el nodo
+    Type getElement();
+
 };
 
 template<typename Type>
@@ -48,9 +51,10 @@ void Node<Type>::assignNext(Node<Type> *next) {
     this -> _next = next;
 }
 
+
 template<typename Type>
-Node<Type>::~Node() {
-    delete element;
+Type Node<Type>::getElement() {
+    return *element;
 }
 
 
