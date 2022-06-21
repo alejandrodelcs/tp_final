@@ -2,7 +2,7 @@
 #include "Mst.h"
 #include "Graph.h"
 #include "lectura.h"
-#include "ParserReader.h"
+#include "ParserReading.h"
 //Prims is applied to find MST to a graph with property of graph as follows:-
 //1) Undirected
 //2) Connected
@@ -49,7 +49,7 @@
 
 
 int main() {
-
+    /*
 
     Graph<int> graph;
 
@@ -81,17 +81,16 @@ int main() {
     mst.primAlgorithm();
     mst.calcMinDistance();
 
-    /*
+    */
 
-    ParserReader p;
-    List<Escritor*> *l = new List<Escritor*>;
-    p.getReader(l);
+    ParserReading p;
+    List<Lectura*> *l = new List<Lectura*>;
+    p.getReading(l);
 
     while(l->moveCursor()){
-        l->getCursor()->display();
+        l->getCursor()->mostrar();
     }
     return 0;
 
-     */
 
 }
