@@ -3,11 +3,11 @@
 <div style="text-align: center;"><h4>Trabajo práctico Nº3 <br>grupal </h4></div>
 
 <h2> Consignas para hacer </h2>
-• Traducciones  
-• Unir grafo a lecturas y MST  
-• Implementar las modificaciones de lecturas  
-• Implementar tabla de hashing  
-• Implementar menu  
+- Traducciones<br>
+- Unir grafo a lecturas y MST<br>
+- Implementar las modificaciones de lecturas<br>
+- Implementar tabla de hashing<br>
+- Implementar menu<br>
 
 <h2>Introducción </h2>
 Luego de unos meses de estar en el club de lectura Sid comenzó a aficionarse a llevar un
