@@ -1,19 +1,19 @@
 #include "ReadingsFileParser.h"
 
 ReadingsFileParser::ReadingsFileParser() {
-    data.open("lecturas.txt");
+    file.open("lecturas.txt");
     this->reading = nullptr;
 }
 
 void ReadingsFileParser::getReading(List<Reading*> *l) {
     int count = 0;
     this->newReadingList(l);
-    while (!data.eof()) {
-        this->fileLine = data.read();
+    while (!file.eof()) {
+        this->fileLine = file.read();
         if (this->newReference())
             count = 0;
         this->validateReading(count);
-        this->reading = newReading(count);
+        this->reading = buildNewReading(count);
         sortReadingList();
         count++;
     }
@@ -99,7 +99,7 @@ void ReadingsFileParser::validateReference() {
     if (fileLine[0] == '(') {
         this->id = this->getId();
     } else if (type == NOVEL) {
-        this->newTheme();
+        this->buildNewTheme();
     } else {
         this->id = 0; //AUTOR ANONIMO
     }
@@ -120,25 +120,25 @@ bool ReadingsFileParser::validateHistoricalNovel(int contador) const {
     return (contador == 6 && this->genre == Genres::HISTORICAL);
 }
 
-Reading *ReadingsFileParser::newReading(int contador) {
+Reading *ReadingsFileParser::buildNewReading(int contador) {
     Reading *element = nullptr;
     if (validateNewReading(contador) || validateHistoricalNovel(contador)) {
         if (type == TALE) {
             this->genre = Genres::MISSING;
-            element = this->newTale();
+            element = this->buildNewTale();
         } else if (type == POEM) {
             this->genre = Genres::MISSING;
-            element = this->newPoem();
+            element = this->buildNewPoem();
         } else {
-            element = this->newNovel();
+            element = this->buildNewNovel();
         }
     }
     return element;
 }
 
-void ReadingsFileParser::newTheme() {
+void ReadingsFileParser::buildNewTheme() {
     this->reserveThemeMemory(this->theme);
-    for(int i=0; this->fileLine[i] != '\0'; i++){
+    for (int i = 0; this->fileLine[i] != '\0'; i++) {
         *(this->theme + i) = this->fileLine[i];
     }
 }
@@ -147,8 +147,8 @@ void ReadingsFileParser::reserveThemeMemory(char* &t) {
     t = new char[this->fileLine.length()];
 }
 
-Reading *ReadingsFileParser::newTale() {
-    (this->reading) = new Tale(
+Reading *ReadingsFileParser::buildNewTale() {
+    this->reading = new Tale(
             this->id,
             this->title,
             this->minutes,
@@ -158,8 +158,8 @@ Reading *ReadingsFileParser::newTale() {
     return this->reading;
 }
 
-Reading *ReadingsFileParser::newPoem() {
-    (this->reading) = new Poem(
+Reading *ReadingsFileParser::buildNewPoem() {
+    this->reading = new Poem(
             this->id,
             this->title,
             this->minutes,
@@ -169,7 +169,7 @@ Reading *ReadingsFileParser::newPoem() {
     return this->reading;
 }
 
-Reading *ReadingsFileParser::newNovel() {
+Reading *ReadingsFileParser::buildNewNovel() {
     if (this->genre != Genres::HISTORICAL) {
         this->reading = new Novel(
                 this->id,
@@ -177,12 +177,12 @@ Reading *ReadingsFileParser::newNovel() {
                 this->minutes,
                 this->publishYear, this->genre);
     } else {
-        this->reading = newHistoricalNovel();
+        this->reading = buildNewHistoricalNovel();
     }
     return this->reading;
 }
 
-Reading *ReadingsFileParser::newHistoricalNovel() {
+Reading *ReadingsFileParser::buildNewHistoricalNovel() {
     this->reading = new Historical(
             this->id,
             this->title,

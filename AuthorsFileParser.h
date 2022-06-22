@@ -9,11 +9,11 @@
 
 class AuthorsFileParser {
 private:
-    File data;
+    File file;
     std::string fileLine;
     Author *author;
-    List<Author*> *authores;
-    int id;
+    List<Author*> *authors;
+    int isni;
     int birth;
     int death;
     std::string name;
@@ -24,7 +24,7 @@ private:
      * PRE:-
      * POST: retorna el ID (numero de referencia) de la linea del fichero
      */
-    int getId();
+    int getISNI();
 
     /*
       * PRE:-

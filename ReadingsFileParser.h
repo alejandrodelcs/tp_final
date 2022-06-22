@@ -14,7 +14,7 @@
 class ReadingsFileParser {
 
 private:
-    File data;
+    File file;
     std::string fileLine;
     char type;
     std::string title;
@@ -93,37 +93,37 @@ private:
     * POST: Una vez validado el metodo validaNuevaLectura,ValidaNovelaHistorica
      *      y devuelto True, valida el tipo de Lectura  crea una.
     */
-    Reading* newReading(int contador);
+    Reading* buildNewReading(int contador);
 
     /*
      * PRE: -
-     * POST: Crea un nuevo Cuento
+     * POST: Builds a new tale
      */
-    Reading* newTale();
+    Reading* buildNewTale();
 
     /*
      * PRE: -
-     * POST: Crea un nuevo Poema
+     * POST: Builds a new poem
      */
-    Reading* newPoem();
+    Reading* buildNewPoem();
 
     /*
      * PRE: -
-     * POST: Crea una nueva Novela
+     * POST: Builds a new novel
      */
-    Reading* newNovel();
+    Reading* buildNewNovel();
 
     /*
      * PRE: -
      * POST: Crea un nueva novela de genero Historica
      */
-    Reading* newHistoricalNovel();
+    Reading* buildNewHistoricalNovel();
 
     /*
      * PRE: -
      * POST: crea un nuevo tema para la lectura de genero Historica
      */
-    void newTheme();
+    void buildNewTheme();
 
     /*
      * PRE: -
