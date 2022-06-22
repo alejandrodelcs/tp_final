@@ -112,7 +112,7 @@ Se agregará en el menú una opción para poder solicitar el orden y tiempo mín
 llevaría leer todas las lecturas.
 Si el libro ya fue leído no se puede volver a leer.<br>
 
-<br><img src="https://github.com/alejandrodelcs/tp_final/blob/master/images/arbor_de_expansion_minima_ejemplo.jpg" alt="" style="width:620px; text-align:center;"/>
+<br><img src="https://github.com/alejandrodelcs/tp_final/blob/master/documentation/arbor_de_expansion_minima_ejemplo.jpg" alt="" style="width:620px; text-align:center;"/>
 
 
 Dando como resultado:
