@@ -1,7 +1,7 @@
 #include "list.h"
 #include "Mst.h"
 #include "Graph.h"
-#include "lectura.h"
+#include "reading.h"
 #include "ReadingsFileParser.h"
 //Prims is applied to find MST to a graph with property of graph as follows:-
 //1) Undirected
@@ -84,7 +84,7 @@ int main() {
     */
 
     ReadingsFileParser p;
-    List<Lectura*> *l = new List<Lectura*>;
+    List<Reading*> *l = new List<Reading*>;
     p.getReading(l);
 
     while(l->moveCursor()){

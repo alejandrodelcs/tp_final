@@ -1,10 +1,10 @@
 #ifndef TP_2_NOVELA_H
 #define TP_2_NOVELA_H
-#include "Lectura.h"
+#include "Reading.h"
 
 enum class Genres {DRAMA=1,COMEDIA,FICCION,SUSPENSO,TERROR,ROMANTICA,HISTORICA,INEXISTENTE};
 
-class Novela : public Lectura {
+class Novela : public Reading {
 protected:
     Genres genre;
 public:

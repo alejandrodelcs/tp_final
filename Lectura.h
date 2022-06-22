@@ -1,5 +1,5 @@
-#ifndef TP_2_LECTURA_H
-#define TP_2_LECTURA_H
+#ifndef TP_2_READING_H
+#define TP_2_READING_H
 
 #include <string>
 #include <iostream>
@@ -7,7 +7,7 @@
 #include <list>
 #include "ReadingsFileParser.h"
 
-class Lectura {
+class Reading {
 protected:
     std::string title;
     unsigned int minutes;
@@ -17,11 +17,11 @@ protected:
     char type;
 
 public:
-    /*
+    /* Constructor
     * PRE: -
     * POST: Construye una nueva Lectura.
     */
-    Lectura(const std::string &title, unsigned int minutes, unsigned int PublishYear);
+    Reading(const std::string &title, unsigned int minutes, unsigned int PublishYear);
 
     /*
     * PRE: -
@@ -75,16 +75,16 @@ public:
     * PRE: Recibe una lectura
     * POST: Si la lectura es menor a la que se pasa por parametro ---> -1
     *       Si la lectura es mayor a la que se pasa por parametro --->  1
-    *      Si la lectura es igual a la que se pasa por parametro --->   0
+    *       Si la lectura es igual a la que se pasa por parametro --->  0
     */
-    int comparar(Lectura *l) const;
+    int comparar(Reading *l) const;
 
-    /*
-     *
-     * Destructor virtural
+    /* Destructor
+     * PRE: TODO
+     * POST: TODO
      */
-    virtual ~Lectura() = default;
+    virtual ~Reading() = default;
 
 };
 
-#endif //TP_2_LECTURA_H
+#endif //TP_2_READING_H

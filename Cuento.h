@@ -1,8 +1,8 @@
 #ifndef TP_2_CUENTO_H
 #define TP_2_CUENTO_H
-#include "Lectura.h"
+#include "Reading.h"
 
-class Cuento : public Lectura {
+class Cuento : public Reading {
 private:
     std::string book;
 public:

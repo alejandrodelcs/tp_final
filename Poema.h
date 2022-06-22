@@ -1,8 +1,8 @@
 #ifndef TP_2_POEMA_H
 #define TP_2_POEMA_H
-#include "Lectura.h"
+#include "Reading.h"
 
-class Poema : public Lectura {
+class Poema : public Reading {
 private:
     unsigned int verses;
 public:

@@ -1,7 +1,7 @@
 #include "Cuento.h"
 
 Cuento::Cuento(int id, std::string &title, unsigned int minutes, unsigned int PublishYear, const std::string& book)
-        : Lectura(title, minutes, PublishYear) {
+        : Reading(title, minutes, PublishYear) {
     this->type = 'C';
     this->id = id;
     this->title = title;

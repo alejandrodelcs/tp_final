@@ -1,44 +1,44 @@
-#include "Lectura.h"
+#include "Reading.h"
 #include <string>
 
-Lectura::Lectura(const std::string& title, unsigned int minutes, unsigned int PublishYear) {
+Reading::Reading(const std::string& title, unsigned int minutes, unsigned int PublishYear) {
     this->minutes= minutes;
     this->PublishYear= PublishYear;
     this->author = nullptr;
 }
 
-unsigned int Lectura::getPublishYear() const {
+unsigned int Reading::getPublishYear() const {
     return PublishYear;
 }
 
-void Lectura::setAuthor(Author* author) {
+void Reading::setAuthor(Author* author) {
     this->author = author;
     authorAge
 }
 
-Escritor* Lectura::getReader(){
+Escritor* Reading::getReader(){
     return this->author;
 }
 
-std::string Lectura::getTitle() {
+std::string Reading::getTitle() {
     return title;
 }
 
-char Lectura::getType() const {
+char Reading::getType() const {
     return type;
 }
 
-unsigned int Lectura::getMinutes() const {
+unsigned int Reading::getMinutes() const {
     return minutes;
 }
 
 
-int Lectura::getID() const {
+int Reading::getID() const {
     return id;
 }
 
 
-int Lectura::comparar(Lectura *l) const {
+int Reading::comparar(Reading *l) const {
     int value = 0;
     if (this->PublishYear > l->getPublishYear() ) {
         value = 1;
