@@ -5,14 +5,14 @@
 #include <iostream>
 #include "Escritor.h"
 #include <list>
-#include "ParserReader.h"
+#include "ReadingsFileParser.h"
 
 
 class Lectura {
 protected:
     std::string title;
     unsigned int minutes;
-    unsigned int yearPublication;
+    unsigned int PublishYear;
     Escritor *author; // Pasar esto a variable tipo puntero
     int id;
     char type;
@@ -22,7 +22,7 @@ public:
     * PRE: -
     * POST: Construye una nueva Lectura.
     */
-    Lectura(const std::string &title, unsigned int minutes, unsigned int yearPublication);
+    Lectura(const std::string &title, unsigned int minutes, unsigned int PublishYear);
 
     /*
     * PRE: -
@@ -46,7 +46,7 @@ public:
      * PRE:
      * POST: retorna el año de publicacion de la Lectura
      */
-    unsigned int getYearPublication() const;
+    unsigned int GetPublishYear() const;
 
     /*
      * PRE:

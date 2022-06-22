@@ -12,7 +12,7 @@ public:
      * PRE: -
      * POST: Construye una Novela Historica
      */
-    Historica(int id, std::string &title, unsigned int minutes, unsigned int yearPublication, Genres genre, char* &theme);
+    Historica(int id, std::string &title, unsigned int minutes, unsigned int PublishYear, Genres genre, char* &theme);
 
     /*
     * PRE: -

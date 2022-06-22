@@ -1,14 +1,14 @@
 #include "Lectura.h"
 #include <string>
 
-Lectura::Lectura(const std::string& title, unsigned int minutes, unsigned int yearPublication) {
+Lectura::Lectura(const std::string& title, unsigned int minutes, unsigned int PublishYear) {
     this->minutes= minutes;
-    this->yearPublication= yearPublication;
+    this->PublishYear= PublishYear;
     this->author = nullptr;
 }
 
-unsigned int Lectura::getYearPublication() const {
-    return yearPublication;
+unsigned int Lectura::GetPublishYear() const {
+    return PublishYear;
 }
 
 void Lectura::setAutor(Escritor* escritor) {
@@ -39,9 +39,9 @@ int Lectura::getID() const {
 
 int Lectura::comparar(Lectura *l) const {
     int value = 0;
-    if (this->yearPublication > l->getYearPublication() ) {
+    if (this->PublishYear > l->GetPublishYear() ) {
         value = 1;
-    } else if (this->yearPublication < l->getYearPublication()) {
+    } else if (this->PublishYear < l->GetPublishYear()) {
         value = -1;
     }
     return value;

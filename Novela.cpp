@@ -1,11 +1,11 @@
 #include "Novela.h"
 
-Novela::Novela(int id, std::string &title, unsigned int minutes, unsigned int yearPublication, Genres genre) : Lectura(title, minutes, yearPublication) {
+Novela::Novela(int id, std::string &title, unsigned int minutes, unsigned int PublishYear, Genres genre) : Lectura(title, minutes, PublishYear) {
     this->type = 'N';
     this->id = id;
     this->title = title;
     this->minutes = minutes;
-    this->yearPublication = yearPublication;
+    this->PublishYear = PublishYear;
     this->genre = genre;
 }
 
@@ -14,7 +14,7 @@ void Novela::mostrar() {
     std::cout << "Novela"
                  "\nTitulo: " << title <<
               "\nTiempo de lectura: " << minutes <<
-              "\nAnio de publicacion: " << yearPublication << std::endl;
+              "\nAnio de publicacion: " << PublishYear << std::endl;
     this->displayGenre();
     if (id != 0 && this->getReader() != nullptr){
         std::cout << "Autor: " << this->getReader()->getName() << "\n" << std::endl;

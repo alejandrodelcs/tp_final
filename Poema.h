@@ -10,7 +10,7 @@ public:
      * PRE: -
      * POST: Construye un Poema
      */
-    Poema(int id, std::string &title, unsigned int minutes, unsigned int yearPublication, unsigned int verses);
+    Poema(int id, std::string &title, unsigned int minutes, unsigned int PublishYear, unsigned int verses);
 
     /*
      * PRE: -

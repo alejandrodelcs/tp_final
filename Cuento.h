@@ -10,7 +10,7 @@ public:
      * PRE: -
      * POST: Construye un Cuento
      */
-    Cuento(int id, std::string &title, unsigned int minutes, unsigned int yearPublication, const std::string& book);
+    Cuento(int id, std::string &title, unsigned int minutes, unsigned int PublishYear, const std::string& book);
 
     /*
      * PRE: -

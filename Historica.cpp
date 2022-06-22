@@ -1,13 +1,13 @@
 #include "Historica.h"
 
 
-Historica::Historica(int id, std::string &title, unsigned int minutes, unsigned int yearPublication, Genres genre,
-                     char* &theme) : Novela(id, title, minutes, yearPublication, genre) {
+Historica::Historica(int id, std::string &title, unsigned int minutes, unsigned int PublishYear, Genres genre,
+                     char* &theme) : Novela(id, title, minutes, PublishYear, genre) {
     this->id = id;
     this->title = title;
     this->genre = genre;
     (this->theme) = theme;
-    this->yearPublication = yearPublication;
+    this->PublishYear = PublishYear;
 }
 
 
@@ -15,7 +15,7 @@ void Historica::mostrar(){
     std::cout << "Novela"
                  "\nTitulo: " << title <<
               "\nTiempo de lectura: " << minutes <<
-              "\nAnio de publicacion: " << yearPublication <<
+              "\nAnio de publicacion: " << PublishYear <<
               "\nGenero: HISTORICA" << std::endl;
     std::cout << "Tema: " << theme << std::endl;
     if (id != 0 && this->getReader() != nullptr){
