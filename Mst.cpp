@@ -1,5 +1,4 @@
 #include "Mst.h"
-
 #include <utility>
 
 Mst::Mst(int nodes,std::vector<std::vector<int>> adjMatrix) {
@@ -10,7 +9,6 @@ Mst::Mst(int nodes,std::vector<std::vector<int>> adjMatrix) {
     this->weight = nullptr;
     this->totalMinDistance = 0;
 }
-
 
 void Mst::calcMinDistance() {
     std::cout<<"Prim's Minimum Spanning Tree "<<std::endl;
@@ -27,7 +25,6 @@ void Mst::calcMinDistance() {
     }
     std::cout << "Total Minimum Distance taken is " << this->totalMinDistance << std::endl;
 }
-
 
 void Mst::exploreUnvisited(int minVertex) {
     for (int j = 0; j < nodes; j++) {
@@ -72,8 +69,6 @@ void Mst::primAlgorithm() {
         this->exploreUnvisited(minVertex);
     }
 }
-
-
 
 Mst::~Mst() {
     delete[] parent;

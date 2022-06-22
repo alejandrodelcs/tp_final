@@ -13,18 +13,13 @@ private:
     int totalMinDistance;
     std::vector<std::vector<int>> adjMatrix;
     void setVisitedWeight();
-
-
     void exploreUnvisited(int minVertex);
-
     int findMinVertex();
-
-
 
 public:
     /* Constructor
-     * PRE: nodes > 0, edges>0
-     * POST: constructs Minimum Spanning Tree
+     * PRE: (nodes > 0) and (edges > 0)
+     * POST: Builds the MST (minimum spanning tree)
      */
     Mst(int nodes,std::vector<std::vector<int>> adjMatrix);
 
@@ -38,11 +33,10 @@ public:
 
     /*
      * PRE:-
-     * POST: desalocates the memory used y parent, visited and weight vector
+     * POST: Dealocates the memory used (parent, visited and weight)
      */
     ~Mst();
 
 };
-
 
 #endif //TP_FINAL_MST_H

@@ -91,6 +91,4 @@ int main() {
         l->getCursor()->mostrar();
     }
     return 0;
-
-
 }
