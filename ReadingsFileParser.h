@@ -1,14 +1,14 @@
-#ifndef TP_2_READINGFILESPARSER_H
-#define TP_2_READINGFILESPARSER_H
+#ifndef TP_FINAL_READINGFILESPARSER_H
+#define TP_FINAL_READINGFILESPARSER_H
 #include <iostream>
 #include <string>
 #include "Constants.h"
 #include "File.h"
 #include "Reading.h"
-#include "Cuento.h"
-#include "Novela.h"
-#include "Historica.h"
-#include "Poema.h"
+#include "Tale.h"
+#include "Novel.h"
+#include "HistoricaL.h"
+#include "Poem.h"
 #include "List.h"
 
 class ReadingsFileParser {
@@ -195,4 +195,4 @@ public:
 
 };
 
-#endif //TP_2_READINGFILESPARSER_H
+#endif //TP_FINAL_READINGFILESPARSER_H

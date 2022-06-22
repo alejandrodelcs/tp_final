@@ -44,17 +44,17 @@ void AuthorsFileParser::validateAuthorFile(int count) {
         case ID:
             id = getId();
             break;
-        case NOMBRE:
+        case NAME:
             name = validateFileLine() ? " " : fileLine;
             break;
-        case NACIONALIDAD:
+        case NATIONALITY:
             nationality = validateFileLine() ? " " : fileLine;
             break;
-        case ANIO_NACIMIENTO:
-            birth = validateFileLine() ? DATO_DESCONOCIDO : std::stoi(fileLine);
+        case BIRTH_YEAR:
+            birth = validateFileLine() ? UNKNOWN_DATA : std::stoi(fileLine);
             break;
-        case ANIO_FALLECIMIENTO:
-            death = validateFileLine() ? DATO_DESCONOCIDO : std::stoi(fileLine);
+        case DEATH_YEAR:
+            death = validateFileLine() ? UNKNOWN_DATA : std::stoi(fileLine);
             break;
         default:
             std::cout<<std::endl;

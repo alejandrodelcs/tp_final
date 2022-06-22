@@ -1,5 +1,5 @@
-#ifndef TP_FINAL_AUTHORS_FILE_PARSER_H
-#define TP_FINAL_AUTHORS_FILE_PARSER_H
+#ifndef TP_FINAL_AUTHORSFILEPARSER_H
+#define TP_FINAL_AUTHORSFILEPARSER_H
 #include <iostream>
 #include <string>
 #include "Constants.h"
@@ -95,4 +95,4 @@ public:
 
 };
 
-#endif //TP_FINAL_AUTHORS_FILE_PARSER_H
+#endif //TP_FINALAUTHORSFILEPARSER_H

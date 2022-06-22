@@ -1,5 +1,5 @@
-#ifndef TP_2_NOVEL_H
-#define TP_2_NOVEL_H
+#ifndef TP_FINAL_NOVEL_H
+#define TP_FINAL_NOVEL_H
 #include "Reading.h"
 
 enum class Genres {DRAMA=1,COMEDIA,FICCION,SUSPENSO,TERROR,ROMANTICA,HISTORICA,INEXISTENTE};
@@ -14,7 +14,7 @@ public:
     */
     Novel(int id, std::string &title, unsigned int minutes, unsigned int PublishYear, Genres genre);
 
-    /*
+    virtual /*
    * PRE: -
    * POST: Muestra sus atributos
    */
@@ -39,4 +39,4 @@ public:
     ~Novel() = default;;
 };
 
-#endif //TP_2_NOVEL_H
+#endif //TP_FINAL_NOVEL_H

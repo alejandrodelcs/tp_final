@@ -1,5 +1,5 @@
-#ifndef TP_2_POEM_H
-#define TP_2_POEM_H
+#ifndef TP_FINAL_POEM_H
+#define TP_FINAL_POEM_H
 #include "Reading.h"
 
 class Poem : public Reading {
@@ -25,4 +25,4 @@ public:
     ~Poem() = default;
 };
 
-#endif //TP_2_POEM_H
+#endif //TP_FINAL_POEM_H

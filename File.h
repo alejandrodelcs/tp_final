@@ -1,5 +1,5 @@
-#ifndef TP_2_FILE_H
-#define TP_2_FILE_H
+#ifndef TP_FINAL_FILE_H
+#define TP_FINAL_FILE_H
 
 #include <fstream>
 #include <string>

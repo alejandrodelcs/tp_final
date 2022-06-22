@@ -49,7 +49,7 @@
 
 
 int main() {
-    /*
+
 
     Graph<int> graph;
 
@@ -81,14 +81,15 @@ int main() {
     mst.primAlgorithm();
     mst.calcMinDistance();
 
-    */
+    /*
+     AuthorsFileParser p;
+     List<Author*> *l = new List<Author*>;
+     p.getAuthor(l);
 
-    AuthorsFileParser p;
-    List<Author*> *l = new List<Author*>;
-    p.getAuthor(l);
+     while(l->moveCursor()){
+         l->getCursor()->display();
+     }
+     return 0;
 
-    while(l->moveCursor()){
-        l->getCursor()->display();
-    }
-    return 0;
+      */
 }

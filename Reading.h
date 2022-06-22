@@ -26,7 +26,7 @@ public:
     * PRE: -
     * POST: metodo virtual que muestra los atributos de sus clases derivadas
     */
-    virtual void mostrar() = 0;
+    virtual void display() = 0;
 
     /*
      * PRE:

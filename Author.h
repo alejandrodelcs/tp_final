@@ -1,5 +1,5 @@
-#ifndef TP_2_AUTHOR_H
-#define TP_2_AUTHOR_H
+#ifndef TP_FINAL_AUTHOR_H
+#define TP_FINAL_AUTHOR_H
 #include <iostream>
 #include <string>
 
@@ -61,4 +61,4 @@ public:
 
 };
 
-#endif //TP_2_AUTHOR_H
+#endif //TP_FINAL_AUTHOR_H

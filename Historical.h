@@ -1,5 +1,5 @@
-#ifndef TP_2_HISTORICAL_H
-#define TP_2_HISTORICAL_H
+#ifndef TP_FINAL_HISTORICAL_H
+#define TP_FINAL_HISTORICAL_H
 #include "Novel.h"
 class Historical : public Novel {
 private:
@@ -24,7 +24,7 @@ public:
     * PRE: -
     * POST: Destruye la Novela Historica
     */
-    ~Historical();
+    ~Historical() override;
 
 };
-#endif //TP_2_HISTORICAL_H
+#endif //TP_FINAL_HISTORICAL_H
