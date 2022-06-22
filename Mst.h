@@ -2,7 +2,7 @@
 #define TP_FINAL_MST_H
 #include <iostream>
 #include <vector>
-const int INFINITY =  99999999;
+const int INFINITY = 99999999;
 
 class Mst {
 private:
@@ -31,7 +31,7 @@ public:
      */
     void primAlgorithm();
 
-    /*
+    /* Destructor
      * PRE:-
      * POST: Dealocates the memory used (parent, visited and weight)
      */

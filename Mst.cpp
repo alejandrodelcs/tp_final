@@ -23,7 +23,7 @@ void Mst::calcMinDistance() {
                       << "Cost: " << weight[i] << std::endl;
         }
     }
-    std::cout << "Total Minimum Distance taken is " << this->totalMinDistance << std::endl;
+    std::cout << "The total minimum distance taken is " << this->totalMinDistance << std::endl;
 }
 
 void Mst::exploreUnvisited(int minVertex) {
@@ -75,5 +75,3 @@ Mst::~Mst() {
     delete[] visited;
     delete[] weight;
 }
-
-
