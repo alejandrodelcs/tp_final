@@ -4,7 +4,6 @@
 #include <string>
 #include <iostream>
 #include "Author.h"
-#include <list>
 #include "AuthorsFileParser.h"
 
 class Reading {
