@@ -1,6 +1,6 @@
 #include "Poema.h"
 
-Poema::Poema(int id, std::string &title, unsigned int minutes, unsigned int PublishYear, unsigned int verses) : Lectura(title, minutes, PublishYear) {
+Poema::Poema(int id, std::string &title, unsigned int minutes, unsigned int PublishYear, unsigned int verses) : Reading(title, minutes, PublishYear) {
     this->type = 'P';
     this->id = id;
     this->title = title;

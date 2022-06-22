@@ -1,6 +1,6 @@
 #include "Novela.h"
 
-Novela::Novela(int id, std::string &title, unsigned int minutes, unsigned int PublishYear, Genres genre) : Lectura(title, minutes, PublishYear) {
+Novela::Novela(int id, std::string &title, unsigned int minutes, unsigned int PublishYear, Genres genre) : Reading(title, minutes, PublishYear) {
     this->type = 'N';
     this->id = id;
     this->title = title;

@@ -49,12 +49,6 @@ public:
 
     /*
      * PRE:
-     * POST: Setea un nuevoEscritor relacionado con la Lectura
-     */
-    void setAutor(Author *author);
-
-    /*
-     * PRE:
      * POST: devuelve el Autor (escritor)
      */
     Author *getAuthor();

@@ -3,7 +3,7 @@
 
 #include <iostream>
 #include <vector>
-#include "list.h"
+#include "List.h"
 #include "Vertex.h"
 
 const int INFINITO = 99999999;

@@ -7,7 +7,7 @@ ParserReading::ParserReading() {
     this->reading = nullptr;
 }
 
-void ParserReading::getReading(List<Lectura*> *l) {
+void ParserReading::getReading(List<Reading*> *l) {
     int count = 0;
     this->newReadingList(l);
     while (!data.endOfFile()) {
@@ -32,7 +32,7 @@ void ParserReading::validateReading(int count) {
         case MINUTES:
             this->minutes = (unsigned int) std::stoi(this->fileLine);
             break;
-        case YEAR_PUBLICATION :
+        case PUBLISH_YEAR :
             this->yearPublication = (unsigned int) std::stoi(this->fileLine);
             break;
         case READING_TYPES:
@@ -123,8 +123,8 @@ bool ParserReading::validateHistoricNovel(int contador) const {
     return (contador == 6 && this->genre == Genres::HISTORICA);
 }
 
-Lectura *ParserReading::newReading(int contador) {
-    Lectura *element = nullptr;
+Reading *ParserReading::newReading(int contador) {
+    Reading *element = nullptr;
     if (validateNewReading(contador) || validateHistoricNovel(contador)) {
         if (type == TALE) {
             this->genre = Genres::INEXISTENTE;
@@ -144,10 +144,6 @@ void ParserReading::newTheme() {
     for(int i=0; this->fileLine[i] != '\0'; i++){
         *(this->theme + i) = this->fileLine[i];
     }
-
-    for(int i=0; this->fileLine[i] != '\0'; i++) {
-        theme[i].setName(fileLine[i].c_ss)
-    }
 }
 
 void ParserReading::reserveThemeMemory(char* &t) {
@@ -155,7 +151,7 @@ void ParserReading::reserveThemeMemory(char* &t) {
 }
 
 
-Lectura *ParserReading::newTale() {
+Reading *ParserReading::newTale() {
     (this->reading) = new Cuento(
             this->id,
             this->title,
@@ -166,7 +162,7 @@ Lectura *ParserReading::newTale() {
     return this->reading;
 }
 
-Lectura *ParserReading::newPoem() {
+Reading *ParserReading::newPoem() {
     (this->reading) = new Poema(
             this->id,
             this->title,
@@ -177,7 +173,7 @@ Lectura *ParserReading::newPoem() {
     return this->reading;
 }
 
-Lectura *ParserReading::newNovel() {
+Reading *ParserReading::newNovel() {
     if (this->genre != Genres::HISTORICA) {
         this->reading = new Novela(
                 this->id,
@@ -190,7 +186,7 @@ Lectura *ParserReading::newNovel() {
     return this->reading;
 }
 
-Lectura *ParserReading::newHistoricNovel() {
+Reading *ParserReading::newHistoricNovel() {
     this->reading = new Historica(
             this->id,
             this->title,
@@ -223,7 +219,7 @@ void ParserReading::sortReadingList(){
     }
 }
 
-void ParserReading::newReadingList(List<Lectura*> *l) {
+void ParserReading::newReadingList(List<Reading*> *l) {
     this->readings = l;
 }
 
@@ -249,13 +245,13 @@ ParserReading::~ParserReading() {
     readings = nullptr;
 }
 
-void ParserReading::addReadingSorted(Lectura* l) {
+void ParserReading::addReadingSorted(Reading* l) {
     this->readings->startCursor();
     int value;
     int position = 1;
     bool minorFound = false;
     while (this->readings->moveCursor() && !minorFound) {
-        this->yearPublication = this->readings->getCursor()->getYearPublication();
+        this->yearPublication = this->readings->getCursor()->getPublishYear();
         value = reading->comparar(l);
         if (value >= 0) {
             this->readings->add(l, position);

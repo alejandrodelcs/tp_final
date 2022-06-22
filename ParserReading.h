@@ -4,12 +4,12 @@
 #include <string>
 #include "Constants.h"
 #include "File.h"
-#include "Lectura.h"
+#include "Reading.h"
 #include "Cuento.h"
 #include "Novela.h"
 #include "Historica.h"
 #include "Poema.h"
-#include "list.h"
+#include "List.h"
 
 class ParserReading{
 
@@ -26,8 +26,8 @@ private:
     unsigned int minutes;
     unsigned int yearPublication;
     int verses;
-    Lectura *reading;
-    List<Lectura*> *readings;
+    Reading *reading;
+    List<Reading*> *readings;
 
     
     /*
@@ -95,31 +95,31 @@ private:
     * POST: Una vez validado el metodo validaNuevaLectura,ValidaNovelaHistorica
      *      y devuelto True, valida el tipo de Lectura  crea una.
     */
-    Lectura* newReading(int contador);
+    Reading* newReading(int contador);
 
     /*
      * PRE: -
      * POST: Crea un nuevo Cuento
      */
-    Lectura* newTale();
+    Reading* newTale();
 
     /*
      * PRE: -
      * POST: Crea un nuevo Poema
      */
-    Lectura* newPoem();
+    Reading* newPoem();
 
     /*
      * PRE: -
      * POST: Crea una nueva Novela
      */
-    Lectura* newNovel();
+    Reading* newNovel();
 
     /*
      * PRE: -
      * POST: Crea un nueva novela de genero Historica
      */
-    Lectura* newHistoricNovel();
+    Reading* newHistoricNovel();
 
     /*
      * PRE: -
@@ -163,7 +163,7 @@ private:
      * PRE: Recibe una lista vacia o llena
      * POST: Inicializa la lista
      */
-    void newReadingList(List<Lectura*> *l);
+    void newReadingList(List<Reading*> *l);
 
 public:
     /*
@@ -177,14 +177,14 @@ public:
      * PRE:
      * POST: crea la lista con los datos de las Lecturas
      */
-    void getReading(List<Lectura*> *l);
+    void getReading(List<Reading*> *l);
 
     /*
      * PRE: -
      * POST: Busca el menor valor y lo ingresa
      */
 
-    void addReadingSorted(Lectura* l);
+    void addReadingSorted(Reading* l);
 
 
     /*

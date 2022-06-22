@@ -5,7 +5,7 @@
 #include "Constants.h"
 #include "File.h"
 #include "Author.h"
-#include "list.h"
+#include "List.h"
 
 class AuthorsFileParser {
 private:

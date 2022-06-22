@@ -1,7 +1,7 @@
-#include "list.h"
+#include "List.h"
 #include "Mst.h"
 #include "Graph.h"
-#include "reading.h"
+#include "Reading.h"
 #include "AuthorsFileParser.h"
 //Prims is applied to find MST to a graph with property of graph as follows:-
 //1) Undirected
