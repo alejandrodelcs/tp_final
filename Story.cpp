@@ -1,20 +1,21 @@
-#include "Poema.h"
+#include "Story.h"
 
-Poema::Poema(int id, std::string &title, unsigned int minutes, unsigned int PublishYear, unsigned int verses) : Reading(title, minutes, PublishYear) {
-    this->type = 'P';
+Story::Story(int id, std::string &title, unsigned int minutes, unsigned int PublishYear, const std::string& book)
+        : Reading(title, minutes, PublishYear) {
+    this->type = 'C';
     this->id = id;
     this->title = title;
-    this->minutes= minutes;
+    this->book = book;
+    this->minutes = minutes;
     this->PublishYear = PublishYear;
-    this->verses = verses;
 }
 
-void Poema::mostrar() {
-    std::cout << "Poema"
+void Story::display() {
+    std::cout << "Cuento"
                  "\nTitulo: " << title <<
               "\nTiempo de lectura: " << minutes <<
               "\nAnio de publicacion: " << PublishYear <<
-              "\nCantidad de versos: " << verses << std::endl;
+              "\nTitulo libro: " << book << std::endl;
     if (id != 0 && this->getAuthor() != nullptr){
         std::cout << "Autor: " << this->getAuthor()->getName() << "\n" << std::endl;
     } else

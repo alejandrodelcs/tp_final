@@ -1,8 +1,8 @@
-#ifndef TP_2_POEMA_H
-#define TP_2_POEMA_H
+#ifndef TP_2_POEM_H
+#define TP_2_POEM_H
 #include "Reading.h"
 
-class Poema : public Reading {
+class Poem : public Reading {
 private:
     unsigned int verses;
 public:
@@ -10,19 +10,19 @@ public:
      * PRE: -
      * POST: Construye un Poema
      */
-    Poema(int id, std::string &title, unsigned int minutes, unsigned int PublishYear, unsigned int verses);
+    Poem(int id, std::string &title, unsigned int minutes, unsigned int PublishYear, unsigned int verses);
 
     /*
      * PRE: -
      * POST: Muestra sus atributos
      */
-    void mostrar();
+    void display();
 
     /*
      * PRE: -
      * POST: Destruye el Poema
      */
-    ~Poema() = default;
+    ~Poem() = default;
 };
 
-#endif //TP_2_POEMA_H
+#endif //TP_2_POEM_H

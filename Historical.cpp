@@ -1,8 +1,8 @@
-#include "Historica.h"
+#include "Historical.h"
 
 
-Historica::Historica(int id, std::string &title, unsigned int minutes, unsigned int PublishYear, Genres genre,
-                     char* &theme) : Novela(id, title, minutes, PublishYear, genre) {
+Historical::Historical(int id, std::string &title, unsigned int minutes, unsigned int PublishYear, Genres genre,
+                     char* &theme) : Novel(id, title, minutes, PublishYear, genre) {
     this->id = id;
     this->title = title;
     this->genre = genre;
@@ -11,7 +11,7 @@ Historica::Historica(int id, std::string &title, unsigned int minutes, unsigned 
 }
 
 
-void Historica::mostrar(){
+void Historical::display(){
     std::cout << "Novela"
                  "\nTitulo: " << title <<
               "\nTiempo de lectura: " << minutes <<
@@ -24,6 +24,6 @@ void Historica::mostrar(){
         std::cout << "Autor: ANONIMO\n" << std::endl;
 }
 
-Historica::~Historica() {
+Historical::~Historical() {
     delete[] theme;
 }

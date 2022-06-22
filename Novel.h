@@ -1,10 +1,10 @@
-#ifndef TP_2_NOVELA_H
-#define TP_2_NOVELA_H
+#ifndef TP_2_NOVEL_H
+#define TP_2_NOVEL_H
 #include "Reading.h"
 
 enum class Genres {DRAMA=1,COMEDIA,FICCION,SUSPENSO,TERROR,ROMANTICA,HISTORICA,INEXISTENTE};
 
-class Novela : public Reading {
+class Novel : public Reading {
 protected:
     Genres genre;
 public:
@@ -12,13 +12,13 @@ public:
     * PRE: -
     * POST: Construye una Novela Historica
     */
-    Novela(int id, std::string &title, unsigned int minutes, unsigned int PublishYear, Genres genre);
+    Novel(int id, std::string &title, unsigned int minutes, unsigned int PublishYear, Genres genre);
 
     /*
    * PRE: -
    * POST: Muestra sus atributos
    */
-    void mostrar();
+    void display();
 
     /*
      * PRE: -
@@ -36,7 +36,7 @@ public:
      * PRE: -
      * POST: Destruye la Novela
      */
-    ~Novela() = default;;
+    ~Novel() = default;;
 };
 
-#endif //TP_2_NOVELA_H
+#endif //TP_2_NOVEL_H

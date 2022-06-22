@@ -1,6 +1,6 @@
-#include "Novela.h"
+#include "Novel.h"
 
-Novela::Novela(int id, std::string &title, unsigned int minutes, unsigned int PublishYear, Genres genre) : Reading(title, minutes, PublishYear) {
+Novel::Novel(int id, std::string &title, unsigned int minutes, unsigned int PublishYear, Genres genre) : Reading(title, minutes, PublishYear) {
     this->type = 'N';
     this->id = id;
     this->title = title;
@@ -10,7 +10,7 @@ Novela::Novela(int id, std::string &title, unsigned int minutes, unsigned int Pu
 }
 
 
-void Novela::mostrar() {
+void Novel::display() {
     std::cout << "Novela"
                  "\nTitulo: " << title <<
               "\nTiempo de lectura: " << minutes <<
@@ -23,22 +23,22 @@ void Novela::mostrar() {
 }
 
 
-void Novela::displayGenre() {
-    bool encontrado = false;
-    int pos = 0;
+void Novel::displayGenre() {
+    bool finded = false;
+    int position = 0;
     std::string gen[] = {"HISTORICA","DRAMA", "COMEDIA", "FICCION", "SUSPENSO",
                              "TERROR", "ROMANTICA"};
     Genres generosEnum[] = {Genres::HISTORICA, Genres::DRAMA, Genres::COMEDIA, Genres::FICCION, Genres::SUSPENSO,
                             Genres::TERROR, Genres::ROMANTICA};
-    while (pos < GENRES_SIZE && (!encontrado)) {
-        if (this->genre == generosEnum[pos]) {
-            std::cout<<"Genero: "<<gen[pos]<<std::endl;
-            encontrado = true;
+    while (position < GENRES_SIZE && (!finded)) {
+        if (this->genre == generosEnum[position]) {
+            std::cout<<"Genero: "<<gen[position]<<std::endl;
+            finded = true;
         }
-        pos++;
+        position++;
     }
 }
 
-Genres Novela::getGenre() {
+Genres Novel::getGenre() {
     return this->genre;
 }
