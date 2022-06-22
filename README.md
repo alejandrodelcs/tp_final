@@ -2,6 +2,13 @@
 <div style="text-align: center;"><h3>Algoritmos y programación II - 1C2022 </h3></div>
 <div style="text-align: center;"><h4>Trabajo práctico Nº3 <br>grupal </h4></div>
 
+<h2> Consignas para hacer </h2>
+• Traducciones
+• Unir grafo a lecturas y MST
+• Implementar las modificaciones de lecturas
+• Implementar tabla de hashing
+• Implementar menu
+
 <h2>Introducción </h2>
 Luego de unos meses de estar en el club de lectura Sid comenzó a aficionarse a llevar un
 registro de cuánto tiempo tardaría en leer todos los libros de los que se hablaba en la reunión. Pero
