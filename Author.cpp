@@ -35,7 +35,7 @@ void Author::setYearDeath(int yearDeath) {
 void Author::display() {
     std::cout << "Referencia: " << getId() << std::endl;
     std::cout << "Autor: " << getName() << std::endl;
-    std::cout << "Nacionalidad: " << getNacionality() << std::endl;
+    std::cout << "Nacionalidad: " << getNationality() << std::endl;
     if (devolverBirth() != -1)
         std::cout << "Anio de nacimiento: " << devolverBirth() << std::endl;
     if (devolverDeath() != -1)

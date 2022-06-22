@@ -18,8 +18,8 @@ void Historica::mostrar(){
               "\nAnio de publicacion: " << PublishYear <<
               "\nGenero: HISTORICA" << std::endl;
     std::cout << "Tema: " << theme << std::endl;
-    if (id != 0 && this->getReader() != nullptr){
-        std::cout << "Autor: " << this->getReader()->getName() << "\n" << std::endl;
+    if (id != 0 && this->getAuthor() != nullptr){
+        std::cout << "Autor: " << this->getAuthor()->getName() << "\n" << std::endl;
     } else
         std::cout << "Autor: ANONIMO\n" << std::endl;
 }
