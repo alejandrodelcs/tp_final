@@ -1,9 +1,9 @@
-#ifndef TP_2_ESCRITOR_H
-#define TP_2_ESCRITOR_H
+#ifndef TP_2_AUTHOR_H
+#define TP_2_AUTHOR_H
 #include <iostream>
 #include <string>
 
-class Escritor{
+class Author{
 private:
     int id;
     std::string name;
@@ -11,11 +11,11 @@ private:
     int yearBirth;
     int yearDeath;
 public:
-    /*
+    /* Constructor
     * PRE: -
-    * POST: Construye un nuevo escritor.
+    * POST: Builds a new Author.
     */
-    Escritor(int id, std::string name, std::string nacionality, int yearBirth, int yearDeath);
+    Author(int id, std::string name, std::string nacionality, int yearBirth, int yearDeath);
 
     /*
      * PRE:
@@ -33,7 +33,7 @@ public:
      * PRE:
      * POST: Retorna la nacionalidad del Escrtor (Autor)
      */
-    std::string getNacionality();
+    std::string getNationality();
 
     /*
      * PRE:
@@ -61,4 +61,4 @@ public:
 
 };
 
-#endif //TP_2_ESCRITOR_H
+#endif //TP_2_AUTHOR_H

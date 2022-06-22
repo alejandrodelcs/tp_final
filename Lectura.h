@@ -7,7 +7,6 @@
 #include <list>
 #include "ReadingsFileParser.h"
 
-
 class Lectura {
 protected:
     std::string title;
@@ -46,7 +45,7 @@ public:
      * PRE:
      * POST: retorna el año de publicacion de la Lectura
      */
-    unsigned int GetPublishYear() const;
+    unsigned int getPublishYear() const;
 
     /*
      * PRE:

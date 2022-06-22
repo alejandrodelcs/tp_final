@@ -1,6 +1,6 @@
-#include "Escritor.h"
+#include "Author.h"
 
-Escritor::Escritor(int id, std::string name, std::string nacionality, int yearBirth, int yearDeath) {
+Author::Author(int id, std::string name, std::string nacionality, int yearBirth, int yearDeath) {
     this->id = id;
     this->name = name;
     this->nacionality = nacionality;
@@ -8,31 +8,31 @@ Escritor::Escritor(int id, std::string name, std::string nacionality, int yearBi
     this->yearDeath = yearDeath;
 }
 
-int Escritor::getId() {
+int Author::getId() {
     return this->id;
 }
 
-std::string Escritor::getName() {
+std::string Author::getName() {
     return this->name;
 }
 
-std::string Escritor::getNacionality() {
+std::string Author::getNationality() {
     return this->nacionality;
 }
 
-int Escritor::devolverBirth() const {
+int Author::devolverBirth() const {
     return this->yearBirth;
 }
 
-int Escritor::devolverDeath() const {
+int Author::devolverDeath() const {
     return this->yearDeath;
 }
 
-void Escritor::setYearDeath(int yearDeath) {
+void Author::setYearDeath(int yearDeath) {
     this->yearDeath = yearDeath;
 }
 
-void Escritor::display() {
+void Author::display() {
     std::cout << "Referencia: " << getId() << std::endl;
     std::cout << "Autor: " << getName() << std::endl;
     std::cout << "Nacionalidad: " << getNacionality() << std::endl;

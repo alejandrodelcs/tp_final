@@ -7,12 +7,13 @@ Lectura::Lectura(const std::string& title, unsigned int minutes, unsigned int Pu
     this->author = nullptr;
 }
 
-unsigned int Lectura::GetPublishYear() const {
+unsigned int Lectura::getPublishYear() const {
     return PublishYear;
 }
 
-void Lectura::setAutor(Escritor* escritor) {
-    this->author = escritor;
+void Lectura::setAuthor(Author* author) {
+    this->author = author;
+    authorAge
 }
 
 Escritor* Lectura::getReader(){
@@ -39,9 +40,9 @@ int Lectura::getID() const {
 
 int Lectura::comparar(Lectura *l) const {
     int value = 0;
-    if (this->PublishYear > l->GetPublishYear() ) {
+    if (this->PublishYear > l->getPublishYear() ) {
         value = 1;
-    } else if (this->PublishYear < l->GetPublishYear()) {
+    } else if (this->PublishYear < l->getPublishYear()) {
         value = -1;
     }
     return value;
