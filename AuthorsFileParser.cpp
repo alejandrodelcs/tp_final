@@ -8,7 +8,7 @@ AuthorsFileParser::AuthorsFileParser() {
 void AuthorsFileParser::getAuthor(List<Author*> *e) {
     int count = 0;
     this->authores = e;
-    while (!data.endOfFile()) {
+    while (!data.eof()) {
         fileLine = data.read();
         if (newReference())
             count = 0;
@@ -28,7 +28,7 @@ void AuthorsFileParser::validateNewAuthor() {
 
 
 void AuthorsFileParser::validateEOFAuthor(int count) {
-    if (data.endOfFile() && count < 4) {
+    if (data.eof() && count < 4) {
         count += 1;
         fileLine = " ";
         while (count <= 4) {

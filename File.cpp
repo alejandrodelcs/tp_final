@@ -21,7 +21,7 @@ std::string File::read() {
     return lines;
 }
 
-bool File::endOfFile() {
+bool File::eof() {
     return this->file.eof();
 }
 

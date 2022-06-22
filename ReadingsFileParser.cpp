@@ -1,16 +1,14 @@
-#include "ParserReading.h"
+#include "ReadingsFileParser.h"
 
-
-
-ParserReading::ParserReading() {
+ReadingsFileParser::ReadingsFileParser() {
     data.open("lecturas.txt");
     this->reading = nullptr;
 }
 
-void ParserReading::getReading(List<Reading*> *l) {
+void ReadingsFileParser::getReading(List<Reading*> *l) {
     int count = 0;
     this->newReadingList(l);
-    while (!data.endOfFile()) {
+    while (!data.eof()) {
         this->fileLine = data.read();
         if (this->newReference())
             count = 0;
@@ -21,7 +19,7 @@ void ParserReading::getReading(List<Reading*> *l) {
     }
 }
 
-void ParserReading::validateReading(int count) {
+void ReadingsFileParser::validateReading(int count) {
     switch(count){
         case TYPE:
             this->type = this->fileLine[0];
@@ -52,17 +50,16 @@ void ParserReading::validateReading(int count) {
     }
 }
 
-
-int ParserReading::getId() const {
+int ReadingsFileParser::getId() const {
     return std::stoi(this->fileLine.substr(REFERENCE, this->fileLine.find(')')));
 }
 
-bool ParserReading::newReference() const {
+bool ReadingsFileParser::newReference() const {
     return ((this->fileLine.length() <= 1) &&
             (this->fileLine[0] == NOVEL || this->fileLine[0] == TALE || this->fileLine[0] == POEM));
 }
 
-void ParserReading::validateTypeReading() {
+void ReadingsFileParser::validateTypeReading() {
     switch (type) {
         case POEM:
             this->verses = std::stoi(this->fileLine);
@@ -79,7 +76,7 @@ void ParserReading::validateTypeReading() {
     }
 }
 
-Genres ParserReading::validateGenre() {
+Genres ReadingsFileParser::validateGenre() {
     Genres element;
     bool foundOut = false;
     int pos = 0;
@@ -97,7 +94,7 @@ Genres ParserReading::validateGenre() {
     return element;
 }
 
-void ParserReading::validateReference() {
+void ReadingsFileParser::validateReference() {
     this->theme =  nullptr;
     if (fileLine[0] == '(') {
         this->id = this->getId();
@@ -108,22 +105,22 @@ void ParserReading::validateReference() {
     }
 }
 
-void ParserReading::validateHistoricReference() {
+void ReadingsFileParser::validateHistoricReference() {
     if ((type == NOVEL) && (this->genre == Genres::HISTORICA)) {
         this->id = this->getId();
     }
 }
 
-bool ParserReading::validateNewReading(int count) const {
+bool ReadingsFileParser::validateNewReading(int count) const {
     return (count == 5 && this->theme == nullptr);
 
 }
 
-bool ParserReading::validateHistoricNovel(int contador) const {
+bool ReadingsFileParser::validateHistoricNovel(int contador) const {
     return (contador == 6 && this->genre == Genres::HISTORICA);
 }
 
-Reading *ParserReading::newReading(int contador) {
+Reading *ReadingsFileParser::newReading(int contador) {
     Reading *element = nullptr;
     if (validateNewReading(contador) || validateHistoricNovel(contador)) {
         if (type == TALE) {
@@ -139,19 +136,18 @@ Reading *ParserReading::newReading(int contador) {
     return element;
 }
 
-void ParserReading::newTheme() {
+void ReadingsFileParser::newTheme() {
     this->reserveThemeMemory(this->theme);
     for(int i=0; this->fileLine[i] != '\0'; i++){
         *(this->theme + i) = this->fileLine[i];
     }
 }
 
-void ParserReading::reserveThemeMemory(char* &t) {
+void ReadingsFileParser::reserveThemeMemory(char* &t) {
     t = new char[this->fileLine.length()];
 }
 
-
-Reading *ParserReading::newTale() {
+Reading *ReadingsFileParser::newTale() {
     (this->reading) = new Cuento(
             this->id,
             this->title,
@@ -162,7 +158,7 @@ Reading *ParserReading::newTale() {
     return this->reading;
 }
 
-Reading *ParserReading::newPoem() {
+Reading *ReadingsFileParser::newPoem() {
     (this->reading) = new Poema(
             this->id,
             this->title,
@@ -173,7 +169,7 @@ Reading *ParserReading::newPoem() {
     return this->reading;
 }
 
-Reading *ParserReading::newNovel() {
+Reading *ReadingsFileParser::newNovel() {
     if (this->genre != Genres::HISTORICA) {
         this->reading = new Novela(
                 this->id,
@@ -181,12 +177,12 @@ Reading *ParserReading::newNovel() {
                 this->minutes,
                 this->yearPublication, this->genre);
     } else {
-        this->reading = newHistoricNovel();
+        this->reading = newHistoricalNovel();
     }
     return this->reading;
 }
 
-Reading *ParserReading::newHistoricNovel() {
+Reading *ReadingsFileParser::newHistoricalNovel() {
     this->reading = new Historica(
             this->id,
             this->title,
@@ -198,8 +194,7 @@ Reading *ParserReading::newHistoricNovel() {
     return this->reading;
 }
 
-
-void ParserReading::validateYearSorted() {
+void ReadingsFileParser::validateYearSorted() {
     int value = reading->comparar(this->readings->search(this->readings->getNumberOfElements()));
     if (value == 0 || value == 1){
         this->readings->add(this->reading);
@@ -208,8 +203,7 @@ void ParserReading::validateYearSorted() {
     }
 }
 
-
-void ParserReading::sortReadingList(){
+void ReadingsFileParser::sortReadingList(){
     if (this->reading != nullptr) {
         if (readings->getNumberOfElements() < 1) {
             readings->add(this->reading);
@@ -219,11 +213,11 @@ void ParserReading::sortReadingList(){
     }
 }
 
-void ParserReading::newReadingList(List<Reading*> *l) {
+void ReadingsFileParser::newReadingList(List<Reading*> *l) {
     this->readings = l;
 }
 
-void ParserReading::validateYearMinor() {
+void ReadingsFileParser::validateYearMinor() {
     int value = 0;
     int position = 0;
     this->readings->startCursor();
@@ -232,11 +226,9 @@ void ParserReading::validateYearMinor() {
         position++;
     }
     this->readings->add(this->reading, position);
-
 }
 
-
-ParserReading::~ParserReading() {
+ReadingsFileParser::~ReadingsFileParser() {
     readings->startCursor();
     while (readings->moveCursor()) {
         delete readings->getCursor();
@@ -245,7 +237,7 @@ ParserReading::~ParserReading() {
     readings = nullptr;
 }
 
-void ParserReading::addReadingSorted(Reading* l) {
+void ReadingsFileParser::addSortedReading(Reading* l) {
     this->readings->startCursor();
     int value;
     int position = 1;
@@ -260,6 +252,3 @@ void ParserReading::addReadingSorted(Reading* l) {
         position++;
     }
 }
-
-
-

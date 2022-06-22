@@ -1,5 +1,5 @@
-#ifndef TP_2_PARSERLECTURA_H
-#define TP_2_PARSERLECTURA_H
+#ifndef TP_2_READINGFILESPARSER_H
+#define TP_2_READINGFILESPARSER_H
 #include <iostream>
 #include <string>
 #include "Constants.h"
@@ -11,8 +11,7 @@
 #include "Poema.h"
 #include "List.h"
 
-class ParserReading{
-
+class ReadingsFileParser {
 
 private:
     File data;
@@ -29,7 +28,6 @@ private:
     Reading *reading;
     List<Reading*> *readings;
 
-    
     /*
      * PRE: 
      * POST: Retorna el genero de la Lectura
@@ -119,7 +117,7 @@ private:
      * PRE: -
      * POST: Crea un nueva novela de genero Historica
      */
-    Reading* newHistoricNovel();
+    Reading* newHistoricalNovel();
 
     /*
      * PRE: -
@@ -170,7 +168,7 @@ public:
      * PRE: -
      * POST: Construye  un Parser
      */
-    ParserReading();
+    ReadingsFileParser();
 
 
     /*
@@ -183,19 +181,18 @@ public:
      * PRE: -
      * POST: Busca el menor valor y lo ingresa
      */
-
-    void addReadingSorted(Reading* l);
+    void addSortedReading(Reading* l);
 
 
     /*
      * PRE:
      * POST: Destruye la lista de Lecturas
      */
-    ~ParserReading();
+    ~ReadingsFileParser();
 
 
 
 
 };
 
-#endif //TP_2_PARSERLECTURA_H
+#endif //TP_2_READINGFILESPARSER_H

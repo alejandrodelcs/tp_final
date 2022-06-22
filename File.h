@@ -32,7 +32,7 @@ public:
      * PRE: -
      * POST: Valida si llego al final del fichero
      */
-    bool endOfFile();
+    bool eof();
 
     /*
      * PRE: -
