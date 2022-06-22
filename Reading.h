@@ -1,5 +1,5 @@
-#ifndef TP_2_READING_H
-#define TP_2_READING_H
+#ifndef TP_FINAL_READING_H
+#define TP_FINAL_READING_H
 
 #include <string>
 #include <iostream>
@@ -87,4 +87,4 @@ public:
 
 };
 
-#endif //TP_2_READING_H
+#endif //TP_FINAL_READING_H

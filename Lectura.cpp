@@ -11,9 +11,6 @@ unsigned int Reading::getPublishYear() const {
     return PublishYear;
 }
 
-void Reading::setAuthor(Author* author) {
-    this->author = author;
-}
 
 Author* Reading::getAuthor(){
     return this->author;
@@ -45,4 +42,8 @@ int Reading::comparar(Reading *l) const {
         value = -1;
     }
     return value;
+}
+
+void Reading::setAutor(Author *author) {
+    this->author = author;
 }
