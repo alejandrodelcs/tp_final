@@ -5,7 +5,7 @@
 #include <iostream>
 #include "Author.h"
 #include <list>
-#include "ReadingsFileParser.h"
+#include "AuthorsFileParser.h"
 
 class Reading {
 protected:
