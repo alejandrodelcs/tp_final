@@ -31,7 +31,7 @@ void ReadingsFileParser::validateReading(int count) {
             this->minutes = (unsigned int) std::stoi(this->fileLine);
             break;
         case PUBLISH_YEAR :
-            this->yearPublication = (unsigned int) std::stoi(this->fileLine);
+            this->publishYear = (unsigned int) std::stoi(this->fileLine);
             break;
         case READING_TYPES:
             this->book = "";
@@ -42,7 +42,7 @@ void ReadingsFileParser::validateReading(int count) {
             break;
         case ID_HISTORIC:
             this->verses = 0;
-            this->validateHistoricReference();
+            this->validateHistoricalReference();
             break;
         default:
             std::cout << "";
@@ -77,17 +77,17 @@ void ReadingsFileParser::validateTypeReading() {
 }
 
 Genres ReadingsFileParser::validateGenre() {
+    std::string strGenres[] = {"HISTORICAL","DRAMA", "COMEDY", "FICTION", "THRILLER",
+                             "HORROR", "ROMANCE"};
+    Genres enumGenres[] = {Genres::HISTORICAL, Genres::DRAMA, Genres::COMEDY, Genres::FICTION, Genres::THRILLER,
+                            Genres::HORROR, Genres::ROMANCE};
     Genres element;
-    bool foundOut = false;
+    bool found = false;
     int pos = 0;
-    std::string genres[] = {"HISTORICA", "DRAMA", "COMEDIA", "FICCION", "SUSPENSO",
-                            "TERROR", "ROMANTICA"};
-    Genres generosEnum[] = {Genres::HISTORICA, Genres::DRAMA, Genres::COMEDIA, Genres::FICCION, Genres::SUSPENSO,
-                            Genres::TERROR, Genres::ROMANTICA};
-    while (pos < GENRES_SIZE && (!foundOut)) {
-        if (genres[pos] == this->fileLine) {
-            element = generosEnum[pos];
-            foundOut = true;
+    while (pos < GENRES_SIZE && (!found)) {
+        if (strGenres[pos] == this->fileLine) {
+            element = enumGenres[pos];
+            found = true;
         }
         pos++;
     }
@@ -105,8 +105,8 @@ void ReadingsFileParser::validateReference() {
     }
 }
 
-void ReadingsFileParser::validateHistoricReference() {
-    if ((type == NOVEL) && (this->genre == Genres::HISTORICA)) {
+void ReadingsFileParser::validateHistoricalReference() {
+    if ((type == NOVEL) && (this->genre == Genres::HISTORICAL)) {
         this->id = this->getId();
     }
 }
@@ -116,18 +116,18 @@ bool ReadingsFileParser::validateNewReading(int count) const {
 
 }
 
-bool ReadingsFileParser::validateHistoricNovel(int contador) const {
-    return (contador == 6 && this->genre == Genres::HISTORICA);
+bool ReadingsFileParser::validateHistoricalNovel(int contador) const {
+    return (contador == 6 && this->genre == Genres::HISTORICAL);
 }
 
 Reading *ReadingsFileParser::newReading(int contador) {
     Reading *element = nullptr;
-    if (validateNewReading(contador) || validateHistoricNovel(contador)) {
+    if (validateNewReading(contador) || validateHistoricalNovel(contador)) {
         if (type == TALE) {
-            this->genre = Genres::INEXISTENTE;
+            this->genre = Genres::MISSING;
             element = this->newTale();
         } else if (type == POEM) {
-            this->genre = Genres::INEXISTENTE;
+            this->genre = Genres::MISSING;
             element = this->newPoem();
         } else {
             element = this->newNovel();
@@ -152,7 +152,7 @@ Reading *ReadingsFileParser::newTale() {
             this->id,
             this->title,
             this->minutes,
-            this->yearPublication,
+            this->publishYear,
             book
     );
     return this->reading;
@@ -163,19 +163,19 @@ Reading *ReadingsFileParser::newPoem() {
             this->id,
             this->title,
             this->minutes,
-            this->yearPublication,
+            this->publishYear,
             this->verses
     );
     return this->reading;
 }
 
 Reading *ReadingsFileParser::newNovel() {
-    if (this->genre != Genres::HISTORICA) {
+    if (this->genre != Genres::HISTORICAL) {
         this->reading = new Novel(
                 this->id,
                 this->title,
                 this->minutes,
-                this->yearPublication, this->genre);
+                this->publishYear, this->genre);
     } else {
         this->reading = newHistoricalNovel();
     }
@@ -187,8 +187,8 @@ Reading *ReadingsFileParser::newHistoricalNovel() {
             this->id,
             this->title,
             this->minutes,
-            this->yearPublication,
-            Genres::HISTORICA,
+            this->publishYear,
+            Genres::HISTORICAL,
             theme
     );
     return this->reading;
@@ -243,7 +243,7 @@ void ReadingsFileParser::addSortedReading(Reading* l) {
     int position = 1;
     bool minorFound = false;
     while (this->readings->moveCursor() && !minorFound) {
-        this->yearPublication = this->readings->getCursor()->getPublishYear();
+        this->publishYear = this->readings->getCursor()->getPublishYear();
         value = reading->comparar(l);
         if (value >= 0) {
             this->readings->add(l, position);

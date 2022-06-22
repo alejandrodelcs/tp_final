@@ -7,7 +7,7 @@
 #include "Reading.h"
 #include "Tale.h"
 #include "Novel.h"
-#include "HistoricaL.h"
+#include "Historical.h"
 #include "Poem.h"
 #include "List.h"
 
@@ -23,7 +23,7 @@ private:
     char* theme;
     int id;
     unsigned int minutes;
-    unsigned int yearPublication;
+    unsigned int publishYear;
     int verses;
     Reading *reading;
     List<Reading*> *readings;
@@ -68,7 +68,7 @@ private:
      * POST: Si contador = 6 entonces la novela es Historica
      *       y guarda el numero de referencia a la Lectura
      */
-    void validateHistoricReference();
+    void validateHistoricalReference();
 
     /*
      * PRE: Recibe la cantidad de lineas leidas en el archivo
@@ -85,7 +85,7 @@ private:
     * POST: Si contador = 6 y ademas el genero de la lectua es "HISTORICA" entonces
     *     la novela es Historica y retorna True, caso contrario False
     */
-    bool validateHistoricNovel(int contador) const;
+    bool validateHistoricalNovel(int contador) const;
 
     /*
     * PRE: Recibe la cantidad de lineas leidas en el archivo
@@ -164,6 +164,7 @@ private:
     void newReadingList(List<Reading*> *l);
 
 public:
+
     /*
      * PRE: -
      * POST: Construye  un Parser
@@ -189,9 +190,6 @@ public:
      * POST: Destruye la lista de Lecturas
      */
     ~ReadingsFileParser();
-
-
-
 
 };
 
