@@ -148,7 +148,7 @@ void ReadingsFileParser::reserveThemeMemory(char* &t) {
 }
 
 Reading *ReadingsFileParser::newTale() {
-    (this->reading) = new Cuento(
+    (this->reading) = new Tale(
             this->id,
             this->title,
             this->minutes,
@@ -159,7 +159,7 @@ Reading *ReadingsFileParser::newTale() {
 }
 
 Reading *ReadingsFileParser::newPoem() {
-    (this->reading) = new Poema(
+    (this->reading) = new Poem(
             this->id,
             this->title,
             this->minutes,
@@ -171,7 +171,7 @@ Reading *ReadingsFileParser::newPoem() {
 
 Reading *ReadingsFileParser::newNovel() {
     if (this->genre != Genres::HISTORICA) {
-        this->reading = new Novela(
+        this->reading = new Novel(
                 this->id,
                 this->title,
                 this->minutes,
@@ -183,7 +183,7 @@ Reading *ReadingsFileParser::newNovel() {
 }
 
 Reading *ReadingsFileParser::newHistoricalNovel() {
-    this->reading = new Historica(
+    this->reading = new Historical(
             this->id,
             this->title,
             this->minutes,

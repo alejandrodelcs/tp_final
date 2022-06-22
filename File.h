@@ -1,5 +1,5 @@
-#ifndef TP_2_FICHERO_H
-#define TP_2_FICHERO_H
+#ifndef TP_2_FILE_H
+#define TP_2_FILE_H
 
 #include <fstream>
 #include <string>
@@ -41,4 +41,4 @@ public:
     ~File();
 };
 
-#endif //TP_2_FICHERO_H
+#endif //TP_2_FILE_H

@@ -1,5 +1,5 @@
-#ifndef TP_FINAL_NODO_H
-#define TP_FINAL_NODO_H
+#ifndef TP_FINAL_NODE_H
+#define TP_FINAL_NODE_H
 #include <string>
 
 using namespace std;
@@ -65,4 +65,4 @@ Node<Type>::~Node() {
 }
 
 
-#endif //TP_FINAL_NODO_H
+#endif //TP_FINAL_NODE_H
