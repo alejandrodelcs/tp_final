@@ -8,6 +8,11 @@
 - Implementar las modificaciones de lecturas<br>
 - Implementar tabla de hashing<br>
 - Implementar menu<br>
+- > Implementar metodo: agregar nueva lectura a la lista.<br>
+- > Implementar metodo: quitar lectura de la lista.<br>
+- > Implementar metodo: Listar todas las lecturas.<br>
+- > Implementar metodo: Listar todos los escritores.<br>
+- > Implementar metodo: Mostrar MST (Incluyendo su costo).<br>
 
 <h2>Introducción </h2>
 Luego de unos meses de estar en el club de lectura Sid comenzó a aficionarse a llevar un
