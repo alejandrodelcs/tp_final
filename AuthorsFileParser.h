@@ -19,6 +19,7 @@ private:
     int death;
     std::string name;
     std::string nationality;
+    Author *newAuthor
 
     /*
      * PRE:
@@ -49,6 +50,18 @@ private:
      * POST: Valida el ultimo escritor del archivo
      */
     void validateEOFAuthor(int count);
+
+    /*
+     * PRE:
+     * POST: Reserva espacio de memoria para un tipo de dato Escritor
+     */
+    void buildNewAuthor();
+
+    /*
+     * PRE:
+     * POST: da de alta en la lista Escritores un nuevo escritor
+     */
+    void addAuthor();
 
     /*
      * PRE:-

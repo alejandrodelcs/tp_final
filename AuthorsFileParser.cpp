@@ -2,6 +2,7 @@
 
 AuthorsFileParser::AuthorsFileParser() {
     file.open("escritores.txt");
+    this->newAuthor = nullptr;
 }
 
 void AuthorsFileParser::getAuthor(List<Author*> *e) {
@@ -9,27 +10,34 @@ void AuthorsFileParser::getAuthor(List<Author*> *e) {
     this->authors = e;
     while (!file.eof()) {
         fileLine = file.read();
-        if (newReference()) {
+        if (newReference())
             count = 0;
-        }
         validateAuthorFile(count);
         if (count == 4) {
-            addNewAuthor();
+            validateNewAuthor();
         }
         validateEOFAuthor(count);
         count++;
     }
 }
 
+void AuthorsFileParser::validateNewAuthor() {
+    buildNewAuthor();
+    addAuthor();
+}
+
 void AuthorsFileParser::addNewAuthor() {
-    Author *author = new Author(
+    authors->add(this->newAuthor);
+}
+
+void AuthorsFileParser::buildNewAuthor() {
+    this->newAuthor = new Author(
         this->isni,
         this->name,
         this->nationality,
         this->birth,
         this->death
     );
-    authors->add(author);
 }
 
 void AuthorsFileParser::validateEOFAuthor(int count) {
@@ -40,7 +48,7 @@ void AuthorsFileParser::validateEOFAuthor(int count) {
             validateAuthorFile(count);
             count += 1;
         }
-        addNewAuthor();
+        validateNewAuthor();
     }
 }
 
