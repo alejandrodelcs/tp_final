@@ -8,10 +8,11 @@
 #include "List.h"
 
 class AuthorsFileParser {
+
 private:
+
     File file;
     std::string fileLine;
-    Author *author;
     List<Author*> *authors;
     int isni;
     int birth;
@@ -19,66 +20,49 @@ private:
     std::string name;
     std::string nationality;
 
-
     /*
-     * PRE:-
+     * PRE:
      * POST: retorna el ID (numero de referencia) de la linea del fichero
      */
     int getISNI();
 
     /*
-      * PRE:-
-      * POST: retorna el nombre de la linea del fichero
-      */
+     * PRE:
+     * POST: retorna el nombre de la linea del fichero
+     */
     bool validateFileLine();
 
     /*
-   * PRE:-
-   * POST: Inicializa los datos traidos del archivos escritores
-   */
+     * PRE:
+     * POST: Inicializa los datos traidos del archivos escritores
+     */
     void validateAuthorFile(int count);
 
     /*
-   * PRE:-
-   * POST: Retorna el número al que se hará referencia en el archivo de lecturas
-   */
+     * PRE:
+     * POST: Retorna el número al que se hará referencia en el archivo de lecturas
+     */
     bool newReference();
 
-
     /*
-     * PRE: -
+     * PRE:
      * POST: Valida el ultimo escritor del archivo
      */
     void validateEOFAuthor(int count);
 
-
     /*
-     * PRE:  -
-     * POST: Reserva espacio de memoria para un tipo de dato Escritor
+     * PRE:-
+     * POST: Adds the new author to the main list of authors.
      */
-    void newAuthor();
-
-    /*
-     * PRE: -
-     * POST: da de alta en la lista Escritores un nuevo escritor
-     */
-    void addAuthor();
-
-    /*
-   * PRE:-
-   * POST:  Valida que los datos asociados a un escritor no pase el número de referencia,
-    *       si es valido, crea un nuevo escritor y da de alta.
-   */
-    void validateNewAuthor();
+    void addNewAuthor();
 
 public:
 
-    /*
+    /* Constructor
      * PRE:
      * POST: construye un nuevo parserEscritor
      */
     AuthorsFileParser();
-
 
     /*
      * PRE:
@@ -86,9 +70,8 @@ public:
      */
     void getAuthor(List<Author*> *e);
 
-
-    /*
-     * PRE: -
+    /* Destructor
+     * PRE:
      * POST: Destruye la lista de Escritores
      */
     ~AuthorsFileParser();

@@ -2,7 +2,6 @@
 
 AuthorsFileParser::AuthorsFileParser() {
     file.open("escritores.txt");
-    this->author = nullptr;
 }
 
 void AuthorsFileParser::getAuthor(List<Author*> *e) {
@@ -10,22 +9,28 @@ void AuthorsFileParser::getAuthor(List<Author*> *e) {
     this->authors = e;
     while (!file.eof()) {
         fileLine = file.read();
-        if (newReference())
+        if (newReference()) {
             count = 0;
+        }
         validateAuthorFile(count);
         if (count == 4) {
-            validateNewAuthor();
+            addNewAuthor();
         }
         validateEOFAuthor(count);
         count++;
     }
 }
 
-void AuthorsFileParser::validateNewAuthor() {
-    newAuthor();
-    addAuthor();
+void AuthorsFileParser::addNewAuthor() {
+    Author *author = new Author(
+        this->isni,
+        this->name,
+        this->nationality,
+        this->birth,
+        this->death
+    );
+    authors->add(author);
 }
-
 
 void AuthorsFileParser::validateEOFAuthor(int count) {
     if (file.eof() && count < 4) {
@@ -35,7 +40,7 @@ void AuthorsFileParser::validateEOFAuthor(int count) {
             validateAuthorFile(count);
             count += 1;
         }
-        validateNewAuthor();
+        addNewAuthor();
     }
 }
 
@@ -57,23 +62,9 @@ void AuthorsFileParser::validateAuthorFile(int count) {
             death = validateFileLine() ? UNKNOWN_DATA : std::stoi(fileLine);
             break;
         default:
-            std::cout<<std::endl;
+            std::cout << std::endl;
             break;
     }
-}
-
-void AuthorsFileParser::addAuthor() {
-    authors->add(this->author);
-}
-
-void AuthorsFileParser::newAuthor() {
-    author = new Author(
-        this->isni,
-        this->name,
-        this->nationality,
-        this->birth,
-        this->death
-    );
 }
 
 bool AuthorsFileParser::newReference() {

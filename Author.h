@@ -4,13 +4,17 @@
 #include <string>
 
 class Author{
+    
 private:
+
     int isni;
     std::string name;
     std::string nationality;
     int birth;
     int death;
+
 public:
+
     /* Constructor
     * PRE:
     * POST: Builds a new author.
