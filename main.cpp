@@ -84,11 +84,11 @@ int main() {
     */
 
     AuthorsFileParser p;
-    List<Reading*> *l = new List<Reading*>;
-    p.getReading(l);
+    List<Author*> *l = new List<Author*>;
+    p.getAuthor(l);
 
     while(l->moveCursor()){
-        l->getCursor()->mostrar();
+        l->getCursor()->display();
     }
     return 0;
 }

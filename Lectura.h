@@ -51,7 +51,7 @@ public:
      * PRE:
      * POST: Setea un nuevoEscritor relacionado con la Lectura
      */
-    void setAutor(Author *author);
+    void setAuthor(Author *author);
 
     /*
      * PRE:

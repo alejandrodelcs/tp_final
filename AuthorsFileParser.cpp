@@ -1,60 +1,60 @@
 #include "AuthorsFileParser.h"
 
-ParserEscritor::ParserEscritor() {
-    datos.open("escritores.txt");
-    this->escritor = nullptr;
+AuthorsFileParser::AuthorsFileParser() {
+    data.open("escritores.txt");
+    this->author = nullptr;
 }
 
-void ParserEscritor::obtenerDatosEscritor(List<Author*> *e) {
-    int contador = 0;
-    this->escritores = e;
-    while (!datos.endOfFile()) {
-        lineaFichero = datos.read();
-        if (nuevaReferencia())
-            contador = 0;
-        procesarLineaEscritor(contador);
-        if (contador == 4) {
-            validaNuevoEscritor();
+void AuthorsFileParser::getAuthor(List<Author*> *e) {
+    int count = 0;
+    this->authores = e;
+    while (!data.endOfFile()) {
+        fileLine = data.read();
+        if (newReference())
+            count = 0;
+        validateAuthorFile(count);
+        if (count == 4) {
+            validateNewAuthor();
         }
-        validaFinFicheroEscritor(contador);
-        contador++;
+        validateEOFAuthor(count);
+        count++;
     }
 }
 
-void ParserEscritor::validaNuevoEscritor() {
-    nuevoEscritor();
-    altaNuevoEscritor();
+void AuthorsFileParser::validateNewAuthor() {
+    newAuthor();
+    addAuthor();
 }
 
 
-void ParserEscritor::validaFinFicheroEscritor(int contador) {
-    if (datos.endOfFile() && contador<4) {
-        contador += 1;
-        lineaFichero = " ";
-        while (contador <= 4) {
-            procesarLineaEscritor(contador);
-            contador += 1;
+void AuthorsFileParser::validateEOFAuthor(int count) {
+    if (data.endOfFile() && count < 4) {
+        count += 1;
+        fileLine = " ";
+        while (count <= 4) {
+            validateAuthorFile(count);
+            count += 1;
         }
-        validaNuevoEscritor();
+        validateNewAuthor();
     }
 }
 
-void ParserEscritor::procesarLineaEscritor(int contador) {
-    switch (contador) {
+void AuthorsFileParser::validateAuthorFile(int count) {
+    switch (count) {
         case ID:
-            id = devuelveId();
+            id = getId();
             break;
         case NOMBRE:
-            nombre = validarLineaFichero() ? " " : lineaFichero;
+            name = validateFileLine() ? " " : fileLine;
             break;
         case NACIONALIDAD:
-            nacionalidad = validarLineaFichero() ? " " : lineaFichero;
+            nationality = validateFileLine() ? " " : fileLine;
             break;
         case ANIO_NACIMIENTO:
-            anioNacimiento = validarLineaFichero() ? DATO_DESCONOCIDO : std::stoi(lineaFichero);
+            birth = validateFileLine() ? DATO_DESCONOCIDO : std::stoi(fileLine);
             break;
         case ANIO_FALLECIMIENTO:
-            anioFallecimiento = validarLineaFichero() ? DATO_DESCONOCIDO : std::stoi(lineaFichero);
+            death = validateFileLine() ? DATO_DESCONOCIDO : std::stoi(fileLine);
             break;
         default:
             std::cout<<std::endl;
@@ -62,32 +62,32 @@ void ParserEscritor::procesarLineaEscritor(int contador) {
     }
 }
 
-void ParserEscritor::altaNuevoEscritor() {
-    escritores->alta(this->escritor);
+void AuthorsFileParser::addAuthor() {
+    authores->add(this->author);
 }
 
-void ParserEscritor::nuevoEscritor() {
-    escritor = new Author(this->id, this->nombre, this->nacionalidad,
-                            this->anioNacimiento, this->anioFallecimiento);
+void AuthorsFileParser::newAuthor() {
+    author = new Author(this->id, this->name, this->nationality,
+                        this->birth, this->death);
 }
 
 
-bool ParserEscritor::nuevaReferencia() {
-    return (this->lineaFichero[0] == '(');
+bool AuthorsFileParser::newReference() {
+    return (this->fileLine[0] == '(');
 }
 
-int ParserEscritor::devuelveId() {
-    return std::stoi(this->lineaFichero.substr(REFERENCIA, lineaFichero.find(')')));
+int AuthorsFileParser::getId() {
+    return std::stoi(this->fileLine.substr(REFERENCE, fileLine.find(')')));
 }
 
-bool ParserEscritor::validarLineaFichero() {
-    return (this->lineaFichero.length() <= LINEA_VACIA);
+bool AuthorsFileParser::validateFileLine() {
+    return (this->fileLine.length() <= EMPTY_LINE);
 }
 
-ParserEscritor::~ParserEscritor() {
-    escritores->iniciarCursor();
-    while (escritores->avanzarCursor())
-        delete escritores->obtenerCursor();
-    delete escritores;
-    escritores = nullptr;
+AuthorsFileParser::~AuthorsFileParser() {
+    authores->startCursor();
+    while (authores->moveCursor())
+        delete authores->getCursor();
+    delete authores;
+    authores= nullptr;
 }
