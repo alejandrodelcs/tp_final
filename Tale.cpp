@@ -1,6 +1,6 @@
-#include "Story.h"
+#include "Tale.h"
 
-Story::Story(int id, std::string &title, unsigned int minutes, unsigned int PublishYear, const std::string& book)
+Tale::Tale(int id, std::string &title, unsigned int minutes, unsigned int PublishYear, const std::string& book)
         : Reading(title, minutes, PublishYear) {
     this->type = 'C';
     this->id = id;
@@ -10,7 +10,7 @@ Story::Story(int id, std::string &title, unsigned int minutes, unsigned int Publ
     this->PublishYear = PublishYear;
 }
 
-void Story::display() {
+void Tale::display() {
     std::cout << "Cuento"
                  "\nTitulo: " << title <<
               "\nTiempo de lectura: " << minutes <<

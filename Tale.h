@@ -1,8 +1,8 @@
-#ifndef TP_2_STORY_H
-#define TP_2_STORY_H
+#ifndef TP_2_TALE_H
+#define TP_2_TALE_H
 #include "Reading.h"
 
-class Story : public Reading {
+class Tale : public Reading {
 private:
     std::string book;
 public:
@@ -10,7 +10,7 @@ public:
      * PRE: -
      * POST: Construye un Cuento
      */
-    Story(int id, std::string &title, unsigned int minutes, unsigned int PublishYear, const std::string& book);
+    Tale(int id, std::string &title, unsigned int minutes, unsigned int PublishYear, const std::string& book);
 
     /*
      * PRE: -
@@ -22,7 +22,7 @@ public:
      * PRE: -
      * POST: Destruye el Cuento
      */
-    ~Story()= default;;
+    ~Tale()= default;;
 };
 
-#endif //TP_2_STORY_H
+#endif //TP_2_TALE_H
