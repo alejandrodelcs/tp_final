@@ -5,57 +5,57 @@
 
 class Author{
 private:
-    int id;
+    int isni;
     std::string name;
-    std::string nacionality;
-    int yearBirth;
-    int yearDeath;
+    std::string nationality;
+    int birth;
+    int death;
 public:
     /* Constructor
-    * PRE: -
-    * POST: Builds a new Author.
+    * PRE:
+    * POST: Builds a new author.
     */
-    Author(int id, std::string name, std::string nacionality, int yearBirth, int yearDeath);
+    Author(int isni, std::string name, std::string nacionality, int yearBirth, int yearDeath);
 
     /*
      * PRE:
-     * POST: Retorna el ID o número de referencia del Escrtor (Autor)
+     * POST: Returns the author's ISNI.
      */
-    int getId();
+    int getISNI();
 
     /*
      * PRE:
-     * POST: Retorna el nombre del Escrtor (Autor)
+     * POST: Returns the author's name.
      */
     std::string getName();
 
     /*
      * PRE:
-     * POST: Retorna la nacionalidad del Escrtor (Autor)
+     * POST: Returns the author's nationality.
      */
     std::string getNationality();
 
     /*
      * PRE:
-     * POST: Retorna la fecha de nacimiento del Escrtor (Autor)
+     * POST: Returns the author's birth year.
      */
-    int devolverBirth() const;
+    int getBirth() const;
 
     /*
      * PRE:
-     * POST: Retorna la fecha de fallecimiento del Escrtor (Autor)
+     * POST: Returns the author's death year.
      */
-    int devolverDeath() const;
+    int getDeath() const;
 
     /*
      * PRE:
-     * POST: Setea (Asigna) la fecha del fallecimiento del Escrtor (Autor)
+     * POST: Designates the author's death year.
      */
-    void setYearDeath(int yearDeath);
+    void setDeath(int yearDeath);
 
     /*
      * PRE:
-     * POST: Muestra los atributos del Escrtor (Autor)
+     * POST: Shows the author's object attributes.
      */
     void display();
 

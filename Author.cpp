@@ -1,15 +1,15 @@
 #include "Author.h"
 
-Author::Author(int id, std::string name, std::string nacionality, int yearBirth, int yearDeath) {
-    this->id = id;
+Author::Author(int isni, std::string name, std::string natonality, int birth, int death) {
+    this->isni = isni;
     this->name = name;
-    this->nacionality = nacionality;
-    this->yearBirth = yearBirth;
-    this->yearDeath = yearDeath;
+    this->nationality = natonality;
+    this->birth = birth;
+    this->death = death;
 }
 
-int Author::getId() {
-    return this->id;
+int Author::getISNI() {
+    return this->isni;
 }
 
 std::string Author::getName() {
@@ -17,28 +17,30 @@ std::string Author::getName() {
 }
 
 std::string Author::getNationality() {
-    return this->nacionality;
+    return this->nationality;
 }
 
-int Author::devolverBirth() const {
-    return this->yearBirth;
+int Author::getBirth() const {
+    return this->birth;
 }
 
-int Author::devolverDeath() const {
-    return this->yearDeath;
+int Author::getDeath() const {
+    return this->death;
 }
 
-void Author::setYearDeath(int yearDeath) {
-    this->yearDeath = yearDeath;
+void Author::setDeath(int death) {
+    this->death = death;
 }
 
 void Author::display() {
-    std::cout << "Referencia: " << getId() << std::endl;
-    std::cout << "Autor: " << getName() << std::endl;
-    std::cout << "Nacionalidad: " << getNationality() << std::endl;
-    if (devolverBirth() != -1)
-        std::cout << "Anio de nacimiento: " << devolverBirth() << std::endl;
-    if (devolverDeath() != -1)
-        std::cout << "Anio de fallecimiento: " << devolverDeath() << std::endl;
+    std::cout << "ISNI: " << getISNI() << std::endl;
+    std::cout << "Author: " << getName() << std::endl;
+    std::cout << "Nationality: " << getNationality() << std::endl;
+    if (getBirth() != -1) {
+        std::cout << "Birth: " << getBirth() << std::endl;
+    }
+    if (getDeath() != -1) {
+        std::cout << "Death: " << getDeath() << std::endl;
+    }
     std::cout << std::endl;
 }
