@@ -185,6 +185,9 @@ public:
     void addSortedReading(Reading* l);
 
 
+    void displayReadings();
+
+
     /*
      * PRE:
      * POST: Destruye la lista de Lecturas
