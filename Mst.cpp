@@ -1,4 +1,5 @@
 #include "Mst.h"
+#include "Historical.h"
 #include <utility>
 
 Mst::Mst(int nodes,std::vector<std::vector<int>> adjMatrix) {
@@ -106,9 +107,9 @@ int Mst::validarTipo(Reading *reading){
     }
     else if (reading->getType() == NOVEL){
         typeNum= 3;
-        /*if ( == Genres::HISTORICAL){
+        if (dynamic_cast<Historical*>(reading)->getGenre() == Genres::HISTORICAL){
             typeNum=4;
-        }*/
+        }
     }
 }
 
