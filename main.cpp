@@ -72,6 +72,12 @@ int main() {
     std::cout << "Hash Table:" << std::endl;
     ht.display();
     /*
+    rawHashTable->startCursor();
+    while (rawHashTable->moveCursor()) {
+        rawHashTable->getCursor()->display();
+    }
+    */
+    /*
     ht.removeElement(AuthorA);
     std::cout << endl << "Hash Table:" << std::endl;
     ht.display();

@@ -234,7 +234,6 @@ Type List<Type>::getCursor() {
     return element;
 }
 
-
 template<typename Type>
 List<Type>::~List() {
     while (this->first != nullptr){

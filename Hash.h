@@ -1,13 +1,13 @@
 #ifndef TP_FINAL_HASH_H
 #define TP_FINAL_HASH_H
-#include <list>
+#include "List.h"
 
 template < typename Type >
 class HashTable {
 
 private:
 
-    list<Type> *table;
+    List<Type> *table;
     int size;
 
     int getHash(int key);
@@ -43,13 +43,13 @@ int HashTable<Type>::getHash(int key) {
 
 template<typename Type>
 HashTable<Type>::HashTable(int n) {
-    table = new list<Type>[n];
+    table = new List<Type>[n];
     this->size = n;
 }
 
 template<typename Type>
 void HashTable<Type>::insertElement(Type value, int key) {
-    table[getHash(key)].push_back(value);
+    table[getHash(key)].add(value);
 }
 
 template<typename Type>
@@ -74,16 +74,26 @@ void HashTable<Type>::removeElement(Type value) {
 
 template<typename Type>
 void HashTable<Type>::display() {
-    // Traverse each index:
+    //return this->table;
+
+    /*
+
     for(int i = 0; i < this->size; i++) {
         std::cout << "Attempting to display the value of index " << i << "... ";
         // Traverse the list at current index:
+
+
+
+
         for (Type j : table[i]) {
             j.display();
         }
+
     
         std::cout << std::endl;
     }
+    */
+    
 }
 
 #endif //TP_FINAL_HASH_H

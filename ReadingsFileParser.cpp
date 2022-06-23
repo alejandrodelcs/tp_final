@@ -77,10 +77,8 @@ void ReadingsFileParser::validateTypeReading() {
 }
 
 Genres ReadingsFileParser::validateGenre() {
-    std::string strGenres[] = {"HISTORICAL","DRAMA", "COMEDY", "FICTION", "THRILLER",
-                             "HORROR", "ROMANCE"};
-    Genres enumGenres[] = {Genres::HISTORICAL, Genres::DRAMA, Genres::COMEDY, Genres::FICTION, Genres::THRILLER,
-                            Genres::HORROR, Genres::ROMANCE};
+    std::string strGenres[] = {"HISTORICA", "DRAMA", "COMEDIA", "FICCION", "SUSPENSO", "TERROR", "ROMANTICA"};
+    Genres enumGenres[] = {Genres::HISTORICAL, Genres::DRAMA, Genres::COMEDY, Genres::FICTION, Genres::THRILLER, Genres::HORROR, Genres::ROMANCE};
     Genres element;
     bool found = false;
     int pos = 0;
@@ -124,10 +122,10 @@ Reading *ReadingsFileParser::buildNewReading(int contador) {
     Reading *element = nullptr;
     if (validateNewReading(contador) || validateHistoricalNovel(contador)) {
         if (type == TALE) {
-            this->genre = Genres::MISSING;
+            this->genre = Genres::UNKNOWN;
             element = this->buildNewTale();
         } else if (type == POEM) {
-            this->genre = Genres::MISSING;
+            this->genre = Genres::UNKNOWN;
             element = this->buildNewPoem();
         } else {
             element = this->buildNewNovel();

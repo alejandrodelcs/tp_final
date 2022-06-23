@@ -3,7 +3,7 @@
 #include <iostream>
 #include <string>
 
-class Author{
+class Author {
     
 private:
 
