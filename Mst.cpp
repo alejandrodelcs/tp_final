@@ -70,6 +70,53 @@ void Mst::primAlgorithm() {
     }
 }
 
+
+
+
+
+/* cuento - cuento 8 cuento - poema 0 cuento - novela 10 cuento - historica 15
+ * poema - cuento 0
+ *
+ * poema - novela 5
+ * poema - historica 20
+ * novela - historica 60
+ * poema - poema 1
+ * novela - novela 30
+ * historica - historica 80
+ * */
+
+int Mst::getCost(Reading initialReading, Reading endingReading){
+
+    int costs[4][4]= {
+            {8, 0, 10, 15},
+            {0, 1, 5, 20},
+            {10, 5, 30, 60},
+            {15, 20, 60, 80}
+    };
+
+}
+
+int Mst::validarTipo(Reading *reading){
+    int typeNum;
+    if (reading->getType() == TALE){
+        typeNum= 1;
+    }
+    else if (reading->getType() == POEM){
+        typeNum= 2;
+    }
+    else if (reading->getType() == NOVEL){
+        typeNum= 3;
+        /*if ( == Genres::HISTORICAL){
+            typeNum=4;
+        }*/
+    }
+}
+
+
+
+
+
+
 Mst::~Mst() {
     delete[] parent;
     delete[] visited;

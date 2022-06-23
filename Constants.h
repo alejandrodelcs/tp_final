@@ -3,7 +3,7 @@
 
 const int REFERENCE = 1;
 const int EMPTY_LINE = 1;
-const int UNKNOWN_DATA= -1;
+const int UNKNOWN_DATA = -1;
 const int GENRES_SIZE = 6;
 const int MINIMUM_YEAR = 900;
 enum writerData {ISNI_ID,NAME_ID,NATIONALITY_ID,BIRTH_ID,DEATH_ID};

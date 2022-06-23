@@ -2,7 +2,7 @@
 #define TP_FINAL_NOVEL_H
 #include "Reading.h"
 
-enum class Genres {DRAMA=1,COMEDY,FICTION,THRILLER,HORROR,ROMANCE,HISTORICAL,MISSING};
+enum class Genres {DRAMA=1,COMEDY,FICTION,THRILLER,HORROR,ROMANCE,HISTORICAL,UNKNOWN};
 
 class Novel : public Reading {
 protected:
