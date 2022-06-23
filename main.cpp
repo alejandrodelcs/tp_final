@@ -3,6 +3,11 @@
 #include "Graph.h"
 #include "Reading.h"
 #include "AuthorsFileParser.h"
+
+
+#include "Hash.h" // By Ian
+
+
 //Prims is applied to find MST to a graph with property of graph as follows:-
 //1) Undirected
 //2) Connected
@@ -48,7 +53,33 @@
 */
 
 
+
 int main() {
+
+
+    /* Hashing code by Ian*/
+    // Create a hash table of 20 authors:
+    HashTable<Author> ht(20);
+    // Declare some authors for the hash table:
+    Author AuthorA = Author(1001, "Autor A", "Pais del autor A", 1901, 2001);
+    Author AuthorB = Author(1003, "Autor B", "Pais del autor B", 1903, 2003);
+    Author AuthorC = Author(1003, "Autor B", "Pais del autor B", 1903, 2003);
+    // Insert the elements in the hash table:
+    ht.insertElement(AuthorA, AuthorA.getISNI());
+    ht.insertElement(AuthorB, AuthorB.getISNI());
+    ht.insertElement(AuthorC, AuthorC.getISNI());
+
+    std::cout << "Hash Table:" << std::endl;
+    ht.display();
+    /*
+    ht.removeElement(AuthorA);
+    std::cout << endl << "Hash Table:" << std::endl;
+    ht.display();
+    */
+    /* End of hashing code */ 
+
+
+/*
 
 
     Graph<int> graph;
@@ -81,7 +112,7 @@ int main() {
     mst.primAlgorithm();
     mst.calcMinDistance();
 
-    /*
+    
      AuthorsFileParser p;
      List<Author*> *l = new List<Author*>;
      p.getAuthor(l);
