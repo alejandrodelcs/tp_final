@@ -250,3 +250,11 @@ void ReadingsFileParser::addSortedReading(Reading* l) {
         position++;
     }
 }
+
+void ReadingsFileParser::displayReadings() {
+    this->readings->getCursor();
+    while (this->readings->moveCursor()) {
+        this->readings->getCursor()->display();
+    }
+
+}
