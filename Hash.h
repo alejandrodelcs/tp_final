@@ -7,7 +7,7 @@ class HashTable {
 
 private:
 
-    List<Type> *table;
+    List<Type>* table;
     int size;
 
     int getHash(int key);
@@ -75,24 +75,36 @@ void HashTable<Type>::removeElement(Type value) {
 template<typename Type>
 void HashTable<Type>::display() {
     //return this->table;
+    int i = 0; int j = 0;
+    Type hashItem;
+    this->table->startCursor();
+    while (this->table->moveCursor()) {
+        std::cout << "i = " << i << std::endl;
+        hashItem = this->table->getCursor();
+        hashItem->startCursor();
+        while (hashItem->moveCursor()) {
+            std::cout << "  j = " << j << std::endl;
+            hashItem->getCursor()->display();
+            j++;
+        }
+        i++;
+    }
 
-    /*
+
+
+
 
     for(int i = 0; i < this->size; i++) {
-        std::cout << "Attempting to display the value of index " << i << "... ";
+        //std::cout << "Attempting to display the value of index " << i << "... ";
         // Traverse the list at current index:
-
-
-
-
+        /*
         for (Type j : table[i]) {
             j.display();
         }
-
-    
-        std::cout << std::endl;
+        */    
+        //std::cout << std::endl;
     }
-    */
+    
     
 }
 
