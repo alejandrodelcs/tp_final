@@ -19,7 +19,7 @@ public:
     * PRE:
     * POST: Builds a new author.
     */
-    Author(int isni, std::string name, std::string nacionality, int yearBirth, int yearDeath);
+    Author(int isni, std::string name, std::string nationality, int yearBirth, int yearDeath);
 
     /*
      * PRE:

@@ -1,9 +1,9 @@
 #include "Author.h"
 
-Author::Author(int isni, std::string name, std::string natonality, int birth, int death) {
+Author::Author(int isni, std::string name, std::string nationality, int birth, int death) {
     this->isni = isni;
     this->name = name;
-    this->nationality = natonality;
+    this->nationality = nationality;
     this->birth = birth;
     this->death = death;
 }
