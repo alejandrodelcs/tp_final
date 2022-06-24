@@ -13,20 +13,25 @@ private:
     List<Author*> *authors;
     ReadingsFileParser pReading;
     AuthorsFileParser  pAuthors;
+    bool end;
 
-    void * newReading();
-    void * newAuthor();
-    void * displayAuthors();
-    void * displayReadings();
-    void * shorterReadingTime();
+    void  newReading();
+    void  newAuthor();
+    void  displayAuthors();
+    void  displayReadings();
+    void  shorterReadingTime();
+    void  validateInputOption();
     void generateList();
+    void input();
     void options();
 
 public:
     Menu();
     void displayMenu();
-    int input();
 
+    void interaction();
+
+    ~Menu();
 
 };
 
