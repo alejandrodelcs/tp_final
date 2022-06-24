@@ -49,7 +49,7 @@ HashTable<Type>::HashTable(int n) {
 
 template<typename Type>
 void HashTable<Type>::insertElement(Type value, int key) {
-    table[getHash(key)].add(value);
+    table->add(value,getHash(key));
 }
 
 template<typename Type>
