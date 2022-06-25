@@ -1,10 +1,11 @@
 #ifndef TP_FINAL_HASH_H
 #define TP_FINAL_HASH_H
+#include "List.h"
 
-template < typename Type >
+template <typename Type>
 class HashTable {
     private:
-        Type* table;
+        List<Type>* table;
         int size;
         /* Constructor
         * PRE:
@@ -16,17 +17,7 @@ class HashTable {
         * PRE:
         * POST: Builds a new hash table of size 'n'
         */
-        explicit HashTable(int n);
-        /*
-        * PRE:
-        * POST:
-        */
-        void handleCollisionA(int* position);        
-        /*
-        * PRE:
-        * POST:
-        */
-        void handleCollision(int position, Type newValue);        
+        explicit HashTable(int n);     
         /* 
         * PRE:
         * POST: Inserts a new element to the hash table
@@ -44,52 +35,54 @@ class HashTable {
         void display();
 };
 
-template<typename Type>
-HashTable<Type>::HashTable(int n) {
-    table = new Type[n];
-    this->size = n;
+template <typename Type>
+HashTable<Type>::HashTable(int size) {
+    this->table = new List<Type> [size];
+    this->size = size;
 }
 
-template<typename Type>
+template <typename Type>
 int HashTable<Type>::getHash(int key) {
     return key % this->size;
 }
 
-template<typename Type>
-void HashTable<Type>::handleCollisionA(int* position) {
-    int newPosition = 0;
-    newPosition = 0;
-    while ((newPosition < size) && (table[newPosition] != nullptr)) {
-        newPosition++;
-    }
-    if (newPosition != size) {
-        *position = newPosition;
-    }
-}
-
-template<typename Type>
-void HashTable<Type>::handleCollision(int position,Type newValue) {
-    table[position]->concatenate(newValue);
-}
-
-template<typename Type>
+template <typename Type>
 void HashTable<Type>::insertElement(Type value, int key) {
-    int position = getHash(key);
-    if (table[position] != nullptr) {
-        //handleCollisionA(&position);
-        handleCollision(position, value);
-    } else {
-        table[position] = value;
-    }
+    int position = getHash(key); 
+    int listSize = table[position].getNumberOfElements();
+    table[position].add(value);
 }
 
-template<typename Type>
+template <typename Type>
 void HashTable<Type>::removeElement(int position) {
     table[position] = nullptr;
 }
 
-template<typename Type>
+template <typename Type>
 void HashTable<Type>::display() {
+    int listId, listSize;
+    for (int tableId = 0; tableId < size; tableId++) {
+        if (table[tableId].getNumberOfElements() != 0) {
+            listId = 0;
+            table[tableId].startCursor();
+            listSize = table[tableId].getNumberOfElements();
+            std::cout << "[ ";
+            while (table[tableId].moveCursor()) {
+                std::cout << table[tableId].getCursor()->getISNI();
+                listId++;
+                if (listId < listSize) {
+                    std::cout << ", ";
+                }
+            }
+            std::cout << " ]";
+        }
+        std::cout << std::endl;
+    }
+
+
+
+
+    /*
     int listIndex, listSize;
     for(int tableIndex = 0; tableIndex < size; tableIndex++) {
         if (table[tableIndex] != nullptr) {
@@ -108,6 +101,7 @@ void HashTable<Type>::display() {
         }
         std::cout << std::endl;
     }
+    */
 }
 
 #endif //TP_FINAL_HASH_H

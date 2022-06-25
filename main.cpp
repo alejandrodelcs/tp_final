@@ -58,43 +58,26 @@ int main() {
 
     /* Hashing code by Ian */
     // Create a hash table of 20 authors:
-    HashTable<List<Author*>*> ht(10);
+    HashTable<Author*> ht(20);
     // Declare some authors for the hash table:
     Author* AuthorA = new Author(1001, "Autor A", "Pais del autor A", 1901, 2001);
     Author* AuthorB = new Author(1002, "Autor B", "Pais del autor B", 1902, 2002);
     Author* AuthorC = new Author(1003, "Autor C", "Pais del autor C", 1903, 2003);
-    List<Author*> *listaA = new List<Author*>;
-    listaA->add(AuthorA); listaA->add(AuthorB);listaA->add(AuthorC);
-    List<Author*> *listaB = new List<Author*>;
-    listaB->add(AuthorB);listaB->add(AuthorA);listaB->add(AuthorC);listaB->add(AuthorB);
-    List<Author*> *listaC = new List<Author*>;
-    listaC->add(AuthorA);listaC->add(AuthorB);
-
     // Insert the elements in the hash table:
-    ht.insertElement(listaA, 0);
-    ht.insertElement(listaB, 1);
-    ht.insertElement(listaC, 2);
-    ht.insertElement(listaA, 3);
-    ht.insertElement(listaB, 3);
-    ht.insertElement(listaA, 5);
-    ht.insertElement(listaB, 6);
-    ht.insertElement(listaC, 7);
-    ht.insertElement(listaB, 8);
-    ht.insertElement(listaC, 8);
+    ht.insertElement(AuthorA, 0);
+    ht.insertElement(AuthorB, 1);
+    ht.insertElement(AuthorC, 2);
+    ht.insertElement(AuthorA, 3);
+    ht.insertElement(AuthorB, 23);    
+
+    ht.insertElement(AuthorA, 5);
+    ht.insertElement(AuthorB, 6);
+    ht.insertElement(AuthorC, 7);
+    ht.insertElement(AuthorB, 8);
+    ht.insertElement(AuthorC, 28);
 
     std::cout << "Hash Table:" << std::endl;
     ht.display();
-    /*
-    rawHashTable->startCursor();
-    while (rawHashTable->moveCursor()) {
-        rawHashTable->getCursor()->display();
-    }
-    */
-    /*
-    ht.removeElement(AuthorA);
-    std::cout << endl << "Hash Table:" << std::endl;
-    ht.display();
-    */
     /* End of hashing code */ 
 
 
