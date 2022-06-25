@@ -47,7 +47,6 @@ int HashTable<Type>::getHash(int key) {
 
 template<typename Type>
 void HashTable<Type>::insertElement(Type value, int key) {
-    std::cout << "Putting the value " << value << " in the slot " << getHash(key) << std::endl;
     table[getHash(key)] = value;
 }
 
@@ -73,18 +72,23 @@ void HashTable<Type>::removeElement(Type value) {
 
 template<typename Type>
 void HashTable<Type>::display() {
-    int j;
+    int j, numberOfElements;
     for(int i = 0; i < this->size; i++) {
-        std::cout << "i = " << i << std::endl;
         if (this->table[i] != nullptr) {
-            this->table[i]->startCursor();
             j = 0;
+            this->table[i]->startCursor();
+            numberOfElements = this->table[i]->getNumberOfElements();
+            std::cout << "[ ";
             while (this->table[i]->moveCursor()) {
-                std::cout << "  j = " << j << std::endl << std::endl;
-                this->table[i]->getCursor()->display();
+                std::cout << this->table[i]->getCursor()->getISNI();
                 j++;
+                if (j < numberOfElements) {
+                    std::cout << ", ";
+                }
             }
+            std::cout << " ]";
         }
+        std::cout << std::endl;
     }
 }
 
