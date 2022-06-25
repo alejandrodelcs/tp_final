@@ -78,9 +78,9 @@ int main() {
     ht.display();
     /* End of hashing code */ 
 
-    Author* searchedAuthor = ht.searchElement(3);
+    Author* searchedAuthor = ht.searchElement(13);
     if (searchedAuthor != NULL) {
-        std::cout << "Result of searching the key 3 on the hash table: " << searchedAuthor->getName() << std::endl;
+        std::cout << "Result of searching the key 13 on the hash table: " << searchedAuthor->getName() << std::endl;
     }
 
 

@@ -97,6 +97,8 @@ Type HashTable<Type>::searchElement(int key) {
         if (found) {
             returnedElement = table[position].getCursor();
         }
+        std::cout << "Author's ISNI == " << table[position].getCursor()->getISNI() << std::endl;
+        std::cout << "key == " << key << std::endl;
     } else if (listSize > 1) {
         table[position].startCursor();
         while (table[position].moveCursor() && !found ) {
@@ -107,9 +109,7 @@ Type HashTable<Type>::searchElement(int key) {
         }
     }
     if (!found) {
-        std::cout << "Key not found!" << std::endl;
-    } else {
-        std::cout << "Key found!" << std::endl;
+        returnedElement = NULL;
     }
     return returnedElement;
 }
@@ -141,4 +141,5 @@ void HashTable<Type>::display() {
 #endif //TP_FINAL_HASH_H
 
 // SOURCE: https://www.educative.io/answers/how-to-implement-a-hash-table-in-cpp
+
 // https://www.geeksforgeeks.org/hashing-set-2-separate-chaining/
