@@ -2,6 +2,7 @@
 #define TP_FINAL_MST_H
 #include "Reading.h"
 #include "Novel.h"
+#include "Reading.h"
 #include <iostream>
 #include <vector>
 const int INFINITY = 99999999;
@@ -37,9 +38,9 @@ public:
      * PRE:
      * POST:
      */
-    int getCost(Reading Reading1, Reading Reading2);
+    int getCost(Reading* Reading1, Reading* Reading2);
 
-    int validarTipo(Reading *reading);
+    int validarTipo(Reading* reading);
 
 
     /* Destructor

@@ -86,37 +86,32 @@ void Mst::primAlgorithm() {
  * historica - historica 80
  * */
 
-int Mst::getCost(Reading initialReading, Reading endingReading){
-
+int Mst::getCost(Reading* initialReading, Reading* endingReading) {
     int costs[4][4]= {
             {8, 0, 10, 15},
             {0, 1, 5, 20},
             {10, 5, 30, 60},
             {15, 20, 60, 80}
     };
-
+    int A = validarTipo(initialReading);
+    int B = validarTipo(endingReading);
+    return costs[A][B];
 }
 
-int Mst::validarTipo(Reading *reading){
+int Mst::validarTipo(Reading* reading) {
     int typeNum;
     if (reading->getType() == TALE){
         typeNum= 1;
-    }
-    else if (reading->getType() == POEM){
+    } else if (reading->getType() == POEM){
         typeNum= 2;
-    }
-    else if (reading->getType() == NOVEL){
+    } else if (reading->getType() == NOVEL){
         typeNum= 3;
         if (dynamic_cast<Historical*>(reading)->getGenre() == Genres::HISTORICAL){
             typeNum=4;
         }
     }
+    return typeNum;
 }
-
-
-
-
-
 
 Mst::~Mst() {
     delete[] parent;
