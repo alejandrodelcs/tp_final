@@ -1,15 +1,13 @@
 #ifndef TP_FINAL_HASH_H
 #define TP_FINAL_HASH_H
-#include "List.h"
 
 template < typename Type >
 class HashTable {
 
 private:
 
-    List<Type>* table;
+    Type* table;
     int size;
-
     int getHash(int key);
 
 public:
@@ -37,19 +35,20 @@ public:
 };
 
 template<typename Type>
+HashTable<Type>::HashTable(int n) {
+    table = new Type[n];
+    this->size = n;
+}
+
+template<typename Type>
 int HashTable<Type>::getHash(int key) {
     return key % this->size;
 }
 
 template<typename Type>
-HashTable<Type>::HashTable(int n) {
-    table = new List<Type>[n];
-    this->size = n;
-}
-
-template<typename Type>
 void HashTable<Type>::insertElement(Type value, int key) {
-    table->add(value,getHash(key));
+    std::cout << "Putting the value " << value << " in the slot " << getHash(key) << std::endl;
+    table[getHash(key)] = value;
 }
 
 template<typename Type>
@@ -75,35 +74,37 @@ void HashTable<Type>::removeElement(Type value) {
 template<typename Type>
 void HashTable<Type>::display() {
     //return this->table;
-    int i = 0; int j = 0;
-    Type hashItem;
-    this->table->startCursor();
-    while (this->table->moveCursor()) {
-        std::cout << "i = " << i << std::endl;
-        hashItem = this->table->getCursor();
-        hashItem->startCursor();
-        while (hashItem->moveCursor()) {
-            std::cout << "  j = " << j << std::endl;
-            hashItem->getCursor()->display();
-            j++;
-        }
-        i++;
-    }
 
-
-
-
-
+    int j = 0;
     for(int i = 0; i < this->size; i++) {
-        //std::cout << "Attempting to display the value of index " << i << "... ";
+        std::cout << "i = " << i << std::endl;
+        if (this->table[i] != nullptr) {
+            this->table[i]->startCursor();
+            while (this->table[i]->moveCursor()) {
+                std::cout << "  j = " << j << std::endl;
+                this->table[i]->getCursor()->display();
+                j++;
+            }
+        }
+    }
+    
+
+
+
+
+/*
+    for(int i = 0; i < this->size; i++) {
+        std::cout << "Attempting to display the value of index " << i << "... ";
         // Traverse the list at current index:
-        /*
+        
         for (Type j : table[i]) {
             j.display();
         }
-        */    
+           
         //std::cout << std::endl;
     }
+
+    */
     
     
 }

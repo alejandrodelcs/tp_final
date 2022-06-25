@@ -61,8 +61,8 @@ int main() {
     HashTable<List<Author*>*> ht(20);
     // Declare some authors for the hash table:
     Author* AuthorA = new Author(1001, "Autor A", "Pais del autor A", 1901, 2001);
-    Author* AuthorB = new Author(1003, "Autor B", "Pais del autor B", 1903, 2003);
-    Author* AuthorC = new Author(1003, "Autor B", "Pais del autor B", 1903, 2003);
+    Author* AuthorB = new Author(1002, "Autor B", "Pais del autor B", 1902, 2002);
+    Author* AuthorC = new Author(1003, "Autor C", "Pais del autor C", 1903, 2003);
     List<Author*> *listaA = new List<Author*>;
     listaA->add(AuthorA); listaA->add(AuthorB);listaA->add(AuthorC);
     List<Author*> *listaB = new List<Author*>;
