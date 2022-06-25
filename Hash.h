@@ -75,7 +75,6 @@ void HashTable<Type>::insertAuthor(Author* value) {
 template <typename Type>
 void HashTable<Type>::insertElement(Type value, int key) {
     int position = getHash(key); 
-    int listSize = table[position].getNumberOfElements();
     table[position].add(value);
 }
 
