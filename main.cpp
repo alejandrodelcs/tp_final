@@ -60,25 +60,28 @@ int main() {
     // Create a hash table of 20 authors:
     HashTable<Author*> ht(20);
     // Declare some authors for the hash table:
-    Author* AuthorA = new Author(1001, "Autor A", "Pais del autor A", 1901, 2001);
-    Author* AuthorB = new Author(1002, "Autor B", "Pais del autor B", 1902, 2002);
-    Author* AuthorC = new Author(1003, "Autor C", "Pais del autor C", 1903, 2003);
+    Author* AuthorA = new Author(1, "Autor A", "Pais del autor A", 1901, 2001);
+    Author* AuthorB = new Author(2, "Autor B", "Pais del autor B", 1902, 2002);
+    Author* AuthorC = new Author(3, "Autor C", "Pais del autor C", 1903, 2003);
+    Author* AuthorD = new Author(13, "Autor D", "Pais del autor D", 1904, 2004);
+    Author* AuthorE = new Author(23, "Autor E", "Pais del autor E", 1905, 2005);
+    Author* AuthorF = new Author(43, "Autor F", "Pais del autor F", 1906, 2006);
     // Insert the elements in the hash table:
-    ht.insertElement(AuthorA, 0);
-    ht.insertElement(AuthorB, 1);
-    ht.insertElement(AuthorC, 2);
-    ht.insertElement(AuthorA, 3);
-    ht.insertElement(AuthorB, 23);    
-
-    ht.insertElement(AuthorA, 5);
-    ht.insertElement(AuthorB, 6);
-    ht.insertElement(AuthorC, 7);
-    ht.insertElement(AuthorB, 8);
-    ht.insertElement(AuthorC, 28);
+    ht.insertAuthor(AuthorA);
+    ht.insertAuthor(AuthorB);
+    ht.insertAuthor(AuthorC);
+    ht.insertAuthor(AuthorD);
+    ht.insertAuthor(AuthorE);
+    ht.insertAuthor(AuthorF);
 
     std::cout << "Hash Table:" << std::endl;
     ht.display();
     /* End of hashing code */ 
+
+    Author* searchedAuthor = ht.searchElement(3);
+    if (searchedAuthor != NULL) {
+        std::cout << "Result of searching the key 3 on the hash table: " << searchedAuthor->getName() << std::endl;
+    }
 
 
 /*

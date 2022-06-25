@@ -11,7 +11,12 @@ class HashTable {
         * PRE:
         * POST: Builds a new hash table of size 'n'
         */
-        int getHash(int key);
+        int getHash(int key);  
+        /* 
+        * PRE: 
+        * POST: 
+        */
+        bool compareAuthorKey(Author* author, int comparationKey);
     public:
         /* Constructor
         * PRE:
@@ -19,10 +24,20 @@ class HashTable {
         */
         explicit HashTable(int n);     
         /* 
+        * PRE: The paramter used has to be an Author object
+        * POST: Inserts a new author to the hash table
+        */
+        void insertAuthor(Author* value);
+        /* 
         * PRE:
         * POST: Inserts a new element to the hash table
         */
         void insertElement(Type value, int key);
+        /* 
+        * PRE:
+        * POST: 
+        */
+        Type searchElement(int key);
         /* 
         * PRE:
         * POST: Removes an element from the hash table
@@ -47,6 +62,17 @@ int HashTable<Type>::getHash(int key) {
 }
 
 template <typename Type>
+bool HashTable<Type>::compareAuthorKey(Author* author, int comparationKey) {
+    return (author->getISNI() == comparationKey);
+}
+
+
+template <typename Type>
+void HashTable<Type>::insertAuthor(Author* value) {
+    insertElement(value,value->getISNI());
+}
+
+template <typename Type>
 void HashTable<Type>::insertElement(Type value, int key) {
     int position = getHash(key); 
     int listSize = table[position].getNumberOfElements();
@@ -56,7 +82,39 @@ void HashTable<Type>::insertElement(Type value, int key) {
 template <typename Type>
 void HashTable<Type>::removeElement(int position) {
     table[position] = nullptr;
+
 }
+
+template <typename Type>
+Type HashTable<Type>::searchElement(int key) {
+    Type returnedElement;
+    bool found = false;
+    int position = getHash(key); 
+    int listSize = table[position].getNumberOfElements();
+    if (listSize == 1) {
+        table[position].startCursor(); table[position].moveCursor();
+        found = compareAuthorKey(table[position].getCursor(),key);
+        if (found) {
+            returnedElement = table[position].getCursor();
+        }
+    } else if (listSize > 1) {
+        table[position].startCursor();
+        while (table[position].moveCursor() && !found ) {
+            found = compareAuthorKey(table[position].getCursor(),key);
+            if (found) {
+                returnedElement = table[position].getCursor();
+            }
+        }
+    }
+    if (!found) {
+        std::cout << "Key not found!" << std::endl;
+    } else {
+        std::cout << "Key found!" << std::endl;
+    }
+    return returnedElement;
+}
+
+
 
 template <typename Type>
 void HashTable<Type>::display() {
@@ -68,7 +126,7 @@ void HashTable<Type>::display() {
             listSize = table[tableId].getNumberOfElements();
             std::cout << "[ ";
             while (table[tableId].moveCursor()) {
-                std::cout << table[tableId].getCursor()->getISNI();
+                std::cout << table[tableId].getCursor()->getName();
                 listId++;
                 if (listId < listSize) {
                     std::cout << ", ";
@@ -78,32 +136,9 @@ void HashTable<Type>::display() {
         }
         std::cout << std::endl;
     }
-
-
-
-
-    /*
-    int listIndex, listSize;
-    for(int tableIndex = 0; tableIndex < size; tableIndex++) {
-        if (table[tableIndex] != nullptr) {
-            listIndex = 0;
-            table[tableIndex]->startCursor();
-            listSize = table[tableIndex]->getNumberOfElements();
-            std::cout << "[ ";
-            while (table[tableIndex]->moveCursor()) {
-                std::cout << table[tableIndex]->getCursor()->getISNI();
-                listIndex++;
-                if (listIndex < listSize) {
-                    std::cout << ", ";
-                }
-            }
-            std::cout << " ]";
-        }
-        std::cout << std::endl;
-    }
-    */
 }
 
 #endif //TP_FINAL_HASH_H
 
 // SOURCE: https://www.educative.io/answers/how-to-implement-a-hash-table-in-cpp
+// https://www.geeksforgeeks.org/hashing-set-2-separate-chaining/
