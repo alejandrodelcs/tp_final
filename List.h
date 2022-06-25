@@ -78,6 +78,12 @@ public:
     */
     void startCursor();
 
+
+    //PRE: Recibe una lista distinta a la original
+    //POS: concatena la dos lista colocando la segunda lista al final de la otra.
+    void concatenate(List<Type> *l);
+
+
     ~List();
 
 private:
@@ -179,7 +185,7 @@ void List<Type>::remove(int pos) {
         Node<Type> *remove;
         if (pos == 1) {
             remove = this->first;
-            this->primero = remove->getNext();
+            this->first = remove->getNext();
         } else {
             Node<Type> *former = this->getNode(pos - 1);
             remove = former->getNext();
@@ -240,6 +246,15 @@ List<Type>::~List() {
         Node<Type>* remove = this->first;
         this->first = this->first->getNext();
         delete remove;
+    }
+}
+
+template<typename Type>
+void List<Type>::concatenate(List<Type> *l) {
+    Node<Type> *aux = l->first;
+    while(aux != nullptr){
+        alta(aux->getElement());
+        aux = aux->getNext();
     }
 }
 
