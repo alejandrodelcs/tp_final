@@ -73,40 +73,19 @@ void HashTable<Type>::removeElement(Type value) {
 
 template<typename Type>
 void HashTable<Type>::display() {
-    //return this->table;
-
-    int j = 0;
+    int j;
     for(int i = 0; i < this->size; i++) {
         std::cout << "i = " << i << std::endl;
         if (this->table[i] != nullptr) {
             this->table[i]->startCursor();
+            j = 0;
             while (this->table[i]->moveCursor()) {
-                std::cout << "  j = " << j << std::endl;
+                std::cout << "  j = " << j << std::endl << std::endl;
                 this->table[i]->getCursor()->display();
                 j++;
             }
         }
     }
-    
-
-
-
-
-/*
-    for(int i = 0; i < this->size; i++) {
-        std::cout << "Attempting to display the value of index " << i << "... ";
-        // Traverse the list at current index:
-        
-        for (Type j : table[i]) {
-            j.display();
-        }
-           
-        //std::cout << std::endl;
-    }
-
-    */
-    
-    
 }
 
 #endif //TP_FINAL_HASH_H
