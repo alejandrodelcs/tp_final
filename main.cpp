@@ -71,15 +71,15 @@ int main() {
     listaC->add(AuthorA);listaC->add(AuthorB);
 
     // Insert the elements in the hash table:
-    ht.insertElement(listaA, 1);
+    ht.insertElement(listaA, 0);
+    ht.insertElement(listaB, 9);
+    ht.insertElement(listaC, 9);
+    ht.insertElement(listaA, 2);
+    ht.insertElement(listaB, 2);
+    ht.insertElement(listaC, 2);
+    ht.insertElement(listaA, 2);
     ht.insertElement(listaB, 2);
     ht.insertElement(listaC, 3);
-    ht.insertElement(listaA, 5);
-    ht.insertElement(listaB, 5);
-    ht.insertElement(listaC, 5);
-    ht.insertElement(listaA, 7);
-    ht.insertElement(listaB, 8);
-    ht.insertElement(listaC, 9);
 
     std::cout << "Hash Table:" << std::endl;
     ht.display();

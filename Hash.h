@@ -3,35 +3,40 @@
 
 template < typename Type >
 class HashTable {
-
-private:
-
-    Type* table;
-    int size;
-    int getHash(int key);
-
-public:
-
-    /* Constructor
-     * PRE:
-     * POST: Builds a new hash table of size 'n'
-     */
-    explicit HashTable(int n);
-
-    /* 
-     * PRE:
-     * POST: Inserts a new element to the hash table
-     */
-    void insertElement(Type value, int key);
-
-    /* 
-     * PRE:
-     * POST: Removes an element from the hash table
-     */
-    void removeElement(Type value);
-
-    void display();
-
+    private:
+        Type* table;
+        int size;
+        /* Constructor
+        * PRE:
+        * POST: Builds a new hash table of size 'n'
+        */
+        int getHash(int key);
+    public:
+        /* Constructor
+        * PRE:
+        * POST: Builds a new hash table of size 'n'
+        */
+        explicit HashTable(int n);
+        /* Constructor
+        * PRE:
+        * POST: Builds a new hash table of size 'n'
+        */
+        void handleCollision(int* position);        
+        /* 
+        * PRE:
+        * POST: Inserts a new element to the hash table
+        */
+        void insertElement(Type value, int key);
+        /* 
+        * PRE:
+        * POST: Removes an element from the hash table
+        */
+        void removeElement(int position);
+        /* 
+        * PRE:
+        * POST:
+        */
+        void display();
 };
 
 template<typename Type>
@@ -47,27 +52,24 @@ int HashTable<Type>::getHash(int key) {
 
 template<typename Type>
 void HashTable<Type>::insertElement(Type value, int key) {
-    table[getHash(key)] = value;
+    int position = getHash(key);
+    if (table[position] != nullptr) {
+        handleCollision(&position);
+    }
+    table[position] = value;
 }
 
 template<typename Type>
-void HashTable<Type>::removeElement(Type value) {
-    /*
-    int x = getHash(key.getISNI());
-
-
-
-    list<int>::iterator i; 
-    for (i = table[x].begin().getISNI(); i != table[x].end(); i++) { 
-    // Check if the iterator points to the required item:
-    if (*i == key) 
-        break;
+void HashTable<Type>::handleCollision(int* position) {
+    *position = 0;
+    while ((*position < this->size) && (this->table[*position] != nullptr)) {
+        *position = *position + 1;
     }
+}
 
-    // If the item was found in the list, then delete it:
-    if (i != table[x].end()) 
-    table[x].erase(i);
-    */
+template<typename Type>
+void HashTable<Type>::removeElement(int position) {
+    table[position] = nullptr;
 }
 
 template<typename Type>
