@@ -72,14 +72,15 @@ int main() {
 
     // Insert the elements in the hash table:
     ht.insertElement(listaA, 0);
-    ht.insertElement(listaB, 9);
-    ht.insertElement(listaC, 9);
-    ht.insertElement(listaA, 2);
-    ht.insertElement(listaB, 2);
+    ht.insertElement(listaB, 1);
     ht.insertElement(listaC, 2);
-    ht.insertElement(listaA, 2);
-    ht.insertElement(listaB, 2);
-    ht.insertElement(listaC, 3);
+    ht.insertElement(listaA, 3);
+    ht.insertElement(listaB, 3);
+    ht.insertElement(listaA, 5);
+    ht.insertElement(listaB, 6);
+    ht.insertElement(listaC, 7);
+    ht.insertElement(listaB, 8);
+    ht.insertElement(listaC, 8);
 
     std::cout << "Hash Table:" << std::endl;
     ht.display();

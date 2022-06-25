@@ -17,11 +17,16 @@ class HashTable {
         * POST: Builds a new hash table of size 'n'
         */
         explicit HashTable(int n);
-        /* Constructor
+        /*
         * PRE:
-        * POST: Builds a new hash table of size 'n'
+        * POST:
         */
-        void handleCollision(int* position);        
+        void handleCollisionA(int* position);        
+        /*
+        * PRE:
+        * POST:
+        */
+        void handleCollision(int position, Type newValue);        
         /* 
         * PRE:
         * POST: Inserts a new element to the hash table
@@ -51,19 +56,30 @@ int HashTable<Type>::getHash(int key) {
 }
 
 template<typename Type>
-void HashTable<Type>::insertElement(Type value, int key) {
-    int position = getHash(key);
-    if (table[position] != nullptr) {
-        handleCollision(&position);
+void HashTable<Type>::handleCollisionA(int* position) {
+    int newPosition = 0;
+    newPosition = 0;
+    while ((newPosition < size) && (table[newPosition] != nullptr)) {
+        newPosition++;
     }
-    table[position] = value;
+    if (newPosition != size) {
+        *position = newPosition;
+    }
 }
 
 template<typename Type>
-void HashTable<Type>::handleCollision(int* position) {
-    *position = 0;
-    while ((*position < this->size) && (this->table[*position] != nullptr)) {
-        *position = *position + 1;
+void HashTable<Type>::handleCollision(int position,Type newValue) {
+    table[position]->concatenate(newValue);
+}
+
+template<typename Type>
+void HashTable<Type>::insertElement(Type value, int key) {
+    int position = getHash(key);
+    if (table[position] != nullptr) {
+        //handleCollisionA(&position);
+        handleCollision(position, value);
+    } else {
+        table[position] = value;
     }
 }
 
@@ -74,17 +90,17 @@ void HashTable<Type>::removeElement(int position) {
 
 template<typename Type>
 void HashTable<Type>::display() {
-    int j, numberOfElements;
-    for(int i = 0; i < this->size; i++) {
-        if (this->table[i] != nullptr) {
-            j = 0;
-            this->table[i]->startCursor();
-            numberOfElements = this->table[i]->getNumberOfElements();
+    int listIndex, listSize;
+    for(int tableIndex = 0; tableIndex < size; tableIndex++) {
+        if (table[tableIndex] != nullptr) {
+            listIndex = 0;
+            table[tableIndex]->startCursor();
+            listSize = table[tableIndex]->getNumberOfElements();
             std::cout << "[ ";
-            while (this->table[i]->moveCursor()) {
-                std::cout << this->table[i]->getCursor()->getISNI();
-                j++;
-                if (j < numberOfElements) {
+            while (table[tableIndex]->moveCursor()) {
+                std::cout << table[tableIndex]->getCursor()->getISNI();
+                listIndex++;
+                if (listIndex < listSize) {
                     std::cout << ", ";
                 }
             }

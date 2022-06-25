@@ -2,6 +2,7 @@
 #define TP_FINAL_LISTA_H
 
 #include "Node.h"
+#include <iostream>
 
 const int NAME_NOT_FOUND = -1;
 
@@ -252,8 +253,8 @@ List<Type>::~List() {
 template<typename Type>
 void List<Type>::concatenate(List<Type> *l) {
     Node<Type> *aux = l->first;
-    while(aux != nullptr){
-        alta(aux->getElement());
+    while(aux != nullptr) {
+        add(aux->getElement());
         aux = aux->getNext();
     }
 }
