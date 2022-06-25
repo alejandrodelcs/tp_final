@@ -78,10 +78,16 @@ int main() {
     ht.display();
     /* End of hashing code */ 
 
-    Author* searchedAuthor = ht.searchElement(13);
+    Author* searchedAuthor = ht.searchElement(23);
     if (searchedAuthor != NULL) {
-        std::cout << "Result of searching the key 13 on the hash table: " << searchedAuthor->getName() << std::endl;
+        std::cout << "Result of searching the key 23 on the hash table: " << searchedAuthor->getName() << std::endl;
     }
+    ht.removeElement(23);
+    std::cout << "Removing the element with key 23 on the hash table..." << std::endl << std::endl;
+
+    std::cout << "Hash Table:" << std::endl;
+    ht.display();
+    /* End of hashing code */ 
 
 
 /*

@@ -80,9 +80,23 @@ void HashTable<Type>::insertElement(Type value, int key) {
 }
 
 template <typename Type>
-void HashTable<Type>::removeElement(int position) {
-    table[position] = nullptr;
-
+void HashTable<Type>::removeElement(int key) {
+    int removePosition;
+    bool found;
+    int position = getHash(key); 
+    int listSize = table[position].getNumberOfElements();
+    if (listSize == 1) {
+        table[position].remove(1);
+    } else if (listSize > 1) {
+        table[position].startCursor();
+        while (table[position].moveCursor() && !found ) {
+            found = compareAuthorKey(table[position].getCursor(),key);
+            if (found) {
+                removePosition = table[position].searchPosition(table[position].getCursor());
+                table[position].remove(removePosition);
+            }
+        }
+    }
 }
 
 template <typename Type>
