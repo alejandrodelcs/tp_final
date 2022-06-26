@@ -20,3 +20,8 @@ void Poem::display() {
     } else
         std::cout << "Autor: ANONIMO\n" << std::endl;
 }
+
+
+Genres Poem::getGenre(){
+    return Genres::UNKNOWN;
+}

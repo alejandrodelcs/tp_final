@@ -6,6 +6,8 @@
 #include "Author.h"
 #include "AuthorsFileParser.h"
 
+enum class Genres {DRAMA=1,COMEDY,FICTION,THRILLER,HORROR,ROMANCE,HISTORICAL,UNKNOWN};
+
 class Reading {
 protected:
     std::string title;
@@ -27,6 +29,8 @@ public:
     * POST: metodo virtual que muestra los atributos de sus clases derivadas
     */
     virtual void display() = 0;
+
+    virtual Genres getGenre()=0;
 
     /*
      * PRE:

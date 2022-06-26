@@ -297,7 +297,7 @@ int ReadingsFileParser::validateType(Reading* reading) {
         typeNum= 1;
     } else if (reading->getType() == NOVEL){
         typeNum= 2;
-        if (dynamic_cast<Historical*>(reading)->getGenre() == Genres::HISTORICAL){
+        if (reading->getGenre() == Genres::HISTORICAL){
             typeNum=3;
         }
     }

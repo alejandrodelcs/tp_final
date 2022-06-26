@@ -18,6 +18,7 @@ public:
      */
     void display();
 
+    Genres getGenre();
     /*
      * PRE: -
      * POST: Destruye el Cuento

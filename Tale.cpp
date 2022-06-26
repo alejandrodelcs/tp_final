@@ -21,3 +21,7 @@ void Tale::display() {
     } else
         std::cout << "Autor: ANONIMO\n" << std::endl;
 }
+
+Genres Tale::getGenre() {
+    return Genres::UNKNOWN;
+}
