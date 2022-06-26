@@ -34,14 +34,6 @@ public:
      */
     void primAlgorithm();
 
-    /*
-     * PRE:
-     * POST:
-     */
-    int getCost(Reading* Reading1, Reading* Reading2);
-
-    int validarTipo(Reading* reading);
-
 
     /* Destructor
      * PRE:-

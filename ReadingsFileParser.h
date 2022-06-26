@@ -187,6 +187,9 @@ public:
 
     void displayReadings();
 
+    int getCost(Reading* initialReading, Reading* endingReading);
+
+    int validarTipo(Reading* reading);
 
     /*
      * PRE:
