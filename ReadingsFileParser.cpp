@@ -292,13 +292,13 @@ int ReadingsFileParser::getCost(Reading* initialReading, Reading* endingReading)
 int ReadingsFileParser::validateType(Reading* reading) {
     int typeNum;
     if (reading->getType() == TALE){
-        typeNum= 1;
+        typeNum= 0;
     } else if (reading->getType() == POEM){
-        typeNum= 2;
+        typeNum= 1;
     } else if (reading->getType() == NOVEL){
-        typeNum= 3;
+        typeNum= 2;
         if (dynamic_cast<Historical*>(reading)->getGenre() == Genres::HISTORICAL){
-            typeNum=4;
+            typeNum=3;
         }
     }
     return typeNum;
