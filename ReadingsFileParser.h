@@ -189,7 +189,7 @@ public:
 
     int getCost(Reading* initialReading, Reading* endingReading);
 
-    int validarTipo(Reading* reading);
+    int validateType(Reading* reading);
 
     /*
      * PRE:

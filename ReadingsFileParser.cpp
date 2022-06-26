@@ -284,12 +284,12 @@ int ReadingsFileParser::getCost(Reading* initialReading, Reading* endingReading)
             {10, 5, 30, 60},
             {15, 20, 60, 80}
     };
-    int A = validarTipo(initialReading);
-    int B = validarTipo(endingReading);
+    int A = validateType(initialReading);
+    int B = validateType(endingReading);
     return costs[A][B];
 }
 
-int ReadingsFileParser::validarTipo(Reading* reading) {
+int ReadingsFileParser::validateType(Reading* reading) {
     int typeNum;
     if (reading->getType() == TALE){
         typeNum= 1;
