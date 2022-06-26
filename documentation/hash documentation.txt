@@ -1,0 +1,19 @@
+Orden de alta:
+• Mejor caso: Depende de los ciclos de la lista...
+• Peor caso: Depende de los ciclos de la lista...
+• Caso promedio: Depende de los ciclos de la lista...
+Orden de consulta:
+• Mejor caso: Si la clave apunta a un elemento con lista de tamanio 1
+              (La tabla hash solo tiene 1 elemento con esa clave)
+• Peor caso: Si la clave apunta a un elemento al final de la lista mas larga del array tabla.
+             (La tabla hash tiene la mayor cantidad de colisiones en ese lugar de la tabla.
+             Y ademas, el elemento a buscar es el ultimo de la larga lista);
+• Caso promedio: 
+Orden de baja:
+• Mejor caso: Si la clave apunta a un elemento con lista de tamanio 1
+              (La tabla hash solo tiene 1 elemento con esa clave)
+• Peor caso: Si la clave apunta a un elemento al final de la lista mas larga del array tabla.
+             (La tabla hash tiene la mayor cantidad de colisiones en ese lugar de la tabla.
+             Y ademas, el elemento a remover es el ultimo de la larga lista);
+• Caso promedio: 
+
