@@ -23,8 +23,12 @@ class HashTable {
         * POST: Builds a new hash table of size 'n'
         */
         explicit HashTable(int n);
-
         HashTable() = default;
+        /* 
+        * PRE: 
+        * POST: 
+        */
+        int getSize();
         /* 
         * PRE: The paramter used has to be an Author object
         * POST: Inserts a new author to the hash table
@@ -45,10 +49,16 @@ class HashTable {
         * POST: Removes an element from the hash table
         */
         void removeElement(int position);
-
-
-        List<Type>* getTable();
-
+        /* 
+        * PRE:
+        * POST:
+        */
+        List<Type> getList(int position);
+        /* 
+        * PRE:
+        * POST:
+        */
+        List<Type> getList(int position);
         /* 
         * PRE:
         * POST:
@@ -116,8 +126,6 @@ Type HashTable<Type>::searchElement(int key) {
         if (found) {
             returnedElement = table[position].getCursor();
         }
-        std::cout << "Author's ISNI == " << table[position].getCursor()->getISNI() << std::endl;
-        std::cout << "key == " << key << std::endl;
     } else if (listSize > 1) {
         table[position].startCursor();
         while (table[position].moveCursor() && !found ) {
@@ -143,7 +151,7 @@ void HashTable<Type>::display() {
             listId = 0;
             table[tableId].startCursor();
             listSize = table[tableId].getNumberOfElements();
-            std::cout << "[ ";
+            std::cout << tableId << " : [ ";
             while (table[tableId].moveCursor()) {
                 std::cout << table[tableId].getCursor()->getName();
                 listId++;
@@ -153,19 +161,24 @@ void HashTable<Type>::display() {
             }
             std::cout << " ]";
         }else{
-            std::cout<<"["<<tableId<<"]"<<std::endl;
+            std::cout << tableId << " : [ ]" << std::endl;
         }
         std::cout << std::endl;
     }
 }
 
-template<typename Type>
-List<Type> *HashTable<Type>::getTable() {
-    return table;
+template <typename Type>
+int HashTable<Type>::getSize() {
+    return size;
 }
+
+template <typename Type>
+List<Type> HashTable<Type>::getList(int position) {
+    return table[position];
+}
+
 
 #endif //TP_FINAL_HASH_H
 
 // SOURCE: https://www.educative.io/answers/how-to-implement-a-hash-table-in-cpp
-
 // https://www.geeksforgeeks.org/hashing-set-2-separate-chaining/

@@ -58,10 +58,8 @@
 
 int main() {
 
-    /* Hashing code by Ian */
+    /* Hashing usage code by Ian */
     // Create a hash table of 20 authors:
-
-    /*
     HashTable<Author*> ht(20);
     // Declare some authors for the hash table:
     Author* AuthorA = new Author(1, "Autor A", "Pais del autor A", 1901, 2001);
@@ -80,8 +78,8 @@ int main() {
 
     std::cout << "Hash Table:" << std::endl;
     ht.display();
-        End of hashing code */
-    /*
+    /* End of hashing code */ 
+
     Author* searchedAuthor = ht.searchElement(23);
     if (searchedAuthor != NULL) {
         std::cout << "Result of searching the key 23 on the hash table: " << searchedAuthor->getName() << std::endl;
@@ -91,7 +89,13 @@ int main() {
 
     std::cout << "Hash Table:" << std::endl;
     ht.display();
-    */
+    /* End of hashing code */ 
+
+    // Example of Getlist() method usage
+    List<Author*>* table = new List<Author*>[ht.getSize()];
+    for (int i=0;i < ht.getSize();i++) {
+        table[i] = ht.getList(i);
+    }
     /* End of hashing code */
 
 /*
@@ -139,7 +143,10 @@ int main() {
 
       */
 
+
+/*
     Menu m;
     m.interaction();
     return 0;
+    */
 }
