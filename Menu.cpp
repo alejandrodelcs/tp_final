@@ -50,7 +50,7 @@ void Menu::shorterReadingTime() {
 
 
 void Menu::validateInputOption() {
-    while(option<ONE || option>EIGHT){
+    while(option<ONE || option>EIGHT){  // NO SE COMO LLAMAR A LAS CONSTANTES
         std::cout<<"¡Error!. Opcion incorrecta"<<std::endl;
         this->input();
     }
