@@ -12,10 +12,10 @@ Historical::Historical(int id, std::string &title, unsigned int minutes, unsigne
 
 
 void Historical::display(){
-    std::cout << "Novela"
-                 "\nTitulo: " << title <<
+    std::cout << MAGENTA "Novela" WHITE
+              "\nTitulo: " << title <<
               "\nTiempo de lectura: " << minutes <<
-              "\nAnio de publicacion: " << PublishYear <<
+              "\nAño de publicacion: " << PublishYear <<
               "\nGenero: HISTORICA" << std::endl;
     std::cout << "Tema: " << theme << std::endl;
     if (id != 0 && this->getAuthor() != nullptr){

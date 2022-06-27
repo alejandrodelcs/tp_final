@@ -10,10 +10,10 @@ Poem::Poem(int id, std::string &title, unsigned int minutes, unsigned int Publis
 }
 
 void Poem::display() {
-    std::cout << "Poema"
-                 "\nTitulo: " << title <<
+    std::cout << MAGENTA "Poema" WHITE
+              "\nTitulo: " << title <<
               "\nTiempo de lectura: " << minutes <<
-              "\nAnio de publicacion: " << PublishYear <<
+              "\nAño de publicacion: " << PublishYear <<
               "\nCantidad de versos: " << verses << std::endl;
     if (id != 0 && this->getAuthor() != nullptr){
         std::cout << "Autor: " << this->getAuthor()->getName() << "\n" << std::endl;

@@ -11,10 +11,10 @@ Tale::Tale(int id, std::string &title, unsigned int minutes, unsigned int Publis
 }
 
 void Tale::display() {
-    std::cout << "Cuento"
-                 "\nTitulo: " << title <<
+    std::cout << MAGENTA "Cuento" WHITE
+              "\nTitulo: " << title <<
               "\nTiempo de lectura: " << minutes <<
-              "\nAnio de publicacion: " << PublishYear <<
+              "\nAño de publicacion: " << PublishYear <<
               "\nTitulo libro: " << book << std::endl;
     if (id != 0 && this->getAuthor() != nullptr){
         std::cout << "Autor: " << this->getAuthor()->getName() << "\n" << std::endl;

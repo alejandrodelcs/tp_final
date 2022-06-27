@@ -33,14 +33,14 @@ void Author::setDeath(int death) {
 }
 
 void Author::display() {
-    std::cout << "ISNI: " << getISNI() << std::endl;
-    std::cout << "Author: " << getName() << std::endl;
-    std::cout << "Nationality: " << getNationality() << std::endl;
+    //std::cout << "ISNI: " << getISNI() << std::endl; Para el docente
+    std::cout << "Autor : " << getName() << std::endl;
+    std::cout << "Nacionalidad : " << getNationality() << std::endl;
     if (getBirth() != -1) {
-        std::cout << "Birth: " << getBirth() << std::endl;
+        std::cout << "Año de Nacimiento : " << getBirth() << std::endl;
     }
     if (getDeath() != -1) {
-        std::cout << "Death: " << getDeath() << std::endl;
+        std::cout << "Año de fallecimiento : " << getDeath() << std::endl;
     }
     std::cout << std::endl;
 }

@@ -2,6 +2,7 @@
 #define TP_FINAL_AUTHOR_H
 #include <iostream>
 #include <string>
+#include "Constants.h"
 
 class Author {
     

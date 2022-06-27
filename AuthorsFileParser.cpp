@@ -88,10 +88,6 @@ bool AuthorsFileParser::validateFileLine() {
     return (this->fileLine.length() <= EMPTY_LINE);
 }
 
-AuthorsFileParser::~AuthorsFileParser() {
-    delete author;
-}
-
 void AuthorsFileParser::addReadingAuthor() {
     readings->startCursor();
     while (readings->moveCursor()) {
@@ -105,19 +101,18 @@ void AuthorsFileParser::addReadingAuthor() {
 }
 
 void AuthorsFileParser::displayAuthors() {
-    int pos = 0;
     List<Author*> *aux = authors->getTable();
-    std::cout<<"Hola"<<std::endl;
-    while (aux->moveCursor()){
-        if (aux->getNumberOfElements() > 0 ){
-            while(aux[pos].moveCursor()){
-                aux[pos].getCursor()->display();
-            }
+    for (int i=0;i < authors->getSize();i++) {
+        aux[i].startCursor();
+        while(aux[i].moveCursor()){
+            aux[i].getCursor()->display();
         }
-        pos++;
     }
 }
 
+AuthorsFileParser::~AuthorsFileParser() {
+    delete author;
+}
 
 
 

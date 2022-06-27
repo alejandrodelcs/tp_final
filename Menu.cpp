@@ -30,7 +30,6 @@ void Menu::displayReadings() {
 }
 
 void Menu::displayAuthors() {
-
     pAuthors.displayAuthors();
 }
 
@@ -63,7 +62,6 @@ void Menu::buildHashTable() {
     pAuthors.setReadings(readings);
     pAuthors.setAuthors(authors);
     this->authors = pAuthors.getAuthor();
-    std::cout<<authors->getTable()->getNumberOfElements()<<std::endl; //PRUEBA
 }
 
 void Menu::options() {

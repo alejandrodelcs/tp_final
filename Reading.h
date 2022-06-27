@@ -4,6 +4,7 @@
 #include <string>
 #include <iostream>
 #include "Author.h"
+#include "Constants.h"
 
 enum class Genres {DRAMA=1,COMEDY,FICTION,THRILLER,HORROR,ROMANCE,HISTORICAL,UNKNOWN};
 

@@ -14,5 +14,6 @@ enum readingData {TYPE,TITLE,MINUTES,PUBLISH_YEAR,READING_TYPES,ID_THEME,ID_HIST
 #define RED "\e[0;31m"
 #define GREEN "\e[0;32m"
 #define CYAN "\e[0;36m"
+#define MAGENTA "\x1B[35m"
 
 #endif //TP_2_CONSTANTS_H
