@@ -92,10 +92,21 @@ int main() {
     /* End of hashing code */ 
 
     // Example of Getlist() method usage
-    List<Author*>* table = new List<Author*>[ht.getSize()];
+
+
+
+    List<Author*>* table1 = new List<Author*>[ht.getSize()];
     for (int i=0;i < ht.getSize();i++) {
-        table[i] = ht.getList(i);
+        table1[i] = ht.getList(i);
     }
+
+    List<Author*>* table2 = ht.getTable();
+
+    for (int i=0;i < ht.getSize();i++) {
+        std::cout << i << " : " << table1[i].getNumberOfElements() << std::endl; 
+        std::cout << i << " : " << table2[i].getNumberOfElements() << std::endl; 
+    }
+
     /* End of hashing code */
 
 /*

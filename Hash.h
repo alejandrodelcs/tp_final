@@ -58,7 +58,7 @@ class HashTable {
         * PRE:
         * POST:
         */
-        List<Type> getList(int position);
+        List<Type>* getTable();
         /* 
         * PRE:
         * POST:
@@ -161,7 +161,7 @@ void HashTable<Type>::display() {
             }
             std::cout << " ]";
         }else{
-            std::cout << tableId << " : [ ]" << std::endl;
+            std::cout << tableId << " : [ ]";
         }
         std::cout << std::endl;
     }
@@ -177,6 +177,10 @@ List<Type> HashTable<Type>::getList(int position) {
     return table[position];
 }
 
+template <typename Type>
+List<Type>* HashTable<Type>::getTable() {
+    return table;
+}
 
 #endif //TP_FINAL_HASH_H
 
