@@ -64,11 +64,16 @@ class HashTable {
         * POST:
         */
         void display();
+        /* Destructor
+        * PRE:
+        * POST: Builds a new hash table of size 'n'
+        */
+        ~HashTable();
 };
 
 template <typename Type>
 HashTable<Type>::HashTable(int size) {
-    this->table = new List<Type> [size];
+    this->table = new List<Type>[size];
     this->size = size;
 }
 
@@ -180,6 +185,15 @@ List<Type> HashTable<Type>::getList(int position) {
 template <typename Type>
 List<Type>* HashTable<Type>::getTable() {
     return table;
+}
+
+template <typename Type>
+HashTable<Type>::~HashTable() {
+    std::cout << "Flag A triggered" << std::endl;
+    for (int i = 0; i < size; i++) {
+        delete table[i];
+    }    
+    std::cout << "Flag B triggered" << std::endl;
 }
 
 #endif //TP_FINAL_HASH_H
