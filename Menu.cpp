@@ -63,7 +63,7 @@ void Menu::buildHashTable() {
     pAuthors.setReadings(readings);
     pAuthors.setAuthors(authors);
     this->authors = pAuthors.getAuthor();
-    std::cout<<authors->getTable()->getNumberOfElements()<<std::endl;
+    std::cout<<authors->getTable()->getNumberOfElements()<<std::endl; //PRUEBA
 }
 
 void Menu::options() {
