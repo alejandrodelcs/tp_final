@@ -1,5 +1,6 @@
 #include <iostream>
 #include "Menu.h"
+#include "Constants.h"
 
 
 Menu::Menu() {
@@ -13,9 +14,11 @@ void Menu::displayMenu() {
                "2. Mostrar lecturas\n"
                "3. Nuevo autor/escritor\n"
                "4. Mostrar autores\n"
-               "5. Encontrar el orden y tiempo mínimo que nos\n"
+               "5. Buscar autor\n"
+               "6- Eliminar autor\n"
+               "7. Encontrar el orden y tiempo mínimo que nos\n"
                "   llevaría leer todas las lecturas\n"
-               "6. Salir"<<std::endl;
+               "8. Salir"<<std::endl;
 
 }
 
@@ -47,7 +50,7 @@ void Menu::shorterReadingTime() {
 
 
 void Menu::validateInputOption() {
-    while(option<1 || option>6){
+    while(option<ONE || option>EIGHT){
         std::cout<<"¡Error!. Opcion incorrecta"<<std::endl;
         this->input();
     }
@@ -66,21 +69,27 @@ void Menu::buildHashTable() {
 
 void Menu::options() {
     switch (this->option) {
-        case 1:
+        case ONE:
             newReading();
             break;
-        case 2:
+        case TWO:
             displayReadings();
             break;
-        case 3:
+        case THREE:
             newAuthor();
             break;
-        case 4:
+        case FOUR:
             displayAuthors();
             break;
-        case 5:
+        case FIVE:
             shorterReadingTime();
-        case 6:
+            break;
+        case SIX:
+            std::cout<<"";
+            break;
+        case SEVEN:
+            break;
+        case EIGHT:
             this->end = true;
         default:
             std::cout<<"";
