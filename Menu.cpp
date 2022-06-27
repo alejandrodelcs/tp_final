@@ -11,7 +11,7 @@ Menu::Menu() {
 
 void Menu::displayMenu() {
     std::cout<<"1. Nueva lectura\n"
-               "2. Mostrar lecturas\n" // SE PUEDE AGREGAR ELIMINAR Y AGREGAR (C/ SUBMENU), VA A DEPENDER COMO LLEGUEMOS
+               "2. Mostrar lecturas\n" // SE PUEDE AGREGAR ELIMINAR Y ALTA (C/ SUBMENU), VA A DEPENDER COMO LLEGUEMOS
                "3. Nuevo autor/escritor\n"
                "4. Mostrar autores\n"
                "5. Buscar autor\n"
