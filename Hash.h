@@ -191,8 +191,12 @@ template <typename Type>
 HashTable<Type>::~HashTable() {
     std::cout << "Flag A triggered" << std::endl;
     for (int i = 0; i < size; i++) {
-        delete table[i];
-    }    
+        while (table[i].getNumberOfElements() > 0) {
+            table[i].remove(1);
+        }
+    }
+    delete[] table;
+    table = nullptr;
     std::cout << "Flag B triggered" << std::endl;
 }
 
