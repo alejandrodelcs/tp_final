@@ -42,3 +42,7 @@ int Reading::comparar(Reading *l) const {
     }
     return value;
 }
+
+void Reading::setAuthor(Author *newAuthor) {
+    this->author =  newAuthor;
+}

@@ -4,15 +4,15 @@
 
 Menu::Menu() {
     this->readings = new List<Reading*>;
-    this->authors = new List<Author*>;
+    this->authors = new HashTable<Author *>(20);
     this->end = false;
 }
 
 void Menu::displayMenu() {
-    std::cout<<"1. Ingresar nueva lectura\n"
-               "2. Lista las lecturas\n"
-               "3. Ingresar nuevo autor/escritor\n"
-               "4. Listar los autores\n"
+    std::cout<<"1. Nueva lectura\n"
+               "2. Mostrar lecturas\n"
+               "3. Nuevo autor/escritor\n"
+               "4. Mostrar autores\n"
                "5. Encontrar el orden y tiempo mínimo que nos\n"
                "   llevaría leer todas las lecturas\n"
                "6. Salir"<<std::endl;
@@ -31,6 +31,7 @@ void Menu::displayReadings() {
 
 void Menu::displayAuthors() {
 
+    pAuthors.displayAuthors();
 }
 
 void Menu::newReading() {
@@ -53,10 +54,16 @@ void Menu::validateInputOption() {
     }
 }
 
+void Menu::buildListReadings() {
+    pReading.setReadingList(this->readings);
+    this->readings = pReading.getReading();
+}
 
-void Menu::generateList() {
-    pReading.getReading(this->readings);
-    pAuthors.getAuthor(this->authors);
+void Menu::buildHashTable() {
+    pAuthors.setReadings(readings);
+    pAuthors.setAuthors(authors);
+    this->authors = pAuthors.getAuthor();
+    std::cout<<authors->getTable()->getNumberOfElements()<<std::endl;
 }
 
 void Menu::options() {
@@ -83,8 +90,11 @@ void Menu::options() {
     }
 }
 
+
+
 void Menu::interaction() {
-    this->generateList();
+    this->buildListReadings();
+    this->buildHashTable();
     while(!this->end) {
         this->displayMenu();
         this->input();
@@ -93,9 +103,13 @@ void Menu::interaction() {
     }
 }
 
-Menu::~Menu() {
 
+
+Menu::~Menu() {
+    delete authors;
 }
+
+
 
 
 

@@ -22,7 +22,9 @@ class HashTable {
         * PRE:
         * POST: Builds a new hash table of size 'n'
         */
-        explicit HashTable(int n);     
+        explicit HashTable(int n);
+
+        HashTable() = default;
         /* 
         * PRE: The paramter used has to be an Author object
         * POST: Inserts a new author to the hash table
@@ -43,6 +45,10 @@ class HashTable {
         * POST: Removes an element from the hash table
         */
         void removeElement(int position);
+
+
+        List<Type>* getTable();
+
         /* 
         * PRE:
         * POST:
@@ -146,9 +152,16 @@ void HashTable<Type>::display() {
                 }
             }
             std::cout << " ]";
+        }else{
+            std::cout<<"["<<tableId<<"]"<<std::endl;
         }
         std::cout << std::endl;
     }
+}
+
+template<typename Type>
+List<Type> *HashTable<Type>::getTable() {
+    return table;
 }
 
 #endif //TP_FINAL_HASH_H

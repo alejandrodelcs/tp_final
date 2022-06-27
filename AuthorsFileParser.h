@@ -1,19 +1,21 @@
 #ifndef TP_FINAL_AUTHORSFILEPARSER_H
 #define TP_FINAL_AUTHORSFILEPARSER_H
-#include <iostream>
 #include <string>
 #include "Constants.h"
 #include "File.h"
 #include "Author.h"
 #include "List.h"
+#include "Hash.h"
+#include "Reading.h"
 
 class AuthorsFileParser {
 
 private:
-
     File file;
     std::string fileLine;
-    List<Author*> *authors;
+    HashTable<Author*>* authors;
+    List<Reading*> *readings;
+    Author* author;
     int isni;
     int birth;
     int death;
@@ -56,6 +58,9 @@ private:
      */
     void addNewAuthor();
 
+
+
+
 public:
 
     /* Constructor
@@ -65,10 +70,34 @@ public:
     AuthorsFileParser();
 
     /*
-     * PRE:
-     * POST: crea la lista con los datos de los Escritoes(AutoreS)
+     * PRE: -
+     * POST: Retorna la tabla de hash con los autores
      */
-    void getAuthor(List<Author*> *e);
+    HashTable<Author *>* getAuthor();
+
+    /*
+     * PRE:
+     * POST: Agrega el autor a su lectura
+     */
+    void addReadingAuthor();
+
+    /*
+     * PRE:
+     * POST: Setea la lista lecturas en Readings File Parser
+     */
+    void setReadings(List<Reading*>* &l);
+
+    /*
+     * PRE:
+     * POST: Setea la tabla de hash  en Readings File Parser
+     */
+    void setAuthors(HashTable<Author*>* &a);
+
+    /*
+     * PRE:
+     * POST:
+     */
+    void displayAuthors();
 
     /* Destructor
      * PRE:
@@ -78,4 +107,4 @@ public:
 
 };
 
-#endif //TP_FINALAUTHORSFILEPARSER_H
+#endif //TP_FINAL_AUTHORSFILEPARSER_H

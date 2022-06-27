@@ -157,11 +157,7 @@ private:
      */
     void sortReadingList();
 
-    /*
-     * PRE: Recibe una lista vacia o llena
-     * POST: Inicializa la lista
-     */
-    void newReadingList(List<Reading*> *l);
+
 
 public:
 
@@ -176,7 +172,13 @@ public:
      * PRE:
      * POST: crea la lista con los datos de las Lecturas
      */
-    void getReading(List<Reading*> *l);
+    List<Reading*>* getReading();
+
+    /*
+    * PRE: Recibe una lista vacia o llena
+    * POST: Inicializa la lista
+    */
+    void setReadingList(List<Reading*>* &l);
 
     /*
      * PRE: -

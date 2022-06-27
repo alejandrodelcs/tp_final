@@ -5,9 +5,12 @@ ReadingsFileParser::ReadingsFileParser() {
     this->reading = nullptr;
 }
 
-void ReadingsFileParser::getReading(List<Reading*> *l) {
+void ReadingsFileParser::setReadingList(List<Reading*>* &l) {
+    this->readings = l;
+}
+
+List<Reading*>* ReadingsFileParser::getReading() {
     int count = 0;
-    this->newReadingList(l);
     while (!file.eof()) {
         this->fileLine = file.read();
         if (this->newReference())
@@ -17,6 +20,7 @@ void ReadingsFileParser::getReading(List<Reading*> *l) {
         sortReadingList();
         count++;
     }
+    return this->readings;
 }
 
 void ReadingsFileParser::validateReading(int count) {
@@ -77,8 +81,10 @@ void ReadingsFileParser::validateTypeReading() {
 }
 
 Genres ReadingsFileParser::validateGenre() {
-    std::string strGenres[] = {"HISTORICA", "DRAMA", "COMEDIA", "FICCION", "SUSPENSO", "TERROR", "ROMANTICA"};
-    Genres enumGenres[] = {Genres::HISTORICAL, Genres::DRAMA, Genres::COMEDY, Genres::FICTION, Genres::THRILLER, Genres::HORROR, Genres::ROMANCE};
+    std::string strGenres[] = {"HISTORICA", "DRAMA", "COMEDIA", "FICCION", "SUSPENSO",
+                               "TERROR", "ROMANTICA"};
+    Genres enumGenres[] = {Genres::HISTORICAL, Genres::DRAMA, Genres::COMEDY, Genres::FICTION,
+                           Genres::THRILLER,Genres::HORROR, Genres::ROMANCE};
     Genres element;
     bool found = false;
     int pos = 0;
@@ -211,9 +217,6 @@ void ReadingsFileParser::sortReadingList(){
     }
 }
 
-void ReadingsFileParser::newReadingList(List<Reading*> *l) {
-    this->readings = l;
-}
 
 void ReadingsFileParser::validateYearMinor() {
     int value = 0;
@@ -256,7 +259,6 @@ void ReadingsFileParser::displayReadings() {
     while (this->readings->moveCursor()) {
         this->readings->getCursor()->display();
     }
-
 }
 
 
@@ -290,7 +292,7 @@ int ReadingsFileParser::getCost(Reading* initialReading, Reading* endingReading)
 }
 
 int ReadingsFileParser::validateType(Reading* reading) {
-    int typeNum;
+    int typeNum = 0;
     if (reading->getType() == TALE){
         typeNum= 0;
     } else if (reading->getType() == POEM){
@@ -303,4 +305,9 @@ int ReadingsFileParser::validateType(Reading* reading) {
     }
     return typeNum;
 }
+
+
+
+
+
 

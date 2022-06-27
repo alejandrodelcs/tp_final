@@ -3,6 +3,8 @@
 #include "Graph.h"
 #include "Reading.h"
 #include "AuthorsFileParser.h"
+#include "menu.h"
+
 
 
 #include "Hash.h" // By Ian
@@ -58,6 +60,8 @@ int main() {
 
     /* Hashing code by Ian */
     // Create a hash table of 20 authors:
+
+    /*
     HashTable<Author*> ht(20);
     // Declare some authors for the hash table:
     Author* AuthorA = new Author(1, "Autor A", "Pais del autor A", 1901, 2001);
@@ -76,8 +80,8 @@ int main() {
 
     std::cout << "Hash Table:" << std::endl;
     ht.display();
-    /* End of hashing code */ 
-
+        End of hashing code */
+    /*
     Author* searchedAuthor = ht.searchElement(23);
     if (searchedAuthor != NULL) {
         std::cout << "Result of searching the key 23 on the hash table: " << searchedAuthor->getName() << std::endl;
@@ -87,8 +91,8 @@ int main() {
 
     std::cout << "Hash Table:" << std::endl;
     ht.display();
-    /* End of hashing code */ 
-
+    */
+    /* End of hashing code */
 
 /*
 
@@ -134,4 +138,8 @@ int main() {
      return 0;
 
       */
+
+    Menu m;
+    m.interaction();
+    return 0;
 }

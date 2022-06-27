@@ -1,5 +1,6 @@
 #ifndef TP_FINAL_NOVEL_H
 #define TP_FINAL_NOVEL_H
+#include "Constants.h"
 #include "Reading.h"
 
 class Novel : public Reading {

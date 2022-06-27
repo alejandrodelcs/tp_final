@@ -4,7 +4,6 @@
 #include <string>
 #include <iostream>
 #include "Author.h"
-#include "AuthorsFileParser.h"
 
 enum class Genres {DRAMA=1,COMEDY,FICTION,THRILLER,HORROR,ROMANCE,HISTORICAL,UNKNOWN};
 
@@ -13,7 +12,7 @@ protected:
     std::string title;
     unsigned int minutes;
     unsigned int PublishYear;
-    Author *author; // Pasar esto a variable tipo puntero
+    Author *author;
     int id;
     char type;
 
@@ -76,9 +75,11 @@ public:
     */
     int comparar(Reading *l) const;
 
+    void setAuthor(Author *newAuthor);
+
     /* Destructor
-     * PRE: TODO
-     * POST: TODO
+     * PRE:
+     * POST:
      */
     virtual ~Reading() = default;
 

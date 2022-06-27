@@ -4,9 +4,16 @@ AuthorsFileParser::AuthorsFileParser() {
     file.open("escritores.txt");
 }
 
-void AuthorsFileParser::getAuthor(List<Author*> *e) {
+void AuthorsFileParser::setReadings(List<Reading *>* &l) {
+    this->readings = l;
+}
+
+void AuthorsFileParser::setAuthors(HashTable<Author *>* &a) {
+    this->authors = a;
+}
+
+HashTable<Author *>* AuthorsFileParser::getAuthor() {
     int count = 0;
-    this->authors = e;
     while (!file.eof()) {
         fileLine = file.read();
         if (newReference()) {
@@ -17,19 +24,21 @@ void AuthorsFileParser::getAuthor(List<Author*> *e) {
             addNewAuthor();
         }
         validateEOFAuthor(count);
+        this->addReadingAuthor();
         count++;
     }
+    return this->authors;
 }
 
 void AuthorsFileParser::addNewAuthor() {
-    Author *author = new Author(
-        this->isni,
-        this->name,
-        this->nationality,
-        this->birth,
-        this->death
+    this->author = new Author(
+            this->isni,
+            this->name,
+            this->nationality,
+            this->birth,
+            this->death
     );
-    authors->add(author);
+    authors->insertAuthor(this->author);
 }
 
 void AuthorsFileParser::validateEOFAuthor(int count) {
@@ -80,9 +89,36 @@ bool AuthorsFileParser::validateFileLine() {
 }
 
 AuthorsFileParser::~AuthorsFileParser() {
-    authors->startCursor();
-    while (authors->moveCursor())
-        delete authors->getCursor();
-    delete authors;
-    authors = nullptr;
+    delete author;
 }
+
+void AuthorsFileParser::addReadingAuthor() {
+    readings->startCursor();
+    while (readings->moveCursor()) {
+        Reading *reading = readings->getCursor();
+        if (this->isni == reading->getID()) {
+            reading->setAuthor(this->author);
+        } else if (reading->getID() == 0) {
+            reading->setAuthor(nullptr);
+        }
+    }
+}
+
+void AuthorsFileParser::displayAuthors() {
+    int pos = 0;
+    List<Author*> *aux = authors->getTable();
+    std::cout<<"Hola"<<std::endl;
+    while (aux->moveCursor()){
+        if (aux->getNumberOfElements() > 0 ){
+            while(aux[pos].moveCursor()){
+                aux[pos].getCursor()->display();
+            }
+        }
+        pos++;
+    }
+}
+
+
+
+
+
