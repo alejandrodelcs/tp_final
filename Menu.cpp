@@ -11,7 +11,7 @@ Menu::Menu() {
 
 void Menu::displayMenu() {
     std::cout<<"1. Nueva lectura\n"
-               "2. Mostrar lecturas\n"
+               "2. Mostrar lecturas\n" // SE PUEDE AGREGAR ELIMINAR Y AGREGAR (C/ SUBMENU), VA A DEPENDER COMO LLEGUEMOS
                "3. Nuevo autor/escritor\n"
                "4. Mostrar autores\n"
                "5. Buscar autor\n"
@@ -48,6 +48,15 @@ void Menu::shorterReadingTime() {
 
 }
 
+void Menu::searchAuthor() {
+
+}
+
+void Menu::removeAuthor() {
+
+}
+
+
 
 void Menu::validateInputOption() {
     while(option<ONE || option>EIGHT){  // NO SE COMO LLAMAR A LAS CONSTANTES
@@ -82,12 +91,14 @@ void Menu::options() {
             displayAuthors();
             break;
         case FIVE:
-            shorterReadingTime();
+            searchAuthor();
             break;
         case SIX:
+            removeAuthor();
             std::cout<<"";
             break;
         case SEVEN:
+            shorterReadingTime();
             break;
         case EIGHT:
             this->end = true;
@@ -115,6 +126,7 @@ void Menu::interaction() {
 Menu::~Menu() {
     delete authors;
 }
+
 
 
 

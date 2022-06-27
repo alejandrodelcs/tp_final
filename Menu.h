@@ -18,19 +18,19 @@ private:
 
     bool end;
 
-
-    void buildHashTable();
     void  newReading();
+    void  displayReadings();
     void  newAuthor();
     void  displayAuthors();
-    void  displayReadings();
+    void searchAuthor();
+    void removeAuthor();
     void  shorterReadingTime();
+    void buildHashTable();
     void  validateInputOption();
     void buildListReadings();
     void input();
     void options();
     void displayMenu();
-
 public:
     Menu();
 
