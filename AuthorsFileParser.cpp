@@ -12,10 +12,10 @@ void AuthorsFileParser::setAuthors(HashTable<Author *>* &a) {
     this->authors = a;
 }
 
-HashTable<Author *>* AuthorsFileParser::getAuthor() {
+HashTable<Author *>* AuthorsFileParser::getAuthors() {
     int count = 0;
     while (!file.eof()) {
-        fileLine = file.read();
+        fileLine = file.read();        
         if (newReference()) {
             count = 0;
         }
@@ -25,6 +25,7 @@ HashTable<Author *>* AuthorsFileParser::getAuthor() {
         }
         validateEOFAuthor(count);
         this->addReadingAuthor();
+        
         count++;
     }
     return this->authors;

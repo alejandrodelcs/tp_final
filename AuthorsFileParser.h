@@ -73,7 +73,7 @@ public:
      * PRE: -
      * POST: Retorna la tabla de hash con los autores
      */
-    HashTable<Author *>* getAuthor();
+    HashTable<Author *>* getAuthors();
 
     /*
      * PRE:

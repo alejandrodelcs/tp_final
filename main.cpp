@@ -3,7 +3,7 @@
 #include "Graph.h"
 #include "Reading.h"
 #include "AuthorsFileParser.h"
-#include "menu.h"
+#include "Menu.h"
 
 
 
@@ -56,8 +56,8 @@
 
 
 
-int main() {
+int main() {    
     Menu m;
     m.interaction();
-    return 0;
+    return 0;    
 }
