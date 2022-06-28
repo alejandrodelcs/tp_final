@@ -175,7 +175,7 @@ public:
      * PRE:
      * POST: crea la lista con los datos de las Lecturas
      */
-    List<Reading*>* getReadings();
+    List<Reading*>* getReading();
 
     /*
     * PRE: Recibe una lista vacia o llena

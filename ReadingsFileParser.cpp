@@ -5,11 +5,11 @@ ReadingsFileParser::ReadingsFileParser() {
     this->reading = nullptr;
 }
 
-void ReadingsFileParser::setReadingList(List<Reading*>* &l) {
+void ReadingsFileParser::setReadingList(List<Reading *> *&l) {
     this->readings = l;
 }
 
-List<Reading*>* ReadingsFileParser::getReadings() {
+List<Reading *> *ReadingsFileParser::getReading() {
     int count = 0;
     while (!file.eof()) {
         this->fileLine = file.read();
@@ -24,7 +24,7 @@ List<Reading*>* ReadingsFileParser::getReadings() {
 }
 
 void ReadingsFileParser::validateReading(int count) {
-    switch(count){
+    switch (count) {
         case TYPE:
             this->type = this->fileLine[0];
             break;
@@ -84,7 +84,7 @@ Genres ReadingsFileParser::validateGenre() {
     std::string strGenres[] = {"HISTORICA", "DRAMA", "COMEDIA", "FICCION", "SUSPENSO",
                                "TERROR", "ROMANTICA"};
     Genres enumGenres[] = {Genres::HISTORICAL, Genres::DRAMA, Genres::COMEDY, Genres::FICTION,
-                           Genres::THRILLER,Genres::HORROR, Genres::ROMANCE};
+                           Genres::THRILLER, Genres::HORROR, Genres::ROMANCE};
     Genres element;
     bool found = false;
     int pos = 0;
@@ -99,7 +99,7 @@ Genres ReadingsFileParser::validateGenre() {
 }
 
 void ReadingsFileParser::validateReference() {
-    this->theme =  nullptr;
+    this->theme = nullptr;
     if (fileLine[0] == '(') {
         this->id = this->getId();
     } else if (type == NOVEL) {
@@ -147,7 +147,7 @@ void ReadingsFileParser::buildNewTheme() {
     }
 }
 
-void ReadingsFileParser::reserveThemeMemory(char* &t) {
+void ReadingsFileParser::reserveThemeMemory(char *&t) {
     t = new char[this->fileLine.length()];
 }
 
@@ -200,14 +200,14 @@ Reading *ReadingsFileParser::buildNewHistoricalNovel() {
 
 void ReadingsFileParser::validateYearSorted() {
     int value = reading->comparar(this->readings->search(this->readings->getNumberOfElements()));
-    if (value == 0 || value == 1){
+    if (value == 0 || value == 1) {
         this->readings->add(this->reading);
-    }else{
+    } else {
         this->validateYearMinor();
     }
 }
 
-void ReadingsFileParser::sortReadingList(){
+void ReadingsFileParser::sortReadingList() {
     if (this->reading != nullptr) {
         if (readings->getNumberOfElements() < 1) {
             readings->add(this->reading);
@@ -222,23 +222,15 @@ void ReadingsFileParser::validateYearMinor() {
     int value = 0;
     int position = 0;
     this->readings->startCursor();
-    while (readings->moveCursor() && value >= 0){
+    while (readings->moveCursor() && value >= 0) {
         value = reading->comparar(readings->getCursor());
         position++;
     }
     this->readings->add(this->reading, position);
 }
 
-ReadingsFileParser::~ReadingsFileParser() {
-    readings->startCursor();
-    while (readings->moveCursor()) {
-        delete readings->getCursor();
-    }
-    delete readings;
-    readings = nullptr;
-}
 
-void ReadingsFileParser::addSortedReading(Reading* l) {
+void ReadingsFileParser::addSortedReading(Reading *l) {
     this->readings->startCursor();
     int value;
     int position = 1;
@@ -255,35 +247,18 @@ void ReadingsFileParser::addSortedReading(Reading* l) {
 }
 
 void ReadingsFileParser::displayReadings() {
-    this->readings->getCursor();
+    this->readings->startCursor();
     while (this->readings->moveCursor()) {
         this->readings->getCursor()->display();
     }
 }
 
 
-
-
-
-
-
-
-/* cuento - cuento 8 cuento - poema 0 cuento - novela 10 cuento - historica 15
- * poema - cuento 0
- *
- * poema - novela 5
- * poema - historica 20
- * novela - historica 60
- * poema - poema 1
- * novela - novela 30
- * historica - historica 80
- * */
-
-int ReadingsFileParser::getCost(Reading* initialReading, Reading* endingReading) {
-    int costs[4][4]= {
-            {8, 0, 10, 15},
-            {0, 1, 5, 20},
-            {10, 5, 30, 60},
+int ReadingsFileParser::getCost(Reading *initialReading, Reading *endingReading) {
+    int costs[4][4] = {
+            {8,  0,  10, 15},
+            {0,  1,  5,  20},
+            {10, 5,  30, 60},
             {15, 20, 60, 80}
     };
     int A = validateType(initialReading);
@@ -291,22 +266,88 @@ int ReadingsFileParser::getCost(Reading* initialReading, Reading* endingReading)
     return costs[A][B];
 }
 
-int ReadingsFileParser::validateType(Reading* reading) {
+int ReadingsFileParser::validateType(Reading *reading) {
     int typeNum = 0;
-    if (reading->getType() == TALE){
-        typeNum= 0;
-    } else if (reading->getType() == POEM){
-        typeNum= 1;
-    } else if (reading->getType() == NOVEL){
-        typeNum= 2;
-        if (reading->getGenre() == Genres::HISTORICAL){
-            typeNum=3;
+    if (reading->getType() == TALE) {
+        typeNum = 0;
+    } else if (reading->getType() == POEM) {
+        typeNum = 1;
+    } else if (reading->getType() == NOVEL) {
+        typeNum = 2;
+        if (reading->getGenre() == Genres::HISTORICAL) {
+            typeNum = 3;
         }
     }
     return typeNum;
 }
 
+void ReadingsFileParser::setGraphVertex() {
+    this->readings->startCursor();
+    int pos = 1;
+    while (this->readings->moveCursor()) {
+        graph->addVertex(pos);
+        pos++;
+    }
 
+}
+
+void ReadingsFileParser::setGraph(Graph<int> *&graph) {
+    this->graph = graph;
+}
+
+Graph<int> *ReadingsFileParser::getGraph() {
+    return graph;
+}
+
+void ReadingsFileParser::addGraphEdges() {
+    for (int i = 1; i < readings->getNumberOfElements(); i++) {
+        for (int j = i + 1; j < readings->getNumberOfElements() + 1; j++) {
+            graph->addEdge(i, j,
+                           getCost(readings->search(i), readings->search(j)));
+        }
+    }
+}
+
+void ReadingsFileParser::displayMst() {
+    Mst m(readings->getNumberOfElements(), graph->getAdjMAtrix());
+    m.primAlgorithm();
+    int totalMinDistance = 0;
+    int *parent = m.getParent();
+    int *weight = m.getWeight();
+    std::cout << CYAN "ORDEN QUE DEBERÍA LEER LAS LECTURAS\n" WHITE << std::endl;
+    for (int i = 1; i < readings->getNumberOfElements(); i++) {
+        if (parent[i] < i) {
+            totalMinDistance += weight[i];
+            std::cout << readings->search(parent[i] + 1)->getTitle() << RED " -> " WHITE
+                      << readings->search(i + 1)->getTitle() << "\t"
+                      << "Siesta: " << weight[i] << std::endl;
+        } else {
+            totalMinDistance += weight[i];
+            std::cout << readings->search(i + 1)->getTitle() << RED " -> " WHITE
+                      << readings->search(parent[i] + 1)->getTitle() << "\t"
+                      << "Siesta: " << weight[i] << std::endl;
+        }
+    }
+    std::cout << std::endl;
+    std::cout << MAGENTA "Tiempo total que tardaria: " RED << totalMinDistance << WHITE << std::endl;
+    std::cout << std::endl;
+}
+
+void ReadingsFileParser::_displayMst() {
+    Mst m(readings->getNumberOfElements(), graph->getAdjMAtrix());
+    m.primAlgorithm();
+    m.calcMinDistance();
+}
+
+
+ReadingsFileParser::~ReadingsFileParser() {
+    readings->startCursor();
+    while (readings->moveCursor()) {
+        delete readings->getCursor();
+    }
+    delete readings;
+    readings = nullptr;
+}
 
 
 
