@@ -189,7 +189,6 @@ List<Type>* HashTable<Type>::getTable() {
 
 template <typename Type>
 HashTable<Type>::~HashTable() {
-    std::cout << "Flag A triggered" << std::endl;
     for (int i = 0; i < size; i++) {
         while (table[i].getNumberOfElements() > 0) {
             table[i].remove(1);
@@ -197,7 +196,6 @@ HashTable<Type>::~HashTable() {
     }
     delete[] table;
     table = nullptr;
-    std::cout << "Flag B triggered" << std::endl;
 }
 
 #endif //TP_FINAL_HASH_H

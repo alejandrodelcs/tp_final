@@ -1,19 +1,21 @@
-Orden de alta:
-• Mejor caso: Depende de los ciclos de la lista...
-• Peor caso: Depende de los ciclos de la lista...
-• Caso promedio: Depende de los ciclos de la lista...
-Orden de consulta:
-• Mejor caso: Si la clave apunta a un elemento con lista de tamanio 1
-              (La tabla hash solo tiene 1 elemento con esa clave)
-• Peor caso: Si la clave apunta a un elemento al final de la lista mas larga del array tabla.
-             (La tabla hash tiene la mayor cantidad de colisiones en ese lugar de la tabla.
-             Y ademas, el elemento a buscar es el ultimo de la larga lista);
-• Caso promedio: 
-Orden de baja:
-• Mejor caso: Si la clave apunta a un elemento con lista de tamanio 1
-              (La tabla hash solo tiene 1 elemento con esa clave)
-• Peor caso: Si la clave apunta a un elemento al final de la lista mas larga del array tabla.
-             (La tabla hash tiene la mayor cantidad de colisiones en ese lugar de la tabla.
-             Y ademas, el elemento a remover es el ultimo de la larga lista);
-• Caso promedio: 
+Orden de alta: O(1)
+Todo nuevo elemento va a ser anadido al final de la lista, irrelevantemente del tamanio de la misma.
+Por lo que no se puede definir claramente un mejor o un peor caso en particular.
 
+Orden de consulta: O(n)
+Considerando n como la cantidad de objetos en la lista analizada, se puede definir los siguientes casos:
+• Mejor caso: Si se consulta por un elemento que se encuentra en una lista de tamanio 1. (Ninguna colision con esa clave)
+Si se consulta por el primer elemento de una lista (Irrelevantemente del tamanio de la lista)
+Mejor caso (en terminos generales): Si se consulta por un elemento cuya clave no colisiono al ser anadido a tabla.
+• Peor caso: Si se consulta un elemento que se encuentra al final de la lista con mas elementos de toda la tabla.
+(La tabla tiene la mayor cantidad de colisiones en esa posicion)
+• Caso promedio: Varia segun la cantidad de elementos que colisionado cuando se anadio el elemento a la tabla.
+(A menor colisiones cuando se lo aniadio, mas rapido sera la consulta)
+
+Orden de baja: O(n)
+Considerando n como la cantidad de objetos en la lista analizada, se puede definir los siguientes casos:
+Mejor caso (en terminos generales): Si se quiere eliminar un elemento cuya clave no colisiono al ser anadido a tabla.
+• Peor caso: Si se quiere eliminar un elemento que se encuentra al final de la lista con mas elementos de toda la tabla.
+(La tabla tiene la mayor cantidad de colisiones en esa posicion).
+• Caso promedio: Varia segun la cantidad de elementos que colisionado cuando se anadio el elemento a la tabla.
+(A menor colisiones cuando se lo aniadio, mas rapido sera eliminar el elemento)
