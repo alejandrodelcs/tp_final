@@ -17,7 +17,7 @@ void Menu::displayMenu() {
                  "7. Encontrar el orden y tiempo mínimo que nos\n"
                  "   llevaría leer todas las lecturas\n"
                  "8. Extras\n"
-                 "9. Salir"<< std::endl;
+                 "9. Salir" << std::endl;
 
 }
 
@@ -96,16 +96,16 @@ void Menu::validateInputOption() {
     }
 }
 
-void Menu::displayAdditionalFeatures(){
+void Menu::displayAdditionalFeatures() {
     std::cout << "1. Mostrar Matriz de Adyacencia y vertices\n"
                  "2. Mostrar resultado de Algoritmo de Prim (sin formato)\n" // SE PUEDE AGREGAR ELIMINAR Y ALTA (C/ SUBMENU), VA A DEPENDER COMO LLEGUEMOS
                  "3. Mostrar tabla de hash\n"
-                 "4. Salir"<< std::endl;
+                 "4. Salir" << std::endl;
 
 }
 
 
-void Menu::optionsAdditional(){
+void Menu::optionsAdditional() {
     switch (this->option) {
         case ONE:
             graph->displayGraph();
@@ -117,7 +117,7 @@ void Menu::optionsAdditional(){
             authors->display();
             break;
         case FOUR:
-            std::cout<<MAGENTA "\nGracias por llegar hasta aca\n" WHITE <<std::endl;
+            std::cout << MAGENTA "\nGracias por llegar hasta aca\n" WHITE << std::endl;
             break;
     }
 }
@@ -128,7 +128,6 @@ void Menu::additionalFeatures() {
     this->optionsAdditional();
     this->interaction();
 }
-
 
 
 void Menu::buildGraph() {
