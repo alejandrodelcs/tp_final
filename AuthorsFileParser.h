@@ -99,6 +99,13 @@ public:
      */
     void displayAuthors();
 
+    /*
+     * PRE:
+     * POST:
+     */
+    List<int>* displayNameAuthors();
+
+
     /* Destructor
      * PRE:
      * POST: Destruye la lista de Escritores

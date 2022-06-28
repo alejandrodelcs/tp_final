@@ -92,9 +92,9 @@ void AuthorsFileParser::addReadingAuthor() {
     readings->startCursor();
     while (readings->moveCursor()) {
         Reading *reading = readings->getCursor();
-        if (this->isni == reading->getID()) {
+        if (this->isni == reading->getIsni()) {
             reading->setAuthor(this->author);
-        } else if (reading->getID() == 0) {
+        } else if (reading->getIsni() == 0) {
             reading->setAuthor(nullptr);
         }
     }
@@ -109,6 +109,23 @@ void AuthorsFileParser::displayAuthors() {
         }
     }
 }
+
+
+List<int>* AuthorsFileParser::displayNameAuthors() {
+    List<int> *insi = new List<int>;
+    List<Author *> *aux = authors->getTable();
+    int j = 1;
+    for (int i = 0; i < authors->getSize(); i++) {
+        aux[i].startCursor();
+        while (aux[i].moveCursor()) {
+            std::cout << j << ") " << aux[i].getCursor()->getName() << std::endl;
+            insi->add(aux[i].getCursor()->getISNI());
+            j++;
+        }
+    }
+    return insi;
+}
+
 
 AuthorsFileParser::~AuthorsFileParser() {
     delete author;

@@ -48,7 +48,7 @@ class HashTable {
         * PRE:
         * POST: Removes an element from the hash table
         */
-        void removeElement(int position);
+        void removeElement(int key);
         /* 
         * PRE:
         * POST:
@@ -119,25 +119,16 @@ void HashTable<Type>::removeElement(int key) {
     }
 }
 
-template <typename Type>
+template<typename Type>
 Type HashTable<Type>::searchElement(int key) {
     Type returnedElement;
     bool found = false;
-    int position = getHash(key); 
-    int listSize = table[position].getNumberOfElements();
-    if (listSize == 1) {
-        table[position].startCursor(); table[position].moveCursor();
-        found = compareAuthorKey(table[position].getCursor(),key);
+    int position = getHash(key);
+    table[position].startCursor();
+    while (table[position].moveCursor() && !found) {
+        found = compareAuthorKey(table[position].getCursor(), key);
         if (found) {
             returnedElement = table[position].getCursor();
-        }
-    } else if (listSize > 1) {
-        table[position].startCursor();
-        while (table[position].moveCursor() && !found ) {
-            found = compareAuthorKey(table[position].getCursor(),key);
-            if (found) {
-                returnedElement = table[position].getCursor();
-            }
         }
     }
     if (!found) {
@@ -166,7 +157,7 @@ void HashTable<Type>::display() {
             }
             std::cout << " ]";
         }else{
-            std::cout << tableId << " : [ ]";
+            std::cout << tableId << " : [ ∅ ]";
         }
         std::cout << std::endl;
     }
@@ -189,7 +180,6 @@ List<Type>* HashTable<Type>::getTable() {
 
 template <typename Type>
 HashTable<Type>::~HashTable() {
-    std::cout << "Flag A triggered" << std::endl;
     for (int i = 0; i < size; i++) {
         while (table[i].getNumberOfElements() > 0) {
             table[i].remove(1);
@@ -197,7 +187,6 @@ HashTable<Type>::~HashTable() {
     }
     delete[] table;
     table = nullptr;
-    std::cout << "Flag B triggered" << std::endl;
 }
 
 #endif //TP_FINAL_HASH_H

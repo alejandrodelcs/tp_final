@@ -26,6 +26,10 @@ public:
      */
     Mst(int nodes,std::vector<std::vector<int>> adjMatrix);
 
+    /*
+     * PRE:
+     * POST
+     */
     void calcMinDistance();
 
     /*
@@ -33,6 +37,18 @@ public:
      * POST:
      */
     void primAlgorithm();
+
+    /*
+     * PRE:
+     * POST
+     */
+    int* getParent();
+
+    /*
+     * PRE:
+     * POST:
+     */
+    int* getWeight();
 
 
     /* Destructor

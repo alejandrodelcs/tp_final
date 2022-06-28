@@ -14,7 +14,7 @@ protected:
     unsigned int minutes;
     unsigned int PublishYear;
     Author *author;
-    int id;
+    int isni;
     char type;
 
 public:
@@ -60,7 +60,7 @@ public:
      * PRE:
      * POST: devuelve el número de referencia a la Lectura
      */
-    int getID() const;
+    int getIsni() const;
 
     /*
      * PRE:

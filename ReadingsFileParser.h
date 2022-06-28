@@ -2,6 +2,7 @@
 #define TP_FINAL_READINGFILESPARSER_H
 #include <iostream>
 #include <string>
+#include "Graph.h"
 #include "Constants.h"
 #include "File.h"
 #include "Reading.h"
@@ -10,6 +11,7 @@
 #include "Historical.h"
 #include "Poem.h"
 #include "List.h"
+#include "Mst.h"
 
 class ReadingsFileParser {
 
@@ -27,6 +29,7 @@ private:
     int verses;
     Reading *reading;
     List<Reading*> *readings;
+    Graph<int>* graph;
 
     /*
      * PRE: 
@@ -186,12 +189,69 @@ public:
      */
     void addSortedReading(Reading* l);
 
-
+    /*
+     * PRE:
+     * POST:
+     */
     void displayReadings();
 
+    /*
+     * PRE: Recibe dos lecturas
+     * POST: Retorna el costo de pasar de una lectura a otro considerando:
+             * cuento - cuento 8
+             * cuento - poema 0
+             * cuento - novela 10
+             * cuento - historica 15
+             * poema - cuento 0
+             *
+             * poema - novela 5
+             * poema - historica 20
+             * novela - historica 60
+             * poema - poema 1
+             * novela - novela 30
+             * historica - historica 80
+    */
     int getCost(Reading* initialReading, Reading* endingReading);
 
+    /*
+     * PRE:
+     * POST:
+     */
     int validateType(Reading* reading);
+
+    /*
+     * PRE
+     * POST:
+     */
+    void setGraphVertex();
+
+    /*
+     * PRE:
+     * POST:
+     */
+    Graph<int>* getGraph();
+
+    /*
+     * PRE:
+     * POST:
+     */
+    void setGraph(Graph<int>* &graph);
+
+    /*
+     * PRE:
+     * POST:
+     */
+    void addGraphEdges();
+
+    /*
+     * PRE:
+     * POST:
+     */
+    void displayMst();
+
+
+    void _displayMst();
+
 
     /*
      * PRE:

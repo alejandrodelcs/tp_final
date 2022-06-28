@@ -1,6 +1,8 @@
 #ifndef TP_FINAL_MENU_H
 #define TP_FINAL_MENU_H
+#include <iostream>
 #include "List.h"
+#include "Constants.h"
 #include "Reading.h"
 #include "Author.h"
 #include "Hash.h"
@@ -15,22 +17,29 @@ private:
     ReadingsFileParser pReading;
     AuthorsFileParser  pAuthors;
     HashTable<Author*>* authors;
+    Graph<int>* graph;
 
     bool end;
 
-    void  newReading();
-    void  displayReadings();
-    void  newAuthor();
-    void  displayAuthors();
+    void newReading();
+    void displayReadings();
+    bool validateSearchOption(int totalAuthors) const;
+    void newAuthor();
+    void displayAuthors();
     void searchAuthor();
+    Author* getAuthorMenu();
     void removeAuthor();
-    void  shorterReadingTime();
+    void shorterReadingTime();
+    void additionalFeatures();
     void buildHashTable();
-    void  validateInputOption();
+    void validateInputOption();
     void buildListReadings();
+    void buildGraph();
     void input();
     void options();
     void displayMenu();
+    void optionsAdditional();
+    void displayAdditionalFeatures();
 public:
     Menu();
 

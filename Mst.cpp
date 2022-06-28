@@ -12,19 +12,21 @@ Mst::Mst(int nodes,std::vector<std::vector<int>> adjMatrix) {
 }
 
 void Mst::calcMinDistance() {
-    std::cout<<"Prim's Minimum Spanning Tree "<<std::endl;
+    std::cout<<CYAN "Prim's Minimum Spanning Tree\n" WHITE<<std::endl;
     for (int i = 1; i < nodes; i++) {
         if (parent[i] < i) {
             this->totalMinDistance += weight[i];
-            std::cout << "Edge: " << parent[i] << "-" << i << " "
-                      << "Cost: " << weight[i] << std::endl;
+            std::cout << "arista: " << parent[i]+1 << RED "--" WHITE<< i+1 << " "
+                      << "Costo: " << weight[i] << std::endl;
         } else {
             this->totalMinDistance += weight[i];
-            std::cout << "Edge: " << i << "-" << parent[i] << " "
-                      << "Cost: " << weight[i] << std::endl;
+            std::cout << "arista: " << i+1 << RED "--" WHITE << parent[i]+1 << " "
+                      << "Costo: " << weight[i] << std::endl;
         }
     }
-    std::cout << "The total minimum distance taken is " << this->totalMinDistance << std::endl;
+    std::cout<<std::endl;
+    std::cout << GREEN "La distancia mínima total recorrida es " << RED << this->totalMinDistance << WHITE << std::endl;
+    std::cout<<std::endl;
 }
 
 void Mst::exploreUnvisited(int minVertex) {
@@ -75,4 +77,12 @@ Mst::~Mst() {
     delete[] parent;
     delete[] visited;
     delete[] weight;
+}
+
+int *Mst::getParent() {
+    return this->parent;
+}
+
+int *Mst::getWeight() {
+    return this->weight;
 }

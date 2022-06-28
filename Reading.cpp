@@ -28,8 +28,8 @@ unsigned int Reading::getMinutes() const {
 }
 
 
-int Reading::getID() const {
-    return id;
+int Reading::getIsni() const {
+    return isni;
 }
 
 
