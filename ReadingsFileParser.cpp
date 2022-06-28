@@ -9,7 +9,7 @@ void ReadingsFileParser::setReadingList(List<Reading*>* &l) {
     this->readings = l;
 }
 
-List<Reading*>* ReadingsFileParser::getReading() {
+List<Reading*>* ReadingsFileParser::getReadings() {
     int count = 0;
     while (!file.eof()) {
         this->fileLine = file.read();

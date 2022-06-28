@@ -18,9 +18,9 @@ private:
 
     bool end;
 
-    void  newReading();
+    void  addReading();
     void  displayReadings();
-    void  newAuthor();
+    void  addAuthor();
     void  displayAuthors();
     void searchAuthor();
     void removeAuthor();

@@ -36,11 +36,11 @@ void Menu::displayAuthors() {
     pAuthors.displayAuthors();
 }
 
-void Menu::newReading() {
+void Menu::addReading() {
 
 }
 
-void Menu::newAuthor() {
+void Menu::addAuthor() {
 
 }
 
@@ -56,36 +56,34 @@ void Menu::removeAuthor() {
 
 }
 
-
-
 void Menu::validateInputOption() {
-    while(option<ONE || option>EIGHT){  // NO SE COMO LLAMAR A LAS CONSTANTES
+    while((option < ONE) || (option > EIGHT)) {
         std::cout<<"¡Error!. Opcion incorrecta"<<std::endl;
         this->input();
     }
 }
 
-void Menu::buildListReadings() {
+void Menu::buildListReadings() {    
     pReading.setReadingList(this->readings);
-    this->readings = pReading.getReading();
+    //this->readings = pReading.getReadings(); // TODO: Fix this error
 }
 
 void Menu::buildHashTable() {
     pAuthors.setReadings(readings);
     pAuthors.setAuthors(authors);
-    this->authors = pAuthors.getAuthor();
+    //this->authors = pAuthors.getAuthors(); // TODO: Fix this error
 }
 
 void Menu::options() {
     switch (this->option) {
         case ONE:
-            newReading();
+            addReading();
             break;
         case TWO:
             displayReadings();
             break;
         case THREE:
-            newAuthor();
+            addAuthor();
             break;
         case FOUR:
             displayAuthors();
@@ -95,7 +93,7 @@ void Menu::options() {
             break;
         case SIX:
             removeAuthor();
-            std::cout<<"";
+            std::cout << "";
             break;
         case SEVEN:
             shorterReadingTime();
@@ -103,7 +101,7 @@ void Menu::options() {
         case EIGHT:
             this->end = true;
         default:
-            std::cout<<"";
+            std::cout << "";
             break;
     }
 }
@@ -121,17 +119,6 @@ void Menu::interaction() {
     }
 }
 
-
-
 Menu::~Menu() {
     delete authors;
 }
-
-
-
-
-
-
-
-
-
