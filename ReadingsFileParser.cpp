@@ -1,7 +1,7 @@
 #include "ReadingsFileParser.h"
 
 ReadingsFileParser::ReadingsFileParser() {
-    file.open("/lecturas.txt");
+    file.open("lecturas.txt");
     this->reading = nullptr;
 }
 

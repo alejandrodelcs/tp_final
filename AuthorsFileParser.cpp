@@ -1,7 +1,7 @@
 #include "AuthorsFileParser.h"
 
 AuthorsFileParser::AuthorsFileParser() {
-    file.open("/escritores.txt");
+    file.open("escritores.txt");
 }
 
 void AuthorsFileParser::setReadings(List<Reading *>* &l) {
