@@ -6,3 +6,5 @@ salida
 *.txt
 *.rar
 *.zip
+!lecturas.txt
+!escritores.txt
