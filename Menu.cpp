@@ -91,7 +91,7 @@ void Menu::removeAuthor() {
 
 void Menu::validateInputOption() {
     while (option < ONE || option > NINE) {  // NO SE COMO LLAMAR A LAS CONSTANTES
-        std::cout << RED "¡Error!. Opcion incorrecta" WHITE << std::endl;
+        std::cout << RED "¡Opcion incorrecta!\n" WHITE << std::endl;
         this->input();
     }
 }
