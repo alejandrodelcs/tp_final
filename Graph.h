@@ -130,8 +130,8 @@ template<typename Type>
 void Graph<Type>::displayAdjMatrix() {
     std::cout << "Matriz de adyacencia:" << endl;
     for (auto & i : adjMatrix) {
-        for (int j = 0; j < adjMatrix.size() * 2; j++) {
-            if (j == adjMatrix.size() * 2 - 1) {
+        for (int j = 0; j < (int)adjMatrix.size() * 2; j++) {
+            if (j == (int)(adjMatrix.size()) * 2 - 1) {
                 std::cout << endl;
             } else if (j % 2 == 0) {
                 if (i[j / 2] == INFINITO) {
