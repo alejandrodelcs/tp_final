@@ -157,7 +157,7 @@ void HashTable<Type>::display() {
             }
             std::cout << " ]";
         }else{
-            std::cout << tableId << " : [ ∅ ]";
+            std::cout << tableId << " : [ ]";
         }
         std::cout << std::endl;
     }

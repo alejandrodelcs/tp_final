@@ -4,10 +4,7 @@
 #include "Reading.h"
 #include "AuthorsFileParser.h"
 #include "Menu.h"
-
-
-
-#include "Hash.h" // By Ian
+#include "Hash.h"
 
 
 //Prims is applied to find MST to a graph with property of graph as follows:-

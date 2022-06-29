@@ -111,19 +111,20 @@ void Graph<Type>::addEdge(Type origin, Type destiny, int weigth) {
 template<typename Type>
 void Graph<Type>::displayGraph() {
     displayVertexes();
+    std::cout << std::endl;
     displayAdjMatrix();
 }
 
 template<typename Type>
 void Graph<Type>::displayVertexes() {
-    std::cout << "Lista de vértices: [";
+    std::cout << "Lista de vértices: \n[";
     for (int i = 0; i < vertexes->getNumberOfElements(); i++) {
         std::cout << vertexes->getName(i + 1);
         if (i + 1 != vertexes->getNumberOfElements()) {
             std::cout << ", ";
         }
     }
-    std::cout << "]" << endl;
+    std::cout << "]" << std::endl;
 }
 
 template<typename Type>
