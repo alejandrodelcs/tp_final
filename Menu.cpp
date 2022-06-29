@@ -141,13 +141,13 @@ void Menu::buildGraph() {
 
 void Menu::buildListReadings() {
     pReading.setReadingList(this->readings);
-    this->readings = pReading.getReading();
+    this->readings = pReading.getReadings(); // TODO : Error en linux
 }
 
 void Menu::buildHashTable() {
     pAuthors.setReadings(readings);
     pAuthors.setAuthors(authors);
-    this->authors = pAuthors.getAuthor();
+    this->authors = pAuthors.getAuthors(); // TODO : Error en linux
 }
 
 void Menu::options() {

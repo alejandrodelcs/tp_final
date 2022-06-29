@@ -11,7 +11,7 @@ unsigned int Reading::getPublishYear() const {
     return PublishYear;
 }
 
-Author* Reading::getAuthor(){
+Author* Reading::getAuthors(){
     return this->author;
 }
 

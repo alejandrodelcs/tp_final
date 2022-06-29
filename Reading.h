@@ -54,7 +54,7 @@ public:
      * PRE:
      * POST: devuelve el Autor (escritor)
      */
-    Author *getAuthor();
+    Author *getAuthors();
 
     /*
      * PRE:

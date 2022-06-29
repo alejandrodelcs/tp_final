@@ -1,7 +1,7 @@
 #include "AuthorsFileParser.h"
 
 AuthorsFileParser::AuthorsFileParser() {
-    file.open("escritores.txt");
+    file.open("/escritores.txt");
 }
 
 void AuthorsFileParser::setReadings(List<Reading *>* &l) {
@@ -12,7 +12,7 @@ void AuthorsFileParser::setAuthors(HashTable<Author *>* &a) {
     this->authors = a;
 }
 
-HashTable<Author *>* AuthorsFileParser::getAuthor() {
+HashTable<Author *>* AuthorsFileParser::getAuthors() {
     int count = 0;
     while (!file.eof()) {
         fileLine = file.read();
