@@ -98,7 +98,7 @@ void Menu::validateInputOption() {
 
 void Menu::displayAdditionalFeatures() {
     std::cout << "1. Mostrar Matriz de Adyacencia y vertices\n"
-                 "2. Mostrar resultado de Algoritmo de Prim (sin formato)\n" // SE PUEDE AGREGAR ELIMINAR Y ALTA (C/ SUBMENU), VA A DEPENDER COMO LLEGUEMOS
+                 "2. Mostrar resultado de Algoritmo de Prim (solo MST)\n"
                  "3. Mostrar tabla de hash\n"
                  "4. Salir" << std::endl;
 
@@ -141,13 +141,13 @@ void Menu::buildGraph() {
 
 void Menu::buildListReadings() {
     pReading.setReadingList(this->readings);
-    this->readings = pReading.getReadings(); // TODO : Error en linux
+    this->readings = pReading.getReadings();
 }
 
 void Menu::buildHashTable() {
     pAuthors.setReadings(readings);
     pAuthors.setAuthors(authors);
-    this->authors = pAuthors.getAuthors(); // TODO : Error en linux
+    this->authors = pAuthors.getAuthors();
 }
 
 void Menu::options() {
