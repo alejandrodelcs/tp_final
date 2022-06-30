@@ -11,7 +11,7 @@ unsigned int Reading::getPublishYear() const {
     return PublishYear;
 }
 
-Author* Reading::getAuthors(){
+Author* Reading::getAuthor(){
     return this->author;
 }
 
@@ -31,7 +31,6 @@ unsigned int Reading::getMinutes() const {
 int Reading::getIsni() const {
     return isni;
 }
-
 
 int Reading::comparar(Reading *l) const {
     int value = 0;

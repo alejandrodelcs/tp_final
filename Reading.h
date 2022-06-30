@@ -9,81 +9,76 @@
 enum class Genres {DRAMA=1,COMEDY,FICTION,THRILLER,HORROR,ROMANCE,HISTORICAL,UNKNOWN};
 
 class Reading {
-protected:
+    protected:
     std::string title;
     unsigned int minutes;
     unsigned int PublishYear;
     Author *author;
     int isni;
     char type;
-
-public:
+    public:
     /* Constructor
-    * PRE: -
-    * POST: Construye una nueva Lectura.
-    */
+     * PRE:
+     * POST: Builds a new reading.
+     */
     Reading(const std::string &title, unsigned int minutes, unsigned int PublishYear);
-
-    /*
-    * PRE: -
-    * POST: metodo virtual que muestra los atributos de sus clases derivadas
-    */
-    virtual void display() = 0;
-
-    virtual Genres getGenre()=0;
-
     /*
      * PRE:
-     * POST: retorna el tipo de lectura
+     * POST: metodo virtual que muestra los atributos de sus clases derivadas
+     */
+    virtual void display() = 0;
+    /*
+     * PRE:
+     * POST: Get the genre of the reading object
+     */
+    virtual Genres getGenre()=0;
+    /*
+     * PRE:
+     * POST: Get the type of the reading object
      */
     char getType() const;
-
     /*
      * PRE:
-     * POST: retorna los minutos de Lectura
+     * POST: Get the minutes of the reading object
      */
     unsigned int getMinutes() const;
-
     /*
      * PRE:
-     * POST: retorna el año de publicacion de la Lectura
+     * POST: Get the year of publishment of the reading object
      */
     unsigned int getPublishYear() const;
-
     /*
      * PRE:
-     * POST: devuelve el Autor (escritor)
+     * POST: Get the author of the reading object
      */
-    Author *getAuthors();
-
+    Author *getAuthor();
     /*
      * PRE:
-     * POST: devuelve el número de referencia a la Lectura
+     * POST: Get the isni of the reading object
      */
     int getIsni() const;
-
     /*
      * PRE:
-     * POST: devuelve el título de la Lectura
+     * POST: Get the title of the reading object
      */
     std::string getTitle();
-
     /*
-    * PRE: Recibe una lectura
-    * POST: Si la lectura es menor a la que se pasa por parametro ---> -1
-    *       Si la lectura es mayor a la que se pasa por parametro --->  1
-    *       Si la lectura es igual a la que se pasa por parametro --->  0
-    */
+     * PRE: Recibe una lectura
+     * POST: Si la lectura es menor a la que se pasa por parametro ---> -1
+     *       Si la lectura es mayor a la que se pasa por parametro --->  1
+     *       Si la lectura es igual a la que se pasa por parametro --->  0
+     */
     int comparar(Reading *l) const;
-
+    /* 
+     * PRE:
+     * POST: Sets an author to the reading object.
+     */
     void setAuthor(Author *newAuthor);
-
     /* Destructor
      * PRE:
      * POST:
      */
     virtual ~Reading() = default;
-
 };
 
-#endif //TP_FINAL_READING_H
+#endif

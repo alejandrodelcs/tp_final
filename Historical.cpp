@@ -19,8 +19,8 @@ void Historical::display(){
               "\nAño de publicacion: " << PublishYear <<
               "\nGenero: HISTORICA" << std::endl;
     std::cout << "Tema: " << theme << std::endl;
-    if (isni != 0 && this->getAuthors() != nullptr){
-        std::cout << "Autor: " << this->getAuthors()->getName() << "\n" << std::endl;
+    if (isni != 0 && this->getAuthor() != nullptr){
+        std::cout << "Autor: " << this->getAuthor()->getName() << "\n" << std::endl;
     } else
         std::cout << "Autor: ANONIMO\n" << std::endl;
 }
