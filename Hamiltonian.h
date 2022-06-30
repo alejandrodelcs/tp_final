@@ -41,12 +41,21 @@ class Hamiltonian {
      * PRE:
      * POST:
      */
-
-    void newRecord(int acumulatedTime, Reading *minimalOrder[], Reading *currentOrder[], int option, List<List<Reading*>*>*minimalOrders);
-
+    void newRecord(Reading *minimalOrder[], Reading *currentOrder[], int acumulatedTime);
+    /*
+     * PRE:
+     * POST:
+     */
+    void newRecord(List<List<Reading*>*>*minimalOrders, Reading *currentOrder[], int acumulatedTime);
+    /*
+     * PRE:
+     * POST:
+     */
     void displayOrder(Reading *currentOrder[], int acumulatedTime);
-
-
+    /*
+     * PRE:
+     * POST:
+     */
     void calculateShortestReadingTimes(List<List<Reading*>*>*minimalOrders);
     public:
     /* Constructor
@@ -64,7 +73,6 @@ class Hamiltonian {
      * POST:
      */
     void getShortestReadingsTimes(List<Reading *> *readings, ReadingsFileParser *pReadings);
-    
 };
 
 #endif

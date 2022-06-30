@@ -14,7 +14,7 @@ void Hamiltonian::hamiltonianRecursion(Reading *minimalOrder[], int currentID, R
     int linkCost = 0;
     if (arraySize == 0) {
         if (acumulatedTime < this->minimalReadingsTime || this->minimalReadingsTime == -1) {
-            newRecord(acumulatedTime, minimalOrder, currentOrder, 1, nullptr);
+            newRecord(acumulatedTime, minimalOrder, currentOrder);
         }
         displayOrder(currentOrder,acumulatedTime);
     } else { 
@@ -81,8 +81,7 @@ void Hamiltonian::hamiltonianRecursion(List<List<Reading*>*>*minimalOrders, int 
         if (acumulatedTime < this->minimalReadingsTime || this->minimalReadingsTime == -1) {
             this->minimalReadingsTime = acumulatedTime;
             std::cout << RED << "Se a hallado un nuevo tiempo minimo de " << this->minimalReadingsTime << " minutos!" << std::endl;
-            newRecord(acumulatedTime, nullptr, currentOrder, 2, minimalOrders);
-
+            newRecord(acumulatedTime, minimalOrders, currentOrder);
         } else if (acumulatedTime == this->minimalReadingsTime) {
             std::cout << RED << "Se a hallado otro orden con el mismo tiempo de " << this->minimalReadingsTime << " minutos!" << std::endl;
             addArrayToList(currentOrder, minimalOrders);
@@ -150,16 +149,17 @@ void Hamiltonian::getShortestReadingsTimes(List<Reading *> *readings, ReadingsFi
     }
 }
 
-
-void Hamiltonian::newRecord(int acumulatedTime, Reading *minimalOrder[], Reading *currentOrder[], int option, List<List<Reading*>*>*minimalOrders){
+void Hamiltonian::newRecord(int acumulatedTime, Reading *minimalOrder[], Reading *currentOrder[]){
     this->minimalReadingsTime = acumulatedTime;
     std::cout << RED << "Se a hallado un nuevo tiempo minimo de " << this->minimalReadingsTime << " minutos!" << std::endl;
-    if (option == 1){
-        cloneReadingsArray(minimalOrder, currentOrder);
-    } else if (option == 2){
-        minimalOrders = new List<List<Reading*>*>;
-        addArrayToList(currentOrder, minimalOrders);
-    }
+    cloneReadingsArray(minimalOrder, currentOrder);
+}
+
+void Hamiltonian::newRecord(int acumulatedTime, List<List<Reading*>*>*minimalOrders, Reading *currentOrder[]){
+    this->minimalReadingsTime = acumulatedTime;
+    std::cout << RED << "Se a hallado un nuevo tiempo minimo de " << this->minimalReadingsTime << " minutos!" << std::endl;
+    minimalOrders = new List<List<Reading*>*>;
+    addArrayToList(currentOrder, minimalOrders);
 }
 
 void Hamiltonian::displayOrder(Reading *currentOrder[], int acumulatedTime){
