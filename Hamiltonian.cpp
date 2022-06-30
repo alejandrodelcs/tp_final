@@ -31,10 +31,10 @@ void Hamiltonian::hamiltonianRecursion(Reading *minimalOrder[], int currentID, R
             if (!(visited[i]) && (i != currentID)) {     
                 if (currentID != -1) {
                     linkCost = pReading->getCost(currentOrder[readingsSize-arraySize-1],readings->search(i+1));
-                    std::cout << "(" << currentOrder[readingsSize-arraySize-1]->getTitle() << " -> " << readings->search(i+1)->getTitle() << ") = " << linkCost << std::endl;
+                    //std::cout << "(" << currentOrder[readingsSize-arraySize-1]->getTitle() << " -> " << readings->search(i+1)->getTitle() << ") = " << linkCost << std::endl;
                 } else {
                     linkCost = 0;
-                    std::cout << "(" << readings->search(i+1)->getTitle() << ") = new parent" << std::endl;
+                    //std::cout << "(" << readings->search(i+1)->getTitle() << ") = new parent" << std::endl;
                 }
                 visited[i] = true;
                 currentOrder[readingsSize-arraySize] = readings->search(i+1);
@@ -107,10 +107,10 @@ void Hamiltonian::hamiltonianRecursion(List<List<Reading*>*>*minimalOrders, int 
             if (!(visited[i]) && (i != currentID)) {     
                 if (currentID != -1) {
                     linkCost = pReading->getCost(currentOrder[readingsSize-arraySize-1],readings->search(i+1));
-                    std::cout << "(" << currentOrder[readingsSize-arraySize-1]->getTitle() << " -> " << readings->search(i+1)->getTitle() << ") = " << linkCost << std::endl;
+                    //std::cout << "(" << currentOrder[readingsSize-arraySize-1]->getTitle() << " -> " << readings->search(i+1)->getTitle() << ") = " << linkCost << std::endl;
                 } else {
                     linkCost = 0;
-                    std::cout << "(" << readings->search(i+1)->getTitle() << ") = new parent" << std::endl;
+                    //std::cout << "(" << readings->search(i+1)->getTitle() << ") = new parent" << std::endl;
                 }
                 visited[i] = true;
                 currentOrder[readingsSize-arraySize] = readings->search(i+1);
@@ -142,12 +142,12 @@ void Hamiltonian::getShortestReadingsTimes(List<Reading *> *readings) {
     List<List<Reading*>*>* minimalOrders = new List<List<Reading*>*>;
     calculateShortestReadingTimes(minimalOrders);
     totalTime += minimalReadingsTime;
-    std::cout << "\nOrden de las lecturas:" << std::endl;
     int j=1;
     Reading *currentReading, *oldReading;
     minimalOrders->startCursor();
     while (minimalOrders->moveCursor()) {
         std::cout << "\nOrden de las lecturas (Opcion " << j << "/" << minimalOrders->getNumberOfElements() << "):\n" << std::endl;
+        oldReading = NULL;
         minimalOrders->getCursor()->startCursor();
         while (minimalOrders->getCursor()->moveCursor()) {
             currentReading = minimalOrders->getCursor()->getCursor();

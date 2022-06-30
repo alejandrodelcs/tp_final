@@ -154,6 +154,7 @@ void Menu::optionsAdditional() {
             break;
         case FIVE:
             hamiltonian->getShortestReadingsTimes(readings);
+            std::cout << std::endl;
             break;
         case SIX:
             std::cout << MAGENTA "\nGracias por llegar hasta aca\n" WHITE << std::endl;
