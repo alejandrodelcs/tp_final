@@ -1,5 +1,6 @@
 #include "Menu.h"
 
+
 Menu::Menu() {
     this->readings = new List<Reading *>;
     this->authors = new HashTable<Author *>(20);
@@ -36,11 +37,34 @@ void Menu::displayAuthors() {
 }
 
 void Menu::addNewReading() {
+    int insi = requestINSI();
+    int type = requestType();
+    std::string title = requestTitle();
+    unsigned int minutes = requestMinutes();
+    unsigned int publishYear = requestPublishYear();
 
+    switch (type) {
+        case 1:
+            this -> newReading = newNovel(insi, title, minutes, publishYear);
+            break;
+        case 2:
+            this -> newReading = newTale(insi, title, minutes, publishYear);
+            break;
+        case 3:
+            this -> newReading = newPoem(insi, title, minutes, publishYear);
+            break;
+    }
+    readings->add(newReading);
 }
 
-void Menu::newAuthor() {
-
+void Menu::addNewAuthor() {
+    int insi = requestINSI();
+    std::string name = requestName();
+    std::string nationality = requestNationality();
+    int birth = requestBirth();
+    int death = requestDeath(birth);
+    newAuthor = new Author(insi,name,nationality,birth, death);
+    authors->insertAuthor(newAuthor);
 }
 
 
@@ -160,7 +184,7 @@ void Menu::options() {
             displayReadings();
             break;
         case THREE:
-            newAuthor();
+            addNewAuthor();
             break;
         case FOUR:
             displayAuthors();

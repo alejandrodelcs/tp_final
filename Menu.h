@@ -9,6 +9,7 @@
 #include "ReadingsFileParser.h"
 #include "AuthorsFileParser.h"
 #include "Graph.h"
+#include "Validations.cpp"
 
 class Menu {
 private:
@@ -19,12 +20,13 @@ private:
     HashTable<Author*>* authors;
     Graph<int>* graph;
     Reading* newReading;
+    Author* newAuthor;
     bool end;
 
     void addNewReading();
     void displayReadings();
     bool validateSearchOption(int totalAuthors) const;
-    void newAuthor();
+    void addNewAuthor();
     void displayAuthors();
     void searchAuthor();
     Author* getAuthorMenu();
