@@ -15,7 +15,7 @@ class Graph {
     List<Vertex<Type>> *vertexes;
     /*
      * PRE:
-     * POST: Agranda dinamicamente la matriz de adyacencia
+     * POST: Dynamically expand the adjacency matrix.
      */
     void resizeAdjMatrix();
     /*
@@ -35,37 +35,35 @@ class Graph {
      */
     Graph();
     /*
-     * PRE: No hay vertices repetidos en nombre
-     * POST: agrega un nuevo vertice al grafo
+     * PRE: There are no vertexes with repeated names.
+     * POST: Adds a new vertex to the graph.
      */
     void addVertex(Type newVertex);
     /*
-     * PRE: el peso es un valor positivo
-     * POST: Ajusta la matriz de adyacencia con el peso ingresado
+     * PRE: The parameter Weight should be positive.
+     * POST: Adds a new edge to the adjacency matrix, with the indicated weight.
      */
     void addEdge(Type origin, Type destiny, int weigth);
     /*
      * PRE:
-     * POST: imprime por pantalla la matriz de adyacencia
+     * POST: Displays the adjacency matrix.
      */
     void displayGraph();
     /*
      * PRE:
-     * POST: retorna la matriz adjunta
+     * POST: Returns the adjacency matrix.
      */
     std::vector<std::vector<int>> getAdjMAtrix();
     /*
      * PRE:
-     * POST: retorna el numero de vertices
+     * POST: Returns the number of vertexes.
      */
     int getVertexNumbers();
     /* Destructor
      * PRE:
-     * POST
+     * POST: Dealocates the memory used.
      */
     ~Graph();
-
-
 };
 
 template<typename Type>

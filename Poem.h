@@ -19,7 +19,7 @@ class Poem : public Reading {
     void display();
     /*
      * PRE:
-     * POST: Gets the Poem's genre in screen
+     * POST: Returns the Poem's genre.
      */
     Genres getGenre();
     /* Destructor

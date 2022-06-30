@@ -24,49 +24,49 @@ class Reading {
     Reading(const std::string &title, unsigned int minutes, unsigned int PublishYear);
     /*
      * PRE:
-     * POST: metodo virtual que muestra los atributos de sus clases derivadas
+     * POST: Inherited method that will display the attributes of the child classes.
      */
     virtual void display() = 0;
     /*
      * PRE:
-     * POST: Gets the genre of the reading object
+     * POST: Returns the genre of the reading object
      */
     virtual Genres getGenre()=0;
     /*
      * PRE:
-     * POST: Gets the type of the reading object
+     * POST: Returns the type of the reading object
      */
     char getType() const;
     /*
      * PRE:
-     * POST: Gets the minutes of the reading object
+     * POST: Returns the minutes of the reading object
      */
     unsigned int getMinutes() const;
     /*
      * PRE:
-     * POST: Gets the year of publishment of the reading object
+     * POST: Returns the year of publishment of the reading object
      */
     unsigned int getPublishYear() const;
     /*
      * PRE:
-     * POST: Gets the author of the reading object
+     * POST: Returns the author of the reading object
      */
     Author *getAuthor();
     /*
      * PRE:
-     * POST: Gets the isni of the reading object
+     * POST: Returns the isni of the reading object
      */
     int getIsni() const;
     /*
      * PRE:
-     * POST: Gets the title of the reading object
+     * POST: Returns the title of the reading object
      */
     std::string getTitle();
     /*
-     * PRE: Recibe una lectura
-     * POST: Si la lectura es menor a la que se pasa por parametro ---> -1
-     *       Si la lectura es mayor a la que se pasa por parametro --->  1
-     *       Si la lectura es igual a la que se pasa por parametro --->  0
+     * PRE:
+     * POST: If the reading is lower than the one passed as parameter ---> -1
+     *       If the reading is greater than the one passed as parameter ---> 1
+     *       If the reading is equal to the one passed as parameter ---> 0
      */
     int comparar(Reading *l) const;
     /* 
@@ -76,7 +76,7 @@ class Reading {
     void setAuthor(Author *newAuthor);
     /* Destructor
      * PRE:
-     * POST:
+     * POST: Dealocates the memory used.
      */
     virtual ~Reading() = default;
 };
