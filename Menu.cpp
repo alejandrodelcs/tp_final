@@ -25,6 +25,7 @@ void Menu::displayMenu() {
 void Menu::input() {
     std::cout << "> ";
     std::cin >> this->option;
+    std::cin.ignore();
     std::cout << std::endl;
 }
 
@@ -180,7 +181,7 @@ void Menu::buildHashTable() {
 void Menu::options() {
     switch (this->option) {
         case ONE:
-            //addNewReading();
+            addNewReading();
             break;
         case TWO:
             displayReadings();

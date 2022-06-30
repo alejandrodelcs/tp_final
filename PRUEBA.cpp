@@ -25,7 +25,7 @@ int requestNum(const std::string& text){
         getline(std::cin, auxNumero);
         haveLetters = validateNumber(auxNumero);
         if(!haveLetters){
-            number = std::stoi(auxNumero);
+            number = stoi(auxNumero);
             valid = true;
         } else
             std::cout << RED "Error: Entrada invalida!\n" WHITE;
@@ -45,6 +45,7 @@ bool validateString(std::string string) {
 }
 
 std::string requestAlpha(const std::string& text) {
+    std::cin.ignore();
     bool valid = false;
     bool haveNumbers;
     std::string cadena;
@@ -87,24 +88,17 @@ std::string requestAlphanum(std::string text){
 ///NUEVA LECTURA///
 
 int requestISNI(){
-    bool valid = false;
-    int isni = requestNum(GREEN "Ingrese el numero isni si se desconoce ingresar 0: " WHITE);
-    while (!valid){
-        if (isni >= 1000 && isni <= 9999 || isni == 0)
-            valid = true;
-        else
-            std::cout << RED "Error: El valor del isni no es valido!\n";
-    }
+    srand(time(NULL));
+    int isni = 1000+rand()%(9999-1000);
     return isni;
 }
 
 int requestType(){
-    int type;
     std::cout   << GREEN "Ingrese el numero dependiendo del tipo de lectura que quiera agregar\n" WHITE
-                << GREEN  "[1] " << WHITE "- Novelas\n"
+                << GREEN "[1] " << WHITE "- Novelas\n"
                 << GREEN "[2] " << WHITE "- Cuentos\n"
                 << GREEN "[3] " << WHITE "- Poemas" << std::endl;
-    type = requestNum( GREEN "Ingrese una opcion: " WHITE);
+    int type = requestNum( GREEN "Ingrese una opcion: " WHITE);
 
     while (type < 1 || type > 4){
         std::cout << RED "\n¡Error!. Opcion Incorrecta" WHITE << std::endl;
