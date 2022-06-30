@@ -1,8 +1,6 @@
 #include "Historical.h"
 
-
-Historical::Historical(int id, std::string &title, unsigned int minutes, unsigned int PublishYear, Genres genre,
-                     char* &theme) : Novel(id, title, minutes, PublishYear, genre) {
+Historical::Historical(int id, std::string &title, unsigned int minutes, unsigned int PublishYear, Genres genre, char* &theme) : Novel(id, title, minutes, PublishYear, genre) {
     this->type = 'H';
     this->isni = id;
     this->title = title;
@@ -10,7 +8,6 @@ Historical::Historical(int id, std::string &title, unsigned int minutes, unsigne
     (this->theme) = theme;
     this->PublishYear = PublishYear;
 }
-
 
 void Historical::display(){
     std::cout << MAGENTA "Novela" WHITE
@@ -21,8 +18,9 @@ void Historical::display(){
     std::cout << "Tema: " << theme << std::endl;
     if (isni != 0 && this->getAuthor() != nullptr){
         std::cout << "Autor: " << this->getAuthor()->getName() << "\n" << std::endl;
-    } else
+    } else {
         std::cout << "Autor: ANONIMO\n" << std::endl;
+    }
 }
 
 Historical::~Historical() {

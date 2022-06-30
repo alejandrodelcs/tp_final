@@ -29,10 +29,14 @@ class Graph {
      */
     void displayAdjMatrix();
     public:
+    /* Constructor
+     * PRE:
+     * POST
+     */
     Graph();
     /*
      * PRE: No hay vertices repetidos en nombre
-     * POST:  agrega un nuevo vertice al grafo
+     * POST: agrega un nuevo vertice al grafo
      */
     void addVertex(Type newVertex);
     /*
@@ -55,7 +59,10 @@ class Graph {
      * POST: retorna el numero de vertices
      */
     int getVertexNumbers();
-
+    /* Destructor
+     * PRE:
+     * POST
+     */
     ~Graph();
 
 

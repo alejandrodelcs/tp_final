@@ -2,7 +2,6 @@
 
 File::File() {
     this->lines = "";
-
 }
 
 void File::open(std::string name) {
@@ -28,7 +27,3 @@ bool File::eof() {
 File::~File() {
     file.close();
 }
-
-
-
-

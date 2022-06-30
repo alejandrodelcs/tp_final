@@ -9,7 +9,6 @@ Novel::Novel(int id, std::string &title, unsigned int minutes, unsigned int Publ
     this->genre = genre;
 }
 
-
 void Novel::display() {
     std::cout << MAGENTA "Novela" WHITE
                  "\nTitulo: " << title <<
@@ -18,16 +17,14 @@ void Novel::display() {
     this->displayGenre();
     if (isni != 0 && this->getAuthor() != nullptr){
         std::cout << "Autor: " << this->getAuthor()->getName() << "\n" << std::endl;
-    } else
+    } else {
         std::cout << "Autor: ANONIMO\n" << std::endl;
+    }
 }
 
-
 void Novel::displayGenre() {
-    std::string strGenres[] = {"HISTORICA", "DRAMA", "COMEDIA", "FICCION",
-                               "SUSPENSO", "TERROR", "ROMANTICA"};
-    Genres enumGenres[] = {Genres::HISTORICAL, Genres::DRAMA, Genres::COMEDY,
-                           Genres::FICTION, Genres::THRILLER, Genres::HORROR, Genres::ROMANCE};
+    std::string strGenres[] = {"HISTORICA", "DRAMA", "COMEDIA", "FICCION", "SUSPENSO", "TERROR", "ROMANTICA"};
+    Genres enumGenres[] = {Genres::HISTORICAL, Genres::DRAMA, Genres::COMEDY, Genres::FICTION, Genres::THRILLER, Genres::HORROR, Genres::ROMANCE};
     bool found = false;
     int position = 0;
     while (position < GENRES_SIZE && (!found)) {

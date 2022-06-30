@@ -137,7 +137,3 @@ List<int>* AuthorsFileParser::displayNameAuthors() {
 AuthorsFileParser::~AuthorsFileParser() {
     delete author;
 }
-
-
-
-

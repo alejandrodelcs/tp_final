@@ -5,40 +5,35 @@
 #include <string>
 
 class File {
-private:
+    private:
     std::fstream file;
     std::string lines;
-
-public:
-    /*
+    public:
+    /* Constructor
      * PRE: Recibe la ruta donde se ubica el archivo
      * POST: Construye un fichero
      */
     File();
-
     /*
      * PRE: -
      * POST: Abre el fichero
      */
     void open(std::string name);
-
     /*
      * PRE: -
      * POST: retorna linea del fichero
      */
     std::string read();
-
     /*
      * PRE: -
      * POST: Valida si llego al final del fichero
      */
     bool eof();
-
-    /*
+    /* Destructor
      * PRE: -
      * POST: Cierra el archivo
      */
     ~File();
 };
 
-#endif //TP_2_FILE_H
+#endif

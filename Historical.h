@@ -2,12 +2,10 @@
 #define TP_FINAL_HISTORICAL_H
 #include "Novel.h"
 class Historical : public Novel {
-private:
+    private:
     //Generos genero;
-
     char *theme;
-
-public:
+    public:
     /* Constructor
      * PRE:
      * POST: Builds a new historical novel
@@ -23,6 +21,6 @@ public:
      * POST: Dealocates the memory used.
      */
     ~Historical() override;
-
 };
-#endif //TP_FINAL_HISTORICAL_H
+
+#endif
