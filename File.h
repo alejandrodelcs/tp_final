@@ -30,8 +30,8 @@ class File {
      */
     bool eof();
     /* Destructor
-     * PRE: -
-     * POST: Cierra el archivo
+     * PRE:
+     * POST: Closes the file opened.
      */
     ~File();
 };

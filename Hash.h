@@ -65,9 +65,9 @@ class HashTable {
         */
         void display();
         /* Destructor
-        * PRE:
-        * POST: Builds a new hash table of size 'n'
-        */
+         * PRE:
+         * POST: Dealocates the memory used.
+         */
         ~HashTable();
 };
 

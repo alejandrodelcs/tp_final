@@ -58,7 +58,6 @@ public:
      * POST: Dealocates the memory used.
      */
     ~Menu();
-
 };
 
 
