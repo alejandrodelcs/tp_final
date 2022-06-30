@@ -57,7 +57,7 @@ class Hamiltonian {
      * POST:
      */
 
-    int getLinkCost(int currentID, int linkCost, Reading *currentOrder[],int arraySize,int i);
+    int getLinkCost(int currentID, Reading *currentOrder[],int arraySize,int i);
 
     void calculateShortestReadingTimes(List<List<Reading*>*>*minimalOrders);
     public:

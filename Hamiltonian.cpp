@@ -20,7 +20,7 @@ void Hamiltonian::hamiltonianRecursion(Reading *minimalOrder[], int currentID, R
     } else { 
         for (int i=0; i < readingsSize; i++) {
             if (!(visited[i]) && (i != currentID)) {
-                linkCost= getLinkCost(currentID, linkCost, currentOrder, arraySize, i);
+                linkCost= getLinkCost(currentID, currentOrder, arraySize, i);
                 visited[i] = true;
                 currentOrder[readingsSize-arraySize] = readings->search(i+1);
                 hamiltonianRecursion(minimalOrder, i, currentOrder, visited, arraySize-1, acumulatedTime+linkCost);                
@@ -83,7 +83,7 @@ void Hamiltonian::hamiltonianRecursion(List<List<Reading*>*>*minimalOrders, int 
     } else { 
         for (int i=0; i < readingsSize; i++) {
             if (!(visited[i]) && (i != currentID)) {
-                linkCost = getLinkCost(currentID, linkCost, currentOrder, arraySize, i);
+                linkCost = getLinkCost(currentID, currentOrder, arraySize, i);
                 visited[i] = true;
                 currentOrder[readingsSize-arraySize] = readings->search(i+1);
                 hamiltonianRecursion(minimalOrders, i, currentOrder, visited, arraySize-1, acumulatedTime+linkCost);                
@@ -157,7 +157,8 @@ void Hamiltonian::displayOrder(Reading *currentOrder[], int acumulatedTime){
     std::cout << WHITE;
 }
 
-int Hamiltonian::getLinkCost(int currentID, int linkCost, Reading *currentOrder[],int arraySize,int i) {
+int Hamiltonian::getLinkCost(int currentID, Reading *currentOrder[],int arraySize,int i) {
+    int linkCost;
     if (currentID != -1) {
         linkCost = pReadings->getCost(currentOrder[readingsSize-arraySize-1],readings->search(i+1));
         //std::cout << "(" << currentOrder[readingsSize-arraySize-1]->getTitle() << " -> " << readings->search(i+1)->getTitle() << ") = " << linkCost << std::endl;
