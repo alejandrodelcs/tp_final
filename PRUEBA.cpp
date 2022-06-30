@@ -7,7 +7,7 @@
 bool validateNumber(std::string string) {
     bool haveLetters = false;
     int digit = 0;
-    while((digit <= string.length()) && !haveLetters) {
+    while((digit <= (int)string.length()) && !haveLetters) {
         if (std::isalpha(string[digit]))
             haveLetters = true;
         digit++;
@@ -36,7 +36,7 @@ int requestNum(const std::string& text){
 bool validateString(std::string string) {
     bool haveNumbers = false;
     int character = 0;
-    while ((character <= string.length()) && !haveNumbers) {
+    while ((character <= (int)string.length()) && !haveNumbers) {
         if ((std::isdigit(string[character])))
             haveNumbers = true;
         character++;
@@ -88,7 +88,7 @@ std::string requestAlphanum(std::string text){
 ///NUEVA LECTURA///
 
 int requestISNI(){
-    srand(time(NULL));
+    srand((unsigned int)time(NULL));
     int isni = 1000+rand()%(9999-1000);
     return isni;
 }

@@ -70,9 +70,8 @@ void Menu::addNewAuthor() {
 }
 
 
-void Menu::shorterReadingTime() {
+void Menu::shortestReadingsTime() {
     pReading.displayMst();
-
 }
 
 bool Menu::validateSearchOption(int totalAuthors) const {
@@ -126,7 +125,10 @@ void Menu::displayAdditionalFeatures() {
     std::cout << "1. Mostrar Matriz de Adyacencia y vertices\n"
                  "2. Mostrar resultado de Algoritmo de Prim (solo MST)\n"
                  "3. Mostrar la tabla de hash\n"
-                 "4. Salir\n" << std::endl;
+                 "4. Encontrar el orden y tiempo mínimo que\n"
+                 "   nos llevaría leer todas las lecturas usando\n"
+                 "   un metodo alternativo con Hamilton"
+                 "5. Salir\n" << std::endl;
 
 }
 
@@ -144,6 +146,9 @@ void Menu::optionsAdditional() {
             std::cout << std::endl;
             break;
         case FOUR:
+            this->hamiltonianShortestReadingsTime();
+            break;
+        case FIVE:
             std::cout << MAGENTA "\nGracias por llegar hasta aca\n" WHITE << std::endl;
             break;
     }
@@ -156,13 +161,75 @@ void Menu::additionalFeatures() {
     this->interaction();
 }
 
+void Menu::cloneArray(Reading *A[], Reading *B[]) {
+    for (int i = 0; i < totalSize; i++) {
+        A[i] = B[i];
+    }
+}
+
+void Menu::hamiltonianRecursion(Reading *minimalOrder[], int currentID, Reading *currentOrder[], bool visited[], int arraySize, int acumulatedTime) {
+    int linkCost = 0;
+    if (arraySize == 0) {
+        if (acumulatedTime < this->minimalReadingsTime || this->minimalReadingsTime == -1) {
+            this->minimalReadingsTime = acumulatedTime;
+            std::cout << RED << "Se a hallado un nuevo tiempo minimo de " << this->minimalReadingsTime << " minutos!" << std::endl;
+            cloneArray(minimalOrder, currentOrder);
+        }
+        std::cout << "Tiempo acumulado por las aristas de [ "; 
+        for (int i = 0; i < totalSize; i++) {
+            if (i < totalSize-1) { std::cout << currentOrder[i]->getTitle() << ", "; } 
+        }
+        std::cout << currentOrder[totalSize-1]->getTitle() << " ] = " << acumulatedTime << std::endl;
+        std::cout << WHITE;
+    } else { 
+        for (int i=0; i < totalSize; i++) {
+            if (visited[i] == false) {      
+                if (currentID != 0) {
+                    linkCost = pReading.getCost(readings->search(currentID),readings->search(i));
+                }
+                visited[i] = true;
+                currentOrder[totalSize-arraySize] = readings->search(i+1);
+                hamiltonianRecursion(minimalOrder, i+1, currentOrder, visited, arraySize-1, acumulatedTime+linkCost);                
+                visited[i] = false;
+            }
+        }
+    }
+}
+
+void Menu::calculateHamiltonianShortestReadingTime(Reading *minimalOrder[]) {
+    this->minimalReadingsTime = -1;
+    bool visited[totalSize];
+    for (int i = 0; i < totalSize; i++) {
+        visited[i] = false;
+    }
+    Reading *readingsOrder[totalSize];    
+    hamiltonianRecursion(minimalOrder, 0, readingsOrder, visited, totalSize, 0);
+}
+
+void Menu::hamiltonianShortestReadingsTime() {
+    int totalTime = 0;
+    readings->startCursor();
+    while (readings->moveCursor()) {
+        totalTime += readings->getCursor()->getMinutes();
+    }    
+    totalSize = readings->getNumberOfElements();
+    Reading *minimalOrder[totalSize];
+    calculateHamiltonianShortestReadingTime(minimalOrder);
+    totalTime += minimalReadingsTime;
+    std::cout << "\nReading order:"<< std::endl;
+    for (int i = 0; i < totalSize-1; i++) {
+        std::cout << "Read \"" << minimalOrder[i]->getTitle() << "\" (about " << minimalOrder[i]->getMinutes() << " minutes)" << std::endl;
+        std::cout<< pReading.getCost(minimalOrder[i],minimalOrder[i+1]) << " minutes of rest later..." << std::endl;
+    }
+    std::cout << totalSize << ") " << minimalOrder[totalSize-1]->getTitle() << std::endl;
+    std::cout << "\nTotal time spent: " << totalTime << "\n(including " << minimalReadingsTime << " minutes of rest and " << totalTime - minimalReadingsTime << " reading stories)\n" << std::endl;
+}
 
 void Menu::buildGraph() {
     pReading.setGraph(graph);
     graph = pReading.getGraph();
     pReading.setGraphVertex();
     pReading.addGraphEdges();
-
 }
 
 
@@ -199,7 +266,7 @@ void Menu::options() {
             std::cout << "";
             break;
         case SEVEN:
-            shorterReadingTime();
+            shortestReadingsTime();
             break;
         case EIGHT:
             additionalFeatures();

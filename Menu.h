@@ -31,7 +31,7 @@ private:
     void searchAuthor();
     Author* getAuthorMenu();
     void removeAuthor();
-    void shorterReadingTime();
+    void shortestReadingsTime();
     void additionalFeatures();
     void buildHashTable();
     void validateInputOption();
@@ -42,6 +42,15 @@ private:
     void displayMenu();
     void optionsAdditional();
     void displayAdditionalFeatures();
+    void alternativeShortestReadingsTime();
+
+    int minimalReadingsTime = -1;
+    int totalSize = 0;    
+    void cloneArray(Reading *A[], Reading *B[]);
+    void hamiltonianRecursion(Reading *minimalOrder[], int currentID, Reading *currentOrder[], bool visited[], int arraySize, int acumulatedTime);
+    void calculateHamiltonianShortestReadingTime(Reading *minimalOrder[]);
+    void hamiltonianShortestReadingsTime();
+
 public:
     Menu();
 
