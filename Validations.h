@@ -1,5 +1,9 @@
-#ifndef TP_FINAL_PRUEBA_JAM_H
-#define TP_FINAL_PRUEBA_JAM_H
+//
+// Created by julim on 30/06/2022.
+//
+
+#ifndef TP_FINAL_VALIDATIONS_H
+#define TP_FINAL_VALIDATIONS_H
 
 #include "Constants.h"
 #include "Reading.h"
@@ -50,4 +54,5 @@ int requestBirth();
 
 int requestDeath();
 
-#endif
+
+#endif //TP_FINAL_VALIDATIONS_H

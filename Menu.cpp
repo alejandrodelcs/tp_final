@@ -6,7 +6,7 @@ Menu::Menu() {
     this->authors = new HashTable<Author *>(20);
     this->graph = new Graph<int>;
     this->end = false;
-//    this->hamiltonian = new Hamiltonian();
+    this->hamiltonian = new Hamiltonian();
 }
 
 void Menu::displayMenu() {
@@ -144,10 +144,10 @@ void Menu::optionsAdditional() {
             std::cout << std::endl;
             break;
         case FOUR:
-//            hamiltonian->getShortestReadingsTime(readings);
+            hamiltonian->getShortestReadingsTime(readings);
             break;
         case FIVE:
-//            hamiltonian->getShortestReadingsTimes(readings);
+            hamiltonian->getShortestReadingsTimes(readings);
             std::cout << std::endl;
             break;
         case SIX:
