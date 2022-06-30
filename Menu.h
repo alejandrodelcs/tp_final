@@ -44,12 +44,17 @@ private:
     void displayAdditionalFeatures();
     void alternativeShortestReadingsTime();
 
-    int minimalReadingsTime = -1;
-    int readingsSize = 0;    
+    int minimalReadingsTime;
+    int readingsSize;    
     void cloneArray(Reading *A[], Reading *B[]);
     void hamiltonianRecursion(Reading *minimalOrder[], int currentID, Reading *currentOrder[], bool visited[], int arraySize, int acumulatedTime);
     void calculateHamiltonianShortestReadingTime(Reading *minimalOrder[]);
     void hamiltonianShortestReadingsTime();
+
+    void cloneArrayB(List<List<Reading*>*>*minimalOrders, Reading *B[]);
+    void hamiltonianRecursionB(List<List<Reading*>*>*minimalOrders, int currentID, Reading *currentOrder[], bool visited[], int arraySize, int acumulatedTime);
+    void calculateHamiltonianShortestReadingTimeB(List<List<Reading*>*>*minimalOrders);
+    void hamiltonianShortestReadingsTimeB();
 
 public:
     Menu();
