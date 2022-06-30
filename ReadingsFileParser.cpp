@@ -302,8 +302,7 @@ Graph<int> *ReadingsFileParser::getGraph() {
 void ReadingsFileParser::addGraphEdges() {
     for (int i = 1; i < readings->getNumberOfElements(); i++) {
         for (int j = i + 1; j < readings->getNumberOfElements() + 1; j++) {
-            graph->addEdge(i, j,
-                           getCost(readings->search(i), readings->search(j)));
+            graph->addEdge(i, j, getCost(readings->search(i), readings->search(j)));
         }
     }
 }
@@ -337,6 +336,78 @@ void ReadingsFileParser::_displayMst() {
     Mst m(readings->getNumberOfElements(), graph->getAdjMAtrix());
     m.primAlgorithm();
     m.calcMinDistance();
+}
+
+void ReadingsFileParser::hamiltonCloneOrder(Reading *A[], Reading *B[]) {
+    std::cout << "[ ";
+    for (int i = 0; i < totalSize; i++) {
+        A[i] = B[i];
+        if (i < totalSize-1) { std::cout << B[i]->getTitle() << ", "; }
+    }
+    std::cout << B[totalSize-1]->getTitle() << " ]\n" << std::endl;
+}
+
+void ReadingsFileParser::hamiltonRecursion(Reading *minimalOrder[], int currentID, Reading *currentOrder[], bool visited[], int arraySize, int acumulatedTime) {
+    int linkCost = 0;
+    if (arraySize == 0) { // An ending has been reached
+        if (acumulatedTime < this->minimalTime || this->minimalTime == -1) { // A new shorter path has been set
+            minimalTime = acumulatedTime;
+            std::cout << RED << "A new record of " << minimalTime << " minutes was set!" << WHITE << std::endl;
+            hamiltonCloneOrder(minimalOrder, currentOrder);
+        }
+    } else { 
+        for (int i=0; i < totalSize; i++) {
+            if (visited[i] == false) {      
+                if (currentID != 0) {
+                    linkCost = getCost(readings->search(currentID),readings->search(i));
+                    //std::cout << "Cost between " << readings->search(currentID)->getTitle() << " and " << readings->search(i+1)->getTitle() << " = " << linkCost << std::endl; 
+                }
+                visited[i] = true;
+                //std::cout << "totalSize==" << totalSize << ";arraySize==" << arraySize << ";currentID==" << currentID << ";i==" << i << ";linkCost==" << linkCost << std::endl;
+                currentOrder[totalSize-arraySize] = readings->search(i+1);
+                if (totalSize == arraySize) {
+                    //std::cout << GREEN << "> Trying the parent: "<< currentOrder[totalSize-arraySize]->getTitle() << WHITE << std::endl;
+                }                
+                hamiltonRecursion(minimalOrder, i+1, currentOrder, visited, arraySize-1, acumulatedTime+linkCost);                
+                visited[i] = false;
+            }
+        }
+    }
+}
+
+void ReadingsFileParser::hamiltonFunction(Reading *minimalOrder[]) {
+    this->minimalTime = -1;
+    bool visited[totalSize];  
+    // Main loop
+
+    for (int i = 0; i < totalSize; i++) {
+        visited[i] = false;
+    }
+    Reading *readingsOrder[totalSize];
+    hamiltonRecursion(minimalOrder, 0, readingsOrder, visited, totalSize, 0);
+}
+
+void ReadingsFileParser::displayHamilton() {
+    int totalTime = 0;
+    readings->startCursor();
+    while (readings->moveCursor()) {
+        totalTime += readings->getCursor()->getMinutes();
+    }
+    // Nombre de la variable: graph
+    // Una matriz con el peso de cada conneccion
+
+    
+    totalSize = readings->getNumberOfElements();
+    Reading *minimalOrder[totalSize];
+    hamiltonFunction(minimalOrder);
+    totalTime += minimalTime;
+    std::cout << "\n\nReading order:"<< std::endl;
+    for (int i = 0; i < totalSize-1; i++) {
+        std::cout << i+1 << ") " << minimalOrder[i]->getTitle() << std::endl;
+        std::cout<< getCost(minimalOrder[i],minimalOrder[i+1]) << " minutes of rest later..." << std::endl;
+    }
+    std::cout << totalSize << ") " << minimalOrder[totalSize-1]->getTitle() << std::endl;
+    std::cout << "\nTotal time spent: " << totalTime << " (including " << minimalTime << " minutes of rest and " << totalTime - minimalTime << " reading stories)" << std::endl;
 }
 
 

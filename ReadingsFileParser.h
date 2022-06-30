@@ -253,6 +253,14 @@ public:
     void _displayMst();
 
 
+    int minimalTime = -1;
+    int totalSize = 0;
+    void hamiltonRecursion(Reading *minimalOrder[], int currentID, Reading *currentOrder[], bool visited[], int arraySize, int acumulatedTime);
+    void hamiltonCloneOrder(Reading *A[], Reading *B[]);
+    void hamiltonFunction(Reading *minimalOrder[]);
+    void displayHamilton();
+
+
     /*
      * PRE:
      * POST: Destruye la lista de Lecturas

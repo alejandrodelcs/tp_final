@@ -1,6 +1,5 @@
 #include "Menu.h"
 
-
 Menu::Menu() {
     this->readings = new List<Reading *>;
     this->authors = new HashTable<Author *>(20);
@@ -36,41 +35,18 @@ void Menu::displayAuthors() {
     pAuthors.displayAuthors();
 }
 
-void Menu::addNewReading() {
-    int insi = requestINSI();
-    int type = requestType();
-    std::string title = requestTitle();
-    unsigned int minutes = requestMinutes();
-    unsigned int publishYear = requestPublishYear();
+void Menu::newReading() {
 
-    switch (type) {
-        case 1:
-            this -> newReading = newNovel(insi, title, minutes, publishYear);
-            break;
-        case 2:
-            this -> newReading = newTale(insi, title, minutes, publishYear);
-            break;
-        case 3:
-            this -> newReading = newPoem(insi, title, minutes, publishYear);
-            break;
-    }
-    readings->add(newReading);
 }
 
-void Menu::addNewAuthor() {
-    int insi = requestINSI();
-    std::string name = requestName();
-    std::string nationality = requestNationality();
-    int birth = requestBirth();
-    int death = requestDeath(birth);
-    newAuthor = new Author(insi,name,nationality,birth, death);
-    authors->insertAuthor(newAuthor);
+void Menu::newAuthor() {
+
 }
 
 
 void Menu::shorterReadingTime() {
-    pReading.displayMst();
-
+    //pReading.displayMst();
+    pReading.displayHamilton();
 }
 
 bool Menu::validateSearchOption(int totalAuthors) const {
@@ -178,13 +154,13 @@ void Menu::buildHashTable() {
 void Menu::options() {
     switch (this->option) {
         case ONE:
-            addNewReading();
+            newReading();
             break;
         case TWO:
             displayReadings();
             break;
         case THREE:
-            addNewAuthor();
+            newAuthor();
             break;
         case FOUR:
             displayAuthors();
