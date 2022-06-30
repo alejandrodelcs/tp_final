@@ -215,7 +215,7 @@ class ReadingsFileParser {
     void _displayMst();
     /*
      * PRE:
-     * POST: Dealocates the memory used
+     * POST: Dealocates the memory used.
      */
     ~ReadingsFileParser();
 };

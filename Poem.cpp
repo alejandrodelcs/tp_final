@@ -17,10 +17,10 @@ void Poem::display() {
               "\nCantidad de versos: " << verses << std::endl;
     if (isni != 0 && this->getAuthor() != nullptr){
         std::cout << "Autor: " << this->getAuthor()->getName() << "\n" << std::endl;
-    } else
+    } else {
         std::cout << "Autor: ANONIMO\n" << std::endl;
+    }
 }
-
 
 Genres Poem::getGenre(){
     return Genres::UNKNOWN;

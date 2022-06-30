@@ -1,9 +1,7 @@
-//
-// Created by julim on 30/06/2022.
-//
 #include "PRUEBA.h"
 
-///VALIDACIONES E INGRESOS///
+/// DATA INPUT AND VALIDATIONS ///
+
 bool validateNumber(std::string string) {
     bool haveLetters = false;
     int digit = 0;
@@ -84,8 +82,7 @@ std::string requestAlphanum(std::string text){
     return string;
 }
 
-
-///NUEVA LECTURA///
+/// NEW READINGS ///
 
 int requestISNI(){
     srand((unsigned int)time(NULL));
@@ -195,8 +192,7 @@ Reading* newPoem(int isni ,unsigned int minutes, unsigned int publishYear, std::
     return poem;
 }
 
-
-///NUEVO AUTOR///
+/// NEW AUTHORS ///
 
 std::string requestAuthorsName() {
     std::string name = requestAlpha( GREEN "Ingresar el nombre del escritor: " WHITE);

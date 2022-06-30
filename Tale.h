@@ -23,7 +23,7 @@ class Tale : public Reading {
     Genres getGenre();
     /* Destructor
      * PRE:
-     * POST: Dealocates the memory used
+     * POST: Dealocates the memory used.
      */
     ~Tale() = default;;
 };

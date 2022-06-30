@@ -4,38 +4,34 @@
 #include "Reading.h"
 
 class Novel : public Reading {
-protected:
+    protected:
     Genres genre;
-public:
-    /*
-    * PRE: -
-    * POST: Construye una Novela Historica
-    */
+    public:
+    /* Constructor
+     * PRE:
+     * POST: Construye una Novela Historica
+     */
     Novel(int id, std::string &title, unsigned int minutes, unsigned int PublishYear, Genres genre);
-
-    virtual /*
-   * PRE: -
-   * POST: Muestra sus atributos
-   */
-    void display();
-
     /*
-     * PRE: -
+     * PRE:
+     * POST: Muestra sus atributos
+     */
+    virtual void display();
+    /*
+     * PRE:
      * POST: Muestra el genero de la novela
      */
     void displayGenre();
-
     /*
-     * PRE: -
+     * PRE:
      * POST: Devuelve el Genero
      */
     Genres getGenre();
-
-    /*
-     * PRE: -
-     * POST: Destruye la Novela
+    /* Destructor
+     * PRE:
+     * POST: Dealocates the memory used.
      */
     ~Novel() = default;;
 };
 
-#endif //TP_FINAL_NOVEL_H
+#endif

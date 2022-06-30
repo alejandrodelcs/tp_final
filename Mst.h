@@ -53,7 +53,7 @@ public:
 
     /* Destructor
      * PRE:-
-     * POST: Dealocates the memory used (parent, visited and weight)
+     * POST: Dealocates the memory used (parent, visited and weight).
      */
     ~Mst();
 

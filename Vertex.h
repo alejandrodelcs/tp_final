@@ -19,7 +19,7 @@ class Vertex {
     Data getName();
     /* Destructor
      * PRE:
-     * POST: Dealocates the memory used
+     * POST: Dealocates the memory used.
      */
     ~Vertex()= default;;
 };

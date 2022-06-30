@@ -1,9 +1,6 @@
-//
-// Created by julim on 30/06/2022.
-//
-
 #ifndef TP_FINAL_PRUEBA_JAM_H
 #define TP_FINAL_PRUEBA_JAM_H
+
 #include "Constants.h"
 #include "Reading.h"
 #include "Historical.h"
@@ -53,8 +50,4 @@ int requestBirth();
 
 int requestDeath();
 
-
-
-
-
-#endif //TP_FINAL_PRUEBA_JAM_H
+#endif
