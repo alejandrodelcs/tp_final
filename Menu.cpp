@@ -37,9 +37,9 @@ void Menu::displayAuthors() {
 }
 
 
-/*
+
 void Menu::addNewReading() {
-    int insi = requestINSI();
+    int isni = requestISNI();
     int type = requestType();
     std::string title = requestTitle();
     unsigned int minutes = requestMinutes();
@@ -47,25 +47,25 @@ void Menu::addNewReading() {
 
     switch (type) {
         case 1:
-            this -> newReading = newNovel(insi, title, minutes, publishYear);
+            this -> newReading = newNovel(isni, minutes, publishYear, title);
             break;
         case 2:
-            this -> newReading = newTale(insi, title, minutes, publishYear);
+            this -> newReading = newTale(isni, minutes, publishYear, title);
             break;
         case 3:
-            this -> newReading = newPoem(insi, title, minutes, publishYear);
+            this -> newReading = newPoem(isni, minutes, publishYear, title);
             break;
     }
     readings->add(newReading);
 }
-
+/*
 void Menu::addNewAuthor() {
-    int insi = requestINSI();
+    int isni = requestINSI();
     std::string name = requestName();
     std::string nationality = requestNationality();
     int birth = requestBirth();
     int death = requestDeath(birth);
-    newAuthor = new Author(insi,name,nationality,birth, death);
+    newAuthor = new Author(isni,name,nationality,birth, death);
     authors->insertAuthor(newAuthor);
 }
 */

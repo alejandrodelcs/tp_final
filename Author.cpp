@@ -1,5 +1,4 @@
 #include "Author.h"
-
 Author::Author(int isni, std::string name, std::string nationality, int birth, int death) {
     this->isni = isni;
     this->name = name;

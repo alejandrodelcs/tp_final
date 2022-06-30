@@ -1,5 +1,4 @@
 #include "Reading.h"
-#include "Validations.cpp"
 #include <string>
 
 Reading::Reading(const std::string& title, unsigned int minutes, unsigned int PublishYear) {
