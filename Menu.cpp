@@ -36,6 +36,8 @@ void Menu::displayAuthors() {
     pAuthors.displayAuthors();
 }
 
+
+/*
 void Menu::addNewReading() {
     int insi = requestINSI();
     int type = requestType();
@@ -66,7 +68,7 @@ void Menu::addNewAuthor() {
     newAuthor = new Author(insi,name,nationality,birth, death);
     authors->insertAuthor(newAuthor);
 }
-
+*/
 
 void Menu::shorterReadingTime() {
     pReading.displayMst();
@@ -178,13 +180,13 @@ void Menu::buildHashTable() {
 void Menu::options() {
     switch (this->option) {
         case ONE:
-            addNewReading();
+            //addNewReading();
             break;
         case TWO:
             displayReadings();
             break;
         case THREE:
-            addNewAuthor();
+            //addNewAuthor();
             break;
         case FOUR:
             displayAuthors();

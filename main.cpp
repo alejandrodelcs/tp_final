@@ -54,7 +54,7 @@
 
 
 int main() {
-    /*Menu m;
+    Menu m;
     m.interaction();
-    return 0;*/
+    return 0;
 }
