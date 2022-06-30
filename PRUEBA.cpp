@@ -191,25 +191,3 @@ Reading* newPoem(int isni ,unsigned int minutes, unsigned int publishYear, std::
     poem = new Poem(isni, title, minutes, publishYear, verses);
     return poem;
 }
-
-/// NEW AUTHORS ///
-
-std::string requestAuthorsName() {
-    std::string name = requestAlpha( GREEN "Ingresar el nombre del escritor: " WHITE);
-    return name;
-}
-
-std::string requestNationality() {
-    std::string nationality = requestAlpha( GREEN "Ingresar la nacionalidad del escritor: " WHITE);
-    return nationality;
-}
-
-int requestBirth() {
-    int birth= requestNum( GREEN "Ingrese el anio de nacimiento del autor, si se desconoce ingresar -1: " WHITE);
-    return birth;
-}
-
-int requestDeath() {
-    int death = requestNum( GREEN "Ingresar el anio de fallecimiento del autor (Si se desconoce, o sigue vivo, ingresar -1): " WHITE);
-    return death;
-}

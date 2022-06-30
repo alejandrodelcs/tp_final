@@ -41,6 +41,15 @@ void AuthorsFileParser::addNewAuthor() {
     authors->insertAuthor(this->author);
 }
 
+void AuthorsFileParser::requestAuthorsInfo() {
+    this->isni= requestISNI();
+    this->name = requestAlpha( GREEN "Ingresar el nombre del escritor: " WHITE);
+    this->nationality = requestAlpha( GREEN "Ingresar la nacionalidad del escritor: " WHITE);
+    this->birth= requestNum( GREEN "Ingrese el anio de nacimiento del autor, si se desconoce ingresar -1: " WHITE);
+    this->death = requestNum( GREEN "Ingresar el anio de fallecimiento del autor (Si se desconoce, o sigue vivo, ingresar -1): " WHITE);
+    addNewAuthor();
+}
+
 void AuthorsFileParser::validateEOFAuthor(int count) {
     if (file.eof() && count < 4) {
         count += 1;
@@ -110,7 +119,6 @@ void AuthorsFileParser::displayAuthors() {
     }
 }
 
-
 List<int>* AuthorsFileParser::displayNameAuthors() {
     List<int> *insi = new List<int>;
     List<Author *> *aux = authors->getTable();
@@ -125,7 +133,6 @@ List<int>* AuthorsFileParser::displayNameAuthors() {
     }
     return insi;
 }
-
 
 AuthorsFileParser::~AuthorsFileParser() {
     delete author;

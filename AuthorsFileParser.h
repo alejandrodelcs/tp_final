@@ -7,6 +7,7 @@
 #include "List.h"
 #include "Hash.h"
 #include "Reading.h"
+#include "PRUEBA.h"
 
 class AuthorsFileParser {
 
@@ -61,6 +62,7 @@ private:
 
 
 
+
 public:
 
     /* Constructor
@@ -98,6 +100,8 @@ public:
      * POST:
      */
     void displayAuthors();
+
+    void requestAuthorsInfo();
 
     /*
      * PRE:

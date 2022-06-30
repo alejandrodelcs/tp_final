@@ -61,13 +61,7 @@ void Menu::addNewReading() {
     readings->add(newReading);
 }
 void Menu::addNewAuthor() {
-    int isni = requestISNI();
-    std::string name = requestAuthorsName();
-    std::string nationality = requestNationality();
-    int birth = requestBirth();
-    int death = requestDeath();
-    newAuthor = new Author(isni,name,nationality,birth, death);
-    authors->insertAuthor(newAuthor);
+    pAuthors.requestAuthorsInfo();
 }
 
 
