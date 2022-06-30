@@ -13,7 +13,7 @@ class Tale : public Reading {
     Tale(int id, std::string &title, unsigned int minutes, unsigned int PublishYear, const std::string& book);
     /*
      * PRE:
-     * POST: Display all of its attributes
+     * POST: Displays the object's attributes in screen.
      */
     void display();
     /* 

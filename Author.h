@@ -60,7 +60,7 @@ public:
 
     /*
      * PRE:
-     * POST: Display the object's attributes in screen.
+     * POST: Displays the object's attributes in screen.
      */
     void display();
 

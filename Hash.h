@@ -61,7 +61,7 @@ class HashTable {
         List<Type>* getTable();
         /* 
         * PRE:
-        * POST:
+        * POST: Displays the object's attributes in screen.
         */
         void display();
         /* Destructor

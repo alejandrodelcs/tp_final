@@ -8,22 +8,20 @@ private:
     char *theme;
 
 public:
-    /*
-     * PRE: -
-     * POST: Construye una Novela Historica
+    /* Constructor
+     * PRE:
+     * POST: Builds a new historical novel
      */
     Historical(int id, std::string &title, unsigned int minutes, unsigned int PublishYear, Genres genre, char* &theme);
-
     /*
-    * PRE: -
-    * POST: Muestra sus atributos
-    */
+     * PRE:
+     * POST: Displays the object's attributes in screen.
+     */
     void display();
-
-    /*
-    * PRE: -
-    * POST: Destruye la Novela Historica
-    */
+    /* Destructor
+     * PRE:
+     * POST: Dealocates the memory used.
+     */
     ~Historical() override;
 
 };

@@ -13,7 +13,7 @@ class Poem : public Reading {
     Poem(int id, std::string &title, unsigned int minutes, unsigned int PublishYear, unsigned int verses);
     /*
      * PRE:
-     * POST: Display the object's attributes in screen.
+     * POST: Displays of the object's attributes in screen.
      */
     void display();
     /*

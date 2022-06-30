@@ -9,12 +9,12 @@ class Novel : public Reading {
     public:
     /* Constructor
      * PRE:
-     * POST: Construye una Novela Historica
+     * POST: Builds a new novel
      */
     Novel(int id, std::string &title, unsigned int minutes, unsigned int PublishYear, Genres genre);
     /*
      * PRE:
-     * POST: Muestra sus atributos
+     * POST: Displays the object's attributes in screen.
      */
     virtual void display();
     /*
