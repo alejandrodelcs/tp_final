@@ -7,9 +7,9 @@ class Tale : public Reading {
     std::string book;
     public:
     /* Constructor
-    * PRE:
-    * POST: Builds a new Tale object
-    */
+     * PRE:
+     * POST: Builds a new Tale object
+     */
     Tale(int id, std::string &title, unsigned int minutes, unsigned int PublishYear, const std::string& book);
     /*
      * PRE:
@@ -17,14 +17,14 @@ class Tale : public Reading {
      */
     void display();
     /* 
-    * PRE:
-    * POST: Get the genre of the Tale object
-    */
+     * PRE:
+     * POST: Get the genre of the Tale object
+     */
     Genres getGenre();
     /* Destructor
-    * PRE:
-    * POST: Dealocates the memory used
-    */
+     * PRE:
+     * POST: Dealocates the memory used
+     */
     ~Tale() = default;;
 };
 

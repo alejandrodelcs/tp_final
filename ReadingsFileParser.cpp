@@ -59,8 +59,7 @@ int ReadingsFileParser::getId() const {
 }
 
 bool ReadingsFileParser::newReference() const {
-    return ((this->fileLine.length() <= 1) &&
-            (this->fileLine[0] == NOVEL || this->fileLine[0] == TALE || this->fileLine[0] == POEM));
+    return ((this->fileLine.length() <= 1) && (this->fileLine[0] == NOVEL || this->fileLine[0] == TALE || this->fileLine[0] == POEM));
 }
 
 void ReadingsFileParser::validateTypeReading() {
@@ -81,10 +80,8 @@ void ReadingsFileParser::validateTypeReading() {
 }
 
 Genres ReadingsFileParser::validateGenre() {
-    std::string strGenres[] = {"HISTORICA", "DRAMA", "COMEDIA", "FICCION", "SUSPENSO",
-                               "TERROR", "ROMANTICA"};
-    Genres enumGenres[] = {Genres::HISTORICAL, Genres::DRAMA, Genres::COMEDY, Genres::FICTION,
-                           Genres::THRILLER, Genres::HORROR, Genres::ROMANCE};
+    std::string strGenres[] = {"HISTORICA", "DRAMA", "COMEDIA", "FICCION", "SUSPENSO", "TERROR", "ROMANTICA"};
+    Genres enumGenres[] = {Genres::HISTORICAL, Genres::DRAMA, Genres::COMEDY, Genres::FICTION, Genres::THRILLER, Genres::HORROR, Genres::ROMANCE};
     Genres element;
     bool found = false;
     int pos = 0;
@@ -105,7 +102,7 @@ void ReadingsFileParser::validateReference() {
     } else if (type == NOVEL) {
         this->buildNewTheme();
     } else {
-        this->id = 0; //AUTOR ANONIMO
+        this->id = 0; // Anonymous author
     }
 }
 
@@ -117,7 +114,6 @@ void ReadingsFileParser::validateHistoricalReference() {
 
 bool ReadingsFileParser::validateNewReading(int count) const {
     return (count == 5 && this->theme == nullptr);
-
 }
 
 bool ReadingsFileParser::validateHistoricalNovel(int contador) const {
@@ -217,7 +213,6 @@ void ReadingsFileParser::sortReadingList() {
     }
 }
 
-
 void ReadingsFileParser::validateYearMinor() {
     int value = 0;
     int position = 0;
@@ -228,7 +223,6 @@ void ReadingsFileParser::validateYearMinor() {
     }
     this->readings->add(this->reading, position);
 }
-
 
 void ReadingsFileParser::addSortedReading(Reading *l) {
     this->readings->startCursor();
@@ -252,7 +246,6 @@ void ReadingsFileParser::displayReadings() {
         this->readings->getCursor()->display();
     }
 }
-
 
 int ReadingsFileParser::getCost(Reading *initialReading, Reading *endingReading) {
     int costs[4][4] = {
@@ -302,8 +295,7 @@ Graph<int> *ReadingsFileParser::getGraph() {
 void ReadingsFileParser::addGraphEdges() {
     for (int i = 1; i < readings->getNumberOfElements(); i++) {
         for (int j = i + 1; j < readings->getNumberOfElements() + 1; j++) {
-            graph->addEdge(i, j,
-                           getCost(readings->search(i), readings->search(j)));
+            graph->addEdge(i, j, getCost(readings->search(i), readings->search(j)));
         }
     }
 }
@@ -339,7 +331,6 @@ void ReadingsFileParser::_displayMst() {
     m.calcMinDistance();
 }
 
-
 ReadingsFileParser::~ReadingsFileParser() {
     readings->startCursor();
     while (readings->moveCursor()) {
@@ -348,7 +339,3 @@ ReadingsFileParser::~ReadingsFileParser() {
     delete readings;
     readings = nullptr;
 }
-
-
-
-

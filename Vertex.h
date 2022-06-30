@@ -8,19 +8,19 @@ class Vertex {
     Data name;
     public:
     /* Constructor
-    * PRE:
-    * POST: Builds a new Vertex object
-    */
+     * PRE:
+     * POST: Builds a new Vertex object
+     */
     Vertex(Data name);
     /*
-    * PRE:
-    * POST: Get name of the node
-    */
+     * PRE:
+     * POST: Get name of the node
+     */
     Data getName();
     /* Destructor
-    * PRE:
-    * POST: Dealocates the memory used
-    */
+     * PRE:
+     * POST: Dealocates the memory used
+     */
     ~Vertex()= default;;
 };
 
