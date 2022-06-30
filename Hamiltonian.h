@@ -15,7 +15,7 @@ class Hamiltonian {
      * PRE:
      * POST:
      */
-    void cloneArray(Reading *A[], Reading *B[]);
+    void cloneReadingsArray(Reading *A[], Reading *B[]);
     /*
      * PRE:
      * POST:
@@ -41,6 +41,12 @@ class Hamiltonian {
      * PRE:
      * POST:
      */
+
+    void newRecord(int acumulatedTime, Reading *minimalOrder[], Reading *currentOrder[], int option, List<List<Reading*>*>*minimalOrders);
+
+    void displayOrder(Reading *currentOrder[], int acumulatedTime);
+
+
     void calculateShortestReadingTimes(List<List<Reading*>*>*minimalOrders);
     public:
     /* Constructor
