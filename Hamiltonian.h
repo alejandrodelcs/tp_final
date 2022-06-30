@@ -10,7 +10,7 @@ class Hamiltonian {
     List<Reading*> *readings;
     int minimalReadingsTime;
     int readingsSize;    
-    ReadingsFileParser* pReading;
+    ReadingsFileParser *pReadings;
     /*
      * PRE:
      * POST:
@@ -52,12 +52,12 @@ class Hamiltonian {
      * PRE:
      * POST:
      */
-    void getShortestReadingsTime(List<Reading *> *readings);
+    void getShortestReadingsTime(List<Reading *> *readings, ReadingsFileParser *pReadings);
     /*
      * PRE:
      * POST:
      */
-    void getShortestReadingsTimes(List<Reading *> *readings);
+    void getShortestReadingsTimes(List<Reading *> *readings, ReadingsFileParser *pReadings);
     
 };
 

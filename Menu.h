@@ -16,13 +16,13 @@ class Menu {
 private:
     int option;
     List<Reading*> *readings;
-    ReadingsFileParser pReading;
+    ReadingsFileParser pReadings;
     AuthorsFileParser  pAuthors;
     HashTable<Author*>* authors;
     Graph<int>* graph;
     Reading* newReading;
     Author* newAuthor;
-    Hamiltonian *hamiltonian;
+    Hamiltonian hamiltonian;
     bool end;
 
     void addNewReading();
@@ -47,7 +47,7 @@ private:
     void alternativeShortestReadingsTime();
 public:
     Menu();
-
+    ReadingsFileParser getPreadings();
     void interaction();
 
     ~Menu();

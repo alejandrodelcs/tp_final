@@ -1,9 +1,5 @@
-//
-// Created by julim on 30/06/2022.
-//
-
-#ifndef TP_FINAL_VALIDATIONS_H
-#define TP_FINAL_VALIDATIONS_H
+#ifndef TP_FINAL_VALIDATIONS_JAM_H
+#define TP_FINAL_VALIDATIONS_JAM_H
 
 #include "Constants.h"
 #include "Reading.h"
@@ -54,5 +50,4 @@ int requestBirth();
 
 int requestDeath();
 
-
-#endif //TP_FINAL_VALIDATIONS_H
+#endif

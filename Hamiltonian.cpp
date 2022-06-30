@@ -1,9 +1,7 @@
 #include "Hamiltonian.h"
 
-
-Hamiltonian::Hamiltonian() {
+Hamiltonian::Hamiltonian() {    
     this->readings = new List<Reading *>;
-    this->pReading = new ReadingsFileParser();
 }
 
 void Hamiltonian::cloneArray(Reading *A[], Reading *B[]) {
@@ -30,7 +28,7 @@ void Hamiltonian::hamiltonianRecursion(Reading *minimalOrder[], int currentID, R
         for (int i=0; i < readingsSize; i++) {
             if (!(visited[i]) && (i != currentID)) {     
                 if (currentID != -1) {
-                    linkCost = pReading->getCost(currentOrder[readingsSize-arraySize-1],readings->search(i+1));
+                    linkCost = pReadings->getCost(currentOrder[readingsSize-arraySize-1],readings->search(i+1));
                     //std::cout << "(" << currentOrder[readingsSize-arraySize-1]->getTitle() << " -> " << readings->search(i+1)->getTitle() << ") = " << linkCost << std::endl;
                 } else {
                     linkCost = 0;
@@ -55,7 +53,8 @@ void Hamiltonian::calculateHamiltonianShortestReadingTime(Reading *minimalOrder[
     hamiltonianRecursion(minimalOrder, -1, readingsOrder, visited, readingsSize, 0);
 }
 
-void Hamiltonian::getShortestReadingsTime(List<Reading *> *readings) {
+void Hamiltonian::getShortestReadingsTime(List<Reading *> *readings, ReadingsFileParser *pReadings) {
+    this->pReadings = pReadings;
     this->readings = readings;
     int totalTime = 0;
     readings->startCursor();
@@ -69,7 +68,7 @@ void Hamiltonian::getShortestReadingsTime(List<Reading *> *readings) {
     std::cout << "\nOrden de las lectuas:"<< std::endl;
     for (int i = 0; i < readingsSize-1; i++) {
         std::cout << "Leer \"" << minimalOrder[i]->getTitle() << "\" (Alrededor de " << minimalOrder[i]->getMinutes() << " minutos)" << std::endl;
-        std::cout << "Descansar por " << pReading->getCost(minimalOrder[i],minimalOrder[i+1]) << " minutos..." << std::endl;
+        std::cout << "Descansar por " << pReadings->getCost(minimalOrder[i],minimalOrder[i+1]) << " minutos..." << std::endl;
     }
     std::cout << "Leer \"" << minimalOrder[readingsSize-1]->getTitle() << "\" (Alrededor de " << minimalOrder[readingsSize-1]->getMinutes() << " minutos)" << std::endl;
     std::cout << "\nTiempo minimo total: " << totalTime << "\n(De los cuales " << minimalReadingsTime << " minutos son descansando y " << totalTime - minimalReadingsTime << " son leyendo cuentos)\n" << std::endl;
@@ -106,7 +105,7 @@ void Hamiltonian::hamiltonianRecursion(List<List<Reading*>*>*minimalOrders, int 
         for (int i=0; i < readingsSize; i++) {
             if (!(visited[i]) && (i != currentID)) {     
                 if (currentID != -1) {
-                    linkCost = pReading->getCost(currentOrder[readingsSize-arraySize-1],readings->search(i+1));
+                    linkCost = pReadings->getCost(currentOrder[readingsSize-arraySize-1],readings->search(i+1));
                     //std::cout << "(" << currentOrder[readingsSize-arraySize-1]->getTitle() << " -> " << readings->search(i+1)->getTitle() << ") = " << linkCost << std::endl;
                 } else {
                     linkCost = 0;
@@ -131,7 +130,8 @@ void Hamiltonian::calculateShortestReadingTimes(List<List<Reading*>*>*minimalOrd
     hamiltonianRecursion(minimalOrders, -1, readingsOrder, visited, readingsSize, 0);
 }
 
-void Hamiltonian::getShortestReadingsTimes(List<Reading *> *readings) {
+void Hamiltonian::getShortestReadingsTimes(List<Reading *> *readings, ReadingsFileParser *pReadings) {
+    this->pReadings = pReadings;
     this->readings = readings;
     int totalTime = 0;
     readings->startCursor();
@@ -152,7 +152,7 @@ void Hamiltonian::getShortestReadingsTimes(List<Reading *> *readings) {
         while (minimalOrders->getCursor()->moveCursor()) {
             currentReading = minimalOrders->getCursor()->getCursor();
             if (oldReading != NULL) {
-                std::cout << "Descansar por " << pReading->getCost(oldReading,currentReading) << " minutos..." << std::endl;
+                std::cout << "Descansar por " << pReadings->getCost(oldReading,currentReading) << " minutos..." << std::endl;
             }
             std::cout << "Leer \"" << currentReading->getTitle() << "\" (Alrededor de " << currentReading->getMinutes() << " minutos)" << std::endl;            
             oldReading = currentReading;

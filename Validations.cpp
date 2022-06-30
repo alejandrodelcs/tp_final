@@ -1,8 +1,5 @@
-//
-// Created by julim on 30/06/2022.
-//
-
 #include "Validations.h"
+
 /// DATA INPUT AND VALIDATIONS ///
 
 bool validateNumber(std::string string) {

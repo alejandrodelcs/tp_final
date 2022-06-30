@@ -6,7 +6,6 @@ Menu::Menu() {
     this->authors = new HashTable<Author *>(20);
     this->graph = new Graph<int>;
     this->end = false;
-    this->hamiltonian = new Hamiltonian();
 }
 
 void Menu::displayMenu() {
@@ -31,14 +30,12 @@ void Menu::input() {
 }
 
 void Menu::displayReadings() {
-    pReading.displayReadings();
+    pReadings.displayReadings();
 }
 
 void Menu::displayAuthors() {
     pAuthors.displayAuthors();
 }
-
-
 
 void Menu::addNewReading() {
     int isni = requestISNI();
@@ -66,7 +63,7 @@ void Menu::addNewAuthor() {
 
 
 void Menu::shortestReadingsTime() {
-    pReading.displayMst();
+    pReadings.displayMst();
 }
 
 bool Menu::validateSearchOption(int totalAuthors) const {
@@ -137,17 +134,17 @@ void Menu::optionsAdditional() {
             graph->displayGraph();
             break;
         case TWO:
-            pReading._displayMst();
+            pReadings._displayMst();
             break;
         case THREE:
             authors->display();
             std::cout << std::endl;
             break;
         case FOUR:
-            hamiltonian->getShortestReadingsTime(readings);
+            hamiltonian.getShortestReadingsTime(readings,&pReadings);
             break;
         case FIVE:
-            hamiltonian->getShortestReadingsTimes(readings);
+            hamiltonian.getShortestReadingsTimes(readings,&pReadings);
             std::cout << std::endl;
             break;
         case SIX:
@@ -165,16 +162,16 @@ void Menu::additionalFeatures() {
 }
 
 void Menu::buildGraph() {
-    pReading.setGraph(graph);
-    graph = pReading.getGraph();
-    pReading.setGraphVertex();
-    pReading.addGraphEdges();
+    pReadings.setGraph(graph);
+    graph = pReadings.getGraph();
+    pReadings.setGraphVertex();
+    pReadings.addGraphEdges();
 }
 
 
 void Menu::buildListReadings() {
-    pReading.setReadingList(this->readings);
-    this->readings = pReading.getReadings();
+    pReadings.setReadingList(this->readings);
+    this->readings = pReadings.getReadings();
 }
 
 void Menu::buildHashTable() {
@@ -216,7 +213,6 @@ void Menu::options() {
             break;
     }
 }
-
 
 void Menu::interaction() {
     this->buildListReadings();
