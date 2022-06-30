@@ -18,10 +18,10 @@ private:
     AuthorsFileParser  pAuthors;
     HashTable<Author*>* authors;
     Graph<int>* graph;
-
+    Reading* newReading;
     bool end;
 
-    void newReading();
+    void addNewReading();
     void displayReadings();
     bool validateSearchOption(int totalAuthors) const;
     void newAuthor();

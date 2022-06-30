@@ -35,7 +35,7 @@ void Menu::displayAuthors() {
     pAuthors.displayAuthors();
 }
 
-void Menu::newReading() {
+void Menu::addNewReading() {
 
 }
 
@@ -154,7 +154,7 @@ void Menu::buildHashTable() {
 void Menu::options() {
     switch (this->option) {
         case ONE:
-            newReading();
+            addNewReading();
             break;
         case TWO:
             displayReadings();
