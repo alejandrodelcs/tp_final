@@ -1,35 +1,44 @@
 #ifndef TP_FINAL_NODE_H
 #define TP_FINAL_NODE_H
-#include <string>
 
-using namespace std;
+#include <string>
 
 template < typename Type >
 class Node {
-/*ATRIBUTOS*/
-private:
+    private:
     Type* element;
     Node<Type>* next;
-
-/*MÉTODOS*/
-public:
+    public:
+    /* Constructor
+     * PRE:
+     * POST: Builds a new Node object
+     */
     explicit Node(Type name);
-
-    //post: devuelve el nodo siguiente.
+    /*
+     * PRE:
+     * POST: Gets the next node.
+     */
     Node<Type>* getNext();
-
-    //post: devuelve el nombre del nodo
+    /*
+     * PRE:
+     * POST: Get the name of the node.
+     */
     int getName();
-
-    //post: le asigna como siguiente el nodo recibido
+    /*
+     * PRE:
+     * POST: Assigns the parameter's node as the one following the current.
+     */
     void assignNext(Node<Type>* ps);
-
-    //PRE: -
-    //POS: devuelve el dato que esta en el nodo
+    /*
+     * PRE:
+     * POST: Returns the data within the node.
+     */
     Type getElement();
-
+    /* Destructor
+     * PRE:
+     * POST: Dealocates the memory used.
+     */
     ~Node();
-
 };
 
 template<typename Type>
@@ -43,16 +52,15 @@ Node<Type> *Node<Type>::getNext() {
     return next;
 }
 
-template<typename Type> //EL VALOR DE RETORNO VA A DEPENDER DEL TIPO DE NODO
+template<typename Type>
 int Node<Type>::getName() {
     return element->getName();
 }
 
 template<typename Type>
 void Node<Type>::assignNext(Node<Type> *ps) {
-    this -> next = ps;
+    this->next = ps;
 }
-
 
 template<typename Type>
 Type Node<Type>::getElement() {
@@ -64,5 +72,4 @@ Node<Type>::~Node() {
     delete element;
 }
 
-
-#endif //TP_FINAL_NODE_H
+#endif

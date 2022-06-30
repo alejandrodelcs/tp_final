@@ -18,7 +18,7 @@ class Tale : public Reading {
     void display();
     /* 
      * PRE:
-     * POST: Get the genre of the Tale object
+     * POST: Gets the genre of the Tale object
      */
     Genres getGenre();
     /* Destructor

@@ -31,7 +31,7 @@ class ReadingsFileParser {
     Graph<int>* graph;
     /*
      * PRE: fileLine should point to a line (of the file "lecturas.txt") with a valid reading genre
-     * POST: Get the genre (as a Genres object) of the current fileLine 
+     * POST: Gets the genre (as a Genres object) of the current fileLine 
      */
     Genres validateGenre();
     /*

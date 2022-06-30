@@ -1,5 +1,6 @@
 #ifndef TP_FINAL_POEM_H
 #define TP_FINAL_POEM_H
+
 #include "Reading.h"
 
 class Poem : public Reading {
@@ -13,12 +14,12 @@ class Poem : public Reading {
     Poem(int id, std::string &title, unsigned int minutes, unsigned int PublishYear, unsigned int verses);
     /*
      * PRE:
-     * POST: Displays of the object's attributes in screen.
+     * POST: Displays the object's attributes in screen.
      */
     void display();
     /*
      * PRE:
-     * POST:
+     * POST: Gets the Poem's genre in screen
      */
     Genres getGenre();
     /* Destructor
@@ -28,4 +29,4 @@ class Poem : public Reading {
     ~Poem() = default;
 };
 
-#endif //TP_FINAL_POEM_H
+#endif

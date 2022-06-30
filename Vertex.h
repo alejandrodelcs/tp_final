@@ -14,7 +14,7 @@ class Vertex {
     Vertex(Data name);
     /*
      * PRE:
-     * POST: Get name of the node
+     * POST: Gets name of the node
      */
     Data getName();
     /* Destructor

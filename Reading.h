@@ -29,37 +29,37 @@ class Reading {
     virtual void display() = 0;
     /*
      * PRE:
-     * POST: Get the genre of the reading object
+     * POST: Gets the genre of the reading object
      */
     virtual Genres getGenre()=0;
     /*
      * PRE:
-     * POST: Get the type of the reading object
+     * POST: Gets the type of the reading object
      */
     char getType() const;
     /*
      * PRE:
-     * POST: Get the minutes of the reading object
+     * POST: Gets the minutes of the reading object
      */
     unsigned int getMinutes() const;
     /*
      * PRE:
-     * POST: Get the year of publishment of the reading object
+     * POST: Gets the year of publishment of the reading object
      */
     unsigned int getPublishYear() const;
     /*
      * PRE:
-     * POST: Get the author of the reading object
+     * POST: Gets the author of the reading object
      */
     Author *getAuthor();
     /*
      * PRE:
-     * POST: Get the isni of the reading object
+     * POST: Gets the isni of the reading object
      */
     int getIsni() const;
     /*
      * PRE:
-     * POST: Get the title of the reading object
+     * POST: Gets the title of the reading object
      */
     std::string getTitle();
     /*
