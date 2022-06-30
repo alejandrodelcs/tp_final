@@ -14,7 +14,7 @@ void Hamiltonian::hamiltonianRecursion(Reading *minimalOrder[], int currentID, R
     int linkCost = 0;
     if (arraySize == 0) {
         if (acumulatedTime < this->minimalReadingsTime || this->minimalReadingsTime == -1) {
-            newRecord(acumulatedTime, minimalOrder, currentOrder);
+            newRecord(minimalOrder, currentOrder, acumulatedTime);
         }
         displayOrder(currentOrder,acumulatedTime);
     } else { 
@@ -81,7 +81,7 @@ void Hamiltonian::hamiltonianRecursion(List<List<Reading*>*>*minimalOrders, int 
         if (acumulatedTime < this->minimalReadingsTime || this->minimalReadingsTime == -1) {
             this->minimalReadingsTime = acumulatedTime;
             std::cout << RED << "Se a hallado un nuevo tiempo minimo de " << this->minimalReadingsTime << " minutos!" << std::endl;
-            newRecord(acumulatedTime, minimalOrders, currentOrder);
+            newRecord(minimalOrders, currentOrder, acumulatedTime);
         } else if (acumulatedTime == this->minimalReadingsTime) {
             std::cout << RED << "Se a hallado otro orden con el mismo tiempo de " << this->minimalReadingsTime << " minutos!" << std::endl;
             addArrayToList(currentOrder, minimalOrders);
@@ -149,13 +149,13 @@ void Hamiltonian::getShortestReadingsTimes(List<Reading *> *readings, ReadingsFi
     }
 }
 
-void Hamiltonian::newRecord(int acumulatedTime, Reading *minimalOrder[], Reading *currentOrder[]){
+void Hamiltonian::newRecord(Reading *minimalOrder[], Reading *currentOrder[], int acumulatedTime){
     this->minimalReadingsTime = acumulatedTime;
     std::cout << RED << "Se a hallado un nuevo tiempo minimo de " << this->minimalReadingsTime << " minutos!" << std::endl;
     cloneReadingsArray(minimalOrder, currentOrder);
 }
 
-void Hamiltonian::newRecord(int acumulatedTime, List<List<Reading*>*>*minimalOrders, Reading *currentOrder[]){
+void Hamiltonian::newRecord(List<List<Reading*>*>*minimalOrders, Reading *currentOrder[], int acumulatedTime){
     this->minimalReadingsTime = acumulatedTime;
     std::cout << RED << "Se a hallado un nuevo tiempo minimo de " << this->minimalReadingsTime << " minutos!" << std::endl;
     minimalOrders = new List<List<Reading*>*>;
