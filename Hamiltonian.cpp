@@ -154,8 +154,7 @@ void Hamiltonian::getShortestReadingsTimes(List<Reading *> *readings) {
             if (oldReading != NULL) {
                 std::cout << "Descansar por " << pReading->getCost(oldReading,currentReading) << " minutos..." << std::endl;
             }
-            std::cout << "Leer \"" << currentReading->getTitle() << "\" (Alrededor de " << currentReading->getMinutes() << " minutos)" << std::endl;
-            
+            std::cout << "Leer \"" << currentReading->getTitle() << "\" (Alrededor de " << currentReading->getMinutes() << " minutos)" << std::endl;            
             oldReading = currentReading;
         }
         std::cout << "\nTiempo minimo total: " << totalTime << "\n(De los cuales " << minimalReadingsTime << " minutos son descansando y " << totalTime - minimalReadingsTime << " son leyendo cuentos)" << std::endl;

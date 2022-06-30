@@ -10,46 +10,46 @@ const int INFINITO = 99999999;
 
 template<typename Type>
 class Graph {
-private:
+    private:
     std::vector<std::vector<int>> adjMatrix;
     List<Vertex<Type>> *vertexes;
-
-    //post: agranda dinamicamente la matriz de adyacencia
+    /*
+     * PRE:
+     * POST: Agranda dinamicamente la matriz de adyacencia
+     */
     void resizeAdjMatrix();
-
-
+    /*
+     * PRE:
+     * POST:
+     */
     void displayVertexes();
-
+    /*
+     * PRE:
+     * POST:
+     */
     void displayAdjMatrix();
-
-
-public:
+    public:
     Graph();
-
     /*
      * PRE: No hay vertices repetidos en nombre
      * POST:  agrega un nuevo vertice al grafo
      */
     void addVertex(Type newVertex);
-
     /*
      * PRE: el peso es un valor positivo
      * POST: Ajusta la matriz de adyacencia con el peso ingresado
      */
     void addEdge(Type origin, Type destiny, int weigth);
-
     /*
      * PRE:
      * POST: imprime por pantalla la matriz de adyacencia
      */
     void displayGraph();
-
     /*
      * PRE:
      * POST: retorna la matriz adjunta
      */
     std::vector<std::vector<int>> getAdjMAtrix();
-
     /*
      * PRE:
      * POST: retorna el numero de vertices
@@ -61,12 +61,10 @@ public:
 
 };
 
-
 template<typename Type>
 Graph<Type>::Graph() {
     vertexes = new List<Vertex<Type> >;
 }
-
 
 template<typename Type>
 void Graph<Type>::addVertex(Type newVertex) {
@@ -75,15 +73,12 @@ void Graph<Type>::addVertex(Type newVertex) {
 
 }
 
-
 template<typename Type>
 void Graph<Type>::resizeAdjMatrix() {
     int numberOfVertexes = vertexes->getNumberOfElements() + 1;
-    std::vector<std::vector<int>> auxMatrix(numberOfVertexes,
-                                            std::vector<int>(numberOfVertexes, INFINITO));
+    std::vector<std::vector<int>> auxMatrix(numberOfVertexes, std::vector<int>(numberOfVertexes, INFINITO));
     adjMatrix = auxMatrix;
 }
-
 
 template<typename Type>
 void Graph<Type>::addEdge(Type origin, Type destiny, int weigth) {
@@ -96,16 +91,12 @@ void Graph<Type>::addEdge(Type origin, Type destiny, int weigth) {
     if (destinyPosition == POSITION_NOT_FOUND) {
         std::cout << "El vertice " << destiny << " no existe en el grafo" << std::endl;
     }
-
     if (!(destinyPosition == POSITION_NOT_FOUND || originPosition == POSITION_NOT_FOUND)) {
         adjMatrix[originPosition][destinyPosition] = weigth;
         adjMatrix[destinyPosition][originPosition] = weigth;
         adjMatrix[originPosition][originPosition] = 0;
         adjMatrix[destinyPosition][destinyPosition] = 0;
-
-
     }
-
 }
 
 template<typename Type>
@@ -159,10 +150,9 @@ int Graph<Type>::getVertexNumbers() {
     return vertexes->getNumberOfElements();
 }
 
-
 template<typename Type>
 Graph<Type>::~Graph() {
     delete vertexes;
 }
 
-#endif //TP_FINAL_GRAPH_H
+#endif

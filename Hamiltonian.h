@@ -11,17 +11,52 @@ class Hamiltonian {
     int minimalReadingsTime;
     int readingsSize;    
     ReadingsFileParser* pReading;
-
+    /*
+     * PRE:
+     * POST:
+     */
     void cloneArray(Reading *A[], Reading *B[]);
+    /*
+     * PRE:
+     * POST:
+     */
     void hamiltonianRecursion(Reading *minimalOrder[], int currentID, Reading *currentOrder[], bool visited[], int arraySize, int acumulatedTime);
+    /*
+     * PRE:
+     * POST:
+     */
     void calculateHamiltonianShortestReadingTime(Reading *minimalOrder[]);
 
+    /*
+     * PRE:
+     * POST:
+     */
     void addArrayToList(Reading *B[], List<List<Reading*>*>*minimalOrders);
+    /*
+     * PRE:
+     * POST:
+     */
     void hamiltonianRecursion(List<List<Reading*>*>*minimalOrders, int currentID, Reading *currentOrder[], bool visited[], int arraySize, int acumulatedTime);
+    /*
+     * PRE:
+     * POST:
+     */
     void calculateShortestReadingTimes(List<List<Reading*>*>*minimalOrders);
     public:
+    /* Constructor
+     * PRE:
+     * POST:
+     */
     Hamiltonian();
+    /*
+     * PRE:
+     * POST:
+     */
     void getShortestReadingsTime(List<Reading *> *readings);
+    /*
+     * PRE:
+     * POST:
+     */
     void getShortestReadingsTimes(List<Reading *> *readings);
     
 };
