@@ -10,6 +10,7 @@
 #include "AuthorsFileParser.h"
 #include "Graph.h"
 #include "PRUEBA.h"
+#include "Hamiltonian.h"
 
 class Menu {
 private:
@@ -21,6 +22,7 @@ private:
     Graph<int>* graph;
     Reading* newReading;
     Author* newAuthor;
+    Hamiltonian *hamiltonian;
     bool end;
 
     void addNewReading();
@@ -43,19 +45,6 @@ private:
     void optionsAdditional();
     void displayAdditionalFeatures();
     void alternativeShortestReadingsTime();
-
-    int minimalReadingsTime;
-    int readingsSize;    
-    void cloneArray(Reading *A[], Reading *B[]);
-    void hamiltonianRecursion(Reading *minimalOrder[], int currentID, Reading *currentOrder[], bool visited[], int arraySize, int acumulatedTime);
-    void calculateHamiltonianShortestReadingTime(Reading *minimalOrder[]);
-    void hamiltonianShortestReadingsTime();
-
-    void cloneArrayB(List<List<Reading*>*>*minimalOrders, Reading *B[]);
-    void hamiltonianRecursionB(List<List<Reading*>*>*minimalOrders, int currentID, Reading *currentOrder[], bool visited[], int arraySize, int acumulatedTime);
-    void calculateHamiltonianShortestReadingTimeB(List<List<Reading*>*>*minimalOrders);
-    void hamiltonianShortestReadingsTimeB();
-
 public:
     Menu();
 
