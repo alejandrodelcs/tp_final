@@ -302,8 +302,7 @@ Graph<int> *ReadingsFileParser::getGraph() {
 void ReadingsFileParser::addGraphEdges() {
     for (int i = 1; i < readings->getNumberOfElements(); i++) {
         for (int j = i + 1; j < readings->getNumberOfElements() + 1; j++) {
-            graph->addEdge(i, j,
-                           getCost(readings->search(i), readings->search(j)));
+            graph->addEdge(i, j, getCost(readings->search(i), readings->search(j)));
         }
     }
 }
@@ -338,7 +337,6 @@ void ReadingsFileParser::_displayMst() {
     m.primAlgorithm();
     m.calcMinDistance();
 }
-
 
 ReadingsFileParser::~ReadingsFileParser() {
     readings->startCursor();
