@@ -9,7 +9,6 @@
 #include "ReadingsFileParser.h"
 #include "AuthorsFileParser.h"
 #include "Graph.h"
-#include "Validations.cpp"
 
 class Menu {
 private:
@@ -19,19 +18,18 @@ private:
     AuthorsFileParser  pAuthors;
     HashTable<Author*>* authors;
     Graph<int>* graph;
-    Reading* newReading;
-    Author* newAuthor;
+
     bool end;
 
-    void addNewReading();
+    void newReading();
     void displayReadings();
     bool validateSearchOption(int totalAuthors) const;
-    void addNewAuthor();
+    void newAuthor();
     void displayAuthors();
     void searchAuthor();
     Author* getAuthorMenu();
     void removeAuthor();
-    void shorterReadingTime();
+    void shortestReadingsTime();
     void additionalFeatures();
     void buildHashTable();
     void validateInputOption();
@@ -42,6 +40,17 @@ private:
     void displayMenu();
     void optionsAdditional();
     void displayAdditionalFeatures();
+
+    // Minimum order by Ian
+    int minimalReadingsTime = -1;
+    int totalSize = 0;
+    
+    void cloneArray(Reading *A[], Reading *B[]);
+    void hamiltonRecursion(Reading *minimalOrder[], int currentID, Reading *currentOrder[], bool visited[], int arraySize, int acumulatedTime);
+    void calculateShortestReadingTime(Reading *minimalOrder[]);
+    void getMinimumOrder();
+    //
+
 public:
     Menu();
 
