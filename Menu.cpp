@@ -59,17 +59,16 @@ void Menu::addNewReading() {
     }
     readings->add(newReading);
 }
-/*
 void Menu::addNewAuthor() {
-    int isni = requestINSI();
-    std::string name = requestName();
+    int isni = requestISNI();
+    std::string name = requestAuthorsName();
     std::string nationality = requestNationality();
     int birth = requestBirth();
-    int death = requestDeath(birth);
+    int death = requestDeath();
     newAuthor = new Author(isni,name,nationality,birth, death);
     authors->insertAuthor(newAuthor);
 }
-*/
+
 
 void Menu::shorterReadingTime() {
     pReading.displayMst();

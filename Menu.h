@@ -20,13 +20,13 @@ private:
     HashTable<Author*>* authors;
     Graph<int>* graph;
     Reading* newReading;
-    //Author* newAuthor;
+    Author* newAuthor;
     bool end;
 
     void addNewReading();
     void displayReadings();
     bool validateSearchOption(int totalAuthors) const;
-    //void addNewAuthor();
+    void addNewAuthor();
     void displayAuthors();
     void searchAuthor();
     Author* getAuthorMenu();
