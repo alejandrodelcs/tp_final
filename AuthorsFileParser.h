@@ -95,7 +95,7 @@ class AuthorsFileParser {
     List<int>* displayNameAuthors();
     /* Destructor
      * PRE:
-     * POST: Destruye la lista de Escritores
+     * POST: Dealocates the memory used (Destroys the readings list).
      */
     ~AuthorsFileParser();
 };

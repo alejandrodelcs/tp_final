@@ -46,10 +46,17 @@ private:
     void displayAdditionalFeatures();
     void alternativeShortestReadingsTime();
 public:
+    /* Constructor
+     * PRE:
+     * POST:
+     */
     Menu();
     ReadingsFileParser getPreadings();
     void interaction();
-
+    /* Destructor
+     * PRE:
+     * POST: Dealocates the memory used.
+     */
     ~Menu();
 
 };

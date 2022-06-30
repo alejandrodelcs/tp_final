@@ -5,96 +5,92 @@
 #include <iostream>
 
 const int NAME_NOT_FOUND = -1;
-
 const int POSITION_NOT_FOUND = -1;
 
 template<typename Type>
 class List {
-
-private:
+    private:
     int numberOfElements;
     Node<Type> *first;
     Node<Type> *cursor;
-
-
-public:
+    public:
+    /* Constructor
+     * PRE:
+     * POST:
+     */
     List();
-
-    //post: devuelve la cantidad de elementos que tiene la lista
+    /* 
+     * PRE:
+     * POST: devuelve la cantidad de elementos que tiene la lista
+     */
     int getNumberOfElements();
-
-    //post: devuelve la posicion en la que se encuentra el nombre que recibe o -1 si no lo encuentra
+    /* 
+     * PRE:
+     * POST: devuelve la posicion en la que se encuentra el nombre que recibe o -1 si no lo encuentra
+     */
     int getPosition(int node);
-
-    //post: devuelve el  nombre que se encuentra en la posicion recibida o NAME_NOT_FOUND si no lo encuentra
+    /* Destructor
+     * PRE:
+     * POST: devuelve el  nombre que se encuentra en la posicion recibida o NAME_NOT_FOUND si no lo encuentra
+     */
     int getName(int position);
-
     /*
-   * PRE: -
-   * POST: agrega el dato al final de la lista en la posición obtenerLargo() + 1
-   */
+     * PRE: -
+     * POST: agrega el dato al final de la lista en la posición obtenerLargo() + 1
+     */
     void add(Type newElement);
-
     /*
      * PRE::recibe un Dato d - 0 < pos <= largo+1
      * POST: agrega el Dato d en la Lista. La primera posición es 1
      */
     void add(Type newElement, int pos);
-
     /*
-    * PRE:  0 < pos <= largo
-    * POST: -
-    */
+     * PRE:  0 < pos <= largo
+     * POST: -
+     */
     void remove(int pos);
-
     /*
      * PRE: la lista no tiene que estar vacia
      * POST: devuelve el dato que esta encima de la lista
      */
     Type search(int pos);
-
     /*
      * PRE: Recibe el dato a buscar en la lista
      * POST: devuelve la posicion del dato en la lista, -1 de lo contrario
      */
     int searchPosition(Type element);
-
-
     /*
      * PRE: consulta si hay un elemento siguiente (si el cursor no apunta a NULL)
      * POST: devuelve true si el cursor no apunta a NULL, false de lo contrario
     */
     bool moveCursor();
-
     /*
      * PRE:  el cursor se posiciona sobre un elemento de la lista
      *      (el metodo avanzarCursor() tiene que haber devuelto true previamente)
      * POST: devuelve el elemento en la posición del cursor y avanza
      */
     Type getCursor();
-
     /*
-    * PRE: -
-    * POST: Deja Cursor preparado para iniciar un nuevo recorrido de la Lista
-    */
+     * PRE: -
+     * POST: Deja Cursor preparado para iniciar un nuevo recorrido de la Lista
+     */
     void startCursor();
-
-
-    //PRE: Recibe una lista distinta a la original
-    //POS: concatena la dos lista colocando la segunda lista al final de la otra.
+    /* 
+     * PRE: Recibe una lista distinta a la original
+     * POST: concatena la dos lista colocando la segunda lista al final de la otra
+     */
     void concatenate(List<Type> *l);
-
-
+    /* Destructor
+     * PRE:
+     * POST: Dealocates the memory used.
+     */
     ~List();
-
-private:
-/*
+    private:
+    /*
      * PRE: Recibe una posicion de la lista
      * POST: Retorna el nodo en dicha posición
      */
     Node<Type> *getNode(int pos);
-
-
 };
 
 template<typename Type>
@@ -114,7 +110,6 @@ int List<Type>::getPosition(int node) {
     bool foundElement = false;
     int i = 0;
     Node<Type> *aux = first;
-
     while (!foundElement && i < numberOfElements) {
         if (aux->getName() == node) {
             foundElement = true;
@@ -122,7 +117,6 @@ int List<Type>::getPosition(int node) {
         i++;
         aux = aux->getNext();
     }
-
     if (!foundElement) {
         return POSITION_NOT_FOUND;
     }
@@ -135,7 +129,7 @@ void List<Type>::add(Type newElement) {
 }
 
 template<typename Type>
-int List<Type>::getName(int position) { //EL VALOR DE RETORNO VA A DEPENDER DEL TIPO DE NODO
+int List<Type>::getName(int position) {
     int i = 0;
     Node<Type> *aux = first;
     if (position > numberOfElements) {
@@ -225,9 +219,9 @@ int List<Type>::searchPosition(Type element) {
 template<typename Type>
 bool List<Type>::moveCursor() {
     if (this->cursor == nullptr) {
-        this->cursor = this->first;  //reinicia
+        this->cursor = this->first; // Resets the cursor
     } else {
-        this->cursor = this->cursor->getNext(); //avanza al sgte
+        this->cursor = this->cursor->getNext(); // Moves the cursor forward in the list
     }
     return (this->cursor != nullptr);
 }
@@ -244,7 +238,7 @@ Type List<Type>::getCursor() {
 template<typename Type>
 List<Type>::~List() {
     while (this->first != nullptr){
-        Node<Type>* remove = this->first;
+        Node<Type> *remove = this->first;
         this->first = this->first->getNext();
         delete remove;
     }
@@ -259,5 +253,4 @@ void List<Type>::concatenate(List<Type> *l) {
     }
 }
 
-
-#endif //TP_FINAL_LISTA_H
+#endif
