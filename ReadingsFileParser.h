@@ -101,61 +101,59 @@ class ReadingsFileParser {
      */
     Reading* buildNewNovel();
     /*
-     * PRE: -
-     * POST: Crea un nueva novela de genero Historica
+     * PRE:
+     * POST: Creates a new historical reading.
      */
     Reading* buildNewHistoricalNovel();
     /*
-     * PRE: -
-     * POST: crea un nuevo tema para la lectura de genero Historica
+     * PRE: The current reading's genre should be historical
+     * POST: Creates a new theme for the current reading.
      */
     void buildNewTheme();
     /*
-     * PRE: -
-     * POST: Reserva espacio en memoria para guardar el tema
-     *      de la lectura de genero Historica
+     * PRE: The new reading's genre should be historical.
+     * POST: Reserves memory space to store the theme of the new reading.
      */
     void reserveThemeMemory(char* &t);
     /*
-     * PRE: -
-     * POST: Retorna el numero de referencia de la lectura del archivo lecturas.txt
+     * PRE:
+     * POST: Returns the reference number of the reading from the file lecturas.txt.
      */
     int getId() const;
     /*
-     * PRE: -
-     * POST: si comparar retorno 1 o 0 voy insertando en la ultima posicion de la lista
+     * PRE: 
+     * POST: If the comparation returned -1, it will insert the object at the end of the list
      */
     void validateYearMinor();
     /*
-     * PRE: -
-     * POST: Si comparar retorno -1, se valida en posiciones
-     *       anteriores en la lista y se inserta.
+     * PRE:
+     * POST: If the comparation returned -1, it will validate the object through the previous positions in the list and insert it.
      */
     void validateYearSorted();
     /*
-     * PRE: -
-     * POST: Crea la lista en orden descendente respecto al año de la publicacion
+     * PRE:
+     * POST: Creates the reading list in a descending order according to their published year.
      */
     void sortReadingList();
     public:
     /*
-     * PRE: -
-     * POST: Construye  un Parser
+     * PRE:
+     * POST: Builds a new parser.
      */
     ReadingsFileParser();
     /*
      * PRE:
-     * POST: crea la lista con los datos de las Lecturas
+     * POST: Creates the list with the data of the readings.
      */
     List<Reading*>* getReadings();
     /*
-    * PRE: Recibe una lista vacia o llena
-    * POST: Inicializa la lista
+    * PRE: List sent as parameter can be either empty or full.
+    * POST: Initilizes the reading list
     */
     void setReadingList(List<Reading*>* &l);
     /*
-     * PRE: -
-     * POST: Busca el menor valor y lo ingresa
+     * PRE:
+     * POST: Seeks the lowest values and inputs it.
      */
     void addSortedReading(Reading* l);
     /*
@@ -164,21 +162,21 @@ class ReadingsFileParser {
      */
     void displayReadings();
     /*
-     * PRE: Recibe dos lecturas
-     * POST: Retorna el costo de pasar de una lectura a otro considerando:
-             * cuento - cuento 8
-             * cuento - poema 0
-             * cuento - novela 10
-             * cuento - historica 15
-             * poema - cuento 0
-             *
-             * poema - novela 5
-             * poema - historica 20
-             * novela - historica 60
-             * poema - poema 1
-             * novela - novela 30
-             * historica - historica 80
-    */
+     * PRE:
+     * POST: Returns the cost of passing from the first Reading object to the second Reading object accordingly:
+     *       cuento - cuento 8
+     *       cuento - poema 0
+     *       cuento - novela 10
+     *       cuento - historica 15
+     *       poema - cuento 0
+     *
+     *       poema - novela 5
+     *       poema - historica 20
+     *       novela - historica 60
+     *       poema - poema 1
+     *       novela - novela 30
+     *       historica - historica 80
+     */
     int getCost(Reading* initialReading, Reading* endingReading);
     /*
      * PRE:
