@@ -4,23 +4,29 @@
 template <typename Data>
 
 class Vertex {
-
-private:
+    private:
     Data name;
-
-public:
+    public:
+    /* Constructor
+    * PRE:
+    * POST: Builds a new Vertex object
+    */
     Vertex(Data name);
-
-    //post: obtiene el nombre del vertice
+    /*
+    * PRE:
+    * POST: Get name of the node
+    */
     Data getName();
-
+    /* Destructor
+    * PRE:
+    * POST: Dealocates the memory used
+    */
     ~Vertex()= default;;
 };
 
 template<typename Data>
 Vertex<Data>::Vertex(Data name) {
     this -> name = name;
-
 }
 
 template<typename Data>
@@ -28,5 +34,4 @@ Data Vertex<Data>::getName() {
     return name;
 }
 
-
-#endif //TP_FINAL_VERTEX_H
+#endif

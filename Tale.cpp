@@ -1,7 +1,6 @@
 #include "Tale.h"
 
-Tale::Tale(int id, std::string &title, unsigned int minutes, unsigned int PublishYear, const std::string& book)
-        : Reading(title, minutes, PublishYear) {
+Tale::Tale(int id, std::string &title, unsigned int minutes, unsigned int PublishYear, const std::string& book) : Reading(title, minutes, PublishYear) {
     this->type = 'C';
     this->isni = id;
     this->title = title;
@@ -16,10 +15,11 @@ void Tale::display() {
               "\nTiempo de lectura: " << minutes <<
               "\nAño de publicacion: " << PublishYear <<
               "\nTitulo libro: " << book << std::endl;
-    if (isni != 0 && this->getAuthors() != nullptr){
+    if (isni != 0 && this->getAuthors() != nullptr) {
         std::cout << "Autor: " << this->getAuthors()->getName() << "\n" << std::endl;
-    } else
+    } else {
         std::cout << "Autor: ANONIMO\n" << std::endl;
+    }
 }
 
 Genres Tale::getGenre() {
