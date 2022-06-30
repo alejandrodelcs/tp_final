@@ -44,12 +44,12 @@ void Menu::newAuthor() {
 }
 
 void Menu::cloneArray(Reading *A[], Reading *B[]) {
-    std::cout << "[ ";  // DEBUG PURPOSES ONLY
     for (int i = 0; i < totalSize; i++) {
         A[i] = B[i];
-        if (i < totalSize-1) { std::cout << B[i]->getTitle() << ", "; }  // DEBUG PURPOSES ONLY
     }
-    std::cout << B[totalSize-1]->getTitle() << " ]\n" << std::endl; // DEBUG PURPOSES ONLY
+}
+void showArray() {
+
 }
 
 void Menu::hamiltonRecursion(Reading *minimalOrder[], int currentID, Reading *currentOrder[], bool visited[], int arraySize, int acumulatedTime) {
@@ -57,9 +57,15 @@ void Menu::hamiltonRecursion(Reading *minimalOrder[], int currentID, Reading *cu
     if (arraySize == 0) { // An ending has been reached
         if (acumulatedTime < this->minimalReadingsTime || this->minimalReadingsTime == -1) {
             this->minimalReadingsTime = acumulatedTime;
-            std::cout << RED << "A new minimal time of " << this->minimalReadingsTime << " minutes was found!" << WHITE << std::endl; // DEBUG PURPOSES ONLY
+            std::cout << RED << "A new minimal time of " << this->minimalReadingsTime << " minutes was found!" << std::endl; // DEBUG PURPOSES ONLY
             cloneArray(minimalOrder, currentOrder);
         }
+        std::cout << "[ ";  // DEBUG PURPOSES ONLY
+        for (int i = 0; i < totalSize; i++) {
+            if (i < totalSize-1) { std::cout << currentOrder[i]->getTitle() << ", "; }  // DEBUG PURPOSES ONLY
+        }
+        std::cout << currentOrder[totalSize-1]->getTitle() << " ]" << std::endl; // DEBUG PURPOSES ONLY
+        std::cout << WHITE;
     } else { 
         for (int i=0; i < totalSize; i++) {
             if (visited[i] == false) {      
