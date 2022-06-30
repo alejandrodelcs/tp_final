@@ -115,8 +115,8 @@ void Menu::removeAuthor() {
 }
 
 
-void Menu::validateInputOption() {
-    while (option < ONE || option > NINE) {  // NO SE COMO LLAMAR A LAS CONSTANTES
+void Menu::validateInputOption(int max) {
+    while (option < ONE || option > max) {  // NO SE COMO LLAMAR A LAS CONSTANTES
         std::cout << RED "¡Opcion incorrecta!\n" WHITE << std::endl;
         this->input();
     }
@@ -165,6 +165,7 @@ void Menu::optionsAdditional() {
 void Menu::additionalFeatures() {
     this->displayAdditionalFeatures();
     this->input();
+    this->validateInputOption(SIX);
     this->optionsAdditional();
     this->interaction();
 }
@@ -230,7 +231,7 @@ void Menu::interaction() {
     while (!this->end) {
         this->displayMenu();
         this->input();
-        this->validateInputOption();
+        this->validateInputOption(NINE);
         this->options();
     }
 }

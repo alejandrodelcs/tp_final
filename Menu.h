@@ -36,7 +36,7 @@ private:
     void shortestReadingsTime();
     void additionalFeatures();
     void buildHashTable();
-    void validateInputOption();
+    void validateInputOption(int max);
     void buildListReadings();
     void buildGraph();
     void input();
