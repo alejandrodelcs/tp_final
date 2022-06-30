@@ -45,7 +45,7 @@ private:
     void alternativeShortestReadingsTime();
 
     int minimalReadingsTime = -1;
-    int totalSize = 0;    
+    int readingsSize = 0;    
     void cloneArray(Reading *A[], Reading *B[]);
     void hamiltonianRecursion(Reading *minimalOrder[], int currentID, Reading *currentOrder[], bool visited[], int arraySize, int acumulatedTime);
     void calculateHamiltonianShortestReadingTime(Reading *minimalOrder[]);
