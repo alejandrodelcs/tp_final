@@ -43,7 +43,6 @@ bool validateString(std::string string) {
 }
 
 std::string requestAlpha(const std::string& text) {
-    std::cin.ignore();
     bool valid = false;
     bool haveNumbers;
     std::string cadena;
