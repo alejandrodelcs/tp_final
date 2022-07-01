@@ -20,8 +20,6 @@ private:
     AuthorsFileParser  pAuthors;
     HashTable<Author*>* authors;
     Graph<int>* graph;
-    Reading* newReading;
-    Author* newAuthor;
     Hamiltonian hamiltonian;
     bool end;
 
@@ -44,14 +42,12 @@ private:
     void displayMenu();
     void optionsAdditional();
     void displayAdditionalFeatures();
-    void alternativeShortestReadingsTime();
 public:
     /* Constructor
      * PRE:
      * POST:
      */
     Menu();
-    ReadingsFileParser getPreadings();
     void interaction();
     /* Destructor
      * PRE:

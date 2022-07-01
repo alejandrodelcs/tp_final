@@ -38,25 +38,10 @@ void Menu::displayAuthors() {
 }
 
 void Menu::addNewReading() {
-    int isni = requestISNI();
-    int type = requestType();
-    std::string title = requestTitle();
-    unsigned int minutes = requestMinutes();
-    unsigned int publishYear = requestPublishYear();
 
-    switch (type) {
-        case 1:
-            this -> newReading = newNovel(isni, minutes, publishYear, title);
-            break;
-        case 2:
-            this -> newReading = newTale(isni, minutes, publishYear, title);
-            break;
-        case 3:
-            this -> newReading = newPoem(isni, minutes, publishYear, title);
-            break;
-    }
-    readings->add(newReading);
 }
+
+
 void Menu::addNewAuthor() {
     pAuthors.requestAuthorsInfo();
 }
@@ -138,7 +123,6 @@ void Menu::optionsAdditional() {
             break;
         case THREE:
             authors->display();
-            std::cout << std::endl;
             break;
         case FOUR:
             hamiltonian.getShortestReadingsTime(readings,&pReadings);
@@ -150,6 +134,9 @@ void Menu::optionsAdditional() {
         case SIX:
             std::cout << MAGENTA "\nGracias por llegar hasta aca\n" WHITE << std::endl;
             break;
+        default:
+            std::cout << "";
+            break;
     }
 }
 
@@ -158,7 +145,7 @@ void Menu::additionalFeatures() {
     this->input();
     this->validateInputOption(SIX);
     this->optionsAdditional();
-    this->interaction();
+
 }
 
 void Menu::buildGraph() {
@@ -199,15 +186,16 @@ void Menu::options() {
             break;
         case SIX:
             removeAuthor();
-            std::cout << "";
             break;
         case SEVEN:
             shortestReadingsTime();
             break;
         case EIGHT:
             additionalFeatures();
+            break;
         case NINE:
             this->end = true;
+            break;
         default:
             std::cout << "";
             break;

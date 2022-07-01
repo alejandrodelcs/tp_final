@@ -84,7 +84,7 @@ std::string requestAlphanum(std::string text){
 /// NEW READINGS ///
 
 int requestISNI(){
-    srand((unsigned int)time(NULL));
+    srand((unsigned int)time(nullptr));
     int isni = 1000+rand()%(9999-1000);
     return isni;
 }
