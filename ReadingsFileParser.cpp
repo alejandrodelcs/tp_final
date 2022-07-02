@@ -456,4 +456,5 @@ void ReadingsFileParser::requestReadingsInfo(int option) {
 
 ReadingsFileParser::~ReadingsFileParser() {
     delete readings;
+    delete reading;
 }
