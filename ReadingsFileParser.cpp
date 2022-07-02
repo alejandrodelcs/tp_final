@@ -6,6 +6,8 @@ ReadingsFileParser::ReadingsFileParser() {
     this->totalReading = 0;
     this->theme = nullptr;
     this->insis = nullptr;
+    this->authors = nullptr;
+    this->sizeTheme = 1;
 }
 
 
@@ -146,14 +148,15 @@ Reading *ReadingsFileParser::buildNewReading(int contador) {
 }
 
 void ReadingsFileParser::buildNewTheme() {
-    this->theme = this->reserveThemeMemory(this->fileLine.length());
+    this->sizeTheme = this->fileLine.length();
+    this->theme = this->reserveThemeMemory();
     for (int i = 0; this->fileLine[i] != '\0'; i++) {
         *(this->theme + i) = this->fileLine[i];
     }
 }
 
-char* ReadingsFileParser::reserveThemeMemory(long unsigned int size) {
-   char* t = new char[size];
+char* ReadingsFileParser::reserveThemeMemory() {
+   char* t = new char[this->sizeTheme];
    return t;
 }
 
@@ -370,7 +373,8 @@ void ReadingsFileParser::setNewTheme() {
     std::string strTheme;
     std::cout << GREEN "> Ingrese Tema: " WHITE;
     getline(std::cin, strTheme);
-    this->theme = this->reserveThemeMemory(strTheme.length());
+    this->sizeTheme = strTheme.length();
+    this->theme = this->reserveThemeMemory();
     for (unsigned int i = 0; strTheme[i] != '\0'; i++) {
         *(this->theme + i) = strTheme[i];
     }

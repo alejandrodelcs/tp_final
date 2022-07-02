@@ -32,6 +32,7 @@ private:
     int verses;
     unsigned int totalMinDistance;
     unsigned int totalReading;;
+    long unsigned int sizeTheme;
     AuthorsFileParser pAuthors;
     HashTable<Author*>* authors;
     List<int>* insis;
@@ -139,7 +140,7 @@ private:
      * PRE: The new reading's genre should be historical.
      * POST: Reserves memory space to store the theme of the new reading.
      */
-    char *reserveThemeMemory(long unsigned int size);
+    char *reserveThemeMemory();
 
     /*
      * PRE:

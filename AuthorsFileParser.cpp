@@ -117,6 +117,7 @@ List<int>* AuthorsFileParser::displayNameAuthors() {
     this->insi = new List<int>;
     List<Author *> *aux = authors->getTable();
     int j = 1;
+    std::cout<<CYAN "\nAutores encontrado el sistema.\n" WHITE <<std::endl;
     for (int i = 0; i < authors->getSize(); i++) {
         aux[i].startCursor();
         while (aux[i].moveCursor()) {
