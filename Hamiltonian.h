@@ -11,6 +11,12 @@ class Hamiltonian {
     int minimalReadingsTime;
     int readingsSize;    
     ReadingsFileParser *pReadings;
+    bool explanation;
+    /*
+     * PRE:
+     * POST:
+     */
+    void explainProcess();
     /*
      * PRE:
      * POST:
