@@ -2,6 +2,7 @@
 #define TP_FINAL_VALIDATION_H
 #include <string>
 #include <iostream>
+
 #include "Constants.h"
 
 class Validation {
@@ -17,6 +18,7 @@ public:
     Validation();
     int requestNumber(const std::string& text);
     std::string requestAlpha(const std::string& text);
+    int validatePositionGenres();
 };
 
 

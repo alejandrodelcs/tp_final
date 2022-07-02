@@ -59,3 +59,12 @@ void Validation::validateString() {
         this->number++;
     }
 }
+
+int Validation::validatePositionGenres() {
+    int position = this->requestNumber(GREEN "Ingresar opcion del genero de novela: " WHITE);
+    while (position < 1 || position > 6){
+        std::cout << RED "¡Error!. Opcion Incorrecta" WHITE << std::endl;
+        position = this->requestNumber(GREEN "Ingresar opcion del genero de novela: " WHITE);
+    }
+    return position - 1;
+}
