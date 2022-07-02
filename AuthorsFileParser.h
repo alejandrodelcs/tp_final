@@ -22,6 +22,7 @@ private:
     int birth;
     int death;
     std::string name;
+    List<int> *insi;
     std::string nationality;
     Validation validation;
 
@@ -63,7 +64,6 @@ private:
      * POST: Adds the new author to the main list of authors.
      */
     void addNewAuthor();
-
 
 
 public:

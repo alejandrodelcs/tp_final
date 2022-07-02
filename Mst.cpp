@@ -16,11 +16,11 @@ void Mst::calcMinDistance() {
     for (int i = 1; i < nodes; i++) {
         if (parent[i] < i) {
             this->totalMinDistance += weight[i];
-            std::cout << "arista: " << parent[i]+1 << RED "--" WHITE<< i+1 << " "
+            std::cout << "arista: " << parent[i]+1 << RED " —— " WHITE<< i+1 << " "
                       << "Costo: " << weight[i] << std::endl;
         } else {
             this->totalMinDistance += weight[i];
-            std::cout << "arista: " << i+1 << RED "--" WHITE << parent[i]+1 << " "
+            std::cout << "arista: " << i+1 << RED " —— " WHITE << parent[i]+1 << " "
                       << "Costo: " << weight[i] << std::endl;
         }
     }

@@ -2,6 +2,7 @@
 
 AuthorsFileParser::AuthorsFileParser() {
     file.open("escritores.txt");
+    this->insi = nullptr;
 }
 
 void AuthorsFileParser::setReadings(List<Reading *>* &l) {
@@ -113,7 +114,7 @@ void AuthorsFileParser::displayAuthors() {
 }
 
 List<int>* AuthorsFileParser::displayNameAuthors() {
-    List<int> *insi = new List<int>;
+    this->insi = new List<int>;
     List<Author *> *aux = authors->getTable();
     int j = 1;
     for (int i = 0; i < authors->getSize(); i++) {
@@ -127,8 +128,6 @@ List<int>* AuthorsFileParser::displayNameAuthors() {
     return insi;
 }
 
-
-
 void AuthorsFileParser::requestAuthorsInfo() {
     this->requestISNI();
     std::cout<<CYAN "Datos del Autor \n" WHITE<<std::endl;
@@ -138,7 +137,7 @@ void AuthorsFileParser::requestAuthorsInfo() {
     this->death = validation.requestNumber(
             GREEN "Año de fallecimiento del autor (Si se desconoce, o sigue vivo, ingresar -1): " WHITE);
     addNewAuthor();
-    std::cout<<GREEN "¡Se ha agregado con exito!\n" WHITE<<std::endl;
+    std::cout<<GREEN "¡"<<CYAN<<this->name<< GREEN <<" Se ha agregado con exito!\n" WHITE<<std::endl;
 }
 
 

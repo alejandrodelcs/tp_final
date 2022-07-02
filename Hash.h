@@ -132,7 +132,6 @@ Type HashTable<Type>::searchElement(int key) {
     Type returnedElement;
     bool found = false;
     int position = getHash(key);
-    table[position].startCursor();
     while (table[position].moveCursor() && !found) {
         found = compareAuthorKey(table[position].getCursor(), key);
         if (found) {

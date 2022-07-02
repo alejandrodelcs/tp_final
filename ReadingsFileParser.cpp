@@ -5,6 +5,7 @@ ReadingsFileParser::ReadingsFileParser() {
     this->totalMinDistance = 0;
     this->totalReading = 0;
     this->theme = nullptr;
+    this->insis = nullptr;
 }
 
 
@@ -316,13 +317,13 @@ void ReadingsFileParser::displayMst(int option) {
             this->totalReading += readings->search(i)->getMinutes();
             if (parent[i] < i) {
                 this->totalMinDistance += weight[i];
-                std::cout << readings->search(parent[i] + 1)->getTitle() << RED " -- " WHITE
+                std::cout << readings->search(parent[i] + 1)->getTitle() << RED " —— " WHITE
                           << readings->search(i + 1)->getTitle() << "\t"
                           << "Siesta: " << weight[i] << " minutos" << std::endl;
 
             } else {
                 this->totalMinDistance += weight[i];
-                std::cout << readings->search(i + 1)->getTitle() << RED " -- " WHITE
+                std::cout << readings->search(i + 1)->getTitle() << RED " —— " WHITE
                           << readings->search(parent[i] + 1)->getTitle() << "\t"
                           << "Siesta: " << weight[i] << " minutos" << std::endl;
             }
@@ -412,7 +413,8 @@ void ReadingsFileParser::setNewNovel(){
 }
 
 void ReadingsFileParser::setNewTale(){
-    this->type = 'C';
+    this->type =
+            'C';
     std::cout<<GREEN "Ingresar el titulo del libro de publicacion."<<CYAN "\n>" WHITE;
     getline(std::cin, this->book);
     this->reading = this->buildNewTale();
@@ -432,8 +434,8 @@ void ReadingsFileParser::setAuthors(HashTable<Author *> *&a) {
 
 void ReadingsFileParser::setAuthorInReading() {
     pAuthors.setAuthors(authors);
-    std::cout<<"0) Anonimo "<<std::endl;
     this->insis = pAuthors.displayNameAuthors();
+    std::cout<<"6) Anonimo "<<std::endl;
     int option = validation.requestNumber("Ingrese opcion: ");
     if (option>0) {
         this->reading->setAuthor(authors->searchElement(insis->search(option)));
@@ -454,12 +456,11 @@ void ReadingsFileParser::requestReadingsInfo(int option) {
 }
 
 
-
 ReadingsFileParser::~ReadingsFileParser() {
-    readings->startCursor();
-    while(readings->moveCursor()){
-        delete readings->getCursor();
+    if (readings != nullptr) {
+        while (readings->moveCursor()) {
+            delete readings->getCursor();
+        }
+        delete readings;
     }
-    delete readings;
-    readings = nullptr;
 }

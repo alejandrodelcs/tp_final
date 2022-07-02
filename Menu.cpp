@@ -101,7 +101,7 @@ void Menu::searchAuthor() {
 void Menu::removeAuthor() {
     Author *aux = getAuthorMenu();
     if (aux != nullptr) {
-        std::cout << RED << "¡" << aux->getName() <<  " ha sido eliminado!\n\n" WHITE;
+        std::cout << RED << "¡" CYAN << aux->getName() <<  RED " ha sido eliminado!\n\n" WHITE;
         authors->removeElement(aux->getISNI());
     }
 }
