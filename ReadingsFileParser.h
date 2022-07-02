@@ -139,7 +139,7 @@ private:
      * PRE: The new reading's genre should be historical.
      * POST: Reserves memory space to store the theme of the new reading.
      */
-    char *reserveThemeMemory(unsigned int size);
+    char *reserveThemeMemory(long unsigned int size);
 
     /*
      * PRE:

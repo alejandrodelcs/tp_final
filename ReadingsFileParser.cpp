@@ -151,7 +151,7 @@ void ReadingsFileParser::buildNewTheme() {
     }
 }
 
-char* ReadingsFileParser::reserveThemeMemory(unsigned int size) {
+char* ReadingsFileParser::reserveThemeMemory(long unsigned int size) {
    char* t = new char[size];
    return t;
 }
