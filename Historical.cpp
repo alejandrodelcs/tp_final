@@ -1,7 +1,6 @@
 #include "Historical.h"
 
 Historical::Historical(int id, std::string &title, unsigned int minutes, unsigned int PublishYear, Genres genre, char* &theme) : Novel(id, title, minutes, PublishYear, genre) {
-    this->type = 'H';
     this->isni = id;
     this->title = title;
     this->genre = genre;

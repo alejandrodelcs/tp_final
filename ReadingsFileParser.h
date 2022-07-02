@@ -14,7 +14,8 @@
 #include "Mst.h"
 
 class ReadingsFileParser {
-    private:
+
+private:
     File file;
     std::string fileLine;
     char type;
@@ -135,7 +136,9 @@ class ReadingsFileParser {
      * POST: Creates the reading list in a descending order according to their published year.
      */
     void sortReadingList();
-    public:
+
+
+public:
     /*
      * PRE:
      * POST: Builds a new parser.
@@ -207,12 +210,16 @@ class ReadingsFileParser {
      * PRE:
      * POST:
      */
-    void displayMst();
+    void displayMst(int option);
+
+    void requestReadingsInfo();
+
+
     /*
      * PRE:
      * POST:
      */
-    void _displayMst();
+    void displayMst();
     /*
      * PRE:
      * POST: Dealocates the memory used.

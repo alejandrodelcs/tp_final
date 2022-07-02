@@ -119,7 +119,7 @@ void Menu::optionsAdditional() {
             graph->displayGraph();
             break;
         case TWO:
-            pReadings._displayMst();
+            pReadings.displayMst(1);
             break;
         case THREE:
             authors->display();

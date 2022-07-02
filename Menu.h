@@ -9,7 +9,6 @@
 #include "ReadingsFileParser.h"
 #include "AuthorsFileParser.h"
 #include "Graph.h"
-#include "Validations.h"
 #include "Hamiltonian.h"
 
 class Menu {

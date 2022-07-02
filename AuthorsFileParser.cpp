@@ -41,14 +41,7 @@ void AuthorsFileParser::addNewAuthor() {
     authors->insertAuthor(this->author);
 }
 
-void AuthorsFileParser::requestAuthorsInfo() {
-    this->isni= requestISNI();
-    this->name = requestAlpha( GREEN "Ingresar el nombre del escritor: " WHITE);
-    this->nationality = requestAlpha( GREEN "Ingresar la nacionalidad del escritor: " WHITE);
-    this->birth= requestNum( GREEN "Ingrese el anio de nacimiento del autor, si se desconoce ingresar -1: " WHITE);
-    this->death = requestNum( GREEN "Ingresar el anio de fallecimiento del autor (Si se desconoce, o sigue vivo, ingresar -1): " WHITE);
-    addNewAuthor();
-}
+
 
 void AuthorsFileParser::validateEOFAuthor(int count) {
     if (file.eof() && count < 4) {
@@ -134,6 +127,29 @@ List<int>* AuthorsFileParser::displayNameAuthors() {
     return insi;
 }
 
+
+
+void AuthorsFileParser::requestAuthorsInfo() {
+    this->requestISNI();
+    std::cout<<CYAN "Datos del Autor \n" WHITE<<std::endl;
+    this->name = validation.requestAlpha(GREEN "Nombres y Apellido: " WHITE);
+    this->nationality = validation.requestAlpha(GREEN "Nacionalidad: " WHITE);
+    this->birth= validation.requestNumber(GREEN "Año de Nacimiento del autor (Si se desconoce, o sigue vivo, ingresar -1) : " WHITE);
+    this->death = validation.requestNumber(
+            GREEN "Año de fallecimiento del autor (Si se desconoce, o sigue vivo, ingresar -1): " WHITE);
+    addNewAuthor();
+    std::cout<<GREEN "¡Se ha agregado con exito!\n" WHITE<<std::endl;
+}
+
+
+void AuthorsFileParser::requestISNI() {
+    srand((unsigned int)time(nullptr));
+    this->isni = rand()%(9999-1000+1)+1000;
+
+}
+
+
 AuthorsFileParser::~AuthorsFileParser() {
-    delete author;
+   delete author;
+
 }

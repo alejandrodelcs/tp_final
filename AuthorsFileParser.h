@@ -8,10 +8,11 @@
 #include "List.h"
 #include "Hash.h"
 #include "Reading.h"
-#include "Validations.h"
+#include "Validation.h"
 
 class AuthorsFileParser {
-    private:
+
+private:
     File file;
     std::string fileLine;
     HashTable<Author*>* authors;
@@ -22,6 +23,11 @@ class AuthorsFileParser {
     int death;
     std::string name;
     std::string nationality;
+    Validation validation;
+
+
+
+
     /*
      * PRE:
      * POST: retorna el ID (numero de referencia) de la linea del fichero
@@ -47,12 +53,19 @@ class AuthorsFileParser {
      * POST: Valida el ultimo escritor del archivo
      */
     void validateEOFAuthor(int count);
+
+
+    void requestISNI();
+
     /*
      * PRE:-
      * POST: Adds the new author to the main list of authors.
      */
     void addNewAuthor();
-    public:
+
+
+
+public:
     /* Constructor
      * PRE:
      * POST: construye un nuevo parserEscritor

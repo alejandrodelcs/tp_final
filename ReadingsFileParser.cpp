@@ -300,35 +300,50 @@ void ReadingsFileParser::addGraphEdges() {
     }
 }
 
-void ReadingsFileParser::displayMst() {
+void ReadingsFileParser::displayMst(int option) {
     Mst m(readings->getNumberOfElements(), graph->getAdjMAtrix());
     m.primAlgorithm();
-    int totalMinDistance = 0;
-    int *parent = m.getParent();
-    int *weight = m.getWeight();
-    std::cout << CYAN "ORDEN QUE DEBERÍA LEER LAS LECTURAS\n" WHITE << std::endl;
-    for (int i = 1; i < readings->getNumberOfElements(); i++) {
-        if (parent[i] < i) {
-            totalMinDistance += weight[i];
-            std::cout << readings->search(parent[i] + 1)->getTitle() << RED " -> " WHITE
-                      << readings->search(i + 1)->getTitle() << "\t"
-                      << "Siesta: " << weight[i] << std::endl;
-        } else {
-            totalMinDistance += weight[i];
-            std::cout << readings->search(i + 1)->getTitle() << RED " -> " WHITE
-                      << readings->search(parent[i] + 1)->getTitle() << "\t"
-                      << "Siesta: " << weight[i] << std::endl;
+    if (option == 0) {
+        unsigned int totalMinDistance = 0,totalReading = 0;
+        int *parent = m.getParent();
+        int *weight = m.getWeight();
+        std::cout << CYAN "ORDEN QUE DEBERÍA LEER LAS LECTURAS\n" WHITE << std::endl;
+        for (int i = 1; i < readings->getNumberOfElements(); i++) {
+            totalReading += readings->search(i)->getMinutes();
+            std::cout << "minutos " << readings->search(i)->getMinutes() << std::endl;
+            if (parent[i] < i) {
+                totalMinDistance += weight[i];
+                std::cout << readings->search(parent[i] + 1)->getTitle() << RED " -- " WHITE
+                          << readings->search(i + 1)->getTitle() << "\t"
+                          << "Siesta: " << weight[i] << " minutos" << std::endl;
+
+            } else {
+                totalMinDistance += weight[i];
+                std::cout << readings->search(i + 1)->getTitle() << RED " -- " WHITE
+                          << readings->search(parent[i] + 1)->getTitle() << "\t"
+                          << "Siesta: " << weight[i] << " minutos" << std::endl;
+            }
         }
+        std::cout << std::endl;
+        std::cout << MAGENTA "Tiempo total que tardaria: " RED << totalMinDistance + totalReading << " minutos\n" << WHITE
+                    << MAGENTA "Tiempo total que tardaria: " RED << (totalMinDistance + totalReading)/60 << " Horas" << WHITE
+                  << std::endl;
+        std::cout << std::endl;
     }
-    std::cout << std::endl;
-    std::cout << MAGENTA "Tiempo total que tardaria: " RED << totalMinDistance << WHITE << std::endl;
-    std::cout << std::endl;
+    if (option == 1) {
+        m.calcMinDistance();
+    }
 }
 
-void ReadingsFileParser::_displayMst() {
-    Mst m(readings->getNumberOfElements(), graph->getAdjMAtrix());
-    m.primAlgorithm();
-    m.calcMinDistance();
+
+
+void ReadingsFileParser::requestReadingsInfo(){
+
+}
+
+
+void ReadingsFileParser::displayMst() {
+    displayMst(0);
 }
 
 ReadingsFileParser::~ReadingsFileParser() {
