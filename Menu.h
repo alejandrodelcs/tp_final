@@ -147,6 +147,11 @@ public:
      * POST:
      */
     Menu();
+
+    /*
+     * PRE:
+     * POST:
+     */
     void interaction();
     /* Destructor
      * PRE:
