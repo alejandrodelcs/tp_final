@@ -26,7 +26,7 @@ int requestNum(const std::string& text){
             number = stoi(auxNumero);
             valid = true;
         } else
-            std::cout << RED "Error: Entrada invalida!\n" WHITE;
+            std::cout << RED "¡Entrada invalida!\n" WHITE;
     }
     return number;
 }

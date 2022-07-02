@@ -4,14 +4,25 @@
 #include "List.h"
 #include "Reading.h"
 #include "ReadingsFileParser.h"
+#include "___Validations.h"
 
 class Hamiltonian {
     private:
     List<Reading*> *readings;
-    int minimalReadingsTime;
+    int edgesTime;
     int readingsSize;    
     ReadingsFileParser *pReadings;
     bool explanation;
+    /*
+     * PRE:
+     * POST:
+     */
+    void displayPossibileOrder(List<List<Reading*>*>* minimalOrders, int option);
+    /*
+     * PRE:
+     * POST:
+     */
+    void ordersMenu(List<List<Reading*>*>* minimalOrders, int totalTime);
     /*
      * PRE:
      * POST:
