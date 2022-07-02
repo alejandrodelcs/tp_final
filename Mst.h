@@ -10,7 +10,8 @@
 const int INFINITY = 99999999;
 
 class Mst {
-    private:
+
+private:
     int nodes;
     int *parent;
     bool *visited;
@@ -32,7 +33,8 @@ class Mst {
      * POST
      */
     int findMinVertex();
-    public:
+
+public:
     /* Constructor
      * PRE: (nodes > 0) and (edges > 0)
      * POST: Builds the MST (minimum spanning tree)

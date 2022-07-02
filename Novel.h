@@ -5,9 +5,10 @@
 #include "Reading.h"
 
 class Novel : public Reading {
-    protected:
+
+protected:
     Genres genre;
-    public:
+public:
     /* Constructor
      * PRE:
      * POST: Builds a new novel.

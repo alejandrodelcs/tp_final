@@ -10,7 +10,7 @@ const int INFINITO = 99999999;
 
 template<typename Type>
 class Graph {
-    private:
+private:
     std::vector<std::vector<int>> adjMatrix;
     List<Vertex<Type>> *vertexes;
     /*
@@ -28,7 +28,7 @@ class Graph {
      * POST:
      */
     void displayAdjMatrix();
-    public:
+public:
     /* Constructor
      * PRE:
      * POST

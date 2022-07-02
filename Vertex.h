@@ -4,9 +4,9 @@
 template <typename Data>
 
 class Vertex {
-    private:
+private:
     Data name;
-    public:
+public:
     /* Constructor
      * PRE:
      * POST: Builds a new Vertex object

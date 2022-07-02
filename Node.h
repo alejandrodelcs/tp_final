@@ -5,10 +5,10 @@
 
 template < typename Type >
 class Node {
-    private:
+private:
     Type* element;
     Node<Type>* next;
-    public:
+public:
     /* Constructor
      * PRE:
      * POST: Builds a new Node object

@@ -4,7 +4,7 @@
 
 template <typename Type>
 class HashTable {
-    private:
+private:
         List<Type>* table;
         int size;
         /* Constructor
@@ -17,7 +17,7 @@ class HashTable {
         * POST: 
         */
         bool compareAuthorKey(Author* author, int comparationKey);
-    public:
+public:
         /* Constructor
         * PRE:
         * POST: Builds a new hash table of size 'n'

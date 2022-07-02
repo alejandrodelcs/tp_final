@@ -4,9 +4,10 @@
 #include "Reading.h"
 
 class Poem : public Reading {
-    private:
+
+private:
     unsigned int verses;
-    public:
+public:
     /* Constructor
      * PRE:
      * POST: Builds a new poem.
