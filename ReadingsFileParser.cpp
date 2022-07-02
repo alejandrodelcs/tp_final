@@ -455,10 +455,5 @@ void ReadingsFileParser::requestReadingsInfo(int option) {
 
 
 ReadingsFileParser::~ReadingsFileParser() {
-    readings->startCursor();
-    while (readings->moveCursor()) {
-        delete readings->getCursor();
-    }
     delete readings;
-    readings = nullptr;
 }

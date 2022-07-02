@@ -22,25 +22,124 @@ private:
     Hamiltonian hamiltonian;
     bool end;
 
+    /*
+    * PRE:
+    * POST:
+    */
     void addNewReading();
+
+    /*
+    * PRE:
+    * POST:
+    */
     void displayReadings();
+
+    /*
+    * PRE:
+    * POST:
+    */
     bool validateSearchOption(int totalAuthors) const;
+
+    /*
+    * PRE:
+    * POST:
+    */
     void addNewAuthor();
+
+    /*
+    * PRE:
+    * POST:
+    */
     void displayAuthors();
+
+    /*
+    * PRE:
+    * POST:
+    */
     void searchAuthor();
+
+    /*
+    * PRE:
+    * POST:
+    */
     Author* getAuthorMenu();
+
+    /*
+    * PRE:
+    * POST:
+    */
     void removeAuthor();
+
+    /*
+    * PRE:
+    * POST:
+    */
     void shortestReadingsTime();
+
+    /*
+    * PRE:
+    * POST:
+    */
     void additionalFeatures();
+
+    /*
+    * PRE:
+    * POST:
+    */
     void buildHashTable();
+
+    /*
+    * PRE:
+    * POST:
+    */
     void validateInputOption(int max);
+
+    /*
+    * PRE:
+    * POST:
+    */
     void buildListReadings();
+
+    /*
+    * PRE:
+    * POST:
+    */
     void buildGraph();
+
+    /*
+    * PRE:
+    * POST:
+    */
     void input();
+
+    /*
+    * PRE:
+    * POST:
+    */
     void options();
+
+    /*
+    * PRE:
+    * POST:
+    */
     void displayMenu();
+
+    /*
+    * PRE:
+    * POST:
+    */
     void optionsAdditional();
+
+    /*
+    * PRE:
+    * POST:
+    */
     void displayAdditionalFeatures();
+
+    /*
+    * PRE:
+    * POST:
+    */
     void displayTypeReading();
 public:
     /* Constructor

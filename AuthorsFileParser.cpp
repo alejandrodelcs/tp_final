@@ -150,6 +150,5 @@ void AuthorsFileParser::requestISNI() {
 
 
 AuthorsFileParser::~AuthorsFileParser() {
-   delete authors;
 
 }
