@@ -4,9 +4,10 @@
 
 template <typename Type>
 class HashTable {
+
 private:
+        int size{};
         List<Type>* table;
-        int size;
         /* Constructor
         * PRE:
         * POST: Builds a new hash table of size 'n'
@@ -18,12 +19,17 @@ private:
         */
         bool compareAuthorKey(Author* author, int comparationKey);
 public:
+
+        HashTable() = default;
+
+
         /* Constructor
         * PRE:
         * POST: Builds a new hash table of size 'n'
         */
-        explicit HashTable(int n);
-        HashTable() = default;
+        explicit HashTable(int size);
+
+
         /* 
         * PRE: 
         * POST: 
@@ -71,10 +77,12 @@ public:
         ~HashTable();
 };
 
+
+
 template <typename Type>
 HashTable<Type>::HashTable(int size) {
-    this->table = new List<Type>[size];
     this->size = size;
+    this->table = new List<Type>[size];
 }
 
 template <typename Type>
@@ -181,8 +189,10 @@ List<Type>* HashTable<Type>::getTable() {
 template <typename Type>
 HashTable<Type>::~HashTable() {
     for (int i = 0; i < size; i++) {
-        while (table[i].getNumberOfElements() > 0) {
-            table[i].remove(1);
+        if(table[i].getNumberOfElements() > 0) {
+            while (table[i].moveCursor()) {
+                delete table[i].getCursor();
+            }
         }
     }
     delete[] table;
