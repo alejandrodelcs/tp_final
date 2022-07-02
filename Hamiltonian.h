@@ -4,7 +4,7 @@
 #include "List.h"
 #include "Reading.h"
 #include "ReadingsFileParser.h"
-#include "___Validations.h"
+#include "Validation.h"
 
 class Hamiltonian {
     private:
@@ -12,6 +12,7 @@ class Hamiltonian {
     int edgesTime;
     int readingsSize;    
     ReadingsFileParser *pReadings;
+    Validation validation;
     bool explanation;
     /*
      * PRE:

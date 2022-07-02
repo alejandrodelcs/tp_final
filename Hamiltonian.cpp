@@ -132,11 +132,11 @@ void Hamiltonian::displayPossibileOrder(List<List<Reading*>*>* minimalOrders, in
     while (minimalOrders->moveCursor()) {
         if (j == option) {
             std::cout << "\nOrden de las lecturas (Opcion " << j << "/" << minimalOrders->getNumberOfElements() << "):\n" << std::endl;
-            oldReading = NULL;
+            oldReading = nullptr;
             minimalOrders->getCursor()->startCursor();
             while (minimalOrders->getCursor()->moveCursor()) {
                 currentReading = minimalOrders->getCursor()->getCursor();
-                if (oldReading != NULL) {
+                if (oldReading != nullptr) {
                     std::cout << "Descansar por " << pReadings->getCost(oldReading,currentReading) << " minutos..." << std::endl;
                 }
                 std::cout << "Leer \"" << currentReading->getTitle() << "\" (Alrededor de " << currentReading->getMinutes() << " minutos)" << std::endl;            
@@ -155,7 +155,7 @@ void Hamiltonian::ordersMenu(List<List<Reading*>*>* minimalOrders, int totalTime
                      "\n(De los cuales " << edgesTime << " minutos son descansando y " << totalTime - edgesTime << " son leyendo cuentos)\n\n"
                      "Hay " << optionsAmount << " ordenes posibles para lograr esto.\n"
                      "Ingresar una opcion valida para mostrarla en pantalla\n" << std::flush;
-        input = requestNum("");
+        input = validation.requestNumber("");
         if (input > 0 && input <= optionsAmount) {
             displayPossibileOrder(minimalOrders, input);
         } else if (input < 0 || input > optionsAmount){                
