@@ -45,3 +45,7 @@ int Reading::comparar(Reading *l) const {
 void Reading::setAuthor(Author *newAuthor) {
     this->author =  newAuthor;
 }
+
+void Reading::setIsni(int isni) {
+    this->isni = isni;
+}

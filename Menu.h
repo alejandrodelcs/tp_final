@@ -41,6 +41,7 @@ private:
     void displayMenu();
     void optionsAdditional();
     void displayAdditionalFeatures();
+    void displayTypeReading();
 public:
     /* Constructor
      * PRE:

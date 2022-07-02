@@ -5,13 +5,13 @@
 #include "Constants.h"
 
 class Author {    
-    private:
+private:
     int isni;
     std::string name;
     std::string nationality;
     int birth;
     int death;
-    public:
+public:
     /* Constructor
     * PRE:
     * POST: Builds a new author.
@@ -21,7 +21,7 @@ class Author {
      * PRE:
      * POST: Returns the author's ISNI.
      */
-    int getISNI();
+    int getISNI() const;
     /*
      * PRE:
      * POST: Returns the author's name.

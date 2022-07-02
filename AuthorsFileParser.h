@@ -26,8 +26,6 @@ private:
     Validation validation;
 
 
-
-
     /*
      * PRE:
      * POST: retorna el ID (numero de referencia) de la linea del fichero
@@ -54,7 +52,10 @@ private:
      */
     void validateEOFAuthor(int count);
 
-
+    /*
+    * PRE:
+    * POST:
+    */
     void requestISNI();
 
     /*

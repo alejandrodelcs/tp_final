@@ -9,14 +9,15 @@
 enum class Genres {DRAMA=1,COMEDY,FICTION,THRILLER,HORROR,ROMANCE,HISTORICAL,UNKNOWN};
 
 class Reading {
-    protected:
+
+protected:
     std::string title;
     unsigned int minutes;
     unsigned int PublishYear;
     Author *author;
     int isni;
     char type;
-    public:
+public:
     /* Constructor
      * PRE:
      * POST: Builds a new reading.
@@ -57,6 +58,12 @@ class Reading {
      * POST: Returns the isni of the reading object
      */
     int getIsni() const;
+
+    /*
+     * PRE:
+     * POST: inicializa el isni
+     */
+    void setIsni(int isni);
     /*
      * PRE:
      * POST: Returns the title of the reading object

@@ -202,7 +202,7 @@ void Hamiltonian::explainProcess() {
     std::cout << std::endl;
 }
 
-void Hamiltonian::displayOrder(Reading *currentOrder[], int acumulatedTime) {    
+void Hamiltonian::displayOrder(Reading *currentOrder[], int acumulatedTime) {
     std::cout << "Tiempo acumulado por las aristas de [ ";
     for (int i = 0; i < readingsSize; i++) {
         if (i < readingsSize-1) { std::cout << currentOrder[i]->getTitle() << ", "; }
@@ -221,4 +221,8 @@ int Hamiltonian::getLinkCost(int currentID, Reading *currentOrder[],int arraySiz
         //std::cout << "(" << readings->search(i+1)->getTitle() << ") = new parent" << std::endl;
     }
     return linkCost;
+}
+
+Hamiltonian::~Hamiltonian() {
+    delete readings;
 }

@@ -9,7 +9,7 @@ const int POSITION_NOT_FOUND = -1;
 
 template<typename Type>
 class List {
-    private:
+private:
     int numberOfElements;
     Node<Type> *first;
     Node<Type> *cursor;
@@ -75,17 +75,14 @@ class List {
      * POST: Deja Cursor preparado para iniciar un nuevo recorrido de la Lista
      */
     void startCursor();
-    /* 
-     * PRE: Recibe una lista distinta a la original
-     * POST: concatena la dos lista colocando la segunda lista al final de la otra
-     */
-    void concatenate(List<Type> *l);
+
     /* Destructor
      * PRE:
      * POST: Dealocates the memory used.
      */
     ~List();
-    private:
+
+private:
     /*
      * PRE: Recibe una posicion de la lista
      * POST: Retorna el nodo en dicha posición
@@ -153,7 +150,7 @@ Node<Type> *List<Type>::getNode(int pos) {
 template<typename Type>
 void List<Type>::add(Type newElement, int pos) {
     if ((pos > 0) && (pos <= this->numberOfElements + 1)) {
-        Node<Type> *newNode = new Node<Type>(newElement);
+        auto *newNode = new Node<Type>(newElement);
 
         if (pos == 1) {
             newNode->assignNext(this->first);
@@ -241,15 +238,6 @@ List<Type>::~List() {
         Node<Type> *remove = this->first;
         this->first = this->first->getNext();
         delete remove;
-    }
-}
-
-template<typename Type>
-void List<Type>::concatenate(List<Type> *l) {
-    Node<Type> *aux = l->first;
-    while(aux != nullptr) {
-        add(aux->getElement());
-        aux = aux->getNext();
     }
 }
 

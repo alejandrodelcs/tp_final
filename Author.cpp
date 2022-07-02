@@ -8,7 +8,7 @@ Author::Author(int isni, std::string name, std::string nationality, int birth, i
     this->death = death;
 }
 
-int Author::getISNI() {
+int Author::getISNI() const {
     return this->isni;
 }
 

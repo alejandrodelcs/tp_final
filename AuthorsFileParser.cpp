@@ -134,7 +134,7 @@ void AuthorsFileParser::requestAuthorsInfo() {
     std::cout<<CYAN "Datos del Autor \n" WHITE<<std::endl;
     this->name = validation.requestAlpha(GREEN "Nombres y Apellido: " WHITE);
     this->nationality = validation.requestAlpha(GREEN "Nacionalidad: " WHITE);
-    this->birth= validation.requestNumber(GREEN "Año de Nacimiento del autor (Si se desconoce, o sigue vivo, ingresar -1) : " WHITE);
+    this->birth= validation.requestNumber(GREEN "Año de Nacimiento del autor (Si se desconoce -1) : " WHITE);
     this->death = validation.requestNumber(
             GREEN "Año de fallecimiento del autor (Si se desconoce, o sigue vivo, ingresar -1): " WHITE);
     addNewAuthor();
@@ -150,6 +150,6 @@ void AuthorsFileParser::requestISNI() {
 
 
 AuthorsFileParser::~AuthorsFileParser() {
-   delete author;
+   delete authors;
 
 }
