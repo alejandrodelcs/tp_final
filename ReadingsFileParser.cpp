@@ -361,7 +361,7 @@ void ReadingsFileParser::setNewGenres(){
     for(int i=0; i<GENRES_SIZE;i++){
         std::cout  << GREEN "[" << i + 1 << "] " WHITE << "- " << strGenres[i] << std::endl;
     }
-    this->fileLine = strGenres[validation.validatePositionGenres()];
+    this->fileLine = strGenres[validation.validatePosition()];
     this->genre = this->validateGenre();
 
 }

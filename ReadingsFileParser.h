@@ -167,55 +167,55 @@ private:
 
     /*
      * PRE:
-     * POST:
+     * POST: initializes the novel entered by the user
      */
     void setNewNovel();
 
     /*
      * PRE:
-     * POST:
+     * POST:  initializes the new tale entered by the user
      */
     void setNewTale();
 
     /*
      * PRE:
-     * POST:
+     * POST:initializes the new Poem entered by the user
      */
     void setNewPoem();
 
     /*
     * PRE:
-    * POST:
+    * POST: initializes the new title entered by the user
     */
     void setNewTitle();
 
     /*
     * PRE:
-    * POST:
+    * POST: initializes the new Genre entered by the user
     */
     void setNewGenres();
 
     /*
     * PRE:
-    * POST:
+    * POST: initializes the new theme entered by the user
     */
     void setNewTheme();
 
     /*
     * PRE:
-    * POST:
+    * POST: add the author with his reading
     */
     void setAuthorInReading();
 
     /*
     * PRE:
-    * POST:
+    * POST:  choose the type of reading
     */
     void setInputNewReading(int option);
 
     /*
-    * PRE:
-    * POST:
+    * PRE:-
+    * POST: -
     */
     void displayTotalReading() const;
 
@@ -242,7 +242,7 @@ public:
 
     /*
      * PRE:
-     * POST:
+     * POST:-
      */
     void displayReadings();
 
@@ -272,31 +272,31 @@ public:
 
     /*
      * PRE
-     * POST:
+     * POST: add vertexes in graph
      */
     void setGraphVertex();
 
     /*
      * PRE
-     * POST:
+     * POST: add new Vertex in graph
      */
     void setGraphNewVertex();
 
     /*
      * PRE:
-     * POST:
+     * POST: get the Graph
      */
     Graph<int> *getGraph();
 
     /*
      * PRE:
-     * POST:
+     * POST: set the Graph
      */
     void setGraph(Graph<int> *&graph);
 
     /*
      * PRE:
-     * POST:
+     * POST: add Edges in the graph
      */
     void addGraphEdges();
 
@@ -308,14 +308,14 @@ public:
 
     /*
      * PRE:
-     * POST:
+     * POST: request reading for user
      */
     void requestReadingsInfo(int option);
 
 
     /*
      * PRE:
-     * POST:
+     * POST: set author in hash table
      */
     void setAuthors(HashTable<Author *>* &a);
 

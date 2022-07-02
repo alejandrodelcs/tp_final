@@ -18,19 +18,22 @@ private:
     int *weight;
     int totalMinDistance;
     std::vector<std::vector<int>> adjMatrix;
+
     /*
      * PRE:
-     * POST
+     * POST : initializes the parent and height vectors
      */
     void setVisitedWeight();
     /*
      * PRE:
-     * POST
+     * POST: if the node has already been visited and the weight
+     *       is less than the others visited,
+     *       chhange the value of the weight vector and initialize its parent
      */
     void exploreUnvisited(int minVertex);
     /*
      * PRE:
-     * POST
+     * POST: Search the next vertex min
      */
     int findMinVertex();
 
@@ -42,7 +45,7 @@ public:
     Mst(int nodes,std::vector<std::vector<int>> adjMatrix);
     /*
      * PRE:
-     * POST
+     * POST : show the minium distance, edges and cost
      */
     void calcMinDistance();
     /*
@@ -52,12 +55,12 @@ public:
     void primAlgorithm();
     /*
      * PRE:
-     * POST
+     * POST get parent vector
      */
     int* getParent();
     /*
      * PRE:
-     * POST:
+     * POST: get Weigth vector
      */
     int* getWeight();
     /* Destructor

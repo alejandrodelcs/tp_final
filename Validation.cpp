@@ -60,7 +60,7 @@ void Validation::validateString() {
     }
 }
 
-int Validation::validatePositionGenres() {
+int Validation::validatePosition() {
     int position = this->requestNumber(GREEN "Ingresar opcion del genero de novela: " WHITE);
     while (position < 1 || position > 6){
         std::cout << RED "¡Error!. Opcion Incorrecta" WHITE << std::endl;
