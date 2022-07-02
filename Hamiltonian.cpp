@@ -154,7 +154,7 @@ void Hamiltonian::ordersMenu(List<List<Reading*>*>* minimalOrders, int totalTime
         std::cout << "\nEl menor tiempo posible requerido para leer todas las lecturas es " << totalTime << 
                      "\n(De los cuales " << edgesTime << " minutos son descansando y " << totalTime - edgesTime << " son leyendo cuentos)\n\n"
                      "Hay " << optionsAmount << " ordenes posibles para lograr esto.\n"
-                     "Ingresar una opcion valida para mostrarla en pantalla\n" << std::flush;
+                     "Ingresar una opcion valida para mostrarla en pantalla (0 para no mostrar proceso)\n" << std::flush;
         input = validation.requestNumber("");
         if (input > 0 && input <= optionsAmount) {
             displayPossibileOrder(minimalOrders, input);
@@ -224,5 +224,11 @@ int Hamiltonian::getLinkCost(int currentID, Reading *currentOrder[],int arraySiz
 }
 
 Hamiltonian::~Hamiltonian() {
-    delete readings;
+    if (readings != nullptr) {
+        readings->startCursor();
+        while (readings->moveCursor()) {
+            delete readings->getCursor();
+        }
+        delete readings;
+    }
 }
