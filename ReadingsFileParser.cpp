@@ -439,6 +439,7 @@ void ReadingsFileParser::setAuthorInReading() {
         this->reading->setAuthor(authors->searchElement(insis->search(option)));
         this->reading->setIsni(insis->searchPosition(option));
     }
+    delete insis;
 }
 
 void ReadingsFileParser::requestReadingsInfo(int option) {
@@ -455,6 +456,10 @@ void ReadingsFileParser::requestReadingsInfo(int option) {
 
 
 ReadingsFileParser::~ReadingsFileParser() {
+    readings->startCursor();
+    while(readings->moveCursor()){
+        delete readings->getCursor();
+    }
     delete readings;
-    delete reading;
+    readings = nullptr;
 }
