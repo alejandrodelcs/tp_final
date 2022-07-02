@@ -37,6 +37,15 @@ void Menu::displayAuthors() {
     pAuthors.displayAuthors();
 }
 
+void Menu::displayTypeReading() {
+    std::cout   << GREEN "Ingrese el numero dependiendo del tipo de lectura que quiera agregar\n" WHITE
+                << GREEN  "[1] " << WHITE "- Novelas\n"
+                << GREEN "[2] " << WHITE "- Cuentos\n"
+                << GREEN "[3] " << WHITE "- Poemas" << std::endl;
+}
+
+
+
 void Menu::addNewReading() {
     this->displayTypeReading();
     this->input();
@@ -224,13 +233,6 @@ void Menu::interaction() {
 Menu::~Menu() {
     delete authors;
     delete graph;
-}
-
-void Menu::displayTypeReading() {
-    std::cout   << GREEN "Ingrese el numero dependiendo del tipo de lectura que quiera agregar\n" WHITE
-                << GREEN  "[1] " << WHITE "- Novelas\n"
-                << GREEN "[2] " << WHITE "- Cuentos\n"
-                << GREEN "[3] " << WHITE "- Poemas" << std::endl;
 }
 
 
