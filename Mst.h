@@ -10,7 +10,6 @@
 const int INFINITY = 99999999;
 
 class Mst {
-
 private:
     int nodes;
     int *parent;
@@ -18,49 +17,46 @@ private:
     int *weight;
     int totalMinDistance;
     std::vector<std::vector<int>> adjMatrix;
-
     /*
      * PRE:
-     * POST : initializes the parent and height vectors
+     * POST: Initializes the values of the parent and weight vectors.
      */
     void setVisitedWeight();
     /*
      * PRE:
-     * POST: if the node has already been visited and the weight
-     *       is less than the others visited,
-     *       chhange the value of the weight vector and initialize its parent
+     * POST: If the node was already visited and the weight is lower than the others visited,
+     *       then it'll change the value of the weight vector and initialize its parent.
      */
     void exploreUnvisited(int minVertex);
     /*
      * PRE:
-     * POST: Search the next vertex min
+     * POST: Search the next minimum vertex.
      */
     int findMinVertex();
-
 public:
     /* Constructor
      * PRE: (nodes > 0) and (edges > 0)
-     * POST: Builds the MST (minimum spanning tree)
+     * POST: Initializes all the values of a new Mst object
      */
     Mst(int nodes,std::vector<std::vector<int>> adjMatrix);
     /*
      * PRE:
-     * POST : show the minium distance, edges and cost
+     * POST: Display the minimum distance, edges and cost
      */
     void calcMinDistance();
     /*
      * PRE:
-     * POST:
+     * POST: Finds the MST using prim's algorithm.
      */
     void primAlgorithm();
     /*
      * PRE:
-     * POST get parent vector
+     * POST Returns the parent vector
      */
     int* getParent();
     /*
      * PRE:
-     * POST: get Weigth vector
+     * POST: Returns the weigth of the vectors.
      */
     int* getWeight();
     /* Destructor
