@@ -5,7 +5,6 @@ Menu::Menu() {
     this->readings = new List<Reading *>;
     this->authors = new HashTable<Author *>(20);
     this->graph = new Graph<int>;
-    this->end = false;
 }
 
 void Menu::displayMenu() {
@@ -21,11 +20,11 @@ void Menu::displayMenu() {
                  "9. Salir del programa\n" << std::endl;
 }
 
-bool Menu::processInput(int input) {
-    this->option = input;
-    validateInputOption(NINE);
-    options();
-    return this->end;
+void Menu::input() {
+    std::cout << "> ";
+    std::cin >> this->option;
+    std::cin.ignore();
+    std::cout << std::endl;
 }
 
 void Menu::displayReadings() {
@@ -37,15 +36,15 @@ void Menu::displayAuthors() {
 }
 
 void Menu::displayTypeReading() {
-    std::cout << GREEN "Ingrese el numero dependiendo del tipo de lectura que quiera agregar\n" WHITE
-              << GREEN  "[1] " << WHITE "- Novelas\n"
-              << GREEN "[2] " << WHITE "- Cuentos\n"
-              << GREEN "[3] " << WHITE "- Poemas" << std::endl;
+    std::cout   << GREEN "Ingrese el numero dependiendo del tipo de lectura que quiera agregar\n" WHITE
+                << GREEN  "[1] " << WHITE "- Novelas\n"
+                << GREEN "[2] " << WHITE "- Cuentos\n"
+                << GREEN "[3] " << WHITE "- Poemas" << std::endl;
 }
 
 void Menu::addNewReading() {
     this->displayTypeReading();
-    this->option = validation.requestNumber("");
+    this->input();
     this->validateInputOption(THREE);
     pReadings.setAuthors(authors);
     pReadings.requestReadingsInfo(this->option);
@@ -70,7 +69,7 @@ Author *Menu::getAuthorMenu() {
     List<int> *insi = pAuthors.displayNameAuthors();
     if (insi->getNumberOfElements() > 0) {
         std::cout << std::endl;
-        this->option = validation.requestNumber("");
+        this->input();
         if (!(this->validateSearchOption(insi->getNumberOfElements()))) {
             aux = authors->searchElement(insi->search(this->option));
         } else {
@@ -101,9 +100,9 @@ void Menu::removeAuthor() {
 }
 
 void Menu::validateInputOption(int max) {
-    while (option < ONE || option > max) {
+    while (option < ONE || option > max) {  // NO SE COMO LLAMAR A LAS CONSTANTES
         std::cout << RED "¡Opcion incorrecta!\n" WHITE << std::endl;
-        this->option = validation.requestNumber("");
+        this->input();
     }
 }
 
@@ -150,9 +149,10 @@ void Menu::optionsAdditional() {
 
 void Menu::additionalFeatures() {
     this->displayAdditionalFeatures();
-    this->option = validation.requestNumber("");
+    this->input();
     this->validateInputOption(SIX);
     this->optionsAdditional();
+
 }
 
 void Menu::buildGraph() {
@@ -200,7 +200,7 @@ void Menu::options() {
             additionalFeatures();
             break;
         case NINE:
-            this->end = true;
+            this->exit = true;
             break;
         default:
             std::cout << "";
@@ -208,10 +208,19 @@ void Menu::options() {
     }
 }
 
-void Menu::buildLists() {
-    buildListReadings();
-    buildGraph();
-    buildHashTable();
+void Menu::setEndMenu(bool exit) {
+    this->exit = exit;
+}
+
+bool Menu::getEndMenu() const{
+    return this->exit;
+}
+
+void Menu::interaction() {
+    this->displayMenu();
+    this->input();
+    this->validateInputOption(NINE);
+    this->options();
 }
 
 Menu::~Menu() {
