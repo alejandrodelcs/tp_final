@@ -11,7 +11,6 @@
 #include "AuthorsFileParser.h"
 #include "Graph.h"
 #include "Hamiltonian.h"
-#include "Validation.h"
 
 class Menu {
 private:

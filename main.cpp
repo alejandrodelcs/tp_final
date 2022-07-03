@@ -5,15 +5,17 @@
 #include "AuthorsFileParser.h"
 #include "Menu.h"
 #include "Hash.h"
+#include "Validation.h"
 
 int main() {
+    Validation validation;
     Menu m;
     int input;
     bool exit = false;
     m.buildLists();
     while (!exit) {
         m.displayMenu();
-        std::cout << "> ";
+        input = validation.requestNumber("");
         std::cin >> input;
         std::cin.ignore();
         std::cout << std::endl;        

@@ -25,16 +25,16 @@ std::string Validation::requestAlpha(const std::string& text) {
 
 
 int Validation::requestNumber(const std::string &text) {
-    std::string auxNumero;
+    std::string input;
     this->valid = false;
     while (!(this->valid)) {
         std::cout << text << "\n" << CYAN "> " WHITE;
         this->number = 0;
         this->haveLetters = false;
-        getline(std::cin, auxNumero);
-        this->validateNumber(auxNumero);
-        if (!(this->haveLetters) || auxNumero.empty()) {
-            this->number = stoi(auxNumero);
+        getline(std::cin, input);
+        this->validateNumber(input);
+        if (!(this->haveLetters) || input.empty()) {
+            this->number = stoi(input);
             this->valid = true;
         } else
             std::cout << RED "Error: Entrada invalida!\n" WHITE;
