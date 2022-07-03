@@ -23,9 +23,11 @@ private:
     Graph<int>* graph;
     Hamiltonian hamiltonian;
     bool end;
+
+
     /*
      * PRE:
-     * POST:
+     * POST: add new reading is created and added as a new vertex in the graph.
      */
     void addNewReading();
     /*
@@ -35,12 +37,12 @@ private:
     void displayReadings();
     /*
      * PRE:
-     * POST:
+     * POST: valid menu option
      */
     bool validateSearchOption(int totalAuthors) const;
     /*
      * PRE:
-     * POST:
+     * POST:  build a new writer and inserts it into the hash table
      */
     void addNewAuthor();
     /*
@@ -50,32 +52,32 @@ private:
     void displayAuthors();
     /*
      * PRE:
-     * POST:
+     * POST: searching author in hash table
      */
     void searchAuthor();
     /*
      * PRE:
-     * POST:
+     * POST: show the authors in the hash table and returns them
      */
     Author* getAuthorMenu();
     /*
      * PRE:
-     * POST:
+     * POST: delete the author in the table hash
      */
     void removeAuthor();
     /*
      * PRE:
-     * POST:
+     * POST: shows minimum total reading (MST)
      */
     void shortestReadingsTime();
     /*
      * PRE:
-     * POST:
+     * POST: additional menu options
      */
     void additionalFeatures();
     /*
      * PRE:
-     * POST:
+     * POST: build the hash table
      */
     void buildHashTable();
     /*
@@ -90,22 +92,18 @@ private:
     void buildListReadings();
     /*
      * PRE:
-     * POST:
+     * POST: constructs the graph from the reading list
      */
     void buildGraph();
+
     /*
      * PRE:
-     * POST:
-     */
-    void input();
-    /*
-     * PRE:
-     * POST:
+     * POST: menu options
      */
     void options();
     /*
      * PRE:
-     * POST:
+     * POST: additional menu options
      */
     void optionsAdditional();
     /*
@@ -126,7 +124,7 @@ public:
     Menu();
     /*
      * PRE:
-     * POST:
+     * POST:  builds new list in menu
      */
     void buildLists();
     /*
@@ -139,6 +137,8 @@ public:
      * POST:
      */
     void displayMenu();
+
+
     /* Destructor
      * PRE:
      * POST: Dealocates the memory used by authors and graph.
