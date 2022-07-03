@@ -55,8 +55,8 @@ private:
      */
     Type search(int pos);
     /*
-     * PRE: Recibe el dato a buscar en la lista
-     * POST: devuelve la posicion del dato en la lista, -1 de lo contrario
+     * PRE:
+     * POST: Returns the position of the element in the list (If not found, then it returns -1).
      */
     int searchPosition(Type element);
     /*
