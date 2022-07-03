@@ -16,7 +16,6 @@ private:
     Validation validation;
     bool explanation;
     List<List<Reading*>*>* minimalOrders;
-    List<List<Reading*>*>* minimalOrders;
 
     /*
      * PRE:

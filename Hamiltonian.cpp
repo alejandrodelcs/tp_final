@@ -230,4 +230,11 @@ Hamiltonian::~Hamiltonian() {
         }
         delete readings;
     }
+    if (minimalOrders != nullptr) {
+        minimalOrders->startCursor();
+        while (minimalOrders->moveCursor()) {
+            delete minimalOrders->getCursor();
+        }
+        delete minimalOrders;
+    }
 }
