@@ -23,11 +23,9 @@ private:
     Graph<int>* graph;
     Hamiltonian hamiltonian;
     bool end;
-
-
     /*
      * PRE:
-     * POST: add new reading is created and added as a new vertex in the graph.
+     * POST: Creates a new reading and adds it (as a vertex) to the graph.
      */
     void addNewReading();
     /*
@@ -37,12 +35,12 @@ private:
     void displayReadings();
     /*
      * PRE:
-     * POST: valid menu option
+     * POST: Validates the input when searching for an author.
      */
     bool validateSearchOption(int totalAuthors) const;
     /*
      * PRE:
-     * POST:  build a new writer and inserts it into the hash table
+     * POST: Builds a new writer and inserts it in the hash table.
      */
     void addNewAuthor();
     /*
@@ -52,32 +50,32 @@ private:
     void displayAuthors();
     /*
      * PRE:
-     * POST: searching author in hash table
+     * POST: Searches an author in the hash table.
      */
     void searchAuthor();
     /*
      * PRE:
-     * POST: show the authors in the hash table and returns them
+     * POST: Shows the authors in the hash table and allows the user to select one of them.
      */
     Author* getAuthorMenu();
     /*
      * PRE:
-     * POST: delete the author in the table hash
+     * POST: Removes an author from the hash table.
      */
     void removeAuthor();
     /*
      * PRE:
-     * POST: shows minimum total reading (MST)
+     * POST: Displays the MST for the minimal total time reading.
      */
     void shortestReadingsTime();
     /*
      * PRE:
-     * POST: additional menu options
+     * POST: Handles the additional menu options.
      */
     void additionalFeatures();
     /*
      * PRE:
-     * POST: build the hash table
+     * POST: Builds the hash table
      */
     void buildHashTable();
     /*
@@ -92,18 +90,17 @@ private:
     void buildListReadings();
     /*
      * PRE:
-     * POST: constructs the graph from the reading list
+     * POST: Builds the graph using the readings list.
      */
     void buildGraph();
-
     /*
      * PRE:
-     * POST: menu options
+     * POST: Handles the possible options of the menu.
      */
     void options();
     /*
      * PRE:
-     * POST: additional menu options
+     * POST: Handles the possible options of the additional menu.
      */
     void optionsAdditional();
     /*
@@ -124,7 +121,7 @@ public:
     Menu();
     /*
      * PRE:
-     * POST:  builds new list in menu
+     * POST: Builds the necessary lists of the menu.
      */
     void buildLists();
     /*
@@ -137,8 +134,6 @@ public:
      * POST:
      */
     void displayMenu();
-
-
     /* Destructor
      * PRE:
      * POST: Dealocates the memory used by authors and graph.
