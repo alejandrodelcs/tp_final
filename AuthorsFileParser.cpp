@@ -5,12 +5,12 @@ AuthorsFileParser::AuthorsFileParser() {
     this->insi = nullptr;
 }
 
-void AuthorsFileParser::setReadings(List<Reading *>* &l) {
-    this->readings = l;
+void AuthorsFileParser::setReadings(List<Reading *>* &readings) {
+    this->readings = readings;
 }
 
-void AuthorsFileParser::setAuthors(HashTable<Author *>* &a) {
-    this->authors = a;
+void AuthorsFileParser::setAuthors(HashTable<Author *>* &authors) {
+    this->authors = authors;
 }
 
 HashTable<Author *>* AuthorsFileParser::getAuthors() {
@@ -41,8 +41,6 @@ void AuthorsFileParser::addNewAuthor() {
     );
     authors->insertAuthor(this->author);
 }
-
-
 
 void AuthorsFileParser::validateEOFAuthor(int count) {
     if (file.eof() && count < 4) {
@@ -107,7 +105,7 @@ void AuthorsFileParser::displayAuthors() {
     List<Author*> *aux = authors->getTable();
     for (int i=0;i < authors->getSize();i++) {
         aux[i].startCursor();
-        while(aux[i].moveCursor()){
+        while(aux[i].moveCursor()) {
             aux[i].getCursor()->display();
         }
     }
@@ -115,7 +113,7 @@ void AuthorsFileParser::displayAuthors() {
 
 List<int>* AuthorsFileParser::displayNameAuthors() {
     this->insi = new List<int>;
-    List<Author *> *aux = authors->getTable();
+    List<Author*>* aux = authors->getTable();
     int j = 1;
     std::cout<<CYAN "\nAutores encontrado el sistema.\n" WHITE <<std::endl;
     for (int i = 0; i < authors->getSize(); i++) {
@@ -131,23 +129,19 @@ List<int>* AuthorsFileParser::displayNameAuthors() {
 
 void AuthorsFileParser::requestAuthorsInfo() {
     this->requestISNI();
-    std::cout<<CYAN "Datos del Autor \n" WHITE<<std::endl;
+    std::cout << CYAN "Datos del Autor \n" WHITE << std::endl;
     this->name = validation.requestAlpha(GREEN "Nombres y Apellido: " WHITE);
     this->nationality = validation.requestAlpha(GREEN "Nacionalidad: " WHITE);
     this->birth= validation.requestNumber(GREEN "Año de Nacimiento del autor (Si se desconoce -1) : " WHITE);
-    this->death = validation.requestNumber(
-            GREEN "Año de fallecimiento del autor (Si se desconoce, o sigue vivo, ingresar -1): " WHITE);
+    this->death = validation.requestNumber(GREEN "Año de fallecimiento del autor (Si se desconoce, o sigue vivo, ingresar -1): " WHITE);
     addNewAuthor();
-    std::cout<<GREEN "¡"<<CYAN<<this->name<< GREEN <<" Se ha agregado con exito!\n" WHITE<<std::endl;
+    std::cout << GREEN "¡" << CYAN << this->name << GREEN <<" Se ha agregado con exito!\n" WHITE << std::endl;
 }
-
 
 void AuthorsFileParser::requestISNI() {
     srand((unsigned int)time(nullptr));
     this->isni = rand()%(9999-1000+1)+1000;
-
 }
-
 
 AuthorsFileParser::~AuthorsFileParser() {
 

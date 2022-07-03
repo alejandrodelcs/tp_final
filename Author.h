@@ -13,9 +13,9 @@ private:
     int death;
 public:
     /* Constructor
-    * PRE:
-    * POST: Builds a new author.
-    */
+     * PRE:
+     * POST: Builds a new Author object
+     */
     Author(int isni, std::string name, std::string nationality, int yearBirth, int yearDeath);
     /*
      * PRE:

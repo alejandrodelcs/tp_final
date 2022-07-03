@@ -11,12 +11,11 @@
 #include "Validation.h"
 
 class AuthorsFileParser {
-
 private:
     File file;
-    std::string fileLine;
-    HashTable<Author*>* authors;
     List<Reading*> *readings;
+    HashTable<Author*>* authors;
+    std::string fileLine;
     Author* author;
     int isni;
     int birth;
@@ -25,21 +24,19 @@ private:
     List<int> *insi;
     std::string nationality;
     Validation validation;
-
-
     /*
      * PRE:
-     * POST: returns the ID (reference number) of the line of the file
+     * POST: Returns the ID (reference number) of the line of the file
      */
     int getISNI();
     /*
      * PRE:
-     * POST: returns the filename of the line in the file
+     * POST: Returns the filename of the line in the file
      */
     bool validateFileLine();
     /*
      * PRE:
-     * POST: Initializes the data brought in from the writers' files
+     * POST: Initializes the data brought in from the file "autores.txt"
      */
     void validateAuthorFile(int count);
     /*
@@ -52,54 +49,50 @@ private:
      * POST: Validates the last writer of the file
      */
     void validateEOFAuthor(int count);
-
     /*
     * PRE:
     * POST:
     */
     void requestISNI();
-
     /*
      * PRE:-
      * POST: Adds the new author to the main list of authors.
      */
     void addNewAuthor();
-
-
 public:
     /* Constructor
      * PRE:
-     * POST:
+     * POST: Builds a new AuthorsFileParser object.
      */
     AuthorsFileParser();
     /*
      * PRE:
-     * POST: Returns the hash table with the authors
+     * POST: Returns the hash table with the authors.
      */
     HashTable<Author *>* getAuthors();
     /*
      * PRE:
-     * POST: Adds the author to his reading
+     * POST: Adds the current author to the list of readings.
      */
     void addReadingAuthor();
     /*
      * PRE:
-     * POST: Set the list of readings to  Readings File Parser
+     * POST: Sets the list of readings to match the function's calling parameter.
      */
-    void setReadings(List<Reading*>* &l);
+    void setReadings(List<Reading*>* &readings);
     /*
      * PRE:
-     * POST: Set the table hash of Readings File Parser
+     * POST: Sets the hash table of authors to the function's calling parameter.
      */
-    void setAuthors(HashTable<Author*>* &a);
+    void setAuthors(HashTable<Author*>* &authors);
     /*
      * PRE:
-     * POST:
+     * POST: Displays all of the elements in the hash table of authors.
      */
     void displayAuthors();
     /*
      * PRE:
-     * POST:  author's data request
+     * POST: Request user's input to create a new author.
      */
     void requestAuthorsInfo();
     /*
