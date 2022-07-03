@@ -18,5 +18,6 @@ int main() {
         input = validation.requestNumber("");
         exit = menu->processInput(input);
     }
+    delete menu;
     return 0;
 }

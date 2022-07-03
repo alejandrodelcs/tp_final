@@ -111,12 +111,8 @@ void Menu::displayAdditionalFeatures() {
     std::cout << "1. Mostrar Matriz de Adyacencia y vertices\n"
                  "2. Mostrar resultado de Algoritmo de Prim (solo MST)\n"
                  "3. Mostrar la tabla de hash\n"
-                 "4. Encontrar el orden y tiempo mínimo que\n"
-                 "   nos llevaría leer todas las lecturas usando\n"
-                 "   un metodo alternativo con Hamilton (simplificado)\n"
-                 "5. Encontrar todos los ordenes y tiempo mínimos posibles que\n"
-                 "   nos llevaría leer todas las lecturas usando\n"
-                 "   un metodo alternativo con Hamilton con una lista\n"
+                 "4. Encontrar el orden y tiempo mínimo usando Hamilton (simplificado)\n"
+                 "5. Encontrar todos los ordenes y tiempos minimos usando Hamilton con una lista\n"
                  "6. Salir\n" << std::endl;
 
 }
