@@ -8,6 +8,16 @@
 
 int main() {
     Menu m;
-    m.interaction();
+    int input;
+    bool exit = false;
+    m.buildLists();
+    while (!exit) {
+        m.displayMenu();
+        std::cout << "> ";
+        std::cin >> input;
+        std::cin.ignore();
+        std::cout << std::endl;        
+        exit = m.processInput(input);
+    }
     return 0;
 }

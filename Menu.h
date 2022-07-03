@@ -11,9 +11,11 @@
 #include "AuthorsFileParser.h"
 #include "Graph.h"
 #include "Hamiltonian.h"
+#include "Validation.h"
 
 class Menu {
 private:
+    Validation validation;
     int option;
     List<Reading*> *readings;
     ReadingsFileParser pReadings;
@@ -106,11 +108,6 @@ private:
      * PRE:
      * POST:
      */
-    void displayMenu();
-    /*
-     * PRE:
-     * POST:
-     */
     void optionsAdditional();
     /*
      * PRE:
@@ -132,7 +129,17 @@ public:
      * PRE:
      * POST:
      */
-    void interaction();
+    void buildLists();
+    /*
+     * PRE:
+     * POST:
+     */
+    bool processInput(int input);    
+    /*
+     * PRE:
+     * POST:
+     */
+    void displayMenu();
     /* Destructor
      * PRE:
      * POST: Dealocates the memory used by authors and graph.
