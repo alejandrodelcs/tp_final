@@ -9,17 +9,14 @@
 
 int main() {
     Validation validation;
-    Menu m;
+    Menu *menu = new Menu();
     int input;
     bool exit = false;
-    m.buildLists();
+    menu->buildLists();
     while (!exit) {
-        m.displayMenu();
+        menu->displayMenu();
         input = validation.requestNumber("");
-        std::cin >> input;
-        std::cin.ignore();
-        std::cout << std::endl;        
-        exit = m.processInput(input);
+        exit = menu->processInput(input);
     }
     return 0;
 }

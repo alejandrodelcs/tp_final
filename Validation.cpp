@@ -36,8 +36,9 @@ int Validation::requestNumber(const std::string &text) {
         if (!(this->haveLetters) || input.empty()) {
             this->number = stoi(input);
             this->valid = true;
-        } else
+        } else {
             std::cout << RED "Error: Entrada invalida!\n" WHITE;
+        }
     }
     return this->number;
 }
