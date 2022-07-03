@@ -235,6 +235,5 @@ Hamiltonian::~Hamiltonian() {
         while (minimalOrders->moveCursor()) {
             delete minimalOrders->getCursor();
         }
-        delete minimalOrders;
     }
 }
