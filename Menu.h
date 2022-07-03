@@ -1,5 +1,6 @@
 #ifndef TP_FINAL_MENU_H
 #define TP_FINAL_MENU_H
+
 #include <iostream>
 #include "List.h"
 #include "Constants.h"
@@ -21,133 +22,112 @@ private:
     Graph<int>* graph;
     Hamiltonian hamiltonian;
     bool end;
-
     /*
-    * PRE:
-    * POST:
-    */
+     * PRE:
+     * POST:
+     */
     void addNewReading();
-
     /*
-    * PRE:
-    * POST:
-    */
+     * PRE:
+     * POST:
+     */
     void displayReadings();
-
     /*
-    * PRE:
-    * POST:
-    */
+     * PRE:
+     * POST:
+     */
     bool validateSearchOption(int totalAuthors) const;
-
     /*
-    * PRE:
-    * POST:
-    */
+     * PRE:
+     * POST:
+     */
     void addNewAuthor();
-
     /*
-    * PRE:
-    * POST:
-    */
+     * PRE:
+     * POST:
+     */
     void displayAuthors();
-
     /*
-    * PRE:
-    * POST:
-    */
+     * PRE:
+     * POST:
+     */
     void searchAuthor();
-
     /*
-    * PRE:
-    * POST:
-    */
+     * PRE:
+     * POST:
+     */
     Author* getAuthorMenu();
-
     /*
-    * PRE:
-    * POST:
-    */
+     * PRE:
+     * POST:
+     */
     void removeAuthor();
-
     /*
-    * PRE:
-    * POST:
-    */
+     * PRE:
+     * POST:
+     */
     void shortestReadingsTime();
-
     /*
-    * PRE:
-    * POST:
-    */
+     * PRE:
+     * POST:
+     */
     void additionalFeatures();
-
     /*
-    * PRE:
-    * POST:
-    */
+     * PRE:
+     * POST:
+     */
     void buildHashTable();
-
     /*
-    * PRE:
-    * POST:
-    */
+     * PRE:
+     * POST:
+     */
     void validateInputOption(int max);
-
     /*
-    * PRE:
-    * POST:
-    */
+     * PRE:
+     * POST:
+     */
     void buildListReadings();
-
     /*
-    * PRE:
-    * POST:
-    */
+     * PRE:
+     * POST:
+     */
     void buildGraph();
-
     /*
-    * PRE:
-    * POST:
-    */
+     * PRE:
+     * POST:
+     */
     void input();
-
     /*
-    * PRE:
-    * POST:
-    */
+     * PRE:
+     * POST:
+     */
     void options();
-
     /*
-    * PRE:
-    * POST:
-    */
+     * PRE:
+     * POST:
+     */
     void displayMenu();
-
     /*
-    * PRE:
-    * POST:
-    */
+     * PRE:
+     * POST:
+     */
     void optionsAdditional();
-
     /*
-    * PRE:
-    * POST:
-    */
+     * PRE:
+     * POST:
+     */
     void displayAdditionalFeatures();
-
     /*
-    * PRE:
-    * POST:
-    */
+     * PRE:
+     * POST:
+     */
     void displayTypeReading();
 public:
     /* Constructor
      * PRE:
-     * POST:
+     * POST: Builds a new Menu object (initializing the attributes: readings, authors, graph and end)
      */
     Menu();
-
     /*
      * PRE:
      * POST:
@@ -155,10 +135,9 @@ public:
     void interaction();
     /* Destructor
      * PRE:
-     * POST: Dealocates the memory used.
+     * POST: Dealocates the memory used by authors and graph.
      */
     ~Menu();
 };
 
-
-#endif //TP_FINAL_MENU_H
+#endif

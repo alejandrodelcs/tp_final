@@ -19,7 +19,6 @@ void Menu::displayMenu() {
                  "   nos llevaría leer todas las lecturas\n"
                  "8. Extras\n"
                  "9. Salir del programa\n" << std::endl;
-
 }
 
 void Menu::input() {
@@ -44,8 +43,6 @@ void Menu::displayTypeReading() {
                 << GREEN "[3] " << WHITE "- Poemas" << std::endl;
 }
 
-
-
 void Menu::addNewReading() {
     this->displayTypeReading();
     this->input();
@@ -54,14 +51,11 @@ void Menu::addNewReading() {
     pReadings.requestReadingsInfo(this->option);
     pReadings.setGraphNewVertex();
     pReadings.addGraphEdges();
-
 }
-
 
 void Menu::addNewAuthor() {
     pAuthors.requestAuthorsInfo();
 }
-
 
 void Menu::shortestReadingsTime() {
     pReadings.displayMst();
@@ -106,7 +100,6 @@ void Menu::removeAuthor() {
     }
 }
 
-
 void Menu::validateInputOption(int max) {
     while (option < ONE || option > max) {  // NO SE COMO LLAMAR A LAS CONSTANTES
         std::cout << RED "¡Opcion incorrecta!\n" WHITE << std::endl;
@@ -127,7 +120,6 @@ void Menu::displayAdditionalFeatures() {
                  "6. Salir\n" << std::endl;
 
 }
-
 
 void Menu::optionsAdditional() {
     switch (this->option) {
@@ -170,7 +162,6 @@ void Menu::buildGraph() {
     pReadings.setGraphVertex();
     pReadings.addGraphEdges();
 }
-
 
 void Menu::buildListReadings() {
     pReadings.setReadingList(this->readings);
@@ -234,12 +225,3 @@ Menu::~Menu() {
     delete authors;
     delete graph;
 }
-
-
-
-
-
-
-
-
-
