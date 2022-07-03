@@ -64,7 +64,7 @@ void Hamiltonian::getShortestReadingsTime(List<Reading *> *readings, ReadingsFil
     std::cout << "\nTiempo minimo total: " << totalTime << "\n(De los cuales " << edgesTime << " minutos son descansando y " << totalTime - edgesTime << " son leyendo cuentos)\n" << std::endl;
 }
 
-void Hamiltonian::addArrayToList(Reading *B[], List<List<Reading*>*>*minimalOrders) {
+void Hamiltonian::addArrayToList(Reading *B[]) {
     List<Reading*>* A = new List<Reading*>;
     for (int i = 0; i < readingsSize; i++) {
         A->add(B[i]);
@@ -72,17 +72,17 @@ void Hamiltonian::addArrayToList(Reading *B[], List<List<Reading*>*>*minimalOrde
     minimalOrders->add(A);
 }
 
-void Hamiltonian::hamiltonianRecursion(List<List<Reading*>*>*minimalOrders, int currentID, Reading *currentOrder[], bool visited[], int arraySize, int acumulatedTime) {
+void Hamiltonian::hamiltonianRecursion(int currentID, Reading *currentOrder[], bool visited[], int arraySize, int acumulatedTime) {
     int linkCost = 0;
     if (arraySize == 0) {
         if (acumulatedTime < this->edgesTime || this->edgesTime == -1) {
             this->edgesTime = acumulatedTime;
-            newRecord(minimalOrders, currentOrder, acumulatedTime);
+            newRecord(currentOrder, acumulatedTime);
         } else if (acumulatedTime == this->edgesTime) {
             if (explanation) {
                 std::cout << RED << "Se a hallado otro orden con el mismo tiempo de " << this->edgesTime << " minutos!" << std::endl;
             }
-            addArrayToList(currentOrder, minimalOrders);
+            addArrayToList(currentOrder);
         }
         if (explanation) {
             displayOrder(currentOrder, acumulatedTime);
@@ -93,21 +93,21 @@ void Hamiltonian::hamiltonianRecursion(List<List<Reading*>*>*minimalOrders, int 
                 linkCost = getLinkCost(currentID, currentOrder, arraySize, i);
                 visited[i] = true;
                 currentOrder[readingsSize-arraySize] = readings->search(i+1);
-                hamiltonianRecursion(minimalOrders, i, currentOrder, visited, arraySize-1, acumulatedTime+linkCost);                
+                hamiltonianRecursion(i, currentOrder, visited, arraySize-1, acumulatedTime+linkCost);                
                 visited[i] = false;
             }
         }
     }
 }
 
-void Hamiltonian::calculateShortestReadingTimes(List<List<Reading*>*>*minimalOrders) {
+void Hamiltonian::calculateShortestReadingTimes() {
     this->edgesTime = -1;
     bool visited[readingsSize];
     for (int i = 0; i < readingsSize; i++) {
         visited[i] = false;
     }
     Reading *readingsOrder[readingsSize];    
-    hamiltonianRecursion(minimalOrders, -1, readingsOrder, visited, readingsSize, 0);
+    hamiltonianRecursion(-1, readingsOrder, visited, readingsSize, 0);
 }
 
 void Hamiltonian::getShortestReadingsTimes(List<Reading *> *readings, ReadingsFileParser *pReadings) {
@@ -120,12 +120,11 @@ void Hamiltonian::getShortestReadingsTimes(List<Reading *> *readings, ReadingsFi
         VertexesTime += readings->getCursor()->getMinutes();
     }    
     readingsSize = readings->getNumberOfElements();
-    List<List<Reading*>*>* minimalOrders = new List<List<Reading*>*>;
-    calculateShortestReadingTimes(minimalOrders);
-    ordersMenu(minimalOrders, VertexesTime + edgesTime);
+    calculateShortestReadingTimes();
+    ordersMenu(VertexesTime + edgesTime);
 }
 
-void Hamiltonian::displayPossibileOrder(List<List<Reading*>*>* minimalOrders, int option) {
+void Hamiltonian::displayPossibileOrder(int option) {
     int j=1;
     Reading *currentReading, *oldReading;
     minimalOrders->startCursor();
@@ -147,7 +146,7 @@ void Hamiltonian::displayPossibileOrder(List<List<Reading*>*>* minimalOrders, in
     }
 }
 
-void Hamiltonian::ordersMenu(List<List<Reading*>*>* minimalOrders, int totalTime) {
+void Hamiltonian::ordersMenu(int totalTime) {
     int input = -1;
     int optionsAmount = minimalOrders->getNumberOfElements();
     while (input != 0) {
@@ -157,7 +156,7 @@ void Hamiltonian::ordersMenu(List<List<Reading*>*>* minimalOrders, int totalTime
                      "Ingresar una opcion valida para mostrarla en pantalla (0 para no mostrar proceso)\n" << std::flush;
         input = validation.requestNumber("");
         if (input > 0 && input <= optionsAmount) {
-            displayPossibileOrder(minimalOrders, input);
+            displayPossibileOrder(input);
         } else if (input < 0 || input > optionsAmount){                
             std::cout << RED "¡Ingresar una opcion valida entre 0 y " << optionsAmount << "!\n" WHITE;
         } 
@@ -174,13 +173,13 @@ void Hamiltonian::newRecord(Reading *minimalOrder[], Reading *currentOrder[], in
     cloneReadingsArray(minimalOrder, currentOrder);
 }
 
-void Hamiltonian::newRecord(List<List<Reading*>*>*minimalOrders, Reading *currentOrder[], int acumulatedTime) {
+void Hamiltonian::newRecord(Reading *currentOrder[], int acumulatedTime) {
     this->edgesTime = acumulatedTime;
     if (explanation) {
         std::cout << RED << "Se a hallado un nuevo tiempo minimo de " << this->edgesTime << " minutos!" << std::endl;
     }
     minimalOrders = new List<List<Reading*>*>;
-    addArrayToList(currentOrder, minimalOrders);
+    addArrayToList(currentOrder);
 }
 
 void Hamiltonian::explainProcess() {
@@ -192,14 +191,14 @@ void Hamiltonian::explainProcess() {
         if (input == "y" || input == "Y") {
             this->explanation = true;
             valid = true;
+            std::cout << std::endl;
         } else if (input == "n" || input == "N") {
             this->explanation = false;
             valid = true;
         } else {
-            std::cout << RED "\n¡Ingreso invalido!\n" WHITE << std::endl;
+            std::cout << RED "\n¡Ingreso invalido!\n\n" WHITE << std::endl;
         }
     }
-    std::cout << std::endl;
 }
 
 void Hamiltonian::displayOrder(Reading *currentOrder[], int acumulatedTime) {

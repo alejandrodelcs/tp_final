@@ -4,77 +4,71 @@
 
 template <typename Type>
 class HashTable {
-
 private:
-        int size{};
-        List<Type>* table;
-        /* Constructor
-        * PRE:
-        * POST: Builds a new hash table of size 'n'
-        */
-        int getHash(int key);  
-        /* 
-        * PRE: 
-        * POST: 
-        */
-        bool compareAuthorKey(Author* author, int comparationKey);
+    int size{};
+    List<Type>* table;
+    /*
+    * PRE:
+    * POST:
+    */
+    int getHash(int key);  
+    /* 
+    * PRE: 
+    * POST: 
+    */
+    bool compareAuthorKey(Author* author, int comparationKey);
 public:
-
-        HashTable() = default;
-
-
-        /* Constructor
+    HashTable() = default;
+    /* Constructor
+    * PRE:
+    * POST: Builds a new hash table of size 'n'
+    */
+    explicit HashTable(int size);
+    /* 
+    * PRE: 
+    * POST: 
+    */
+    int getSize();
+    /* 
+    * PRE: The paramter used has to be an Author object
+    * POST: Inserts a new author to the hash table
+    */
+    void insertAuthor(Author* value);
+    /* 
+    * PRE:
+    * POST: Inserts a new element to the hash table
+    */
+    void insertElement(Type value, int key);
+    /* 
+    * PRE:
+    * POST: 
+    */
+    Type searchElement(int key);
+    /* 
+    * PRE:
+    * POST: Removes an element from the hash table
+    */
+    void removeElement(int key);
+    /* 
+    * PRE:
+    * POST:
+    */
+    List<Type> getList(int position);
+    /* 
+    * PRE:
+    * POST:
+    */
+    List<Type>* getTable();
+    /* 
+    * PRE:
+    * POST: Displays the object's attributes in screen.
+    */
+    void display();
+    /* Destructor
         * PRE:
-        * POST: Builds a new hash table of size 'n'
+        * POST: Dealocates the memory used.
         */
-        explicit HashTable(int size);
-
-
-        /* 
-        * PRE: 
-        * POST: 
-        */
-        int getSize();
-        /* 
-        * PRE: The paramter used has to be an Author object
-        * POST: Inserts a new author to the hash table
-        */
-        void insertAuthor(Author* value);
-        /* 
-        * PRE:
-        * POST: Inserts a new element to the hash table
-        */
-        void insertElement(Type value, int key);
-        /* 
-        * PRE:
-        * POST: 
-        */
-        Type searchElement(int key);
-        /* 
-        * PRE:
-        * POST: Removes an element from the hash table
-        */
-        void removeElement(int key);
-        /* 
-        * PRE:
-        * POST:
-        */
-        List<Type> getList(int position);
-        /* 
-        * PRE:
-        * POST:
-        */
-        List<Type>* getTable();
-        /* 
-        * PRE:
-        * POST: Displays the object's attributes in screen.
-        */
-        void display();
-        /* Destructor
-         * PRE:
-         * POST: Dealocates the memory used.
-         */
-        ~HashTable();
+    ~HashTable();
 };
 
 
@@ -192,7 +186,4 @@ HashTable<Type>::~HashTable() {
     table = nullptr;
 }
 
-#endif //TP_FINAL_HASH_H
-
-// SOURCE: https://www.educative.io/answers/how-to-implement-a-hash-table-in-cpp
-// https://www.geeksforgeeks.org/hashing-set-2-separate-chaining/
+#endif

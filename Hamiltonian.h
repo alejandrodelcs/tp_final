@@ -1,5 +1,6 @@
 #ifndef TP_FINAL_HAMILTON_H
 #define TP_FINAL_HAMILTON_H
+
 #include <iostream>
 #include "List.h"
 #include "Reading.h"
@@ -14,18 +15,20 @@ private:
     ReadingsFileParser *pReadings;
     Validation validation;
     bool explanation;
+    List<List<Reading*>*>* minimalOrders;
+    List<List<Reading*>*>* minimalOrders;
 
     /*
      * PRE:
      * POST:
      */
-    void displayPossibileOrder(List<List<Reading *> *> *minimalOrders, int option);
+    void displayPossibileOrder(int option);
 
     /*
      * PRE:
      * POST:
      */
-    void ordersMenu(List<List<Reading *> *> *minimalOrders, int totalTime);
+    void ordersMenu(int totalTime);
 
     /*
      * PRE:
@@ -43,8 +46,7 @@ private:
      * PRE:
      * POST:
      */
-    void hamiltonianRecursion(Reading *minimalOrder[], int currentID, Reading *currentOrder[], bool visited[], int arraySize,
-                         int acumulatedTime);
+    void hamiltonianRecursion(Reading *minimalOrder[], int currentID, Reading *currentOrder[], bool visited[], int arraySize, int acumulatedTime);
 
     /*
      * PRE:
@@ -56,15 +58,14 @@ private:
      * PRE:
      * POST:
      */
-    void addArrayToList(Reading *B[], List<List<Reading *> *> *minimalOrders);
+    void addArrayToList(Reading *B[]);
 
     /*
      * PRE:
      * POST:
      */
     void
-    hamiltonianRecursion(List<List<Reading *> *> *minimalOrders, int currentID, Reading *currentOrder[], bool visited[],
-                         int arraySize, int acumulatedTime);
+    hamiltonianRecursion(int currentID, Reading *currentOrder[], bool visited[], int arraySize, int acumulatedTime);
 
     /*
      * PRE:
@@ -76,7 +77,7 @@ private:
      * PRE:
      * POST:
      */
-    void newRecord(List<List<Reading *> *> *minimalOrders, Reading *currentOrder[], int acumulatedTime);
+    void newRecord(Reading *currentOrder[], int acumulatedTime);
 
     /*
      * PRE:
@@ -91,7 +92,7 @@ private:
 
     int getLinkCost(int currentID, Reading *currentOrder[], int arraySize, int i);
 
-    void calculateShortestReadingTimes(List<List<Reading *> *> *minimalOrders);
+    void calculateShortestReadingTimes();
 
 public:
     Hamiltonian();
