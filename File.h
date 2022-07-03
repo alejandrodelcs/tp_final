@@ -5,23 +5,23 @@
 #include <string>
 
 class File {
-    private:
+private:
     std::fstream file;
     std::string lines;
-    public:
+public:
     /* Constructor
-     * PRE: Recibe la ruta donde se ubica el archivo
-     * POST: Construye un fichero
+     * PRE: The file's route should be set
+     * POST: Builds a new File object
      */
     File();
     /*
-     * PRE: -
-     * POST: Abre el fichero
+     * PRE:
+     * POST: Opens the file
      */
     void open(std::string name);
     /*
-     * PRE: -
-     * POST: retorna linea del fichero
+     * PRE:
+     * POST: Returns the next line of the file
      */
     std::string read();
     /*

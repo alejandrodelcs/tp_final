@@ -6,7 +6,7 @@ File::File() {
 
 void File::open(std::string name) {
     file.open(name, std::ios::in | std::ios::out);
-    if (!file) { // Extra validation for "Windows SO"
+    if (!file) { // Extra validation for "Windows OS"
         name = "../" + name;
         file.open(name, std::ios::in | std::ios::out);
     }
@@ -14,7 +14,7 @@ void File::open(std::string name) {
 
 std::string File::read() {
     getline(file, lines);
-    if (lines[lines.length() - 1] == '\r') { // Extra validation for "Windows SO"
+    if (lines[lines.length() - 1] == '\r') { // Extra validation for "Windows OS"
         lines = lines.substr(0, lines.length() - 1);
     }
     return lines;
