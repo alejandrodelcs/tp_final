@@ -7,7 +7,6 @@ ReadingsFileParser::ReadingsFileParser() {
     this->theme = nullptr;
     this->insis = nullptr;
     this->authors = nullptr;
-    this->sizeTheme = 1;
 }
 
 
