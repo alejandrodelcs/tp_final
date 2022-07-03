@@ -8,70 +8,68 @@ private:
     int size{};
     List<Type>* table;
     /*
-    * PRE:
-    * POST:
-    */
+     * PRE:
+     * POST: Returns the hashed key used as a parameter.
+     */
     int getHash(int key);  
     /* 
-    * PRE: 
-    * POST: 
-    */
+     * PRE: 
+     * POST: Compares if the author's key matches with the other parameter.
+     */
     bool compareAuthorKey(Author* author, int comparationKey);
 public:
     HashTable() = default;
     /* Constructor
-    * PRE:
-    * POST: Builds a new hash table of size 'n'
-    */
+     * PRE:
+     * POST: Builds a new hash table of size 'n'
+     */
     explicit HashTable(int size);
     /* 
-    * PRE: 
-    * POST: 
-    */
+     * PRE: 
+     * POST: Get the physical size of the hash table.
+     */
     int getSize();
     /* 
-    * PRE: The paramter used has to be an Author object
-    * POST: Inserts a new author to the hash table
-    */
+     * PRE: The parameter used has to be an Author object.
+     * POST: Inserts a new author to the hash table.
+     */
     void insertAuthor(Author* value);
     /* 
-    * PRE:
-    * POST: Inserts a new element to the hash table
-    */
+     * PRE:
+     * POST: Inserts a new element to the hash table
+     */
     void insertElement(Type value, int key);
     /* 
-    * PRE:
-    * POST: 
-    */
+     * PRE:
+     * POST: Searches for a specific element in the hash table.
+     */
     Type searchElement(int key);
     /* 
-    * PRE:
-    * POST: Removes an element from the hash table
-    */
+     * PRE:
+     * POST: Removes an element from the hash table
+     */
     void removeElement(int key);
     /* 
-    * PRE:
-    * POST:
-    */
+     * PRE: The parameter position should be greater than 0 and lower than the size n of the hash table.
+     * POST: Returns a specific list of the hash table.
+     */
     List<Type> getList(int position);
     /* 
-    * PRE:
-    * POST:
-    */
+     * PRE:
+     * POST: Returns the hash table.
+     */
     List<Type>* getTable();
     /* 
-    * PRE:
-    * POST: Displays the object's attributes in screen.
-    */
+     * PRE:
+     * POST: Displays the object's attributes in screen.
+     */
     void display();
     /* Destructor
-        * PRE:
-        * POST: Dealocates the memory used.
-        */
+     * PRE:
+     * POST: Dealocates the memory used.
+     */
     ~HashTable();
 };
-
-
 
 template <typename Type>
 HashTable<Type>::HashTable(int size) {
@@ -88,7 +86,6 @@ template <typename Type>
 bool HashTable<Type>::compareAuthorKey(Author* author, int comparationKey) {
     return (author->getISNI() == comparationKey);
 }
-
 
 template <typename Type>
 void HashTable<Type>::insertAuthor(Author* value) {
@@ -151,7 +148,7 @@ void HashTable<Type>::display() {
                 }
             }
             std::cout << " ]";
-        }else{
+        } else {
             std::cout << tableId << " : [ ]";
         }
         std::cout << std::endl;
