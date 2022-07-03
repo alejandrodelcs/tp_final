@@ -11,9 +11,11 @@
 #include "AuthorsFileParser.h"
 #include "Graph.h"
 #include "Hamiltonian.h"
+#include "Validation.h"
 
 class Menu {
 private:
+    Validation validation;
     int option;
     List<Reading*> *readings;
     ReadingsFileParser pReadings;
@@ -21,7 +23,7 @@ private:
     HashTable<Author*>* authors;
     Graph<int>* graph;
     Hamiltonian hamiltonian;
-    bool exit;
+    bool end;
     /*
      * PRE:
      * POST:
@@ -72,13 +74,26 @@ private:
      * POST:
      */
     void additionalFeatures();
-
+    /*
+     * PRE:
+     * POST:
+     */
+    void buildHashTable();
     /*
      * PRE:
      * POST:
      */
     void validateInputOption(int max);
-
+    /*
+     * PRE:
+     * POST:
+     */
+    void buildListReadings();
+    /*
+     * PRE:
+     * POST:
+     */
+    void buildGraph();
     /*
      * PRE:
      * POST:
@@ -89,11 +104,6 @@ private:
      * POST:
      */
     void options();
-    /*
-     * PRE:
-     * POST:
-     */
-    void displayMenu();
     /*
      * PRE:
      * POST:
@@ -115,42 +125,21 @@ public:
      * POST: Builds a new Menu object (initializing the attributes: readings, authors, graph and end)
      */
     Menu();
-
     /*
      * PRE:
      * POST:
      */
-    void buildHashTable();
-
-    /*
-    * PRE:
-    * POST:
-    */
-    void buildGraph();
-
-    /*
-   * PRE:
-   * POST:
-   */
-    void buildListReadings();
-
-    /*
-     * PRE:
-    * POST:
-  */
-    void setEndMenu(bool exit);
-
-    /*
-    * PRE:
-    * POST:
-  */
-    bool getEndMenu() const;
-
+    void buildLists();
     /*
      * PRE:
      * POST:
      */
-    void interaction();
+    bool processInput(int input);    
+    /*
+     * PRE:
+     * POST:
+     */
+    void displayMenu();
     /* Destructor
      * PRE:
      * POST: Dealocates the memory used by authors and graph.
