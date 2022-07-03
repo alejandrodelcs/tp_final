@@ -1,10 +1,4 @@
-#include "List.h"
-#include "Mst.h"
-#include "Graph.h"
-#include "Reading.h"
-#include "AuthorsFileParser.h"
 #include "Menu.h"
-#include "Hash.h"
 #include "Validation.h"
 
 int main() {
