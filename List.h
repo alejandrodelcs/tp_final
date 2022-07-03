@@ -16,42 +16,42 @@ private:
     public:
     /* Constructor
      * PRE:
-     * POST:
+     * POST: Creates a new List object.
      */
     List();
     /* 
      * PRE:
-     * POST: devuelve la cantidad de elementos que tiene la lista
+     * POST: Returns the amount of nodes within the list.
      */
     int getNumberOfElements();
     /* 
      * PRE:
-     * POST: devuelve la posicion en la que se encuentra el nombre que recibe o -1 si no lo encuentra
+     * POST: Finds and returns the position where the searched node's name is (Or returns -1 if it wasn't found)
      */
     int getPosition(int node);
-    /* Destructor
+    /* 
      * PRE:
-     * POST: devuelve el  nombre que se encuentra en la posicion recibida o NAME_NOT_FOUND si no lo encuentra
+     * POST: Finds and returns the name where the searched node's position is (Or returns NAME_NOT_FOUND if it wasn't found)
      */
     int getName(int position);
     /*
-     * PRE: -
-     * POST: agrega el dato al final de la lista en la posición obtenerLargo() + 1
+     * PRE:
+     * POST: Adds the new element to the end of the list.
      */
     void add(Type newElement);
     /*
-     * PRE::recibe un Dato d - 0 < pos <= largo+1
-     * POST: agrega el Dato d en la Lista. La primera posición es 1
+     * PRE: The position parameter should be greater than 0 and lower (or equal) than the length of the list + 1 (If desired to add the element at the end of the list).
+     * POST: Adds the new element to a specific position in the list (The first position is 1)
      */
     void add(Type newElement, int pos);
     /*
-     * PRE:  0 < pos <= largo
-     * POST: -
+     * PRE: The position parameter should be greater than 0 and lower (or equal) than the length of the list.
+     * POST: Removes the node in that position of the list.
      */
     void remove(int pos);
     /*
-     * PRE: la lista no tiene que estar vacia
-     * POST: devuelve el dato que esta encima de la lista
+     * PRE: The list mustn't be empty
+     * POST: Finds and returns the element in that position of the list.
      */
     Type search(int pos);
     /*
@@ -60,32 +60,30 @@ private:
      */
     int searchPosition(Type element);
     /*
-     * PRE: consulta si hay un elemento siguiente (si el cursor no apunta a NULL)
-     * POST: devuelve true si el cursor no apunta a NULL, false de lo contrario
-    */
+     * PRE: The cursor must be started.
+     * POST: Returns true if the cursor doesn't point towards a NULL (false otherwise)
+     */
     bool moveCursor();
     /*
-     * PRE:  el cursor se posiciona sobre un elemento de la lista
-     *      (el metodo avanzarCursor() tiene que haber devuelto true previamente)
-     * POST: devuelve el elemento en la posición del cursor y avanza
+     * PRE: Cursor must be pointing to an element of the list.
+     *      (The method moveCursor() must've returned true previously)
+     * POST: Returns the element in the cursor's position.
      */
     Type getCursor();
     /*
-     * PRE: -
-     * POST: Deja Cursor preparado para iniciar un nuevo recorrido de la Lista
+     * PRE:
+     * POST: Initializes the cursor so it can trace through the list from the start.
      */
     void startCursor();
-
     /* Destructor
      * PRE:
      * POST: Dealocates the memory used.
      */
     ~List();
-
 private:
     /*
-     * PRE: Recibe una posicion de la lista
-     * POST: Retorna el nodo en dicha posición
+     * PRE: 
+     * POST: Returns the node in that position of the list.
      */
     Node<Type> *getNode(int pos);
 };
@@ -151,7 +149,6 @@ template<typename Type>
 void List<Type>::add(Type newElement, int pos) {
     if ((pos > 0) && (pos <= this->numberOfElements + 1)) {
         auto *newNode = new Node<Type>(newElement);
-
         if (pos == 1) {
             newNode->assignNext(this->first);
             this->first = newNode;
@@ -160,7 +157,6 @@ void List<Type>::add(Type newElement, int pos) {
             newNode->assignNext(former->getNext());
             former->assignNext(newNode);
         }
-
         this->numberOfElements++;
         this->startCursor();
     }

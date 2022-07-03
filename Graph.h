@@ -31,7 +31,7 @@ private:
 public:
     /* Constructor
      * PRE:
-     * POST
+     * POST: Creates a new Graph object and initializes its vertexes.
      */
     Graph();
     /*
@@ -40,7 +40,7 @@ public:
      */
     void addVertex(Type newVertex);
     /*
-     * PRE: The parameter Weight should be positive.
+     * PRE: The parameter weight should be positive.
      * POST: Adds a new edge to the adjacency matrix, with the indicated weight.
      */
     void addEdge(Type origin, Type destiny, int weigth);
@@ -75,7 +75,6 @@ template<typename Type>
 void Graph<Type>::addVertex(Type newVertex) {
     resizeAdjMatrix();
     vertexes->add(newVertex);
-
 }
 
 template<typename Type>
@@ -89,7 +88,6 @@ template<typename Type>
 void Graph<Type>::addEdge(Type origin, Type destiny, int weigth) {
     int originPosition = vertexes->getPosition(origin);
     int destinyPosition = vertexes->getPosition(destiny);
-
     if (originPosition == POSITION_NOT_FOUND) {
         std::cout << "El vertice " << origin << " no existe en el grafo" << std::endl;
     }
@@ -142,7 +140,6 @@ void Graph<Type>::displayAdjMatrix() {
         }
     }
     std::cout << std::endl;
-
 }
 
 template<typename Type>
