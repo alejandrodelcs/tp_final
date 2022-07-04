@@ -10,7 +10,7 @@
 #include "ReadingsFileParser.h"
 #include "AuthorsFileParser.h"
 #include "Graph.h"
-#include "Hamiltonian.h"
+
 
 class Menu {
 private:
@@ -21,7 +21,6 @@ private:
     AuthorsFileParser  pAuthors;
     HashTable<Author*>* authors;
     Graph<int>* graph;
-    Hamiltonian hamiltonian;
     bool end;
     /*
      * PRE:

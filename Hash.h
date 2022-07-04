@@ -107,6 +107,7 @@ void HashTable<Type>::removeElement(int key) {
         found = compareAuthorKey(table[position].getCursor(), key);
         if (found) {
             int removePosition = table[position].searchPosition(table[position].getCursor());
+            delete table[position].getCursor();
             table[position].remove(removePosition);
         }
     }
@@ -114,7 +115,7 @@ void HashTable<Type>::removeElement(int key) {
 
 template<typename Type>
 Type HashTable<Type>::searchElement(int key) {
-    Type returnedElement;
+    Type returnedElement = NULL;
     bool found = false;
     int position = getHash(key);
     while (table[position].moveCursor() && !found) {
