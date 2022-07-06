@@ -155,7 +155,7 @@ void ReadingsFileParser::buildNewTheme() {
 }
 
 char* ReadingsFileParser::reserveThemeMemory() {
-   char* t = new char[this->sizeTheme];
+   char* t = new char[this->sizeTheme+1];
    return t;
 }
 
