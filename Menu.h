@@ -10,6 +10,7 @@
 #include "ReadingsFileParser.h"
 #include "AuthorsFileParser.h"
 #include "Graph.h"
+#include "Hamiltonian.h"
 
 
 class Menu {
@@ -22,6 +23,7 @@ private:
     HashTable<Author*>* authors;
     Graph<int>* graph;
     bool end;
+    Hamiltonian hamiltonian;
     /*
      * PRE:
      * POST: Creates a new reading and adds it (as a vertex) to the graph.

@@ -129,10 +129,10 @@ void Menu::optionsAdditional() {
             authors->display();
             break;
         case FOUR:
-            //hamiltonian.getShortestReadingsTime(readings,&pReadings);
+            hamiltonian.getShortestReadingsTime(readings,&pReadings);
             break;
         case FIVE:
-            //hamiltonian.getShortestReadingsTimes(readings,&pReadings);
+            hamiltonian.getShortestReadingsTimes(readings,&pReadings);
             std::cout << std::endl;
             break;
         case SIX:
