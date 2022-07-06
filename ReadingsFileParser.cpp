@@ -436,18 +436,24 @@ void ReadingsFileParser::setAuthors(HashTable<Author *> *&a) {
 
 
 void ReadingsFileParser::setAuthorInReading() {
+    Author* a = nullptr;
+    int insi = 0 ;
     pAuthors.setAuthors(authors);
     this->insis = pAuthors.displayNameAuthors();
     std::cout<<"6) Anonimo "<<std::endl;
     int option = validation.requestNumber("Ingrese opcion: ");
     if (option>0) {
-        this->reading->setAuthor(authors->searchElement(insis->search(option)));
-        this->reading->setIsni(insis->searchPosition(option));
+        a = authors->searchElement(insis->search(option));
+        insi = insis->searchPosition(option);
     }
+    this->reading->setAuthor(a);
+    this->reading->setIsni(insi);
     delete insis;
 }
 
 void ReadingsFileParser::requestReadingsInfo(int option) {
+    this->minutes = 0;
+    this->publishYear = 0;
     this->id = 0;
     this->setNewTitle();
     this->minutes = validation.requestNumber(GREEN "Ingrese los minutos estimados de la lectura: " WHITE);
